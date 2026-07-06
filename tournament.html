@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Forecaster Tournament — Omni Oracle</title>
+<link rel="stylesheet" href="css/style.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="index.html">Omni<span>Oracle</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="macro.html">Macro & Finance</a>
+      <a href="trends.html">Trend Companies</a>
+      <a href="markets.html">Markets</a>
+      <a href="tournament.html">Tournament</a>
+      <a href="methodology.html">Methodology</a>
+    </div>
+  </div>
+</nav>
+
+<section>
+  <div class="container">
+    <h1 class="section-title">C1 · Forecaster Tournament</h1>
+    <p class="section-sub">
+      Good-Judgment-Project-style tournaments: training in base rates and scope sensitivity, team play,
+      Brier-scored leaderboards, and a superforecaster identification track (Mellers et al. 2014).
+      Top-forecaster aggregates become a premium institutional signal.
+    </p>
+
+    <div class="stats-bar" style="margin-bottom:28px;">
+      <div class="stat"><div class="num">0.121</div><div class="lbl">Superforecaster aggregate Brier</div></div>
+      <div class="stat"><div class="num">0.158</div><div class="lbl">All-crowd average Brier</div></div>
+      <div class="stat"><div class="num up">-43%</div><div class="lbl">Error vs. naive base-rate baseline</div></div>
+      <div class="stat"><div class="num">2,056</div><div class="lbl">Resolved questions scored</div></div>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Leaderboard</h3>
+        <p style="margin-bottom:12px;">Lower Brier = better. Calibration = 1 − mean |forecast − outcome frequency| across bins.</p>
+        <table id="lb">
+          <thead><tr><th>#</th><th>Forecaster</th><th>Forecasts</th><th>Brier ↓</th><th>Calibration</th><th>Tier</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:18px;">
+          <h3>Calibration curves</h3>
+          <p style="margin-bottom:12px;">Perfect calibration is the diagonal — sharpness subject to calibration (Gneiting et al. 2007).</p>
+          <div class="chart-box short"><canvas id="calChart"></canvas></div>
+        </div>
+        <div class="card">
+          <h3>Who forecasts best? (Brier by source)</h3>
+          <p style="margin-bottom:12px;">The ensemble engine publishes which source wins — models, crowd, or markets.</p>
+          <div class="chart-box short"><canvas id="srcChart"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      Demo leaderboard with mock forecasters. Production scoring: proper scoring rules (Brier/log) on every
+      resolved question, per-domain extremized aggregates (Satopää et al. 2014), and public platform-level
+      calibration reports.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div>© 2026 Omni Oracle</div>
+    <div><a href="methodology.html">Methodology & reading list</a></div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script>
+document.querySelector("#lb tbody").innerHTML = OO.leaderboard.map(r => `
+  <tr>
+    <td class="num-cell">${r.rank}</td>
+    <td><strong>${r.user}</strong></td>
+    <td class="num-cell">${r.forecasts}</td>
+    <td class="num-cell pos">${r.brier.toFixed(3)}</td>
+    <td class="num-cell">${(100 * r.cal).toFixed(0)}%</td>
+    <td><span class="tag ${r.streak === "Superforecaster" ? "green" : r.streak === "Top 1%" ? "purple" : ""}">${r.streak}</span></td>
+  </tr>
+`).join("");
+
+const C = OO.calibration;
+new Chart(document.getElementById("calChart"), {
+  type: "line",
+  data: {
+    labels: C.bins.map(b => (100*b) + "%"),
+    datasets: [
+      { label: "Perfect", data: C.bins, borderColor: "rgba(147,160,184,0.5)", borderDash: [5,5], pointRadius: 0 },
+      { label: "Crowd", data: C.crowd, borderColor: OO_COLORS.amber, backgroundColor: OO_COLORS.amber, tension: 0.2 },
+      { label: "Superforecasters", data: C.supers, borderColor: OO_COLORS.green, backgroundColor: OO_COLORS.green, tension: 0.2 },
+    ],
+  },
+  options: {
+    maintainAspectRatio: false,
+    scales: {
+      y: { min: 0, max: 1, ticks: { callback: v => (100*v) + "%" }, title: { display: true, text: "Observed frequency" } },
+      x: { title: { display: true, text: "Forecast probability" } },
+    },
+  },
+});
+
+new Chart(document.getElementById("srcChart"), {
+  type: "bar",
+  data: {
+    labels: OO.brierBySource.map(s => s.source),
+    datasets: [{
+      label: "Brier score (lower is better)",
+      data: OO.brierBySource.map(s => s.brier),
+      backgroundColor: [OO_COLORS.green, OO_COLORS.accent, OO_COLORS.purple, OO_COLORS.amber, OO_COLORS.red].map(c => c + "c0"),
+    }],
+  },
+  options: { maintainAspectRatio: false, indexAxis: "y", plugins: { legend: { display: false } }, scales: { x: { min: 0, max: 0.25 } } },
+});
+</script>
+</body>
+</html>

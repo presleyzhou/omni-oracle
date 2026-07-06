@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Macro & Finance Nowcast — Omni Oracle</title>
+<link rel="stylesheet" href="css/style.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="index.html">Omni<span>Oracle</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="macro.html">Macro & Finance</a>
+      <a href="trends.html">Trend Companies</a>
+      <a href="markets.html">Markets</a>
+      <a href="tournament.html">Tournament</a>
+      <a href="methodology.html">Methodology</a>
+    </div>
+  </div>
+</nav>
+
+<section>
+  <div class="container">
+    <h1 class="section-title">M1 · Macroeconomics & Finance</h1>
+    <p class="section-sub">
+      Dynamic-factor-model nowcasts updated on every data release, a random-forest ML layer,
+      BVAR scenarios, and crowd + market signals — combined by the ensemble engine with full attribution.
+    </p>
+
+    <div class="stats-bar" style="margin-bottom: 28px;">
+      <div class="stat"><div class="num">2.3%</div><div class="lbl">GDP nowcast 2026Q2 (SAAR)</div></div>
+      <div class="stat"><div class="num">2.3%</div><div class="lbl">CPI YoY, June 2026 est.</div></div>
+      <div class="stat"><div class="num">2.5%</div><div class="lbl">Core CPI YoY, June 2026 est.</div></div>
+      <div class="stat"><div class="num down" id="recProb">23%</div><div class="lbl">12-month recession probability</div></div>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>GDP growth: nowcast vs. SPF vs. actual</h3>
+        <p style="margin-bottom:14px;">DFM nowcast (Giannone–Reichlin–Small 2008) benchmarked against the Survey of Professional Forecasters.</p>
+        <div class="chart-box"><canvas id="gdpChart"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Inflation tracker</h3>
+        <p style="margin-bottom:14px;">Headline and core CPI, year over year — ML layer (random forest on FRED-MD panel) drives the last point.</p>
+        <div class="chart-box"><canvas id="cpiChart"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Nowcast news decomposition</h3>
+        <p style="margin-bottom:14px;">Which releases moved the 2026Q2 GDP nowcast, in percentage points — the DFM "news" channel.</p>
+        <div class="chart-box"><canvas id="newsChart"></canvas></div>
+      </div>
+      <div class="card">
+        <h3 id="fedTitle">Fed decision tree — model vs. market</h3>
+        <p style="margin-bottom:14px;">The platform's signature view: BVAR/ML model probabilities next to prediction-market odds from module P3.</p>
+        <div class="chart-box"><canvas id="fedChart"></canvas></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:18px;">
+      <h3>Ensemble attribution</h3>
+      <p style="margin-bottom:14px;">
+        Out-of-sample combination weights per Timmermann (2006). When markets beat models in a domain,
+        their weight rises — and we show it.
+      </p>
+      <div class="chart-box short"><canvas id="ensembleChart"></canvas></div>
+    </div>
+
+    <div class="disclaimer">
+      Demo data for illustration. Production sources: FRED/FRED-MD, ALFRED vintages (no look-ahead), BEA, BLS,
+      Census, SPF, CME FedWatch, TIPS breakevens, and text-derived indices (Fed communication, EPU).
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div>© 2026 Omni Oracle</div>
+    <div><a href="methodology.html">Methodology & reading list</a></div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script>
+const M = OO.macro;
+document.getElementById("recProb").textContent = fmtPct(M.recessionProb12m);
+document.getElementById("fedTitle").textContent = "Fed decision tree — " + M.fedMeeting;
+
+new Chart(document.getElementById("gdpChart"), {
+  type: "line",
+  data: {
+    labels: M.quarters,
+    datasets: [
+      { label: "Omni nowcast", data: M.gdpNowcast, borderColor: OO_COLORS.accent, backgroundColor: OO_COLORS.accent, tension: 0.3 },
+      { label: "SPF consensus", data: M.gdpSPF, borderColor: OO_COLORS.purple, backgroundColor: OO_COLORS.purple, borderDash: [6,4], tension: 0.3 },
+      { label: "Actual (advance)", data: M.gdpActual, borderColor: OO_COLORS.green, backgroundColor: OO_COLORS.green, pointStyle: "rectRot", pointRadius: 5, showLine: false },
+    ],
+  },
+  options: { maintainAspectRatio: false, scales: { y: { title: { display: true, text: "% SAAR" } } } },
+});
+
+new Chart(document.getElementById("cpiChart"), {
+  type: "line",
+  data: {
+    labels: M.months,
+    datasets: [
+      { label: "CPI YoY", data: M.cpiYoY, borderColor: OO_COLORS.amber, backgroundColor: OO_COLORS.amber, tension: 0.3 },
+      { label: "Core CPI YoY", data: M.coreYoY, borderColor: OO_COLORS.red, backgroundColor: OO_COLORS.red, tension: 0.3 },
+    ],
+  },
+  options: { maintainAspectRatio: false, scales: { y: { title: { display: true, text: "% YoY" } } } },
+});
+
+new Chart(document.getElementById("newsChart"), {
+  type: "bar",
+  data: {
+    labels: M.newsDecomp.map(d => d.release),
+    datasets: [{
+      label: "Impact on GDP nowcast (pp)",
+      data: M.newsDecomp.map(d => d.impact),
+      backgroundColor: M.newsDecomp.map(d => d.impact >= 0 ? "rgba(34,197,94,0.7)" : "rgba(239,68,68,0.7)"),
+    }],
+  },
+  options: { maintainAspectRatio: false, indexAxis: "y", plugins: { legend: { display: false } } },
+});
+
+new Chart(document.getElementById("fedChart"), {
+  type: "bar",
+  data: {
+    labels: M.fedProbs.map(d => d.move),
+    datasets: [
+      { label: "Model (BVAR + ML)", data: M.fedProbs.map(d => d.model), backgroundColor: "rgba(79,140,255,0.75)" },
+      { label: "Market odds (P3)", data: M.fedProbs.map(d => d.market), backgroundColor: "rgba(139,92,246,0.75)" },
+    ],
+  },
+  options: {
+    maintainAspectRatio: false,
+    scales: { y: { max: 0.7, ticks: { callback: v => (100*v) + "%" } } },
+  },
+});
+
+new Chart(document.getElementById("ensembleChart"), {
+  type: "bar",
+  data: {
+    labels: ["2026Q2 GDP ensemble"],
+    datasets: OO.macro.ensemble.map((e, i) => ({
+      label: e.source,
+      data: [e.weight],
+      backgroundColor: [OO_COLORS.accent, OO_COLORS.purple, OO_COLORS.green, OO_COLORS.amber, OO_COLORS.red][i],
+    })),
+  },
+  options: {
+    maintainAspectRatio: false, indexAxis: "y",
+    scales: { x: { stacked: true, max: 1, ticks: { callback: v => (100*v) + "%" } }, y: { stacked: true } },
+  },
+});
+</script>
+</body>
+</html>

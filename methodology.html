@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Methodology & Research Foundation — Omni Oracle</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="index.html">Omni<span>Oracle</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="macro.html">Macro & Finance</a>
+      <a href="trends.html">Trend Companies</a>
+      <a href="markets.html">Markets</a>
+      <a href="tournament.html">Tournament</a>
+      <a href="methodology.html">Methodology</a>
+    </div>
+  </div>
+</nav>
+
+<section>
+  <div class="container">
+    <h1 class="section-title">Methodology & Research Foundation</h1>
+    <p class="section-sub">
+      Every module operationalizes a specific academic literature. The full design document lives in the
+      <a href="https://github.com/presleyzhou/omni-oracle/blob/main/DESIGN.md">repository (DESIGN.md)</a>.
+    </p>
+
+    <div class="card" style="margin-bottom:28px;">
+      <h3>Platform architecture</h3>
+      <pre class="arch-pre">
+┌────────────────────────────────────────────────────────────────────┐
+│                        OMNI ORACLE PLATFORM                        │
+├──────────────────────────┬─────────────────────────────────────────┤
+│  FLAGSHIP ANALYTICS      │  PREDICTION MARKET MODULES              │
+│                          │  (Polymarket-informed hot categories)   │
+│  M1 Macro & Finance      │  P1 Politics & Elections                │
+│  M2 Future-Trend         │  P2 Crypto Prices                       │
+│     Companies & Stocks   │  P3 Econ Data Releases (Fed/CPI/NFP)    │
+│                          │  P4 Geopolitics                         │
+│  CROSS-CUTTING           │  P5 Sports                              │
+│  C1 Forecaster Tournament│  P6 Awards & Entertainment              │
+│  C2 Ensemble Engine      │  P7 Tech & AI Milestones                │
+│  C3 Scoring & Calibration│  P8 Current Events / Pop Culture        │
+│  C4 Data Platform        │                                         │
+│  C5 Market Infrastructure (CLOB + LMSR AMM + Oracle)               │
+└────────────────────────────────────────────────────────────────────┘</pre>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Forecasting science → Tournament & Ensemble</h3>
+        <ul class="paper-list">
+          <li>Tetlock & Gardner, <em>Superforecasting</em> (2015); Mellers et al. <span class="venue">Psychological Science 2014 — superforecaster identification (IARPA ACE)</span></li>
+          <li>Satopää et al. (2014) <span class="venue">— extremizing aggregated probability forecasts</span></li>
+          <li>Timmermann (2006) <span class="venue">Handbook of Economic Forecasting — forecast combinations</span></li>
+          <li>Ranjan & Gneiting (2010) <span class="venue">JRSS-B — combining probability forecasts</span></li>
+          <li>Gneiting & Raftery (2007) <span class="venue">JASA — proper scoring rules</span>; Gneiting et al. (2007) <span class="venue">JRSS-B — calibration & sharpness</span></li>
+          <li>Brier (1950) <span class="venue">— the Brier score</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Prediction markets → P1–P8 & C5</h3>
+        <ul class="paper-list">
+          <li>Wolfers & Zitzewitz (2004) <span class="venue">JEP; NBER w12083 — accuracy surveys; price ≈ belief-weighted probability</span></li>
+          <li>Berg, Nelson & Rietz <span class="venue">— IEM long-run accuracy: markets ≈ half poll error &gt;100 days out</span></li>
+          <li>Arrow et al. (2008) <span class="venue">Science — the promise of prediction markets</span></li>
+          <li>Hanson (2003, 2007) <span class="venue">— logarithmic market scoring rules (LMSR)</span></li>
+          <li>Othman et al. <span class="venue">— liquidity-sensitive LMSR</span>; Chen et al. <span class="venue">— combinatorial market makers</span></li>
+          <li>arXiv 2503.03312 <span class="venue">— manipulability</span>; 2604.24366 <span class="venue">— Polymarket microstructure</span>; 2605.30802 <span class="venue">— multi-agent AI oracles</span>; 2606.04217 <span class="venue">— Polymarket-v1 database</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Macro forecasting → M1</h3>
+        <ul class="paper-list">
+          <li>Giannone, Reichlin & Small (2008) <span class="venue">JME — dynamic factor model nowcasting</span></li>
+          <li>Bańbura, Giannone & Reichlin (2010) <span class="venue">— large Bayesian VARs</span></li>
+          <li>Medeiros et al. (2021) <span class="venue">JBES — ML inflation forecasting in data-rich environments</span></li>
+          <li>Kant, Pick & Winter (2024) <span class="venue">AStA — ML GDP nowcasting horserace (random forest wins now/forecasts)</span></li>
+          <li>IMF WP/22/52 & WP/2025/252 <span class="venue">— scalable DFM + ML + novel data nowcasting</span></li>
+          <li>Baker, Bloom & Davis <span class="venue">— economic policy uncertainty from text</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Asset pricing & innovation → M2</h3>
+        <ul class="paper-list">
+          <li>Gu, Kelly & Xiu (2020) <span class="venue">RFS — empirical asset pricing via machine learning</span></li>
+          <li>Fama & French (1993, 2015); Hou, Xue & Zhang (2015) <span class="venue">— factor benchmarks</span></li>
+          <li>Kogan, Papanikolaou, Seru & Stoffman (2017) <span class="venue">QJE — patent value from market reactions</span></li>
+          <li>Kelly, Papanikolaou, Seru & Taddy (2021) <span class="venue">— text-based patent disruptiveness</span></li>
+          <li>Zheng (2025) <span class="venue">CAR — markets underreact to patent text</span>; <em>Predictive Patentomics</em> <span class="venue">— LLM patent valuation</span></li>
+          <li>Welch & Goyal (2008); Campbell & Thompson (2008) <span class="venue">— out-of-sample discipline</span></li>
+          <li>Hoberg & Phillips <span class="venue">— text-based industry classification</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:18px;">
+      <h3>Market infrastructure (C5) — design choices</h3>
+      <p style="margin-bottom:10px;">
+        <strong>Matching:</strong> hybrid CLOB — off-chain order matching, auditable on-chain settlement; binary
+        complementary tokens with the invariant 1 YES + 1 NO = $1; mint/merge on crossed complementary orders
+        (Polymarket/Gnosis CTF pattern). <strong>Liquidity:</strong> Hanson LMSR seeds thin markets with bounded loss
+        b·log n; CLOB takes over as volume grows. <strong>Resolution:</strong> three tiers — automated data feeds,
+        optimistic oracle (bond → dispute window → vote) with escalating bonds and criteria locked at market
+        creation, and an expert council for appeals; AI adjudication only as dispute triage.
+        <strong>Manipulation resistance:</strong> position limits near resolution, order-flow anomaly detection, public post-mortems.
+      </p>
+      <div class="pill-list">
+        <span class="tag">CLOB</span><span class="tag">LMSR AMM</span><span class="tag purple">Conditional tokens</span>
+        <span class="tag purple">Optimistic oracle</span><span class="tag green">Escalating bonds</span>
+        <span class="tag green">Dispute windows</span><span class="tag amber">Position limits</span>
+        <span class="tag amber">Anomaly detection</span><span class="tag red">Jurisdiction gating</span>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:18px;">
+      <h3>Data sources</h3>
+      <p>
+        <strong>Macro (M1):</strong> FRED / FRED-MD, ALFRED vintages, BEA, BLS, Census, ECB SDW, OECD, SPF, Blue Chip,
+        CME FedWatch, TIPS breakevens, news/text corpora, alt-data (card spend, job postings, mobility).<br /><br />
+        <strong>Equities & innovation (M2):</strong> USPTO PatentsView, Google Patents, SEC EDGAR full-text, earnings-call
+        transcripts, CRSP/Compustat-class market data, arXiv, PubMed, ClinicalTrials.gov, Crunchbase, GitHub activity.<br /><br />
+        <strong>Markets (P1–P8):</strong> official results feeds (elections, leagues, awards), medianized exchange price
+        feeds (crypto), BLS/BEA/Fed releases, documented-event criteria with locked resolution wording.
+      </p>
+    </div>
+
+    <div class="card" style="margin-top:18px;">
+      <h3>Roadmap</h3>
+      <ul class="paper-list">
+        <li><strong>Phase 1 (0–6 mo):</strong> M1 nowcasting core (DFM + random forest on FRED-MD), scoring layer (C3), play-money tournament on econ-release questions.</li>
+        <li><strong>Phase 2 (6–12 mo):</strong> M2 pipeline (patents + GKX-style ranking), P2/P3/P7 markets with LMSR seeding, ensemble engine v1.</li>
+        <li><strong>Phase 3 (12–24 mo):</strong> full CLOB + oracle stack, remaining categories, conditional/combinatorial markets, institutional API GA.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div>© 2026 Omni Oracle</div>
+    <div><a href="https://github.com/presleyzhou/omni-oracle">Source & design doc on GitHub</a></div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
