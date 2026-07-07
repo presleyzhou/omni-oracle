@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Parallel-World Simulation — Omni Oracle</title>
-<link rel="stylesheet" href="css/style.css?v=5" />
+<link rel="stylesheet" href="css/style.css?v=6" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
 <body>
@@ -46,6 +46,12 @@
       <p style="margin-bottom:12px;" data-i18n="sw.seed.sub"></p>
       <div class="chips" id="seedChips" style="margin-bottom:12px;"></div>
       <textarea class="oo-input" id="seedText" rows="3"></textarea>
+      <div style="margin-top:10px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+        <input type="file" id="seedFiles" multiple accept=".txt,.md,.csv,.json,.pdf,.docx" class="hide" />
+        <button class="btn btn-ghost" id="uploadBtn" style="padding:7px 16px; font-size:0.83rem;" data-i18n="sw.upload.btn"></button>
+        <span style="color:var(--text-dim); font-size:0.78rem;" data-i18n="sw.upload.hint"></span>
+      </div>
+      <div id="fileList" style="margin-top:8px; font-size:0.8rem; color:var(--cyan);"></div>
       <div style="margin:14px 0 6px; font-weight:600; font-size:0.95rem;" data-i18n="sw.ask.label"></div>
       <textarea class="oo-input" id="askText" rows="2"></textarea>
       <div style="margin-top:16px;">
@@ -65,7 +71,6 @@
           </div>
           <div style="display:flex; gap:10px; margin-top:12px; align-items:center;">
             <button class="btn btn-ghost" id="pauseBtn" style="padding:7px 16px; font-size:0.83rem;"></button>
-            <div style="flex:1;"></div>
           </div>
         </div>
         <div class="card">
@@ -75,14 +80,35 @@
       </div>
 
       <div class="grid grid-2" style="margin-top:18px;">
+        <div class="card" style="padding:12px;">
+          <h3 style="padding:8px 10px 0;" data-i18n="sw.graph.title"></h3>
+          <p style="padding:0 10px; margin-bottom:10px;" data-i18n="sw.graph.sub"></p>
+          <div class="sim-canvas-box"><canvas id="graphCanvas" width="640" height="240"></canvas></div>
+        </div>
         <div class="card">
           <h3 data-i18n="sw.idxTitle"></h3>
           <div class="chart-box short"><canvas id="idxChart"></canvas></div>
         </div>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:18px;">
         <div class="card">
           <h3 data-i18n="sw.god.title"></h3>
           <p style="margin-bottom:12px;" data-i18n="sw.god.sub"></p>
           <div class="god-btns" id="godBtns"></div>
+          <div class="chat-row" style="margin-top:14px;">
+            <input class="oo-input" id="customIv" />
+            <button class="god-btn" id="customIvBtn" data-i18n="sw.custom.btn"></button>
+          </div>
+          <div style="margin-top:16px;">
+            <button class="btn btn-primary" id="mcBtn" data-i18n="sw.mc.btn"></button>
+          </div>
+        </div>
+        <div class="card">
+          <h3 data-i18n="sw.mc.title"></h3>
+          <p style="margin-bottom:10px;" data-i18n="sw.mc.sub"></p>
+          <div class="chart-box short"><canvas id="mcChart"></canvas></div>
+          <p id="mcResult" style="margin-top:10px; font-size:0.9rem; color:var(--cyan);"></p>
         </div>
       </div>
 
@@ -94,7 +120,8 @@
           <div id="scBars"></div>
           <div style="margin-top:16px; font-weight:700;" data-i18n="sw.kfTitle"></div>
           <ul class="paper-list" id="findings"></ul>
-          <div style="color:var(--text-dim); font-size:0.82rem; margin-top:8px;" data-i18n="sw.rep.horizon"></div>
+          <div style="color:var(--text-dim); font-size:0.82rem; margin:8px 0 14px;" data-i18n="sw.rep.horizon"></div>
+          <button class="btn btn-ghost" id="exportBtn" style="padding:8px 18px; font-size:0.85rem;" data-i18n="sw.export"></button>
         </div>
         <div>
           <div class="stats-bar" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); margin-bottom:18px;">
@@ -126,9 +153,9 @@
   </div>
 </footer>
 
-<script src="js/data.js?v=5"></script>
-<script src="js/i18n.js?v=5"></script>
-<script src="js/app.js?v=5"></script>
+<script src="js/data.js?v=6"></script>
+<script src="js/i18n.js?v=6"></script>
+<script src="js/app.js?v=6"></script>
 <script>
 /* ---------- Parallel-world demo simulation (client-side, illustrative) ---------- */
 const FACTIONS = [
@@ -143,8 +170,10 @@ const SIM = {
   built: false, running: false, day: 0,
   sent: 55, conf: 60, drift: 0.05, vol: 1.4,
   interventions: 0, regShift: 0, seedChip: 0,
-  agents: [], events: [], hist: { d: [], s: [], c: [] },
-  chatAgent: 0, timer: null, chart: null,
+  agents: [], events: [], ivLog: [], files: [],
+  hist: { d: [], s: [], c: [] },
+  entities: [], mc: null,
+  chatAgent: 0, timer: null, chart: null, mcChart: null,
 };
 
 function T(key, params) {
@@ -164,6 +193,7 @@ function renderSeedChips() {
     `<button class="chip ${SIM.seedChip === i ? "active" : ""}" data-i="${i}">${OO_T("sw.chip" + i)}</button>`
   ).join("");
   askText.placeholder = OO_T("sw.ask.ph");
+  document.getElementById("customIv").placeholder = OO_T("sw.custom.ph");
   if (SIM.seedChip) seedText.value = OO_T("sw.smp" + SIM.seedChip);
 }
 seedChips.addEventListener("click", (e) => {
@@ -171,6 +201,28 @@ seedChips.addEventListener("click", (e) => {
   SIM.seedChip = +b.dataset.i;
   renderSeedChips();
 });
+
+/* ----- file upload ----- */
+const fileInput = document.getElementById("seedFiles");
+document.getElementById("uploadBtn").addEventListener("click", () => fileInput.click());
+fileInput.addEventListener("change", () => {
+  for (const f of fileInput.files) {
+    SIM.files.push(f.name);
+    if (/\.(txt|md|csv|json)$/i.test(f.name)) {
+      const rd = new FileReader();
+      rd.onload = () => {
+        const txt = String(rd.result).slice(0, 800);
+        seedText.value = (seedText.value ? seedText.value + "\n\n" : "") + `[${f.name}]\n` + txt;
+      };
+      rd.readAsText(f);
+    }
+  }
+  renderFileList();
+});
+function renderFileList() {
+  document.getElementById("fileList").textContent =
+    SIM.files.length ? OO_T("sw.upload.attached") + " " + SIM.files.join(" · ") : "";
+}
 
 /* ----- build flow ----- */
 const steps = [...document.querySelectorAll(".pipe-step")];
@@ -191,12 +243,66 @@ document.getElementById("buildBtn").addEventListener("click", () => {
 function startWorld() {
   SIM.built = true; SIM.running = true;
   document.getElementById("worldWrap").classList.remove("hide");
-  initAgents(); initChart(); renderGodBtns(); renderAgentChips(); renderLegend();
+  extractEntities(); initAgents(); initChart(); drawGraph();
+  renderGodBtns(); renderAgentChips(); renderLegend();
   pushEvent({ key: "sw.built", params: { n: N_AGENTS }, god: true });
   document.getElementById("pauseBtn").textContent = OO_T("sw.world.pause");
   SIM.timer = setInterval(stepDay, 1300);
   requestAnimationFrame(drawFrame);
   document.getElementById("worldWrap").scrollIntoView({ behavior: "smooth" });
+}
+
+/* ----- GraphRAG entity graph (lightweight demo extraction) ----- */
+function extractEntities() {
+  const text = seedText.value + " " + askText.value;
+  const raw = text.split(/[^\p{L}\p{N}%#-]+/u).filter(w => w.length >= 2);
+  const stop = new Set(["the","and","for","with","are","from","this","that","une","des","los","las","que","und"]);
+  const seen = new Set(); const out = [];
+  for (const w of raw) {
+    const k = w.toLowerCase();
+    if (stop.has(k) || seen.has(k)) continue;
+    seen.add(k); out.push(w);
+    if (out.length >= 9) break;
+  }
+  SIM.entities = out;
+}
+function drawGraph() {
+  const g = document.getElementById("graphCanvas");
+  const c = g.getContext("2d");
+  const W = g.width, H = g.height;
+  c.clearRect(0, 0, W, H);
+  const hubs = FACTIONS.map((f, i) => ({
+    label: OO_T(f.key), color: f.color,
+    x: W * (0.16 + 0.68 * (i % 2)), y: H * (0.25 + 0.5 * Math.floor(i / 2)),
+  }));
+  // deterministic pseudo-random from entity index
+  const nodes = SIM.entities.map((e, i) => ({
+    label: e.length > 12 ? e.slice(0, 11) + "…" : e,
+    x: W * (0.28 + 0.44 * ((i * 0.618) % 1)),
+    y: H * (0.15 + 0.7 * ((i * 0.382 + 0.21) % 1)),
+    h1: i % 4, h2: (i + 1 + (i % 3)) % 4,
+  }));
+  c.lineWidth = 1;
+  for (const n of nodes) {
+    for (const h of [hubs[n.h1], hubs[n.h2]]) {
+      const grad = c.createLinearGradient(n.x, n.y, h.x, h.y);
+      grad.addColorStop(0, "rgba(148,180,255,0.28)");
+      grad.addColorStop(1, h.color + "55");
+      c.strokeStyle = grad;
+      c.beginPath(); c.moveTo(n.x, n.y); c.lineTo(h.x, h.y); c.stroke();
+    }
+  }
+  c.font = "600 11px Inter, sans-serif"; c.textAlign = "center";
+  for (const h of hubs) {
+    c.fillStyle = h.color; c.shadowColor = h.color; c.shadowBlur = 14;
+    c.beginPath(); c.arc(h.x, h.y, 7, 0, 7); c.fill();
+    c.shadowBlur = 0; c.fillStyle = "#e5eaf3"; c.fillText(h.label, h.x, h.y - 13);
+  }
+  for (const n of nodes) {
+    c.fillStyle = "#22d3ee"; c.shadowColor = "#22d3ee"; c.shadowBlur = 8;
+    c.beginPath(); c.arc(n.x, n.y, 3.5, 0, 7); c.fill();
+    c.shadowBlur = 0; c.fillStyle = "rgba(210,226,255,0.85)"; c.fillText(n.label, n.x, n.y - 8);
+  }
 }
 
 /* ----- agents canvas ----- */
@@ -219,7 +325,6 @@ function drawFrame() {
   const W = cv.width, H = cv.height;
   ctx.fillStyle = "rgba(6,10,18,0.35)"; ctx.fillRect(0, 0, W, H);
   const excite = SIM.vol / 1.4;
-  // interaction edges
   ctx.strokeStyle = "rgba(79,140,255,0.10)"; ctx.lineWidth = 1;
   for (let k = 0; k < 26 * excite; k++) {
     const a = SIM.agents[(Math.random() * N_AGENTS) | 0];
@@ -302,6 +407,15 @@ const GODS = [
   { key: "sw.iv4", drift: -0.3, vol: +0.8 },
   { key: "sw.iv5", drift: -1.0, vol: +1.0 },
 ];
+function applyIntervention(name, drift, vol, reg) {
+  SIM.drift += drift; SIM.vol = clamp(SIM.vol + vol, 0.8, 4);
+  SIM.interventions++;
+  SIM.regShift += reg !== undefined ? reg : Math.round(drift * 3);
+  SIM.ivLog.push({ day: SIM.day, name });
+  for (const a of SIM.agents) { a.cx += (Math.random() - 0.5) * 120; a.cy += (Math.random() - 0.5) * 80; }
+  pushEvent({ key: "sw.evGod", params: { iv: name }, god: true });
+  renderReport();
+}
 function renderGodBtns() {
   document.getElementById("godBtns").innerHTML = GODS.map((g, i) =>
     `<button class="god-btn" data-g="${i}">⚡ ${OO_T(g.key)}</button>`
@@ -310,11 +424,13 @@ function renderGodBtns() {
 document.getElementById("godBtns").addEventListener("click", (e) => {
   const b = e.target.closest(".god-btn"); if (!b || !SIM.running) return;
   const g = GODS[+b.dataset.g];
-  SIM.drift += g.drift; SIM.vol = clamp(SIM.vol + g.vol, 0.8, 4);
-  SIM.interventions++; if (g.reg) SIM.regShift += g.reg; else SIM.regShift += Math.round(g.drift * 3);
-  for (const a of SIM.agents) { a.cx += (Math.random() - 0.5) * 120; a.cy += (Math.random() - 0.5) * 80; }
-  pushEvent({ key: "sw.evGod", params: { iv: OO_T(g.key) }, god: true });
-  renderReport();
+  applyIntervention(OO_T(g.key), g.drift, g.vol, g.reg);
+});
+document.getElementById("customIvBtn").addEventListener("click", () => {
+  const inp = document.getElementById("customIv");
+  const name = inp.value.trim(); if (!name || !SIM.built) return;
+  inp.value = "";
+  applyIntervention(name, (Math.random() - 0.45) * 1.6, 0.9);
 });
 
 /* ----- pause ----- */
@@ -322,6 +438,52 @@ document.getElementById("pauseBtn").addEventListener("click", () => {
   SIM.running = !SIM.running;
   document.getElementById("pauseBtn").textContent = OO_T(SIM.running ? "sw.world.pause" : "sw.world.resume");
 });
+
+/* ----- Monte Carlo: hundred battles ----- */
+function runMC() {
+  if (!SIM.built) return;
+  const RUNS = 100, DAYS = 90;
+  const bins = new Array(10).fill(0);
+  const wins = [0, 0, 0];
+  for (let r = 0; r < RUNS; r++) {
+    let s = SIM.sent, c = SIM.conf, d = SIM.drift, v = SIM.vol;
+    for (let t = 0; t < DAYS; t++) {
+      s = clamp(s + d + (Math.random() - 0.5) * 2 * v, 5, 95);
+      c = clamp(c + d * 0.8 + (Math.random() - 0.5) * 1.6 * v, 5, 95);
+      d *= 0.97; v = clamp(v * 0.985 + 0.02, 0.8, 4);
+    }
+    const x = (s + c) / 2;
+    bins[clamp(Math.floor(x / 10), 0, 9)]++;
+    wins[x >= 60 ? 0 : x <= 40 ? 2 : 1]++;
+  }
+  SIM.mc = { bins, wins, runs: RUNS };
+  renderMC();
+}
+function renderMC() {
+  if (!SIM.mc) return;
+  const { bins, wins, runs } = SIM.mc;
+  if (SIM.mcChart) SIM.mcChart.destroy();
+  SIM.mcChart = new Chart(document.getElementById("mcChart"), {
+    type: "bar",
+    data: {
+      labels: bins.map((_, i) => `${i * 10}–${i * 10 + 10}`),
+      datasets: [{
+        label: OO_T("sw.mc.axis"),
+        data: bins,
+        backgroundColor: bins.map((_, i) => i >= 6 ? "rgba(34,197,94,0.75)" : i <= 3 ? "rgba(239,68,68,0.75)" : "rgba(79,140,255,0.75)"),
+      }],
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { x: { title: { display: true, text: OO_T("sw.mc.axis") } } },
+    },
+  });
+  const leadIdx = wins.indexOf(Math.max(...wins));
+  document.getElementById("mcResult").textContent =
+    T("sw.mc.result", { runs, lead: OO_T("sw.sc" + (leadIdx + 1)), p: wins[leadIdx] });
+}
+document.getElementById("mcBtn").addEventListener("click", runMC);
 
 /* ----- report ----- */
 function scenarioProbs() {
@@ -333,8 +495,7 @@ function scenarioProbs() {
   return [opt, base, pes];
 }
 function renderReport() {
-  const [opt, base, pes] = scenarioProbs();
-  const probs = [opt, base, pes];
+  const probs = scenarioProbs();
   const colors = [OO_COLORS.green, OO_COLORS.accent, OO_COLORS.red];
   document.getElementById("scBars").innerHTML = [0,1,2].map(i => `
     <div class="sc-row">
@@ -352,6 +513,54 @@ function renderReport() {
   document.getElementById("stConf").textContent = clamp(Math.round(52 + SIM.day * 0.35 - SIM.vol * 4), 30, 92) + "%";
   document.getElementById("stRuns").textContent = (SIM.day * N_AGENTS).toLocaleString();
 }
+
+/* ----- export full report as Markdown ----- */
+function buildReportMd() {
+  const probs = scenarioProbs();
+  const leadIdx = probs.indexOf(Math.max(...probs));
+  const P = {
+    lead: OO_T("sw.sc" + (leadIdx + 1)), p: probs[leadIdx], n: SIM.interventions,
+    sent: Math.round(SIM.sent), conf: Math.round(SIM.conf),
+    dir: OO_T(SIM.drift >= 0 ? "sw.dir.up" : "sw.dir.down"), reg: SIM.regShift,
+  };
+  const L = [];
+  L.push(`# Omni Oracle — ${OO_T("sw.rep.title").replace(/^[④\s]*/, "")}`);
+  L.push(`${new Date().toISOString().slice(0, 10)} · ${OO_T("sw.rep.horizon")} · ${OO_T("sw.world.day")} ${SIM.day} · ${N_AGENTS} agents`);
+  L.push(`\n## ${OO_T("sw.md.seed")}\n`);
+  L.push("> " + (seedText.value.trim() || OO_T("sw.md.none")).replaceAll("\n", "\n> "));
+  L.push(`\n## ${OO_T("sw.md.ask")}\n`);
+  L.push("> " + (askText.value.trim() || OO_T("sw.md.none")).replaceAll("\n", "\n> "));
+  L.push(`\n## ${OO_T("sw.idxTitle")}\n`);
+  L.push(`- ${OO_T("sw.idx1")}: ${Math.round(SIM.sent)}/100`);
+  L.push(`- ${OO_T("sw.idx2")}: ${Math.round(SIM.conf)}/100`);
+  L.push(`\n## ${OO_T("sw.md.probs")}\n`);
+  [0,1,2].forEach(i => L.push(`- ${OO_T("sw.sc" + (i+1))}: **${probs[i]}%**`));
+  L.push(`\n## ${OO_T("sw.kfTitle")}\n`);
+  ["sw.kf1","sw.kf2","sw.kf3","sw.kf4"].forEach(k => L.push("- " + T(k, P)));
+  if (SIM.mc) {
+    const { wins, runs } = SIM.mc;
+    const mIdx = wins.indexOf(Math.max(...wins));
+    L.push(`\n## ${OO_T("sw.mc.title")}\n`);
+    L.push("- " + T("sw.mc.result", { runs, lead: OO_T("sw.sc" + (mIdx + 1)), p: wins[mIdx] }));
+    [0,1,2].forEach(i => L.push(`- ${OO_T("sw.sc" + (i+1))}: ${wins[i]}/${runs}`));
+  }
+  L.push(`\n## ${OO_T("sw.md.ivlog")}\n`);
+  if (SIM.ivLog.length) SIM.ivLog.forEach(iv => L.push(`- D${iv.day} — ${iv.name}`));
+  else L.push("- " + OO_T("sw.md.none"));
+  L.push(`\n## ${OO_T("sw.md.events")}\n`);
+  SIM.events.slice(0, 15).forEach(e => L.push(`- D${e.day} — ${T(e.key, e.params)}`));
+  L.push(`\n---\n${OO_T("sw.disclaimer").replace(/<[^>]+>/g, "")}`);
+  return L.join("\n");
+}
+document.getElementById("exportBtn").addEventListener("click", () => {
+  if (!SIM.built) return;
+  const blob = new Blob([buildReportMd()], { type: "text/markdown;charset=utf-8" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `omni-oracle-report-day${SIM.day}.md`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
 
 /* ----- agent chat ----- */
 function renderAgentChips() {
@@ -373,8 +582,7 @@ function sendChat() {
   box.insertAdjacentHTML("beforeend", `<div class="msg user">${q.replace(/</g, "&lt;")}</div>`);
   box.scrollTop = box.scrollHeight;
   setTimeout(() => {
-    const [opt, base, pes] = scenarioProbs();
-    const probs = [opt, base, pes];
+    const probs = scenarioProbs();
     const lead = OO_T("sw.sc" + (probs.indexOf(Math.max(...probs)) + 1));
     replyFlip = 1 - replyFlip;
     const key = `sw.r${SIM.chatAgent + 1}${replyFlip + 1}`;
@@ -389,10 +597,10 @@ document.getElementById("chatInput").addEventListener("keydown", (e) => { if (e.
 
 /* ----- i18n re-render ----- */
 function rerenderDynamic() {
-  renderSeedChips();
+  renderSeedChips(); renderFileList();
   if (SIM.built) {
     renderGodBtns(); renderAgentChips(); renderLegend(); renderFeed(); renderReport(); updateHud();
-    initChart();
+    initChart(); drawGraph(); renderMC();
     document.getElementById("pauseBtn").textContent = OO_T(SIM.running ? "sw.world.pause" : "sw.world.resume");
   }
 }
