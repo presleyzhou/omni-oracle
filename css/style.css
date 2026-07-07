@@ -333,6 +333,77 @@ footer {
   margin-top: 28px;
 }
 
+/* ---------- Sim world (M3) ---------- */
+.pipe-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.pipe-step {
+  padding: 16px; border-radius: 12px;
+  background: linear-gradient(180deg, rgba(26,36,58,0.45), rgba(15,21,34,0.45));
+  border: 1px solid rgba(94,148,255,0.15); transition: border-color 0.3s, box-shadow 0.3s;
+}
+.pipe-step .n { font-family: var(--mono); color: var(--cyan); font-weight: 800; font-size: 0.78rem; }
+.pipe-step h4 { font-size: 0.92rem; margin: 6px 0 4px; }
+.pipe-step p { color: var(--text-dim); font-size: 0.8rem; }
+.pipe-step.active { border-color: var(--accent); box-shadow: 0 0 20px rgba(79,140,255,0.3); }
+.pipe-step.done { border-color: rgba(34,197,94,0.5); }
+.pipe-step.done .n { color: var(--green); }
+
+.oo-input {
+  width: 100%; background: rgba(9,13,22,0.65); border: 1px solid var(--border);
+  border-radius: 10px; color: var(--text); padding: 12px 14px;
+  font-family: var(--font); font-size: 0.9rem;
+}
+textarea.oo-input { min-height: 90px; resize: vertical; }
+.oo-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 14px rgba(79,140,255,0.2); }
+.oo-input::placeholder { color: rgba(147,160,184,0.55); }
+
+.sim-canvas-box {
+  position: relative; border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(94,148,255,0.22); background: #060a12;
+}
+#worldCanvas { display: block; width: 100%; height: 380px; }
+.sim-hud {
+  position: absolute; top: 10px; left: 12px; font-family: var(--mono);
+  font-size: 0.78rem; color: var(--cyan); text-shadow: 0 0 10px rgba(34,211,238,0.6);
+  pointer-events: none;
+}
+.sim-legend {
+  position: absolute; bottom: 10px; left: 12px; display: flex; gap: 12px;
+  font-size: 0.72rem; color: var(--text-dim); pointer-events: none;
+}
+.sim-legend .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; }
+
+.feed { max-height: 380px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; font-size: 0.82rem; }
+.feed .ev {
+  padding: 8px 10px; border-left: 2px solid var(--accent);
+  background: rgba(79,140,255,0.06); border-radius: 0 8px 8px 0; color: var(--text-dim);
+}
+.feed .ev .d { font-family: var(--mono); color: var(--cyan); margin-right: 6px; }
+.feed .ev.god { border-color: var(--amber); background: rgba(245,158,11,0.1); color: var(--amber); }
+
+.god-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.god-btn {
+  padding: 8px 16px; border-radius: 999px; cursor: pointer; font-weight: 600; font-size: 0.85rem;
+  border: 1px solid rgba(245,158,11,0.45); background: rgba(245,158,11,0.08); color: var(--amber);
+  font-family: var(--font); transition: box-shadow 0.2s, background 0.2s;
+}
+.god-btn:hover { background: rgba(245,158,11,0.18); box-shadow: 0 0 16px rgba(245,158,11,0.35); }
+.god-btn:disabled { opacity: 0.4; cursor: not-allowed; box-shadow: none; }
+
+.sc-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.sc-row .lbl { width: 110px; font-size: 0.85rem; color: var(--text-dim); }
+.sc-track { flex: 1; height: 10px; background: rgba(147,160,184,0.15); border-radius: 6px; overflow: hidden; }
+.sc-fill { height: 100%; border-radius: 6px; transition: width 0.6s; box-shadow: 0 0 10px rgba(79,140,255,0.4); }
+.sc-val { font-family: var(--mono); width: 48px; text-align: right; font-weight: 700; }
+
+.chat-box { display: flex; flex-direction: column; gap: 8px; max-height: 280px; overflow-y: auto; margin: 12px 0; }
+.msg { padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; max-width: 85%; line-height: 1.45; }
+.msg.user { align-self: flex-end; background: rgba(79,140,255,0.2); }
+.msg.agent { align-self: flex-start; background: rgba(139,92,246,0.15); color: var(--text-dim); }
+.chat-row { display: flex; gap: 8px; }
+.chat-row .oo-input { flex: 1; }
+
+.hide { display: none !important; }
+
 @media (max-width: 640px) {
   .grid-2 { grid-template-columns: 1fr; }
   .hero { padding: 56px 0 40px; }

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Parallel-World Simulation — Omni Oracle</title>
+<link rel="stylesheet" href="css/style.css?v=5" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="index.html">Omni<span>Oracle</span></a>
+    <div class="nav-links">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="macro.html" data-i18n="nav.macro">Macro & Finance</a>
+      <a href="trends.html" data-i18n="nav.trends">Trend Companies</a>
+      <a href="markets.html" data-i18n="nav.markets">Markets</a>
+      <a href="simworld.html" data-i18n="nav.sim">Sim Worlds</a>
+      <a href="tournament.html" data-i18n="nav.tournament">Tournament</a>
+      <a href="methodology.html" data-i18n="nav.method">Methodology</a>
+    </div>
+  </div>
+</nav>
+
+<section>
+  <div class="container">
+    <h1 class="section-title" data-i18n="sw.title"></h1>
+    <p class="section-sub" data-i18n="sw.sub"></p>
+
+    <!-- Pipeline -->
+    <h2 class="section-title" style="font-size:1.2rem;" data-i18n="sw.pipe.title"></h2>
+    <p class="section-sub" data-i18n="sw.pipe.sub"></p>
+    <div class="pipe-steps" id="pipeSteps">
+      <div class="pipe-step" data-step="0"><div class="n">01</div><h4 data-i18n="sw.p1t"></h4><p data-i18n="sw.p1d"></p></div>
+      <div class="pipe-step" data-step="1"><div class="n">02</div><h4 data-i18n="sw.p2t"></h4><p data-i18n="sw.p2d"></p></div>
+      <div class="pipe-step" data-step="2"><div class="n">03</div><h4 data-i18n="sw.p3t"></h4><p data-i18n="sw.p3d"></p></div>
+      <div class="pipe-step" data-step="3"><div class="n">04</div><h4 data-i18n="sw.p4t"></h4><p data-i18n="sw.p4d"></p></div>
+      <div class="pipe-step" data-step="4"><div class="n">05</div><h4 data-i18n="sw.p5t"></h4><p data-i18n="sw.p5d"></p></div>
+    </div>
+
+    <!-- Seed input -->
+    <div class="card" style="margin-top:28px;">
+      <h3 data-i18n="sw.seed.title"></h3>
+      <p style="margin-bottom:12px;" data-i18n="sw.seed.sub"></p>
+      <div class="chips" id="seedChips" style="margin-bottom:12px;"></div>
+      <textarea class="oo-input" id="seedText" rows="3"></textarea>
+      <div style="margin:14px 0 6px; font-weight:600; font-size:0.95rem;" data-i18n="sw.ask.label"></div>
+      <textarea class="oo-input" id="askText" rows="2"></textarea>
+      <div style="margin-top:16px;">
+        <button class="btn btn-primary" id="buildBtn" data-i18n="sw.build"></button>
+      </div>
+    </div>
+
+    <!-- World -->
+    <div class="hide" id="worldWrap">
+      <h2 class="section-title" style="font-size:1.2rem; margin-top:40px;" data-i18n="sw.world.title"></h2>
+      <div class="grid grid-2">
+        <div class="card" style="padding:12px;">
+          <div class="sim-canvas-box">
+            <canvas id="worldCanvas" width="640" height="380"></canvas>
+            <div class="sim-hud" id="hud"></div>
+            <div class="sim-legend" id="legend"></div>
+          </div>
+          <div style="display:flex; gap:10px; margin-top:12px; align-items:center;">
+            <button class="btn btn-ghost" id="pauseBtn" style="padding:7px 16px; font-size:0.83rem;"></button>
+            <div style="flex:1;"></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3 data-i18n="sw.feed.title"></h3>
+          <div class="feed" id="feed" style="margin-top:10px;"></div>
+        </div>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:18px;">
+        <div class="card">
+          <h3 data-i18n="sw.idxTitle"></h3>
+          <div class="chart-box short"><canvas id="idxChart"></canvas></div>
+        </div>
+        <div class="card">
+          <h3 data-i18n="sw.god.title"></h3>
+          <p style="margin-bottom:12px;" data-i18n="sw.god.sub"></p>
+          <div class="god-btns" id="godBtns"></div>
+        </div>
+      </div>
+
+      <!-- Report -->
+      <h2 class="section-title" style="font-size:1.2rem; margin-top:40px;" data-i18n="sw.rep.title"></h2>
+      <p class="section-sub" data-i18n="sw.rep.sub"></p>
+      <div class="grid grid-2">
+        <div class="card">
+          <div id="scBars"></div>
+          <div style="margin-top:16px; font-weight:700;" data-i18n="sw.kfTitle"></div>
+          <ul class="paper-list" id="findings"></ul>
+          <div style="color:var(--text-dim); font-size:0.82rem; margin-top:8px;" data-i18n="sw.rep.horizon"></div>
+        </div>
+        <div>
+          <div class="stats-bar" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); margin-bottom:18px;">
+            <div class="stat"><div class="num up" id="stCons">—</div><div class="lbl" data-i18n="sw.rep.consensus"></div></div>
+            <div class="stat"><div class="num" id="stConf">—</div><div class="lbl" data-i18n="sw.rep.conf"></div></div>
+            <div class="stat"><div class="num" id="stRuns">—</div><div class="lbl" data-i18n="sw.rep.runs"></div></div>
+          </div>
+          <div class="card">
+            <h3 data-i18n="sw.chat.title"></h3>
+            <div class="chips" id="agentChips" style="margin:10px 0;"></div>
+            <div class="chat-box" id="chatBox"></div>
+            <div class="chat-row">
+              <input class="oo-input" id="chatInput" />
+              <button class="btn btn-primary" id="chatSend" style="padding:9px 18px;" data-i18n="sw.chat.send"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="disclaimer" data-i18n="sw.disclaimer"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div data-i18n="footer.copy"></div>
+    <div><a href="methodology.html" data-i18n="footer.method"></a></div>
+  </div>
+</footer>
+
+<script src="js/data.js?v=5"></script>
+<script src="js/i18n.js?v=5"></script>
+<script src="js/app.js?v=5"></script>
+<script>
+/* ---------- Parallel-world demo simulation (client-side, illustrative) ---------- */
+const FACTIONS = [
+  { key: "sw.f1", color: "#4f8cff" },
+  { key: "sw.f2", color: "#22c55e" },
+  { key: "sw.f3", color: "#f59e0b" },
+  { key: "sw.f4", color: "#8b5cf6" },
+];
+const N_AGENTS = 320;
+
+const SIM = {
+  built: false, running: false, day: 0,
+  sent: 55, conf: 60, drift: 0.05, vol: 1.4,
+  interventions: 0, regShift: 0, seedChip: 0,
+  agents: [], events: [], hist: { d: [], s: [], c: [] },
+  chatAgent: 0, timer: null, chart: null,
+};
+
+function T(key, params) {
+  let s = OO_T(key);
+  if (params) for (const k in params) s = s.replaceAll("{" + k + "}", params[k]);
+  return s;
+}
+const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
+
+/* ----- seed input ----- */
+const seedChips = document.getElementById("seedChips");
+const seedText = document.getElementById("seedText");
+const askText = document.getElementById("askText");
+
+function renderSeedChips() {
+  seedChips.innerHTML = [1,2,3,4,5,6].map(i =>
+    `<button class="chip ${SIM.seedChip === i ? "active" : ""}" data-i="${i}">${OO_T("sw.chip" + i)}</button>`
+  ).join("");
+  askText.placeholder = OO_T("sw.ask.ph");
+  if (SIM.seedChip) seedText.value = OO_T("sw.smp" + SIM.seedChip);
+}
+seedChips.addEventListener("click", (e) => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  SIM.seedChip = +b.dataset.i;
+  renderSeedChips();
+});
+
+/* ----- build flow ----- */
+const steps = [...document.querySelectorAll(".pipe-step")];
+document.getElementById("buildBtn").addEventListener("click", () => {
+  if (SIM.built) return;
+  if (!SIM.seedChip && !seedText.value.trim()) { SIM.seedChip = 1; renderSeedChips(); }
+  const btn = document.getElementById("buildBtn");
+  btn.disabled = true; btn.style.opacity = 0.5;
+  let i = 0;
+  const tick = () => {
+    if (i > 0) { steps[i-1].classList.remove("active"); steps[i-1].classList.add("done"); }
+    if (i < steps.length) { steps[i].classList.add("active"); i++; setTimeout(tick, 650); }
+    else startWorld();
+  };
+  tick();
+});
+
+function startWorld() {
+  SIM.built = true; SIM.running = true;
+  document.getElementById("worldWrap").classList.remove("hide");
+  initAgents(); initChart(); renderGodBtns(); renderAgentChips(); renderLegend();
+  pushEvent({ key: "sw.built", params: { n: N_AGENTS }, god: true });
+  document.getElementById("pauseBtn").textContent = OO_T("sw.world.pause");
+  SIM.timer = setInterval(stepDay, 1300);
+  requestAnimationFrame(drawFrame);
+  document.getElementById("worldWrap").scrollIntoView({ behavior: "smooth" });
+}
+
+/* ----- agents canvas ----- */
+const cv = document.getElementById("worldCanvas");
+const ctx = cv.getContext("2d");
+function initAgents() {
+  const W = cv.width, H = cv.height;
+  SIM.agents = Array.from({ length: N_AGENTS }, (_, i) => {
+    const f = i % 4;
+    return {
+      f, x: Math.random() * W, y: Math.random() * H,
+      vx: 0, vy: 0,
+      cx: (0.25 + 0.5 * (f % 2)) * W + (Math.random() - 0.5) * 80,
+      cy: (0.3 + 0.4 * Math.floor(f / 2)) * H + (Math.random() - 0.5) * 60,
+    };
+  });
+}
+function drawFrame() {
+  if (!SIM.built) return;
+  const W = cv.width, H = cv.height;
+  ctx.fillStyle = "rgba(6,10,18,0.35)"; ctx.fillRect(0, 0, W, H);
+  const excite = SIM.vol / 1.4;
+  // interaction edges
+  ctx.strokeStyle = "rgba(79,140,255,0.10)"; ctx.lineWidth = 1;
+  for (let k = 0; k < 26 * excite; k++) {
+    const a = SIM.agents[(Math.random() * N_AGENTS) | 0];
+    const b = SIM.agents[(Math.random() * N_AGENTS) | 0];
+    const dx = a.x - b.x, dy = a.y - b.y;
+    if (dx * dx + dy * dy < 5200) { ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+  }
+  for (const a of SIM.agents) {
+    if (SIM.running) {
+      a.vx += (a.cx - a.x) * 0.0012 + (Math.random() - 0.5) * 0.5 * excite;
+      a.vy += (a.cy - a.y) * 0.0012 + (Math.random() - 0.5) * 0.5 * excite;
+      a.vx *= 0.93; a.vy *= 0.93;
+      a.x = clamp(a.x + a.vx, 4, W - 4); a.y = clamp(a.y + a.vy, 4, H - 4);
+    }
+    ctx.fillStyle = FACTIONS[a.f].color;
+    ctx.globalAlpha = 0.85;
+    ctx.beginPath(); ctx.arc(a.x, a.y, 2.1, 0, 7); ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+  requestAnimationFrame(drawFrame);
+}
+function renderLegend() {
+  document.getElementById("legend").innerHTML = FACTIONS.map(f =>
+    `<span><span class="dot" style="background:${f.color}"></span>${OO_T(f.key)}</span>`
+  ).join("");
+}
+
+/* ----- daily step ----- */
+function stepDay() {
+  if (!SIM.running) return;
+  SIM.day++;
+  SIM.sent = clamp(SIM.sent + SIM.drift + (Math.random() - 0.5) * 2 * SIM.vol, 5, 95);
+  SIM.conf = clamp(SIM.conf + SIM.drift * 0.8 + (Math.random() - 0.5) * 1.6 * SIM.vol, 5, 95);
+  SIM.drift *= 0.97; SIM.vol = clamp(SIM.vol * 0.985 + 0.02, 0.8, 4);
+  SIM.hist.d.push(SIM.day); SIM.hist.s.push(SIM.sent); SIM.hist.c.push(SIM.conf);
+  if (SIM.hist.d.length > 90) { SIM.hist.d.shift(); SIM.hist.s.shift(); SIM.hist.c.shift(); }
+  if (Math.random() < 0.45) {
+    const f = FACTIONS[(Math.random() * 4) | 0];
+    const ev = "sw.ev" + (1 + ((Math.random() * 8) | 0));
+    pushEvent({ key: ev, params: { f: OO_T(f.key), dir: OO_T(SIM.drift >= 0 ? "sw.dir.up" : "sw.dir.down") } });
+  }
+  updateHud(); updateChart(); renderReport();
+}
+
+/* ----- HUD / feed ----- */
+function updateHud() {
+  document.getElementById("hud").textContent =
+    `${OO_T("sw.world.day")} ${SIM.day} · ${N_AGENTS} agents · vol ${SIM.vol.toFixed(2)}`;
+}
+function pushEvent(e) {
+  e.day = SIM.day; SIM.events.unshift(e);
+  if (SIM.events.length > 40) SIM.events.pop();
+  renderFeed();
+}
+function renderFeed() {
+  document.getElementById("feed").innerHTML = SIM.events.map(e =>
+    `<div class="ev ${e.god ? "god" : ""}"><span class="d">D${e.day}</span>${T(e.key, e.params)}</div>`
+  ).join("");
+}
+
+/* ----- indices chart ----- */
+function initChart() {
+  if (SIM.chart) SIM.chart.destroy();
+  SIM.chart = new Chart(document.getElementById("idxChart"), {
+    type: "line",
+    data: { labels: SIM.hist.d, datasets: [
+      { label: OO_T("sw.idx1"), data: SIM.hist.s, borderColor: OO_COLORS.accent, backgroundColor: OO_COLORS.accent, tension: 0.35, pointRadius: 0 },
+      { label: OO_T("sw.idx2"), data: SIM.hist.c, borderColor: OO_COLORS.purple, backgroundColor: OO_COLORS.purple, tension: 0.35, pointRadius: 0 },
+    ]},
+    options: { maintainAspectRatio: false, animation: false, scales: { y: { min: 0, max: 100 } } },
+  });
+}
+function updateChart() { if (SIM.chart) SIM.chart.update(); }
+
+/* ----- god view ----- */
+const GODS = [
+  { key: "sw.iv1", drift: +0.9, vol: +0.6 },
+  { key: "sw.iv2", drift: -0.8, vol: +0.5, reg: -8 },
+  { key: "sw.iv3", drift: -0.5, vol: +1.4 },
+  { key: "sw.iv4", drift: -0.3, vol: +0.8 },
+  { key: "sw.iv5", drift: -1.0, vol: +1.0 },
+];
+function renderGodBtns() {
+  document.getElementById("godBtns").innerHTML = GODS.map((g, i) =>
+    `<button class="god-btn" data-g="${i}">⚡ ${OO_T(g.key)}</button>`
+  ).join("");
+}
+document.getElementById("godBtns").addEventListener("click", (e) => {
+  const b = e.target.closest(".god-btn"); if (!b || !SIM.running) return;
+  const g = GODS[+b.dataset.g];
+  SIM.drift += g.drift; SIM.vol = clamp(SIM.vol + g.vol, 0.8, 4);
+  SIM.interventions++; if (g.reg) SIM.regShift += g.reg; else SIM.regShift += Math.round(g.drift * 3);
+  for (const a of SIM.agents) { a.cx += (Math.random() - 0.5) * 120; a.cy += (Math.random() - 0.5) * 80; }
+  pushEvent({ key: "sw.evGod", params: { iv: OO_T(g.key) }, god: true });
+  renderReport();
+});
+
+/* ----- pause ----- */
+document.getElementById("pauseBtn").addEventListener("click", () => {
+  SIM.running = !SIM.running;
+  document.getElementById("pauseBtn").textContent = OO_T(SIM.running ? "sw.world.pause" : "sw.world.resume");
+});
+
+/* ----- report ----- */
+function scenarioProbs() {
+  const x = (SIM.sent + SIM.conf) / 2;
+  let opt = clamp(Math.round(8 + (x - 30) * 0.9), 3, 80);
+  let pes = clamp(Math.round(8 + (70 - x) * 0.9), 3, 80);
+  let base = 100 - opt - pes;
+  if (base < 10) { const cut = 10 - base; base = 10; opt -= Math.ceil(cut/2); pes -= Math.floor(cut/2); }
+  return [opt, base, pes];
+}
+function renderReport() {
+  const [opt, base, pes] = scenarioProbs();
+  const probs = [opt, base, pes];
+  const colors = [OO_COLORS.green, OO_COLORS.accent, OO_COLORS.red];
+  document.getElementById("scBars").innerHTML = [0,1,2].map(i => `
+    <div class="sc-row">
+      <span class="lbl">${OO_T("sw.sc" + (i+1))}</span>
+      <div class="sc-track"><div class="sc-fill" style="width:${probs[i]}%; background:${colors[i]};"></div></div>
+      <span class="sc-val" style="color:${colors[i]};">${probs[i]}%</span>
+    </div>`).join("");
+  const leadIdx = probs.indexOf(Math.max(...probs));
+  const lead = OO_T("sw.sc" + (leadIdx + 1));
+  const dir = OO_T(SIM.drift >= 0 ? "sw.dir.up" : "sw.dir.down");
+  const P = { lead, p: probs[leadIdx], n: SIM.interventions, sent: Math.round(SIM.sent), conf: Math.round(SIM.conf), dir, reg: SIM.regShift };
+  document.getElementById("findings").innerHTML = ["sw.kf1","sw.kf2","sw.kf3","sw.kf4"]
+    .map(k => `<li>${T(k, P)}</li>`).join("");
+  document.getElementById("stCons").textContent = clamp(Math.round(probs[leadIdx] * 0.6 + SIM.conf * 0.4), 30, 96) + "%";
+  document.getElementById("stConf").textContent = clamp(Math.round(52 + SIM.day * 0.35 - SIM.vol * 4), 30, 92) + "%";
+  document.getElementById("stRuns").textContent = (SIM.day * N_AGENTS).toLocaleString();
+}
+
+/* ----- agent chat ----- */
+function renderAgentChips() {
+  document.getElementById("agentChips").innerHTML = [0,1,2].map(i =>
+    `<button class="chip ${SIM.chatAgent === i ? "active" : ""}" data-a="${i}">${OO_T("sw.ag" + (i+1))}</button>`
+  ).join("");
+  document.getElementById("chatInput").placeholder = OO_T("sw.chat.ph");
+}
+document.getElementById("agentChips").addEventListener("click", (e) => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  SIM.chatAgent = +b.dataset.a; renderAgentChips();
+});
+let replyFlip = 0;
+function sendChat() {
+  const inp = document.getElementById("chatInput");
+  const q = inp.value.trim(); if (!q || !SIM.built) return;
+  inp.value = "";
+  const box = document.getElementById("chatBox");
+  box.insertAdjacentHTML("beforeend", `<div class="msg user">${q.replace(/</g, "&lt;")}</div>`);
+  box.scrollTop = box.scrollHeight;
+  setTimeout(() => {
+    const [opt, base, pes] = scenarioProbs();
+    const probs = [opt, base, pes];
+    const lead = OO_T("sw.sc" + (probs.indexOf(Math.max(...probs)) + 1));
+    replyFlip = 1 - replyFlip;
+    const key = `sw.r${SIM.chatAgent + 1}${replyFlip + 1}`;
+    const txt = T(key, { day: SIM.day, sent: Math.round(SIM.sent), conf: Math.round(SIM.conf), lead });
+    box.insertAdjacentHTML("beforeend",
+      `<div class="msg agent"><strong style="color:var(--accent-2);">${OO_T("sw.ag" + (SIM.chatAgent + 1))}</strong><br/>${txt}</div>`);
+    box.scrollTop = box.scrollHeight;
+  }, 650);
+}
+document.getElementById("chatSend").addEventListener("click", sendChat);
+document.getElementById("chatInput").addEventListener("keydown", (e) => { if (e.key === "Enter") sendChat(); });
+
+/* ----- i18n re-render ----- */
+function rerenderDynamic() {
+  renderSeedChips();
+  if (SIM.built) {
+    renderGodBtns(); renderAgentChips(); renderLegend(); renderFeed(); renderReport(); updateHud();
+    initChart();
+    document.getElementById("pauseBtn").textContent = OO_T(SIM.running ? "sw.world.pause" : "sw.world.resume");
+  }
+}
+document.addEventListener("oo:lang", rerenderDynamic);
+renderSeedChips();
+</script>
+</body>
+</html>
