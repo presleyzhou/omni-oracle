@@ -57,6 +57,29 @@ const LMSR = {
   },
 };
 
+/* Count-up animation for .stat .num values (respects reduced motion) */
+window.addEventListener("load", () => {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  document.querySelectorAll(".stat .num").forEach((el) => {
+    const m = el.textContent.match(/^(-?)([\d,]+(?:\.\d+)?)(.*)$/);
+    if (!m) return;
+    const target = parseFloat(m[2].replace(/,/g, ""));
+    if (!isFinite(target) || target === 0) return;
+    const dec = (m[2].split(".")[1] || "").length;
+    const grouped = m[2].includes(",");
+    const sign = m[1], suffix = m[3];
+    const fmt = (v) => grouped ? Math.round(v).toLocaleString("en-US") : v.toFixed(dec);
+    const t0 = performance.now(), dur = 900;
+    const tick = (t) => {
+      const p = Math.min(1, (t - t0) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = sign + fmt(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
+});
+
 function fmtUSD(x) {
   return "$" + x.toFixed(2);
 }

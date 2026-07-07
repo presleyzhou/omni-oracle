@@ -416,6 +416,15 @@ textarea.oo-input { min-height: 90px; resize: vertical; }
 
 .hide { display: none !important; }
 
+/* A11y: visible keyboard focus */
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--cyan); outline-offset: 2px;
+}
+
+/* Market-card sparklines */
+.spark { display: block; width: 100%; height: 34px; opacity: 0.9; margin-top: 2px; }
+
 /* Thin neon scrollbars for scrollable panels */
 .feed, .chat-box, .card [style*="overflow-x"], .arch-pre {
   scrollbar-width: thin;
