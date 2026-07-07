@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://presleyzhou.github.io/omni-oracle/sitemap.xml

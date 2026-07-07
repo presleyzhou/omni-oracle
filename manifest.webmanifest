@@ -1,0 +1,13 @@
+{
+  "name": "Omni Oracle — Forecasting & Prediction Platform",
+  "short_name": "Omni Oracle",
+  "description": "Research-grounded forecasting: macro nowcasts, trend companies, prediction markets, and a parallel-world simulation engine.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b0f17",
+  "theme_color": "#0b0f17",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

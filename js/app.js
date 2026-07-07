@@ -1,5 +1,11 @@
 /* Omni Oracle — shared UI helpers */
 
+/* PWA: register service worker (offline support) */
+if ("serviceWorker" in navigator &&
+    (location.protocol === "https:" || location.hostname === "localhost")) {
+  navigator.serviceWorker.register("sw.js").catch(() => {});
+}
+
 /* Highlight active nav link */
 (function () {
   const page = location.pathname.split("/").pop() || "index.html";
