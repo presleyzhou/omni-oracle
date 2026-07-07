@@ -6,7 +6,13 @@ Live site: **https://presleyzhou.github.io/omni-oracle/**
 
 Omni Oracle combines three sources of foresight — machine-learning nowcasts, superforecaster
 crowds, and prediction-market prices — into one calibrated view of the future, serving
-individual users, institutional clients, and prediction-market participants.
+individual users, institutional clients, and prediction-market participants. A fourth module
+(M3, inspired by the open-source [MiroFish](https://github.com/666ghj/MiroFish) engine) builds
+a parallel digital world from real-world seed information and lets you rehearse the future
+with thousands of memory-bearing agents.
+
+The UI is fully multilingual: **English · 中文 · Français · Español · 한국어** (switcher in the
+top-right corner; the choice persists across pages and visits).
 
 ## Pages
 
@@ -16,6 +22,7 @@ individual users, institutional clients, and prediction-market participants.
 | [macro.html](macro.html) | M1 | GDP/CPI nowcasts, news decomposition, Fed decision tree (model vs. market), ensemble attribution |
 | [trends.html](trends.html) | M2 | Emerging-theme explorer and company scorecards (innovation, trend exposure, ML decile ranks) |
 | [markets.html](markets.html) | P1–P8 | Prediction markets across 8 categories with a working Hanson LMSR trade simulator |
+| [simworld.html](simworld.html) | M3 | Parallel-world simulation: seed upload, GraphRAG entity graph, agent society canvas, god-view interventions, 100-run Monte Carlo, exportable forecast report, agent chat |
 | [tournament.html](tournament.html) | C1/C3 | Brier-scored leaderboard, calibration curves, forecast-source comparison |
 | [methodology.html](methodology.html) | — | Academic foundation, market-infrastructure design, data sources, roadmap |
 
