@@ -13,152 +13,155 @@
   <div class="nav-inner">
     <a class="logo" href="index.html">Omni<span>Oracle</span></a>
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="macro.html">Macro & Finance</a>
-      <a href="trends.html">Trend Companies</a>
-      <a href="markets.html">Markets</a>
-      <a href="tournament.html">Tournament</a>
-      <a href="methodology.html">Methodology</a>
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="macro.html" data-i18n="nav.macro">Macro & Finance</a>
+      <a href="trends.html" data-i18n="nav.trends">Trend Companies</a>
+      <a href="markets.html" data-i18n="nav.markets">Markets</a>
+      <a href="tournament.html" data-i18n="nav.tournament">Tournament</a>
+      <a href="methodology.html" data-i18n="nav.method">Methodology</a>
     </div>
   </div>
 </nav>
 
 <section>
   <div class="container">
-    <h1 class="section-title">M1 · Macroeconomics & Finance</h1>
-    <p class="section-sub">
-      Dynamic-factor-model nowcasts updated on every data release, a random-forest ML layer,
-      BVAR scenarios, and crowd + market signals — combined by the ensemble engine with full attribution.
-    </p>
+    <h1 class="section-title" data-i18n="mac.title"></h1>
+    <p class="section-sub" data-i18n="mac.sub"></p>
 
     <div class="stats-bar" style="margin-bottom: 28px;">
-      <div class="stat"><div class="num">2.3%</div><div class="lbl">GDP nowcast 2026Q2 (SAAR)</div></div>
-      <div class="stat"><div class="num">2.3%</div><div class="lbl">CPI YoY, June 2026 est.</div></div>
-      <div class="stat"><div class="num">2.5%</div><div class="lbl">Core CPI YoY, June 2026 est.</div></div>
-      <div class="stat"><div class="num down" id="recProb">23%</div><div class="lbl">12-month recession probability</div></div>
+      <div class="stat"><div class="num">2.3%</div><div class="lbl" data-i18n="mac.stat1"></div></div>
+      <div class="stat"><div class="num">2.3%</div><div class="lbl" data-i18n="mac.stat2"></div></div>
+      <div class="stat"><div class="num">2.5%</div><div class="lbl" data-i18n="mac.stat3"></div></div>
+      <div class="stat"><div class="num down" id="recProb">23%</div><div class="lbl" data-i18n="mac.stat4"></div></div>
     </div>
 
     <div class="grid grid-2">
       <div class="card">
-        <h3>GDP growth: nowcast vs. SPF vs. actual</h3>
-        <p style="margin-bottom:14px;">DFM nowcast (Giannone–Reichlin–Small 2008) benchmarked against the Survey of Professional Forecasters.</p>
+        <h3 data-i18n="mac.gdp.title"></h3>
+        <p style="margin-bottom:14px;" data-i18n="mac.gdp.desc"></p>
         <div class="chart-box"><canvas id="gdpChart"></canvas></div>
       </div>
       <div class="card">
-        <h3>Inflation tracker</h3>
-        <p style="margin-bottom:14px;">Headline and core CPI, year over year — ML layer (random forest on FRED-MD panel) drives the last point.</p>
+        <h3 data-i18n="mac.cpi.title"></h3>
+        <p style="margin-bottom:14px;" data-i18n="mac.cpi.desc"></p>
         <div class="chart-box"><canvas id="cpiChart"></canvas></div>
       </div>
       <div class="card">
-        <h3>Nowcast news decomposition</h3>
-        <p style="margin-bottom:14px;">Which releases moved the 2026Q2 GDP nowcast, in percentage points — the DFM "news" channel.</p>
+        <h3 data-i18n="mac.news.title"></h3>
+        <p style="margin-bottom:14px;" data-i18n="mac.news.desc"></p>
         <div class="chart-box"><canvas id="newsChart"></canvas></div>
       </div>
       <div class="card">
-        <h3 id="fedTitle">Fed decision tree — model vs. market</h3>
-        <p style="margin-bottom:14px;">The platform's signature view: BVAR/ML model probabilities next to prediction-market odds from module P3.</p>
+        <h3 id="fedTitle"></h3>
+        <p style="margin-bottom:14px;" data-i18n="mac.fed.desc"></p>
         <div class="chart-box"><canvas id="fedChart"></canvas></div>
       </div>
     </div>
 
     <div class="card" style="margin-top:18px;">
-      <h3>Ensemble attribution</h3>
-      <p style="margin-bottom:14px;">
-        Out-of-sample combination weights per Timmermann (2006). When markets beat models in a domain,
-        their weight rises — and we show it.
-      </p>
+      <h3 data-i18n="mac.ens.title"></h3>
+      <p style="margin-bottom:14px;" data-i18n="mac.ens.desc"></p>
       <div class="chart-box short"><canvas id="ensembleChart"></canvas></div>
     </div>
 
-    <div class="disclaimer">
-      Demo data for illustration. Production sources: FRED/FRED-MD, ALFRED vintages (no look-ahead), BEA, BLS,
-      Census, SPF, CME FedWatch, TIPS breakevens, and text-derived indices (Fed communication, EPU).
-    </div>
+    <div class="disclaimer" data-i18n="mac.disclaimer"></div>
   </div>
 </section>
 
 <footer>
   <div class="container footer-inner">
-    <div>© 2026 Omni Oracle</div>
-    <div><a href="methodology.html">Methodology & reading list</a></div>
+    <div data-i18n="footer.copy"></div>
+    <div><a href="methodology.html" data-i18n="footer.method"></a></div>
   </div>
 </footer>
 
 <script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
 <script src="js/app.js"></script>
 <script>
 const M = OO.macro;
-document.getElementById("recProb").textContent = fmtPct(M.recessionProb12m);
-document.getElementById("fedTitle").textContent = "Fed decision tree — " + M.fedMeeting;
+let charts = [];
 
-new Chart(document.getElementById("gdpChart"), {
-  type: "line",
-  data: {
-    labels: M.quarters,
-    datasets: [
-      { label: "Omni nowcast", data: M.gdpNowcast, borderColor: OO_COLORS.accent, backgroundColor: OO_COLORS.accent, tension: 0.3 },
-      { label: "SPF consensus", data: M.gdpSPF, borderColor: OO_COLORS.purple, backgroundColor: OO_COLORS.purple, borderDash: [6,4], tension: 0.3 },
-      { label: "Actual (advance)", data: M.gdpActual, borderColor: OO_COLORS.green, backgroundColor: OO_COLORS.green, pointStyle: "rectRot", pointRadius: 5, showLine: false },
-    ],
-  },
-  options: { maintainAspectRatio: false, scales: { y: { title: { display: true, text: "% SAAR" } } } },
-});
+function buildCharts() {
+  charts.forEach(c => c.destroy());
+  charts = [];
 
-new Chart(document.getElementById("cpiChart"), {
-  type: "line",
-  data: {
-    labels: M.months,
-    datasets: [
-      { label: "CPI YoY", data: M.cpiYoY, borderColor: OO_COLORS.amber, backgroundColor: OO_COLORS.amber, tension: 0.3 },
-      { label: "Core CPI YoY", data: M.coreYoY, borderColor: OO_COLORS.red, backgroundColor: OO_COLORS.red, tension: 0.3 },
-    ],
-  },
-  options: { maintainAspectRatio: false, scales: { y: { title: { display: true, text: "% YoY" } } } },
-});
+  document.getElementById("recProb").textContent = fmtPct(M.recessionProb12m);
+  document.getElementById("fedTitle").textContent = OO_T("mac.fed.prefix") + M.fedMeeting;
 
-new Chart(document.getElementById("newsChart"), {
-  type: "bar",
-  data: {
-    labels: M.newsDecomp.map(d => d.release),
-    datasets: [{
-      label: "Impact on GDP nowcast (pp)",
-      data: M.newsDecomp.map(d => d.impact),
-      backgroundColor: M.newsDecomp.map(d => d.impact >= 0 ? "rgba(34,197,94,0.7)" : "rgba(239,68,68,0.7)"),
-    }],
-  },
-  options: { maintainAspectRatio: false, indexAxis: "y", plugins: { legend: { display: false } } },
-});
+  charts.push(new Chart(document.getElementById("gdpChart"), {
+    type: "line",
+    data: {
+      labels: M.quarters,
+      datasets: [
+        { label: OO_T("ch.nowcast"), data: M.gdpNowcast, borderColor: OO_COLORS.accent, backgroundColor: OO_COLORS.accent, tension: 0.3 },
+        { label: OO_T("ch.spf"), data: M.gdpSPF, borderColor: OO_COLORS.purple, backgroundColor: OO_COLORS.purple, borderDash: [6,4], tension: 0.3 },
+        { label: OO_T("ch.actual"), data: M.gdpActual, borderColor: OO_COLORS.green, backgroundColor: OO_COLORS.green, pointStyle: "rectRot", pointRadius: 5, showLine: false },
+      ],
+    },
+    options: { maintainAspectRatio: false, scales: { y: { title: { display: true, text: "% SAAR" } } } },
+  }));
 
-new Chart(document.getElementById("fedChart"), {
-  type: "bar",
-  data: {
-    labels: M.fedProbs.map(d => d.move),
-    datasets: [
-      { label: "Model (BVAR + ML)", data: M.fedProbs.map(d => d.model), backgroundColor: "rgba(79,140,255,0.75)" },
-      { label: "Market odds (P3)", data: M.fedProbs.map(d => d.market), backgroundColor: "rgba(139,92,246,0.75)" },
-    ],
-  },
-  options: {
-    maintainAspectRatio: false,
-    scales: { y: { max: 0.7, ticks: { callback: v => (100*v) + "%" } } },
-  },
-});
+  charts.push(new Chart(document.getElementById("cpiChart"), {
+    type: "line",
+    data: {
+      labels: M.months,
+      datasets: [
+        { label: OO_T("ch.cpi"), data: M.cpiYoY, borderColor: OO_COLORS.amber, backgroundColor: OO_COLORS.amber, tension: 0.3 },
+        { label: OO_T("ch.core"), data: M.coreYoY, borderColor: OO_COLORS.red, backgroundColor: OO_COLORS.red, tension: 0.3 },
+      ],
+    },
+    options: { maintainAspectRatio: false, scales: { y: { title: { display: true, text: "% YoY" } } } },
+  }));
 
-new Chart(document.getElementById("ensembleChart"), {
-  type: "bar",
-  data: {
-    labels: ["2026Q2 GDP ensemble"],
-    datasets: OO.macro.ensemble.map((e, i) => ({
-      label: e.source,
-      data: [e.weight],
-      backgroundColor: [OO_COLORS.accent, OO_COLORS.purple, OO_COLORS.green, OO_COLORS.amber, OO_COLORS.red][i],
-    })),
-  },
-  options: {
-    maintainAspectRatio: false, indexAxis: "y",
-    scales: { x: { stacked: true, max: 1, ticks: { callback: v => (100*v) + "%" } }, y: { stacked: true } },
-  },
-});
+  charts.push(new Chart(document.getElementById("newsChart"), {
+    type: "bar",
+    data: {
+      labels: M.newsDecomp.map(d => d.release),
+      datasets: [{
+        label: OO_T("ch.newsLabel"),
+        data: M.newsDecomp.map(d => d.impact),
+        backgroundColor: M.newsDecomp.map(d => d.impact >= 0 ? "rgba(34,197,94,0.7)" : "rgba(239,68,68,0.7)"),
+      }],
+    },
+    options: { maintainAspectRatio: false, indexAxis: "y", plugins: { legend: { display: false } } },
+  }));
+
+  charts.push(new Chart(document.getElementById("fedChart"), {
+    type: "bar",
+    data: {
+      labels: M.fedProbs.map(d => d.move),
+      datasets: [
+        { label: OO_T("ch.model"), data: M.fedProbs.map(d => d.model), backgroundColor: "rgba(79,140,255,0.75)" },
+        { label: OO_T("ch.marketOdds"), data: M.fedProbs.map(d => d.market), backgroundColor: "rgba(139,92,246,0.75)" },
+      ],
+    },
+    options: {
+      maintainAspectRatio: false,
+      scales: { y: { max: 0.7, ticks: { callback: v => (100*v) + "%" } } },
+    },
+  }));
+
+  const ensKeys = ["ens.dfm", "ens.rf", "ens.bvar", "ens.crowd", "ens.mkt"];
+  charts.push(new Chart(document.getElementById("ensembleChart"), {
+    type: "bar",
+    data: {
+      labels: [OO_T("ch.ensLabel")],
+      datasets: OO.macro.ensemble.map((e, i) => ({
+        label: OO_T(ensKeys[i]),
+        data: [e.weight],
+        backgroundColor: [OO_COLORS.accent, OO_COLORS.purple, OO_COLORS.green, OO_COLORS.amber, OO_COLORS.red][i],
+      })),
+    },
+    options: {
+      maintainAspectRatio: false, indexAxis: "y",
+      scales: { x: { stacked: true, max: 1, ticks: { callback: v => (100*v) + "%" } }, y: { stacked: true } },
+    },
+  }));
+}
+
+buildCharts();
+document.addEventListener("oo:lang", buildCharts);
 </script>
 </body>
 </html>

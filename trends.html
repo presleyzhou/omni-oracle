@@ -12,81 +12,69 @@
   <div class="nav-inner">
     <a class="logo" href="index.html">Omni<span>Oracle</span></a>
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="macro.html">Macro & Finance</a>
-      <a href="trends.html">Trend Companies</a>
-      <a href="markets.html">Markets</a>
-      <a href="tournament.html">Tournament</a>
-      <a href="methodology.html">Methodology</a>
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="macro.html" data-i18n="nav.macro">Macro & Finance</a>
+      <a href="trends.html" data-i18n="nav.trends">Trend Companies</a>
+      <a href="markets.html" data-i18n="nav.markets">Markets</a>
+      <a href="tournament.html" data-i18n="nav.tournament">Tournament</a>
+      <a href="methodology.html" data-i18n="nav.method">Methodology</a>
     </div>
   </div>
 </nav>
 
 <section>
   <div class="container">
-    <h1 class="section-title">M2 · Future-Trend Companies & Stocks</h1>
-    <p class="section-sub">
-      Themes mined from patents, filings and earnings calls; company innovation scores per
-      Kogan–Papanikolaou–Seru–Stoffman (QJE 2017) and Kelly et al. (2021) disruptiveness;
-      return ranks from a Gu–Kelly–Xiu-style ML ensemble. Ranks are probabilities, not promises.
-    </p>
+    <h1 class="section-title" data-i18n="tr.title"></h1>
+    <p class="section-sub" data-i18n="tr.sub"></p>
 
-    <h2 class="section-title" style="font-size:1.25rem;">Theme explorer</h2>
-    <p class="section-sub">Maturity = estimated hype-cycle position from patent, funding and text signals (0 = frontier, 100 = mainstream).</p>
+    <h2 class="section-title" style="font-size:1.25rem;" data-i18n="tr.themes.title"></h2>
+    <p class="section-sub" data-i18n="tr.themes.sub"></p>
     <div class="grid grid-4" id="themeGrid"></div>
 
-    <h2 class="section-title" style="font-size:1.25rem; margin-top:44px;">Company scorecards</h2>
-    <p class="section-sub">
-      <strong>Innovation</strong>: patent economic value + disruptiveness (0–100). <strong>Trend exposure</strong>: text similarity of
-      disclosures to theme definitions. <strong>ML rank</strong>: expected-return decile (10 = highest) from the GKX-style model,
-      benchmarked against Fama–French / q-factors. <strong>Milestone odds</strong> come live from the P7 markets.
-    </p>
+    <h2 class="section-title" style="font-size:1.25rem; margin-top:44px;" data-i18n="tr.score.title"></h2>
+    <p class="section-sub" data-i18n="tr.score.sub"></p>
     <div class="card" style="overflow-x:auto;">
       <table id="companyTable">
         <thead>
           <tr>
-            <th>Ticker</th><th>Company</th><th>Theme</th>
-            <th>Innovation</th><th>Trend exposure</th><th>ML decile</th>
-            <th>Key milestone market (P7)</th><th>Odds</th>
+            <th data-i18n="tr.th.ticker"></th><th data-i18n="tr.th.company"></th><th data-i18n="tr.th.theme"></th>
+            <th data-i18n="tr.th.innov"></th><th data-i18n="tr.th.trend"></th><th data-i18n="tr.th.decile"></th>
+            <th data-i18n="tr.th.milestone"></th><th data-i18n="tr.th.odds"></th>
           </tr>
         </thead>
         <tbody></tbody>
       </table>
     </div>
 
-    <div class="disclaimer">
-      Demo data for illustration — not investment advice. Production sources: USPTO PatentsView, Google Patents,
-      SEC EDGAR full-text, earnings-call transcripts, CRSP/Compustat-class pricing data, arXiv/ClinicalTrials.gov,
-      job postings, VC funding, GitHub activity. All signals reported with out-of-sample backtests and uncertainty bands.
-    </div>
+    <div class="disclaimer" data-i18n="tr.disclaimer"></div>
   </div>
 </section>
 
 <footer>
   <div class="container footer-inner">
-    <div>© 2026 Omni Oracle</div>
-    <div><a href="methodology.html">Methodology & reading list</a></div>
+    <div data-i18n="footer.copy"></div>
+    <div><a href="methodology.html" data-i18n="footer.method"></a></div>
   </div>
 </footer>
 
 <script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
 <script src="js/app.js"></script>
 <script>
-/* Theme cards */
-const tg = document.getElementById("themeGrid");
-tg.innerHTML = OO.themes.map(t => `
-  <div class="card">
-    <h3>${t.name}</h3>
-    <p>${t.desc}</p>
-    <div class="maturity"><div class="fill" style="width:${t.maturity}%"></div></div>
-    <div class="theme-stats">
-      <span>Maturity ${t.maturity}/100</span>
-      <span>${t.firms} firms · 12m ${t.ret12m}</span>
+function renderThemes() {
+  document.getElementById("themeGrid").innerHTML = OO.themes.map(t => `
+    <div class="card">
+      <h3>${t.name}</h3>
+      <p>${t.desc}</p>
+      <div class="maturity"><div class="fill" style="width:${t.maturity}%"></div></div>
+      <div class="theme-stats">
+        <span>${OO_T("tr.maturity")} ${t.maturity}/100</span>
+        <span>${t.firms} ${OO_T("tr.firms")} · 12m ${t.ret12m}</span>
+      </div>
     </div>
-  </div>
-`).join("");
+  `).join("");
+}
 
-/* Company table */
 function badge(v) {
   const cls = v >= 80 ? "hi" : v >= 60 ? "mid" : "lo";
   return `<span class="score-badge ${cls}">${v}</span>`;
@@ -95,18 +83,25 @@ function decileBadge(d) {
   const cls = d >= 8 ? "hi" : d >= 5 ? "mid" : "lo";
   return `<span class="score-badge ${cls}">D${d}</span>`;
 }
-document.querySelector("#companyTable tbody").innerHTML = OO.companies.map(c => `
-  <tr>
-    <td class="num-cell"><strong>${c.ticker}</strong></td>
-    <td>${c.name}</td>
-    <td><span class="tag purple">${c.theme}</span></td>
-    <td>${badge(c.innov)}</td>
-    <td>${badge(c.trend)}</td>
-    <td>${decileBadge(c.mlDecile)}</td>
-    <td style="color:var(--text-dim); font-size:0.85rem;">${c.milestone.q}</td>
-    <td class="num-cell ${c.milestone.p >= 0.5 ? "pos" : "neg"}">${Math.round(c.milestone.p * 100)}%</td>
-  </tr>
-`).join("");
+
+function renderCompanies() {
+  document.querySelector("#companyTable tbody").innerHTML = OO.companies.map(c => `
+    <tr>
+      <td class="num-cell"><strong>${c.ticker}</strong></td>
+      <td>${c.name}</td>
+      <td><span class="tag purple">${c.theme}</span></td>
+      <td>${badge(c.innov)}</td>
+      <td>${badge(c.trend)}</td>
+      <td>${decileBadge(c.mlDecile)}</td>
+      <td style="color:var(--text-dim); font-size:0.85rem;">${c.milestone.q}</td>
+      <td class="num-cell ${c.milestone.p >= 0.5 ? "pos" : "neg"}">${Math.round(c.milestone.p * 100)}%</td>
+    </tr>
+  `).join("");
+}
+
+function renderAll() { renderThemes(); renderCompanies(); }
+renderAll();
+document.addEventListener("oo:lang", renderAll);
 </script>
 </body>
 </html>

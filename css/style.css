@@ -54,6 +54,16 @@ nav {
 .nav-links a:hover { color: var(--text); background: var(--card); text-decoration: none; }
 .nav-links a.active { color: var(--text); background: var(--card); }
 
+.lang-select {
+  margin-left: auto; flex-shrink: 0;
+  background: var(--card); color: var(--text);
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 6px 10px; font-size: 0.85rem; font-weight: 600;
+  font-family: var(--font); cursor: pointer;
+}
+.lang-select:hover { border-color: var(--accent); }
+.lang-select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
 /* ---------- Hero ---------- */
 .hero { padding: 90px 0 60px; text-align: center; position: relative; overflow: hidden; }
 .hero::before {

@@ -12,26 +12,23 @@
   <div class="nav-inner">
     <a class="logo" href="index.html">Omni<span>Oracle</span></a>
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="macro.html">Macro & Finance</a>
-      <a href="trends.html">Trend Companies</a>
-      <a href="markets.html">Markets</a>
-      <a href="tournament.html">Tournament</a>
-      <a href="methodology.html">Methodology</a>
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="macro.html" data-i18n="nav.macro">Macro & Finance</a>
+      <a href="trends.html" data-i18n="nav.trends">Trend Companies</a>
+      <a href="markets.html" data-i18n="nav.markets">Markets</a>
+      <a href="tournament.html" data-i18n="nav.tournament">Tournament</a>
+      <a href="methodology.html" data-i18n="nav.method">Methodology</a>
     </div>
   </div>
 </nav>
 
 <section>
   <div class="container">
-    <h1 class="section-title">Methodology & Research Foundation</h1>
-    <p class="section-sub">
-      Every module operationalizes a specific academic literature. The full design document lives in the
-      <a href="https://github.com/presleyzhou/omni-oracle/blob/main/DESIGN.md">repository (DESIGN.md)</a>.
-    </p>
+    <h1 class="section-title" data-i18n="me.title"></h1>
+    <p class="section-sub" data-i18n="me.sub"></p>
 
     <div class="card" style="margin-bottom:28px;">
-      <h3>Platform architecture</h3>
+      <h3 data-i18n="me.arch"></h3>
       <pre class="arch-pre">
 ┌────────────────────────────────────────────────────────────────────┐
 │                        OMNI ORACLE PLATFORM                        │
@@ -53,7 +50,7 @@
 
     <div class="grid grid-2">
       <div class="card">
-        <h3>Forecasting science → Tournament & Ensemble</h3>
+        <h3 data-i18n="me.sec1"></h3>
         <ul class="paper-list">
           <li>Tetlock & Gardner, <em>Superforecasting</em> (2015); Mellers et al. <span class="venue">Psychological Science 2014 — superforecaster identification (IARPA ACE)</span></li>
           <li>Satopää et al. (2014) <span class="venue">— extremizing aggregated probability forecasts</span></li>
@@ -64,7 +61,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>Prediction markets → P1–P8 & C5</h3>
+        <h3 data-i18n="me.sec2"></h3>
         <ul class="paper-list">
           <li>Wolfers & Zitzewitz (2004) <span class="venue">JEP; NBER w12083 — accuracy surveys; price ≈ belief-weighted probability</span></li>
           <li>Berg, Nelson & Rietz <span class="venue">— IEM long-run accuracy: markets ≈ half poll error &gt;100 days out</span></li>
@@ -75,7 +72,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>Macro forecasting → M1</h3>
+        <h3 data-i18n="me.sec3"></h3>
         <ul class="paper-list">
           <li>Giannone, Reichlin & Small (2008) <span class="venue">JME — dynamic factor model nowcasting</span></li>
           <li>Bańbura, Giannone & Reichlin (2010) <span class="venue">— large Bayesian VARs</span></li>
@@ -86,7 +83,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>Asset pricing & innovation → M2</h3>
+        <h3 data-i18n="me.sec4"></h3>
         <ul class="paper-list">
           <li>Gu, Kelly & Xiu (2020) <span class="venue">RFS — empirical asset pricing via machine learning</span></li>
           <li>Fama & French (1993, 2015); Hou, Xue & Zhang (2015) <span class="venue">— factor benchmarks</span></li>
@@ -100,16 +97,8 @@
     </div>
 
     <div class="card" style="margin-top:18px;">
-      <h3>Market infrastructure (C5) — design choices</h3>
-      <p style="margin-bottom:10px;">
-        <strong>Matching:</strong> hybrid CLOB — off-chain order matching, auditable on-chain settlement; binary
-        complementary tokens with the invariant 1 YES + 1 NO = $1; mint/merge on crossed complementary orders
-        (Polymarket/Gnosis CTF pattern). <strong>Liquidity:</strong> Hanson LMSR seeds thin markets with bounded loss
-        b·log n; CLOB takes over as volume grows. <strong>Resolution:</strong> three tiers — automated data feeds,
-        optimistic oracle (bond → dispute window → vote) with escalating bonds and criteria locked at market
-        creation, and an expert council for appeals; AI adjudication only as dispute triage.
-        <strong>Manipulation resistance:</strong> position limits near resolution, order-flow anomaly detection, public post-mortems.
-      </p>
+      <h3 data-i18n="me.infra.title"></h3>
+      <p style="margin-bottom:10px;" data-i18n="me.infra.body"></p>
       <div class="pill-list">
         <span class="tag">CLOB</span><span class="tag">LMSR AMM</span><span class="tag purple">Conditional tokens</span>
         <span class="tag purple">Optimistic oracle</span><span class="tag green">Escalating bonds</span>
@@ -119,23 +108,16 @@
     </div>
 
     <div class="card" style="margin-top:18px;">
-      <h3>Data sources</h3>
-      <p>
-        <strong>Macro (M1):</strong> FRED / FRED-MD, ALFRED vintages, BEA, BLS, Census, ECB SDW, OECD, SPF, Blue Chip,
-        CME FedWatch, TIPS breakevens, news/text corpora, alt-data (card spend, job postings, mobility).<br /><br />
-        <strong>Equities & innovation (M2):</strong> USPTO PatentsView, Google Patents, SEC EDGAR full-text, earnings-call
-        transcripts, CRSP/Compustat-class market data, arXiv, PubMed, ClinicalTrials.gov, Crunchbase, GitHub activity.<br /><br />
-        <strong>Markets (P1–P8):</strong> official results feeds (elections, leagues, awards), medianized exchange price
-        feeds (crypto), BLS/BEA/Fed releases, documented-event criteria with locked resolution wording.
-      </p>
+      <h3 data-i18n="me.data.title"></h3>
+      <p data-i18n="me.data.body"></p>
     </div>
 
     <div class="card" style="margin-top:18px;">
-      <h3>Roadmap</h3>
+      <h3 data-i18n="me.road.title"></h3>
       <ul class="paper-list">
-        <li><strong>Phase 1 (0–6 mo):</strong> M1 nowcasting core (DFM + random forest on FRED-MD), scoring layer (C3), play-money tournament on econ-release questions.</li>
-        <li><strong>Phase 2 (6–12 mo):</strong> M2 pipeline (patents + GKX-style ranking), P2/P3/P7 markets with LMSR seeding, ensemble engine v1.</li>
-        <li><strong>Phase 3 (12–24 mo):</strong> full CLOB + oracle stack, remaining categories, conditional/combinatorial markets, institutional API GA.</li>
+        <li data-i18n="me.road.p1"></li>
+        <li data-i18n="me.road.p2"></li>
+        <li data-i18n="me.road.p3"></li>
       </ul>
     </div>
   </div>
@@ -143,11 +125,12 @@
 
 <footer>
   <div class="container footer-inner">
-    <div>© 2026 Omni Oracle</div>
-    <div><a href="https://github.com/presleyzhou/omni-oracle">Source & design doc on GitHub</a></div>
+    <div data-i18n="footer.copy"></div>
+    <div><a href="https://github.com/presleyzhou/omni-oracle" data-i18n="footer.source"></a></div>
   </div>
 </footer>
 
+<script src="js/i18n.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

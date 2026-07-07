@@ -13,27 +13,23 @@
   <div class="nav-inner">
     <a class="logo" href="index.html">Omni<span>Oracle</span></a>
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="macro.html">Macro & Finance</a>
-      <a href="trends.html">Trend Companies</a>
-      <a href="markets.html">Markets</a>
-      <a href="tournament.html">Tournament</a>
-      <a href="methodology.html">Methodology</a>
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="macro.html" data-i18n="nav.macro">Macro & Finance</a>
+      <a href="trends.html" data-i18n="nav.trends">Trend Companies</a>
+      <a href="markets.html" data-i18n="nav.markets">Markets</a>
+      <a href="tournament.html" data-i18n="nav.tournament">Tournament</a>
+      <a href="methodology.html" data-i18n="nav.method">Methodology</a>
     </div>
   </div>
 </nav>
 
 <header class="hero">
   <div class="container">
-    <h1>Forecast everything.<br /><span class="grad">Score everything.</span></h1>
-    <p class="sub">
-      Omni Oracle combines machine-learning nowcasts, superforecaster crowds, and
-      prediction-market prices into one calibrated view of the future — for individuals,
-      institutions, and market participants.
-    </p>
+    <h1 data-i18n="hero.title">Forecast everything.<br /><span class="grad">Score everything.</span></h1>
+    <p class="sub" data-i18n="hero.sub"></p>
     <div class="cta">
-      <a class="btn btn-primary" href="macro.html">Explore the Macro Dashboard</a>
-      <a class="btn btn-ghost" href="markets.html">Browse Prediction Markets</a>
+      <a class="btn btn-primary" href="macro.html" data-i18n="cta.macro"></a>
+      <a class="btn btn-ghost" href="markets.html" data-i18n="cta.markets"></a>
     </div>
   </div>
 </header>
@@ -41,30 +37,30 @@
 <section>
   <div class="container">
     <div class="stats-bar">
-      <div class="stat"><div class="num">2.3%</div><div class="lbl">GDP nowcast, 2026Q2 (demo)</div></div>
-      <div class="stat"><div class="num up">63%</div><div class="lbl">CPI &lt; 2.5% — June print odds</div></div>
-      <div class="stat"><div class="num">0.124</div><div class="lbl">Platform ensemble Brier score</div></div>
-      <div class="stat"><div class="num down">19%</div><div class="lbl">2026 recession probability</div></div>
-      <div class="stat"><div class="num">20+</div><div class="lbl">Live demo markets across 8 categories</div></div>
+      <div class="stat"><div class="num">2.3%</div><div class="lbl" data-i18n="idx.stat1"></div></div>
+      <div class="stat"><div class="num up">63%</div><div class="lbl" data-i18n="idx.stat2"></div></div>
+      <div class="stat"><div class="num">0.124</div><div class="lbl" data-i18n="idx.stat3"></div></div>
+      <div class="stat"><div class="num down">19%</div><div class="lbl" data-i18n="idx.stat4"></div></div>
+      <div class="stat"><div class="num">20+</div><div class="lbl" data-i18n="idx.stat5"></div></div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2 class="section-title">Flagship analytics modules</h2>
-    <p class="section-sub">Two deep modules, each operationalizing a specific academic literature — see <a href="methodology.html">Methodology</a> for every citation.</p>
+    <h2 class="section-title" data-i18n="idx.flag.title"></h2>
+    <p class="section-sub" data-i18n="idx.flag.sub"></p>
     <div class="grid grid-2">
       <a class="card card-link" href="macro.html">
-        <h3>M1 · Macroeconomics & Finance</h3>
-        <p>Real-time GDP and inflation nowcasts (dynamic factor models à la Giannone–Reichlin–Small), random-forest ML layer, BVAR scenarios, and a Fed-decision probability tree cross-checked against market odds.</p>
+        <h3 data-i18n="idx.m1.title"></h3>
+        <p data-i18n="idx.m1.desc"></p>
         <div class="tag-row">
           <span class="tag">DFM nowcasting</span><span class="tag purple">Random forest</span><span class="tag green">BVAR scenarios</span><span class="tag amber">News decomposition</span>
         </div>
       </a>
       <a class="card card-link" href="trends.html">
-        <h3>M2 · Future-Trend Companies & Stocks</h3>
-        <p>A theme ontology mined from patents and filings, innovation scores per Kogan et al. (QJE 2017), and Gu–Kelly–Xiu-style machine-learning return ranks — with honest uncertainty bands, not "sure winners."</p>
+        <h3 data-i18n="idx.m2.title"></h3>
+        <p data-i18n="idx.m2.desc"></p>
         <div class="tag-row">
           <span class="tag">Theme explorer</span><span class="tag purple">Patent value</span><span class="tag green">ML decile ranks</span><span class="tag amber">Milestone odds</span>
         </div>
@@ -75,56 +71,50 @@
 
 <section>
   <div class="container">
-    <h2 class="section-title">Prediction market modules</h2>
-    <p class="section-sub">
-      Eight categories mirroring where real prediction-market volume concentrates — sports, politics and
-      crypto alone are ~90% of Polymarket volume — plus the two bridges into our analytics:
-      econ-release markets vs. the nowcast, and tech-milestone markets feeding company scorecards.
-    </p>
+    <h2 class="section-title" data-i18n="idx.pm.title"></h2>
+    <p class="section-sub" data-i18n="idx.pm.sub"></p>
     <div class="grid grid-4">
-      <a class="card card-link" href="markets.html?cat=politics"><h3>P1 · Politics & Elections</h3><p>Winner-take-all and vote-share contracts. Markets historically halve poll error &gt;100 days out.</p></a>
-      <a class="card card-link" href="markets.html?cat=crypto"><h3>P2 · Crypto</h3><p>Price thresholds and protocol milestones, resolved by medianized exchange feeds.</p></a>
-      <a class="card card-link" href="markets.html?cat=econ"><h3>P3 · Econ Data & Fed</h3><p>Fed decision buckets, CPI/NFP ranges — displayed side-by-side with the M1 nowcast.</p></a>
-      <a class="card card-link" href="markets.html?cat=geo"><h3>P4 · Geopolitics</h3><p>Event-by-date binaries with tightly worded, documented resolution criteria.</p></a>
-      <a class="card card-link" href="markets.html?cat=sports"><h3>P5 · Sports</h3><p>The volume anchor of real-world prediction markets (~39% of Polymarket volume).</p></a>
-      <a class="card card-link" href="markets.html?cat=ent"><h3>P6 · Awards & Entertainment</h3><p>Oscars, box office, and culture — a classic accuracy domain in the literature.</p></a>
-      <a class="card card-link" href="markets.html?cat=tech"><h3>P7 · Tech & AI Milestones</h3><p>Model releases, benchmarks, approvals — odds feed the M2 company pages.</p></a>
-      <a class="card card-link" href="markets.html?cat=news"><h3>P8 · Current Events</h3><p>The long tail, liquidity-seeded by a Hanson LMSR market maker.</p></a>
+      <a class="card card-link" href="markets.html?cat=politics"><h3 data-i18n="idx.p1.title"></h3><p data-i18n="idx.p1.desc"></p></a>
+      <a class="card card-link" href="markets.html?cat=crypto"><h3 data-i18n="idx.p2.title"></h3><p data-i18n="idx.p2.desc"></p></a>
+      <a class="card card-link" href="markets.html?cat=econ"><h3 data-i18n="idx.p3.title"></h3><p data-i18n="idx.p3.desc"></p></a>
+      <a class="card card-link" href="markets.html?cat=geo"><h3 data-i18n="idx.p4.title"></h3><p data-i18n="idx.p4.desc"></p></a>
+      <a class="card card-link" href="markets.html?cat=sports"><h3 data-i18n="idx.p5.title"></h3><p data-i18n="idx.p5.desc"></p></a>
+      <a class="card card-link" href="markets.html?cat=ent"><h3 data-i18n="idx.p6.title"></h3><p data-i18n="idx.p6.desc"></p></a>
+      <a class="card card-link" href="markets.html?cat=tech"><h3 data-i18n="idx.p7.title"></h3><p data-i18n="idx.p7.desc"></p></a>
+      <a class="card card-link" href="markets.html?cat=news"><h3 data-i18n="idx.p8.title"></h3><p data-i18n="idx.p8.desc"></p></a>
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2 class="section-title">How the platform stays honest</h2>
+    <h2 class="section-title" data-i18n="idx.honest.title"></h2>
     <div class="grid grid-3">
       <div class="card">
-        <h3>Proper scoring everywhere</h3>
-        <p>Every forecast — model, human, or market — is scored with Brier/log rules and public calibration curves (Gneiting's "sharpness subject to calibration"). The platform grades itself in the open.</p>
+        <h3 data-i18n="idx.h1.title"></h3>
+        <p data-i18n="idx.h1.desc"></p>
       </div>
       <div class="card">
-        <h3>Ensemble with attribution</h3>
-        <p>Forecast combination per Timmermann (2006) with domain-fit extremizing (Satopää et al. 2014). Users see exactly which source — models, crowd, or markets — is winning in each domain.</p>
+        <h3 data-i18n="idx.h2.title"></h3>
+        <p data-i18n="idx.h2.desc"></p>
       </div>
       <div class="card">
-        <h3>Manipulation-resistant resolution</h3>
-        <p>Three-tier resolution: automated feeds, optimistic oracle with bonds and dispute windows, and an expert council — designed around documented oracle-attack case studies.</p>
+        <h3 data-i18n="idx.h3.title"></h3>
+        <p data-i18n="idx.h3.desc"></p>
       </div>
     </div>
-    <div class="disclaimer">
-      <strong>Demo notice:</strong> This site is a design prototype. All prices, forecasts, scores and markets are
-      illustrative mock data. Nothing here is investment advice; play-money only.
-    </div>
+    <div class="disclaimer" data-i18n="idx.disclaimer"></div>
   </div>
 </section>
 
 <footer>
   <div class="container footer-inner">
-    <div>© 2026 Omni Oracle — research-grounded forecasting. Built from <a href="https://github.com/presleyzhou/omni-oracle">the open design doc</a>.</div>
-    <div><a href="methodology.html">Methodology & reading list</a></div>
+    <div data-i18n="idx.footer"></div>
+    <div><a href="methodology.html" data-i18n="footer.method"></a></div>
   </div>
 </footer>
 
+<script src="js/i18n.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

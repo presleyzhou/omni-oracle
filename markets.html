@@ -12,44 +12,37 @@
   <div class="nav-inner">
     <a class="logo" href="index.html">Omni<span>Oracle</span></a>
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="macro.html">Macro & Finance</a>
-      <a href="trends.html">Trend Companies</a>
-      <a href="markets.html">Markets</a>
-      <a href="tournament.html">Tournament</a>
-      <a href="methodology.html">Methodology</a>
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="macro.html" data-i18n="nav.macro">Macro & Finance</a>
+      <a href="trends.html" data-i18n="nav.trends">Trend Companies</a>
+      <a href="markets.html" data-i18n="nav.markets">Markets</a>
+      <a href="tournament.html" data-i18n="nav.tournament">Tournament</a>
+      <a href="methodology.html" data-i18n="nav.method">Methodology</a>
     </div>
   </div>
 </nav>
 
 <section>
   <div class="container">
-    <h1 class="section-title">Prediction Markets (P1–P8)</h1>
-    <p class="section-sub">
-      Play-money demo markets across the eight hottest real-world categories. Prices are probabilities
-      (1 YES + 1 NO = $1, conditional-token style). The trade panel prices your order with a real
-      Hanson LMSR market maker (b = 400) — exactly the mechanism the platform uses to seed thin markets.
-    </p>
+    <h1 class="section-title" data-i18n="mk.title"></h1>
+    <p class="section-sub" data-i18n="mk.sub"></p>
 
     <div class="chips" id="chips"></div>
     <div class="grid grid-2" id="marketGrid"></div>
 
-    <div class="disclaimer">
-      Demo markets with mock prices — play-money only, no real trading. Production design: hybrid CLOB
-      (off-chain matching, auditable settlement), LMSR liquidity seeding, and three-tier resolution
-      (automated feeds → optimistic oracle with bonds & dispute windows → expert council).
-    </div>
+    <div class="disclaimer" data-i18n="mk.disclaimer"></div>
   </div>
 </section>
 
 <footer>
   <div class="container footer-inner">
-    <div>© 2026 Omni Oracle</div>
-    <div><a href="methodology.html">Methodology & reading list</a></div>
+    <div data-i18n="footer.copy"></div>
+    <div><a href="methodology.html" data-i18n="footer.method"></a></div>
   </div>
 </footer>
 
 <script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
 <script src="js/app.js"></script>
 <script>
 const grid = document.getElementById("marketGrid");
@@ -62,11 +55,9 @@ const state = OO.markets.map(m => ({ price: m.yes, side: "yes", shares: 50, open
 
 function renderChips() {
   chipsEl.innerHTML = OO.categories.map(c =>
-    `<button class="chip ${c.id === activeCat ? "active" : ""}" data-cat="${c.id}">${c.label}</button>`
+    `<button class="chip ${c.id === activeCat ? "active" : ""}" data-cat="${c.id}">${OO_T("cat." + c.id)}</button>`
   ).join("");
 }
-
-function catLabel(id) { return OO.categories.find(c => c.id === id)?.label || id; }
 
 function render() {
   renderChips();
@@ -85,14 +76,14 @@ function render() {
       </div>
       <div class="prob-bar"><div class="fill" style="width:${yes * 100}%"></div></div>
       <div class="market-meta">
-        <span class="tag">${catLabel(m.cat)}</span>
-        <span>Vol $${m.vol}</span>
-        <span>Closes ${m.close}</span>
-        <span>Resolution: ${m.res}</span>
+        <span class="tag">${OO_T("cat." + m.cat)}</span>
+        <span>${OO_T("mk.vol")} $${m.vol}</span>
+        <span>${OO_T("mk.closes")} ${m.close}</span>
+        <span>${OO_T("mk.res")}: ${m.res}</span>
       </div>
       <div>
         <button class="btn btn-ghost btn-trade" style="padding:7px 16px; font-size:0.83rem;">
-          ${s.open ? "Hide trade panel" : "Trade (LMSR demo)"}
+          ${s.open ? OO_T("mk.hide") : OO_T("mk.trade")}
         </button>
       </div>
       <div class="trade-panel ${s.open ? "open" : ""}">
@@ -101,17 +92,17 @@ function render() {
             <button class="${s.side === "yes" ? "sel-yes" : ""}" data-side="yes">YES ${Math.round(yes*100)}¢</button>
             <button class="${s.side === "no" ? "sel-no" : ""}" data-side="no">NO ${Math.round((1-yes)*100)}¢</button>
           </div>
-          <span class="mono">${s.shares} shares</span>
+          <span class="mono shares-label">${s.shares} ${OO_T("mk.shares")}</span>
           <input type="range" min="10" max="500" step="10" value="${s.shares}" class="shares-slider" />
         </div>
         <div class="trade-row" style="color:var(--text-dim);">
-          <span>Cost <strong class="mono" style="color:var(--text);">${fmtUSD(cost)}</strong></span>
-          <span>Payout if right <strong class="mono" style="color:var(--green);">${fmtUSD(payout)}</strong></span>
-          <span>Avg price <strong class="mono" style="color:var(--text);">${Math.round(100 * cost / s.shares)}¢</strong></span>
-          <span>Moves YES to <strong class="mono" style="color:var(--accent);">${Math.round(newP * 100)}¢</strong></span>
+          <span>${OO_T("mk.cost")} <strong class="mono" style="color:var(--text);">${fmtUSD(cost)}</strong></span>
+          <span>${OO_T("mk.payout")} <strong class="mono" style="color:var(--green);">${fmtUSD(payout)}</strong></span>
+          <span>${OO_T("mk.avg")} <strong class="mono" style="color:var(--text);">${Math.round(100 * cost / s.shares)}¢</strong></span>
+          <span>${OO_T("mk.moves")} <strong class="mono" style="color:var(--accent);">${Math.round(newP * 100)}¢</strong></span>
         </div>
         <div class="trade-row">
-          <button class="btn btn-primary btn-exec" style="padding:7px 16px; font-size:0.83rem;">Execute (play money)</button>
+          <button class="btn btn-primary btn-exec" style="padding:7px 16px; font-size:0.83rem;">${OO_T("mk.exec")}</button>
           <span class="exec-msg" style="color:var(--green); font-size:0.8rem;"></span>
         </div>
       </div>
@@ -137,7 +128,7 @@ grid.addEventListener("click", (e) => {
     s.price = Math.min(0.99, Math.max(0.01, newP));
     render();
     const msg = document.querySelector(`.market-card[data-i="${i}"] .exec-msg`);
-    if (msg) msg.textContent = "Filled ✓ — price updated by the LMSR market maker";
+    if (msg) msg.textContent = OO_T("mk.filled");
   }
 });
 
@@ -150,7 +141,7 @@ grid.addEventListener("input", (e) => {
   const cost = LMSR.cost(yes, s.side, s.shares);
   const newP = LMSR.newPrice(yes, s.side, s.shares);
   const rows = cardEl.querySelectorAll(".trade-row");
-  cardEl.querySelector(".mono").textContent = `${s.shares} shares`;
+  cardEl.querySelector(".shares-label").textContent = `${s.shares} ${OO_T("mk.shares")}`;
   const dim = rows[1].querySelectorAll("strong");
   dim[0].textContent = fmtUSD(cost);
   dim[1].textContent = fmtUSD(s.shares);
@@ -159,6 +150,7 @@ grid.addEventListener("input", (e) => {
 });
 
 render();
+document.addEventListener("oo:lang", render);
 </script>
 </body>
 </html>
