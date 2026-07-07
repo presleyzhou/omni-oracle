@@ -132,7 +132,11 @@
           <div style="margin-top:16px; font-weight:700;" data-i18n="sw.kfTitle"></div>
           <ul class="paper-list" id="findings"></ul>
           <div style="color:var(--text-dim); font-size:0.82rem; margin:8px 0 14px;" data-i18n="sw.rep.horizon"></div>
-          <button class="btn btn-ghost" id="exportBtn" style="padding:8px 18px; font-size:0.85rem;" data-i18n="sw.export"></button>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-ghost" id="exportBtn" style="padding:8px 18px; font-size:0.85rem;" data-i18n="sw.export"></button>
+            <button class="btn btn-ghost" id="aiRepBtn" style="padding:8px 18px; font-size:0.85rem;" data-i18n="sw.llm.reportBtn"></button>
+          </div>
+          <div id="aiNarr" class="hide" style="margin-top:14px; padding:14px; border-radius:10px; background:rgba(139,92,246,0.08); border:1px solid rgba(139,92,246,0.3); font-size:0.88rem; color:var(--text-dim); white-space:pre-wrap;"></div>
         </div>
         <div>
           <div class="stats-bar" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); margin-bottom:18px;">
@@ -142,6 +146,22 @@
           </div>
           <div class="card">
             <h3 data-i18n="sw.chat.title"></h3>
+            <details style="margin-top:6px;">
+              <summary style="cursor:pointer; color:var(--cyan); font-size:0.85rem;" data-i18n="sw.llm.title"></summary>
+              <p style="font-size:0.78rem; color:var(--text-dim); margin:8px 0;" data-i18n="sw.llm.hint"></p>
+              <div class="chat-row">
+                <input class="oo-input" id="llmKey" type="password" placeholder="sk-ant-…" autocomplete="off" />
+                <select class="oo-input" id="llmModel" style="max-width:210px;">
+                  <option value="claude-sonnet-5">claude-sonnet-5</option>
+                  <option value="claude-haiku-4-5-20251001">claude-haiku-4.5</option>
+                </select>
+              </div>
+              <div style="display:flex; gap:8px; margin-top:8px; align-items:center; flex-wrap:wrap;">
+                <button class="btn btn-ghost" id="llmSave" style="padding:6px 14px; font-size:0.8rem;" data-i18n="sw.llm.save"></button>
+                <button class="btn btn-ghost" id="llmClear" style="padding:6px 14px; font-size:0.8rem;" data-i18n="sw.llm.clear"></button>
+              </div>
+            </details>
+            <div id="llmStatus" style="font-size:0.78rem; margin-top:8px;"></div>
             <div class="chips" id="agentChips" style="margin:10px 0;"></div>
             <div class="chat-box" id="chatBox"></div>
             <div class="chat-row">
@@ -164,9 +184,9 @@
   </div>
 </footer>
 
-<script src="js/data.js?v=6"></script>
-<script src="js/i18n.js?v=6"></script>
-<script src="js/app.js?v=6"></script>
+<script src="js/data.js?v=8"></script>
+<script src="js/i18n.js?v=8"></script>
+<script src="js/app.js?v=8"></script>
 <script>
 /* ---------- Parallel-world demo simulation (client-side, illustrative) ---------- */
 const FACTIONS = [
@@ -573,6 +593,76 @@ document.getElementById("exportBtn").addEventListener("click", () => {
   URL.revokeObjectURL(a.href);
 });
 
+/* ----- optional real LLM (bring your own key; stored in localStorage only) ----- */
+const LLM = {
+  get key() { return localStorage.getItem("oo-llm-key") || ""; },
+  get model() { return localStorage.getItem("oo-llm-model") || "claude-sonnet-5"; },
+  async ask(system, user, maxTokens = 500) {
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "x-api-key": this.key,
+        "anthropic-version": "2023-06-01",
+        "anthropic-dangerous-direct-browser-access": "true",
+      },
+      body: JSON.stringify({
+        model: this.model, max_tokens: maxTokens,
+        system, messages: [{ role: "user", content: user }],
+      }),
+    });
+    if (!res.ok) throw new Error(res.status + " " + (await res.text()).slice(0, 140));
+    const data = await res.json();
+    return data.content.map((b) => b.text || "").join("").trim();
+  },
+};
+function worldStateText() {
+  const probs = scenarioProbs();
+  const lead = OO_T("sw.sc" + (probs.indexOf(Math.max(...probs)) + 1));
+  const evs = SIM.events.slice(0, 5).map((e) => `D${e.day} ${T(e.key, e.params)}`).join(" | ");
+  return `Day ${SIM.day}/90. Sentiment ${Math.round(SIM.sent)}/100, market confidence ${Math.round(SIM.conf)}/100, volatility ${SIM.vol.toFixed(2)}. ` +
+    `Scenario odds: optimistic ${probs[0]}%, baseline ${probs[1]}%, pessimistic ${probs[2]}% (leading: ${lead}). ` +
+    `Interventions so far: ${SIM.ivLog.map((i) => i.name).join(", ") || "none"}. Recent events: ${evs || "none"}. ` +
+    `Seed material: ${seedText.value.slice(0, 500)}. Prediction request: ${askText.value.slice(0, 300) || "(none)"}.`;
+}
+function updateLlmStatus() {
+  const el = document.getElementById("llmStatus");
+  const on = !!LLM.key;
+  el.textContent = (on ? "🟢 " : "⚪ ") + OO_T(on ? "sw.llm.on" : "sw.llm.off");
+  el.style.color = on ? "var(--green)" : "var(--text-dim)";
+  document.getElementById("llmModel").value = LLM.model;
+  document.getElementById("llmKey").value = LLM.key;
+}
+document.getElementById("llmSave").addEventListener("click", () => {
+  const k = document.getElementById("llmKey").value.trim();
+  if (k) localStorage.setItem("oo-llm-key", k);
+  localStorage.setItem("oo-llm-model", document.getElementById("llmModel").value);
+  updateLlmStatus();
+});
+document.getElementById("llmClear").addEventListener("click", () => {
+  localStorage.removeItem("oo-llm-key");
+  document.getElementById("llmKey").value = "";
+  updateLlmStatus();
+});
+
+/* ReportAgent narrative via LLM */
+document.getElementById("aiRepBtn").addEventListener("click", async () => {
+  if (!SIM.built) return;
+  const box = document.getElementById("aiNarr");
+  box.classList.remove("hide");
+  if (!LLM.key) { box.textContent = "⚪ " + OO_T("sw.llm.off"); return; }
+  box.textContent = "🤖 " + OO_T("sw.llm.thinking");
+  try {
+    const sys = "You are the ReportAgent of Omni Oracle's parallel-world simulation engine. " +
+      "Write a concise, decision-oriented forecast narrative (150-220 words) based on the simulation state you are given: " +
+      "what is driving the leading scenario, key risks, what to watch, and one hedging recommendation. " +
+      "No preamble, no markdown headers. Reply strictly in this language code: " + OO_LANG + ".";
+    box.textContent = "【" + OO_T("sw.llm.narrTitle") + "】\n" + (await LLM.ask(sys, worldStateText(), 600));
+  } catch (err) {
+    box.textContent = "⚠️ " + OO_T("sw.llm.err") + err.message;
+  }
+});
+
 /* ----- agent chat ----- */
 function renderAgentChips() {
   document.getElementById("agentChips").innerHTML = [0,1,2].map(i =>
@@ -585,30 +675,51 @@ document.getElementById("agentChips").addEventListener("click", (e) => {
   SIM.chatAgent = +b.dataset.a; renderAgentChips();
 });
 let replyFlip = 0;
-function sendChat() {
+function cannedReply() {
+  const probs = scenarioProbs();
+  const lead = OO_T("sw.sc" + (probs.indexOf(Math.max(...probs)) + 1));
+  replyFlip = 1 - replyFlip;
+  const key = `sw.r${SIM.chatAgent + 1}${replyFlip + 1}`;
+  return T(key, { day: SIM.day, sent: Math.round(SIM.sent), conf: Math.round(SIM.conf), lead });
+}
+function appendAgentMsg(txt) {
+  const box = document.getElementById("chatBox");
+  box.insertAdjacentHTML("beforeend",
+    `<div class="msg agent"><strong style="color:var(--accent-2);">${OO_T("sw.ag" + (SIM.chatAgent + 1))}</strong><br/>${txt.replace(/</g, "&lt;")}</div>`);
+  box.scrollTop = box.scrollHeight;
+}
+async function sendChat() {
   const inp = document.getElementById("chatInput");
   const q = inp.value.trim(); if (!q || !SIM.built) return;
   inp.value = "";
   const box = document.getElementById("chatBox");
   box.insertAdjacentHTML("beforeend", `<div class="msg user">${q.replace(/</g, "&lt;")}</div>`);
   box.scrollTop = box.scrollHeight;
-  setTimeout(() => {
-    const probs = scenarioProbs();
-    const lead = OO_T("sw.sc" + (probs.indexOf(Math.max(...probs)) + 1));
-    replyFlip = 1 - replyFlip;
-    const key = `sw.r${SIM.chatAgent + 1}${replyFlip + 1}`;
-    const txt = T(key, { day: SIM.day, sent: Math.round(SIM.sent), conf: Math.round(SIM.conf), lead });
-    box.insertAdjacentHTML("beforeend",
-      `<div class="msg agent"><strong style="color:var(--accent-2);">${OO_T("sw.ag" + (SIM.chatAgent + 1))}</strong><br/>${txt}</div>`);
+  if (LLM.key) {
+    const persona = OO_T("sw.ag" + (SIM.chatAgent + 1));
+    box.insertAdjacentHTML("beforeend", `<div class="msg agent" id="pendingMsg">🤖 ${OO_T("sw.llm.thinking")}</div>`);
     box.scrollTop = box.scrollHeight;
-  }, 650);
+    try {
+      const sys = `You are "${persona}", an agent living inside a simulated parallel world built from real-world seed information. ` +
+        "Stay strictly in character, speak in first person, 2-4 sentences, reference the world state naturally. " +
+        "Reply strictly in this language code: " + OO_LANG + ". World state: " + worldStateText();
+      const txt = await LLM.ask(sys, q, 300);
+      document.getElementById("pendingMsg")?.remove();
+      appendAgentMsg(txt);
+    } catch (err) {
+      document.getElementById("pendingMsg")?.remove();
+      appendAgentMsg("⚠️ " + OO_T("sw.llm.err") + err.message + " — " + cannedReply());
+    }
+    return;
+  }
+  setTimeout(() => appendAgentMsg(cannedReply()), 650);
 }
 document.getElementById("chatSend").addEventListener("click", sendChat);
 document.getElementById("chatInput").addEventListener("keydown", (e) => { if (e.key === "Enter") sendChat(); });
 
 /* ----- i18n re-render ----- */
 function rerenderDynamic() {
-  renderSeedChips(); renderFileList();
+  renderSeedChips(); renderFileList(); updateLlmStatus();
   if (SIM.built) {
     renderGodBtns(); renderAgentChips(); renderLegend(); renderFeed(); renderReport(); updateHud();
     initChart(); drawGraph(); renderMC();
@@ -617,6 +728,7 @@ function rerenderDynamic() {
 }
 document.addEventListener("oo:lang", rerenderDynamic);
 renderSeedChips();
+updateLlmStatus();
 </script>
 </body>
 </html>
