@@ -10,6 +10,7 @@ OO.macro = {
   gdpNowcast: [2.8, 2.4, 1.6, 2.1, 2.5, 2.2, 1.9, 2.3],
   gdpSPF:     [2.5, 2.2, 1.9, 2.0, 2.3, 2.1, 2.0, 2.1],
   gdpActual:  [3.1, 2.4, 1.4, 2.2, 2.6, 2.0, 1.8, null],
+  gdpTSFM:    [2.6, 2.3, 1.7, 2.0, 2.4, 2.1, 2.0, 2.2],
 
   months: ["Jul 25","Aug 25","Sep 25","Oct 25","Nov 25","Dec 25","Jan 26","Feb 26","Mar 26","Apr 26","May 26","Jun 26"],
   cpiYoY:   [2.9, 2.8, 2.6, 2.7, 2.5, 2.4, 2.6, 2.5, 2.3, 2.4, 2.2, 2.3],
@@ -35,11 +36,12 @@ OO.macro = {
   ],
 
   ensemble: [
-    { source: "DFM nowcast", weight: 0.34 },
-    { source: "Random forest", weight: 0.27 },
+    { source: "DFM nowcast", weight: 0.30 },
+    { source: "Random forest", weight: 0.24 },
+    { source: "TSFM (Chronos-2)", weight: 0.10 },
     { source: "BVAR scenario", weight: 0.12 },
-    { source: "Crowd (tournament)", weight: 0.15 },
-    { source: "Market prices (P3)", weight: 0.12 },
+    { source: "Crowd (tournament)", weight: 0.13 },
+    { source: "Market prices (P3)", weight: 0.11 },
   ],
 };
 
@@ -56,18 +58,18 @@ OO.themes = [
 ];
 
 OO.companies = [
-  { ticker: "NVDA", name: "NVIDIA",             theme: "AI Infrastructure",       innov: 94, trend: 91, mlDecile: 9,  milestone: { q: "Blackwell-next volume ship by Q4 2026?", p: 0.81 } },
-  { ticker: "AVGO", name: "Broadcom",           theme: "AI Infrastructure",       innov: 86, trend: 84, mlDecile: 9,  milestone: { q: "Custom ASIC rev > $40B FY2026?", p: 0.64 } },
-  { ticker: "VRT",  name: "Vertiv",             theme: "AI Infrastructure",       innov: 71, trend: 88, mlDecile: 8,  milestone: { q: "Liquid-cooling rev doubles by 2027?", p: 0.58 } },
-  { ticker: "LLY",  name: "Eli Lilly",          theme: "GLP-1 & Metabolic",       innov: 90, trend: 86, mlDecile: 8,  milestone: { q: "Oral GLP-1 approval by 2027?", p: 0.72 } },
-  { ticker: "NVO",  name: "Novo Nordisk",       theme: "GLP-1 & Metabolic",       innov: 84, trend: 78, mlDecile: 6,  milestone: { q: "Next-gen obesity data readout beats CagriSema?", p: 0.44 } },
-  { ticker: "TSLA", name: "Tesla",              theme: "Humanoid Robotics",       innov: 82, trend: 75, mlDecile: 5,  milestone: { q: "Optimus commercial deployment by 2027?", p: 0.37 } },
-  { ticker: "ISRG", name: "Intuitive Surgical", theme: "Humanoid Robotics",       innov: 79, trend: 72, mlDecile: 7,  milestone: { q: "da Vinci 6 clearance by 2027?", p: 0.61 } },
-  { ticker: "GEV",  name: "GE Vernova",         theme: "Grid & Energy Storage",   innov: 68, trend: 83, mlDecile: 8,  milestone: { q: "Grid backlog > $50B by 2027?", p: 0.66 } },
-  { ticker: "CEG",  name: "Constellation",      theme: "Next-Gen Nuclear",        innov: 55, trend: 80, mlDecile: 7,  milestone: { q: "New nuclear PPA with hyperscaler in 2026?", p: 0.69 } },
-  { ticker: "RKLB", name: "Rocket Lab",         theme: "Space Economy",           innov: 74, trend: 77, mlDecile: 6,  milestone: { q: "Neutron first launch by mid-2027?", p: 0.52 } },
-  { ticker: "IONQ", name: "IonQ",               theme: "Quantum Computing",       innov: 70, trend: 58, mlDecile: 3,  milestone: { q: "Logical-qubit milestone by 2027?", p: 0.31 } },
-  { ticker: "GOOGL",name: "Alphabet",           theme: "Autonomous Driving",      innov: 92, trend: 79, mlDecile: 7,  milestone: { q: "Waymo > 10 US metros by end-2026?", p: 0.57 } },
+  { ticker: "NVDA", name: "NVIDIA",             theme: "AI Infrastructure",       innov: 94, trend: 91, mlDecile: 9, tone: 78,  milestone: { q: "Blackwell-next volume ship by Q4 2026?", p: 0.81 } },
+  { ticker: "AVGO", name: "Broadcom",           theme: "AI Infrastructure",       innov: 86, trend: 84, mlDecile: 9, tone: 66,  milestone: { q: "Custom ASIC rev > $40B FY2026?", p: 0.64 } },
+  { ticker: "VRT",  name: "Vertiv",             theme: "AI Infrastructure",       innov: 71, trend: 88, mlDecile: 8, tone: 61,  milestone: { q: "Liquid-cooling rev doubles by 2027?", p: 0.58 } },
+  { ticker: "LLY",  name: "Eli Lilly",          theme: "GLP-1 & Metabolic",       innov: 90, trend: 86, mlDecile: 8, tone: 72,  milestone: { q: "Oral GLP-1 approval by 2027?", p: 0.72 } },
+  { ticker: "NVO",  name: "Novo Nordisk",       theme: "GLP-1 & Metabolic",       innov: 84, trend: 78, mlDecile: 6, tone: 38,  milestone: { q: "Next-gen obesity data readout beats CagriSema?", p: 0.44 } },
+  { ticker: "TSLA", name: "Tesla",              theme: "Humanoid Robotics",       innov: 82, trend: 75, mlDecile: 5, tone: 45,  milestone: { q: "Optimus commercial deployment by 2027?", p: 0.37 } },
+  { ticker: "ISRG", name: "Intuitive Surgical", theme: "Humanoid Robotics",       innov: 79, trend: 72, mlDecile: 7, tone: 58,  milestone: { q: "da Vinci 6 clearance by 2027?", p: 0.61 } },
+  { ticker: "GEV",  name: "GE Vernova",         theme: "Grid & Energy Storage",   innov: 68, trend: 83, mlDecile: 8, tone: 70,  milestone: { q: "Grid backlog > $50B by 2027?", p: 0.66 } },
+  { ticker: "CEG",  name: "Constellation",      theme: "Next-Gen Nuclear",        innov: 55, trend: 80, mlDecile: 7, tone: 74,  milestone: { q: "New nuclear PPA with hyperscaler in 2026?", p: 0.69 } },
+  { ticker: "RKLB", name: "Rocket Lab",         theme: "Space Economy",           innov: 74, trend: 77, mlDecile: 6, tone: 55,  milestone: { q: "Neutron first launch by mid-2027?", p: 0.52 } },
+  { ticker: "IONQ", name: "IonQ",               theme: "Quantum Computing",       innov: 70, trend: 58, mlDecile: 3, tone: 33,  milestone: { q: "Logical-qubit milestone by 2027?", p: 0.31 } },
+  { ticker: "GOOGL",name: "Alphabet",           theme: "Autonomous Driving",      innov: 92, trend: 79, mlDecile: 7, tone: 64,  milestone: { q: "Waymo > 10 US metros by end-2026?", p: 0.57 } },
 ];
 
 /* ---------- Prediction markets (P1–P8) ---------- */
@@ -128,6 +130,17 @@ OO.brierBySource = [
   { source: "Superforecasters (aggregated + extremized)", brier: 0.121 },
   { source: "Ensemble engine (models+crowd+markets)", brier: 0.124 },
   { source: "Market prices (internal CLOB)", brier: 0.133 },
+  { source: "LLM crowd (5 models)", brier: 0.146 },
   { source: "All-crowd average", brier: 0.158 },
+  { source: "Frontier LLM (single)", brier: 0.166 },
   { source: "Naive base-rate baseline", brier: 0.214 },
+];
+
+/* AI forecaster bench (demo data; literature anchor: best single LLM Brier
+   ~0.101 vs human superforecasters ~0.081 on real geopolitical questions) */
+OO.aiBench = [
+  { model: "claude-sonnet-5",      cutoff: "2025-03", forecasts: 120, brier: 0.152 },
+  { model: "gpt-4.5",              cutoff: "2024-10", forecasts: 120, brier: 0.166 },
+  { model: "gemini-2.5-pro",       cutoff: "2025-01", forecasts: 120, brier: 0.171 },
+  { model: "LLM crowd (5 models)", cutoff: "—",       forecasts: 120, brier: 0.146 },
 ];

@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://presleyzhou.github.io/omni-oracle/tournament.html" />
 <meta name="twitter:card" content="summary" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>" />
-<link rel="stylesheet" href="css/style.css?v=11" />
+<link rel="stylesheet" href="css/style.css?v=12" />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
@@ -71,6 +71,21 @@
       </div>
     </div>
 
+    <div class="card" style="margin-top:18px;">
+      <h3 data-i18n="tour.ai.title"></h3>
+      <p style="margin-bottom:12px;" data-i18n="tour.ai.sub"></p>
+      <table id="aiBench">
+        <thead><tr><th data-i18n="tour.ai.model"></th><th data-i18n="tour.ai.cutoff"></th><th data-i18n="tour.th.forecasts"></th><th data-i18n="tour.th.brier"></th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <div style="margin-top:16px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+        <button class="btn btn-primary" id="aiRunBtn" style="padding:8px 18px; font-size:0.85rem;" data-i18n="tour.ai.run"></button>
+        <span id="aiRunStatus" style="font-size:0.82rem; color:var(--text-dim);"></span>
+      </div>
+      <div id="aiLive" class="hide" style="margin-top:14px;"></div>
+      <p style="margin-top:12px; font-size:0.8rem; color:var(--text-dim);" data-i18n="tour.ai.note"></p>
+    </div>
+
     <div class="disclaimer" data-i18n="tour.disclaimer"></div>
   </div>
 </section>
@@ -82,9 +97,9 @@
   </div>
 </footer>
 
-<script src="js/data.js?v=11"></script>
-<script src="js/i18n.js?v=11"></script>
-<script src="js/app.js?v=11"></script>
+<script src="js/data.js?v=12"></script>
+<script src="js/i18n.js?v=12"></script>
+<script src="js/app.js?v=12"></script>
 <script>
 document.querySelector("#lb tbody").innerHTML = OO.leaderboard.map(r => `
   <tr>
@@ -123,7 +138,7 @@ function buildCharts() {
     },
   }));
 
-  const srcKeys = ["src.supers", "src.ens", "src.mkt", "src.crowd", "src.naive"];
+  const srcKeys = ["src.supers", "src.ens", "src.mkt", "src.llmcrowd", "src.crowd", "src.llm", "src.naive"];
   charts.push(new Chart(document.getElementById("srcChart"), {
     type: "bar",
     data: {
@@ -131,7 +146,7 @@ function buildCharts() {
       datasets: [{
         label: OO_T("ch.brier"),
         data: OO.brierBySource.map(s => s.brier),
-        backgroundColor: [OO_COLORS.green, OO_COLORS.accent, OO_COLORS.purple, OO_COLORS.amber, OO_COLORS.red].map(c => c + "c0"),
+        backgroundColor: [OO_COLORS.green, OO_COLORS.accent, OO_COLORS.purple, "#22d3ee", OO_COLORS.amber, "#94a3b8", OO_COLORS.red].map(c => c + "c0"),
       }],
     },
     options: { maintainAspectRatio: false, indexAxis: "y", plugins: { legend: { display: false } }, scales: { x: { min: 0, max: 0.25 } } },
@@ -139,7 +154,80 @@ function buildCharts() {
 }
 
 buildCharts();
-document.addEventListener("oo:lang", buildCharts);
+
+/* ----- AI forecaster bench (demo table + live BYOK mini-bench) ----- */
+function renderAiBench() {
+  document.querySelector("#aiBench tbody").innerHTML = OO.aiBench.map(r => `
+    <tr>
+      <td><strong>${r.model}</strong></td>
+      <td><span class="tag amber">${r.cutoff}</span></td>
+      <td class="num-cell">${r.forecasts}</td>
+      <td class="num-cell pos">${r.brier.toFixed(3)}</td>
+    </tr>`).join("");
+}
+renderAiBench();
+
+/* Live bench: reuse the LLM credentials saved on the Sim Worlds page */
+const LLM_CFG = {
+  get key() { return localStorage.getItem("oo-llm-key") || ""; },
+  get provider() { return localStorage.getItem("oo-llm-provider") || "anthropic"; },
+  get base() { return localStorage.getItem("oo-llm-base") || "https://api.openai.com/v1"; },
+  get model() {
+    return localStorage.getItem("oo-llm-model") ||
+      (this.provider === "openai" ? "gpt-4o-mini" : "claude-sonnet-5");
+  },
+};
+async function llmAsk(system, user, maxTokens = 300) {
+  if (LLM_CFG.provider === "openai") {
+    const res = await fetch(LLM_CFG.base.replace(/\/+$/, "") + "/chat/completions", {
+      method: "POST",
+      headers: { "content-type": "application/json", authorization: "Bearer " + LLM_CFG.key },
+      body: JSON.stringify({ model: LLM_CFG.model, max_tokens: maxTokens,
+        messages: [{ role: "system", content: system }, { role: "user", content: user }] }),
+    });
+    if (!res.ok) throw new Error(res.status);
+    return (await res.json()).choices?.[0]?.message?.content || "";
+  }
+  const res = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: { "content-type": "application/json", "x-api-key": LLM_CFG.key,
+      "anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true" },
+    body: JSON.stringify({ model: LLM_CFG.model, max_tokens: maxTokens, system,
+      messages: [{ role: "user", content: user }] }),
+  });
+  if (!res.ok) throw new Error(res.status);
+  return (await res.json()).content.map(b => b.text || "").join("");
+}
+
+document.getElementById("aiRunBtn").addEventListener("click", async () => {
+  const st = document.getElementById("aiRunStatus");
+  if (!LLM_CFG.key) { st.textContent = "⚪ " + OO_T("tour.ai.nokey"); return; }
+  const qs = [6, 7, 8].map(i => OO.markets[i]); // live econ questions
+  st.textContent = "🤖 " + OO_T("tour.ai.running");
+  try {
+    const sys = "You are a careful probabilistic forecaster. Reply ONLY with a JSON array of 3 probabilities in [0,1], one per question, no other text.";
+    const raw = await llmAsk(sys, qs.map((m, k) => `${k + 1}. ${m.q}`).join("\n"));
+    const probs = JSON.parse(raw.match(/\[[^\]]*\]/)[0]).map(Number);
+    if (probs.length !== 3 || probs.some(p => !(p >= 0 && p <= 1))) throw new Error("bad output");
+    let mse = 0;
+    const rows = qs.map((m, k) => {
+      const gap = probs[k] - m.yes; mse += gap * gap / 3;
+      return `<tr><td style="max-width:340px;">${m.q}</td>
+        <td class="num-cell">${Math.round(probs[k] * 100)}%</td>
+        <td class="num-cell">${Math.round(m.yes * 100)}%</td>
+        <td class="num-cell ${Math.abs(gap) < 0.1 ? "pos" : "neg"}">${(gap >= 0 ? "+" : "") + Math.round(gap * 100)}pp</td></tr>`;
+    }).join("");
+    const live = document.getElementById("aiLive");
+    live.classList.remove("hide");
+    live.innerHTML = `<table><thead><tr><th>${OO_T("tour.ai.q")}</th><th>LLM</th><th>${OO_T("tour.ai.mkt") === "tour.ai.mkt" ? "Market" : OO_T("tour.ai.mkt")}</th><th>Δ</th></tr></thead><tbody>${rows}</tbody></table>
+      <p style="margin-top:10px; font-size:0.85rem; color:var(--cyan);">${OO_T("tour.ai.alpha")}: <strong class="num-cell">${mse.toFixed(4)}</strong> · ${LLM_CFG.model}</p>`;
+    st.textContent = "✓";
+  } catch (err) {
+    st.textContent = "⚠️ " + OO_T("sw.llm.err") + err.message;
+  }
+});
+
+document.addEventListener("oo:lang", () => { buildCharts(); renderAiBench(); });
 </script>
 </body>
 </html>

@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://presleyzhou.github.io/omni-oracle/markets.html" />
 <meta name="twitter:card" content="summary" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>" />
-<link rel="stylesheet" href="css/style.css?v=11" />
+<link rel="stylesheet" href="css/style.css?v=12" />
 </head>
 <body>
 
@@ -55,6 +55,17 @@
       </table>
     </div>
 
+    <div class="card" style="margin-bottom:24px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+        <h3 data-i18n="ai.title"></h3>
+        <button class="btn btn-primary" id="aiRun" style="padding:7px 16px; font-size:0.83rem;" data-i18n="ai.run"></button>
+      </div>
+      <p style="margin:8px 0; font-size:0.85rem;" data-i18n="ai.sub"></p>
+      <span id="aiStatus" style="font-size:0.82rem; color:var(--text-dim);"></span>
+      <div id="aiOut" class="hide" style="overflow-x:auto; margin-top:10px;"></div>
+      <p style="margin-top:10px; font-size:0.78rem; color:var(--text-dim);" data-i18n="ai.note"></p>
+    </div>
+
     <div class="grid grid-2" id="marketGrid"></div>
 
     <div class="disclaimer" data-i18n="mk.disclaimer"></div>
@@ -68,9 +79,9 @@
   </div>
 </footer>
 
-<script src="js/data.js?v=11"></script>
-<script src="js/i18n.js?v=11"></script>
-<script src="js/app.js?v=11"></script>
+<script src="js/data.js?v=12"></script>
+<script src="js/i18n.js?v=12"></script>
+<script src="js/app.js?v=12"></script>
 <script>
 const grid = document.getElementById("marketGrid");
 const chipsEl = document.getElementById("chips");
@@ -79,6 +90,21 @@ if (!OO.categories.some(c => c.id === activeCat)) activeCat = "all";
 
 /* per-market UI state */
 const state = OO.markets.map(m => ({ price: m.yes, side: "yes", shares: 50, open: false }));
+
+/* related markets: token overlap + same-category bonus (semantic clustering, demo-grade) */
+const REL = OO.markets.map((m, i) => {
+  const toks = (q) => new Set(q.toLowerCase().split(/[^a-z0-9]+/).filter(w => w.length > 3));
+  const a = toks(m.q);
+  return OO.markets
+    .map((n, j) => {
+      if (i === j) return { j, s: -1 };
+      let s = 0;
+      toks(n.q).forEach(w => { if (a.has(w)) s++; });
+      if (n.cat === m.cat) s += 1.5;
+      return { j, s };
+    })
+    .sort((x, y) => y.s - x.s).slice(0, 2).map(x => x.j);
+});
 
 /* play-money portfolio, persisted in localStorage */
 let PORT = [];
@@ -98,7 +124,7 @@ function renderPortfolio() {
     totCost += p.cost; totVal += val;
     return `<tr>
       <td style="max-width:340px;">${OO.markets[p.i].q}</td>
-      <td><span class="tag ${p.side === "yes" ? "green" : "red"}">${p.side.toUpperCase()}</span></td>
+      <td>${p.bot ? "🤖 " : ""}<span class="tag ${p.side === "yes" ? "green" : "red"}">${p.side.toUpperCase()}</span></td>
       <td class="num-cell">${p.shares}</td>
       <td class="num-cell">${fmtUSD(p.cost)}</td>
       <td class="num-cell">${Math.round(cur * 100)}¢</td>
@@ -147,6 +173,10 @@ function render() {
         <span>${OO_T("mk.vol")} $${m.vol}</span>
         <span>${OO_T("mk.closes")} ${m.close}</span>
         <span>${OO_T("mk.res")}: ${m.res}</span>
+      </div>
+      <div class="market-meta" style="font-size:0.76rem;">
+        <span>${OO_T("mk.rel")}:</span>
+        ${REL[i].map(j => `<a href="#" class="rel-link" data-j="${j}">${OO.markets[j].q.slice(0, 42)}${OO.markets[j].q.length > 42 ? "…" : ""}</a>`).join(" ")}
       </div>
       <div>
         <button class="btn btn-ghost btn-trade" style="padding:7px 16px; font-size:0.83rem;">
@@ -225,6 +255,14 @@ chipsEl.addEventListener("click", (e) => {
 });
 
 grid.addEventListener("click", (e) => {
+  const rel = e.target.closest(".rel-link");
+  if (rel) {
+    e.preventDefault();
+    const j = +rel.dataset.j;
+    if (activeCat !== "all" && OO.markets[j].cat !== activeCat) { activeCat = "all"; render(); }
+    document.querySelector(`.market-card[data-i="${j}"]`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+    return;
+  }
   const cardEl = e.target.closest(".market-card"); if (!cardEl) return;
   const i = +cardEl.dataset.i; const s = state[i];
   if (e.target.closest(".btn-trade")) { s.open = !s.open; render(); }
@@ -258,6 +296,79 @@ grid.addEventListener("input", (e) => {
   dim[1].textContent = fmtUSD(s.shares);
   dim[2].textContent = Math.round(100 * cost / s.shares) + "¢";
   dim[3].textContent = Math.round(newP * 100) + "¢";
+});
+
+/* ----- AI trader: BYOK LLM estimates vs LMSR prices, paper-trades the edge ----- */
+const LLM_CFG = {
+  get key() { return localStorage.getItem("oo-llm-key") || ""; },
+  get provider() { return localStorage.getItem("oo-llm-provider") || "anthropic"; },
+  get base() { return localStorage.getItem("oo-llm-base") || "https://api.openai.com/v1"; },
+  get model() {
+    return localStorage.getItem("oo-llm-model") ||
+      (this.provider === "openai" ? "gpt-4o-mini" : "claude-sonnet-5");
+  },
+};
+async function llmAsk(system, user, maxTokens = 300) {
+  if (LLM_CFG.provider === "openai") {
+    const res = await fetch(LLM_CFG.base.replace(/\/+$/, "") + "/chat/completions", {
+      method: "POST",
+      headers: { "content-type": "application/json", authorization: "Bearer " + LLM_CFG.key },
+      body: JSON.stringify({ model: LLM_CFG.model, max_tokens: maxTokens,
+        messages: [{ role: "system", content: system }, { role: "user", content: user }] }),
+    });
+    if (!res.ok) throw new Error(res.status);
+    return (await res.json()).choices?.[0]?.message?.content || "";
+  }
+  const res = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: { "content-type": "application/json", "x-api-key": LLM_CFG.key,
+      "anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true" },
+    body: JSON.stringify({ model: LLM_CFG.model, max_tokens: maxTokens, system,
+      messages: [{ role: "user", content: user }] }),
+  });
+  if (!res.ok) throw new Error(res.status);
+  return (await res.json()).content.map(b => b.text || "").join("");
+}
+
+const AI_PICKS = [0, 3, 6, 9, 15, 18];
+document.getElementById("aiRun").addEventListener("click", async () => {
+  const st = document.getElementById("aiStatus");
+  if (!LLM_CFG.key) { st.textContent = "⚪ " + OO_T("ai.nokey"); return; }
+  st.textContent = "🤖 " + OO_T("ai.running");
+  try {
+    const qs = AI_PICKS.map(i => OO.markets[i]);
+    const sys = "You are a careful probabilistic forecaster. Reply ONLY with a JSON array of 6 probabilities in [0,1], one per question, no other text.";
+    const raw = await llmAsk(sys, qs.map((m, k) => `${k + 1}. ${m.q}`).join("\n"));
+    const probs = JSON.parse(raw.match(/\[[^\]]*\]/)[0]).map(Number);
+    if (probs.length !== 6 || probs.some(p => !(p >= 0 && p <= 1))) throw new Error("bad output");
+    const rows = AI_PICKS.map((i, k) => {
+      const price = state[i].price;
+      const edge = probs[k] - price;
+      let action = "—";
+      if (Math.abs(edge) > 0.08) {
+        const side = edge > 0 ? "yes" : "no";
+        const cost = LMSR.cost(price, side, 50);
+        state[i].price = Math.min(0.99, Math.max(0.01, LMSR.newPrice(price, side, 50)));
+        const pos = PORT.find(p => p.i === i && p.side === side && p.bot);
+        if (pos) { pos.shares += 50; pos.cost += cost; }
+        else PORT.push({ i, side, shares: 50, cost, bot: true });
+        action = `<span class="tag ${side === "yes" ? "green" : "red"}">${OO_T("ai.buy")} ${side.toUpperCase()}</span>`;
+      }
+      return `<tr><td style="max-width:320px;">${OO.markets[i].q}</td>
+        <td class="num-cell">${Math.round(probs[k] * 100)}%</td>
+        <td class="num-cell">${Math.round(price * 100)}¢</td>
+        <td class="num-cell ${edge >= 0 ? "pos" : "neg"}">${(edge >= 0 ? "+" : "") + Math.round(edge * 100)}¢</td>
+        <td>${action}</td></tr>`;
+    }).join("");
+    savePort();
+    const out = document.getElementById("aiOut");
+    out.classList.remove("hide");
+    out.innerHTML = `<table><thead><tr><th>${OO_T("tour.ai.q")}</th><th>${OO_T("ai.est")}</th><th>${OO_T("tour.ai.mkt")}</th><th>${OO_T("ai.edge")}</th><th>${OO_T("ai.action")}</th></tr></thead><tbody>${rows}</tbody></table>`;
+    st.textContent = `✓ ${LLM_CFG.model}`;
+    render();
+  } catch (err) {
+    st.textContent = "⚠️ " + OO_T("sw.llm.err") + err.message;
+  }
 });
 
 render();
