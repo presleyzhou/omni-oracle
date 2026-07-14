@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://presleyzhou.github.io/omni-oracle/simworld.html" />
 <meta name="twitter:card" content="summary" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>" />
-<link rel="stylesheet" href="css/style.css?v=12" />
+<link rel="stylesheet" href="css/style.css?v=13" />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
@@ -113,6 +113,11 @@
             <input class="oo-input" id="customIv" />
             <button class="god-btn" id="customIvBtn" data-i18n="sw.custom.btn"></button>
           </div>
+          <div style="margin-top:14px; display:flex; align-items:center; gap:10px;">
+            <span style="font-size:0.82rem; color:var(--text-dim); white-space:nowrap;" data-i18n="sw.topo.label"></span>
+            <input type="range" id="densSlider" min="0.5" max="2" step="0.25" value="1" style="flex:1; accent-color:var(--accent);" />
+            <span class="mono" id="densVal" style="color:var(--cyan);">1.00×</span>
+          </div>
           <div style="margin-top:16px;">
             <button class="btn btn-primary" id="mcBtn" data-i18n="sw.mc.btn"></button>
           </div>
@@ -179,6 +184,13 @@
           </div>
         </div>
       </div>
+
+      <div class="card hide" id="btCard" style="margin-top:18px; border-color:rgba(34,211,238,0.4);">
+        <h3 data-i18n="sw.bt.title"></h3>
+        <p style="margin-bottom:8px;" data-i18n="sw.bt.sub"></p>
+        <p style="margin-bottom:8px; color:var(--text-dim); font-size:0.85rem;" data-i18n="sw.bt.actual"></p>
+        <p id="btVerdict" style="font-size:0.92rem; color:var(--cyan);"></p>
+      </div>
     </div>
 
     <div class="disclaimer" data-i18n="sw.disclaimer"></div>
@@ -192,9 +204,9 @@
   </div>
 </footer>
 
-<script src="js/data.js?v=12"></script>
-<script src="js/i18n.js?v=12"></script>
-<script src="js/app.js?v=12"></script>
+<script src="js/data.js?v=13"></script>
+<script src="js/i18n.js?v=13"></script>
+<script src="js/app.js?v=13"></script>
 <script>
 /* ---------- Parallel-world demo simulation (client-side, illustrative) ---------- */
 const FACTIONS = [
@@ -228,7 +240,7 @@ const seedText = document.getElementById("seedText");
 const askText = document.getElementById("askText");
 
 function renderSeedChips() {
-  seedChips.innerHTML = [1,2,3,4,5,6].map(i =>
+  seedChips.innerHTML = [1,2,3,4,5,6,7].map(i =>
     `<button class="chip ${SIM.seedChip === i ? "active" : ""}" data-i="${i}">${OO_T("sw.chip" + i)}</button>`
   ).join("");
   askText.placeholder = OO_T("sw.ask.ph");
@@ -281,6 +293,9 @@ document.getElementById("buildBtn").addEventListener("click", () => {
 
 function startWorld() {
   SIM.built = true; SIM.running = true;
+  SIM.density = 1;
+  SIM.backtest = (SIM.seedChip === 7);
+  if (SIM.backtest) { SIM.drift = -2.5; SIM.vol = 3; document.getElementById("btCard").classList.remove("hide"); updateBacktest(); }
   document.getElementById("worldWrap").classList.remove("hide");
   extractEntities(); initAgents(); initChart(); drawGraph();
   renderGodBtns(); renderAgentChips(); renderLegend();
@@ -358,18 +373,25 @@ function initAgents() {
       cy: (0.3 + 0.4 * Math.floor(f / 2)) * H + (Math.random() - 0.5) * 60,
     };
   });
+  /* Small-world topology (Watts–Strogatz flavor): ring neighbors within
+     the same faction + occasional cross-faction rewires. */
+  SIM.agents.forEach((a, idx) => {
+    a.nbrs = [];
+    for (let d = 1; d <= 3; d++) a.nbrs.push((idx + d * 4) % N_AGENTS);
+    if (Math.random() < 0.2) a.nbrs.push((Math.random() * N_AGENTS) | 0);
+  });
 }
 function drawFrame() {
   if (!SIM.built) return;
   const W = cv.width, H = cv.height;
   ctx.fillStyle = "rgba(6,10,18,0.35)"; ctx.fillRect(0, 0, W, H);
   const excite = SIM.vol / 1.4;
-  ctx.strokeStyle = "rgba(79,140,255,0.10)"; ctx.lineWidth = 1;
-  for (let k = 0; k < 26 * excite; k++) {
+  ctx.strokeStyle = "rgba(79,140,255,0.08)"; ctx.lineWidth = 1;
+  const nEdges = 30 * excite * (SIM.density || 1);
+  for (let k = 0; k < nEdges; k++) {
     const a = SIM.agents[(Math.random() * N_AGENTS) | 0];
-    const b = SIM.agents[(Math.random() * N_AGENTS) | 0];
-    const dx = a.x - b.x, dy = a.y - b.y;
-    if (dx * dx + dy * dy < 5200) { ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+    const b = SIM.agents[a.nbrs[(Math.random() * a.nbrs.length) | 0]];
+    ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
   }
   for (const a of SIM.agents) {
     if (SIM.running) {
@@ -397,16 +419,42 @@ function stepDay() {
   SIM.day++;
   SIM.sent = clamp(SIM.sent + SIM.drift + (Math.random() - 0.5) * 2 * SIM.vol, 5, 95);
   SIM.conf = clamp(SIM.conf + SIM.drift * 0.8 + (Math.random() - 0.5) * 1.6 * SIM.vol, 5, 95);
-  SIM.drift *= 0.97; SIM.vol = clamp(SIM.vol * 0.985 + 0.02, 0.8, 4);
+  if (SIM.backtest) SIM.drift = SIM.drift * 0.88 + (58 - SIM.sent) * 0.012; // crash-then-recovery mean reversion
+  else SIM.drift *= 0.97;
+  SIM.vol = clamp(SIM.vol * 0.985 + 0.02, 0.8, 4);
   SIM.hist.d.push(SIM.day); SIM.hist.s.push(SIM.sent); SIM.hist.c.push(SIM.conf);
   if (SIM.hist.d.length > 90) { SIM.hist.d.shift(); SIM.hist.s.shift(); SIM.hist.c.shift(); }
-  if (Math.random() < 0.45) {
+  if (Math.random() < 0.25 + 0.2 * SIM.density) {
     const f = FACTIONS[(Math.random() * 4) | 0];
     const ev = "sw.ev" + (1 + ((Math.random() * 8) | 0));
     pushEvent({ key: ev, params: { f: OO_T(f.key), dir: OO_T(SIM.drift >= 0 ? "sw.dir.up" : "sw.dir.down") } });
   }
-  updateHud(); updateChart(); renderReport();
+  updateHud(); updateChart(); renderReport(); updateBacktest();
 }
+
+/* ----- historical backtest validation (seed #7: Aug 2024 carry-trade crash) ----- */
+const BT_ACTUAL = [55,38,33,30,32,35,37,40,42,44,46,48,50,51,52,53,54,55,56,57,57,58,58,59,59,60,60,61,61,62];
+function updateBacktest() {
+  if (!SIM.backtest) return;
+  const el = document.getElementById("btVerdict");
+  if (SIM.day < 10) { el.textContent = OO_T("sw.bt.wait"); return; }
+  const n = Math.min(SIM.day, BT_ACTUAL.length, SIM.hist.s.length);
+  let se = 0;
+  for (let k = 0; k < n; k++) se += Math.pow(SIM.hist.s[k] - BT_ACTUAL[k], 2);
+  const rmse = Math.sqrt(se / n).toFixed(1);
+  const probs = scenarioProbs();
+  const lead = OO_T("sw.sc" + (probs.indexOf(Math.max(...probs)) + 1));
+  const act = OO_T("sw.sc2"); // history resolved as baseline recovery
+  const hit = OO_T(lead === act ? "sw.bt.hit" : "sw.bt.miss");
+  el.textContent = T("sw.bt.verdict", { d: SIM.day, lead, act, hit, rmse });
+}
+
+/* ----- network density dial ----- */
+document.getElementById("densSlider").addEventListener("input", () => {
+  SIM.density = +document.getElementById("densSlider").value;
+  document.getElementById("densVal").textContent = SIM.density.toFixed(2) + "×";
+  if (SIM.built) pushEvent({ key: "sw.evTopo", params: { d: SIM.density.toFixed(2) }, god: true });
+});
 
 /* ----- HUD / feed ----- */
 function updateHud() {
@@ -447,7 +495,8 @@ const GODS = [
   { key: "sw.iv5", drift: -1.0, vol: +1.0 },
 ];
 function applyIntervention(name, drift, vol, reg) {
-  SIM.drift += drift; SIM.vol = clamp(SIM.vol + vol, 0.8, 4);
+  const amp = 0.5 + 0.5 * (SIM.density || 1); // denser networks cascade harder
+  SIM.drift += drift * amp; SIM.vol = clamp(SIM.vol + vol * amp, 0.8, 4);
   SIM.interventions++;
   SIM.regShift += reg !== undefined ? reg : Math.round(drift * 3);
   SIM.ivLog.push({ day: SIM.day, name });
@@ -761,7 +810,7 @@ function rerenderDynamic() {
   renderSeedChips(); renderFileList(); updateLlmStatus();
   if (SIM.built) {
     renderGodBtns(); renderAgentChips(); renderLegend(); renderFeed(); renderReport(); updateHud();
-    initChart(); drawGraph(); renderMC();
+    initChart(); drawGraph(); renderMC(); updateBacktest();
     document.getElementById("pauseBtn").textContent = OO_T(SIM.running ? "sw.world.pause" : "sw.world.resume");
   }
 }
