@@ -150,27 +150,51 @@ OO.aiBench = [
    actual: recorded 30-day sentiment-proxy path used for RMSE scoring. */
 OO.backtests = [
   {
-    name: "Aug 2024 — yen carry-trade flash crash",
+    name: "Aug 2024 — yen carry-trade flash crash", cat: "fin",
     outcome: "Markets stabilized in days, recovered within a month",
     drift: -2.5, vol: 3.0, target: 58, actualIdx: 1,
     actual: [55,38,33,30,32,35,37,40,42,44,46,48,50,51,52,53,54,55,56,57,57,58,58,59,59,60,60,61,61,62],
   },
   {
-    name: "Nov 2022 — ChatGPT launch",
+    name: "Nov 2022 — ChatGPT launch", cat: "tech",
     outcome: "AI adoption wave; tech sentiment boom over the following month",
     drift: +1.8, vol: 2.0, target: 76, actualIdx: 0,
     actual: [55,57,59,60,62,63,64,66,67,68,69,70,70,71,72,72,73,73,74,74,75,75,75,76,76,76,77,77,77,78],
   },
   {
-    name: "Mar 2023 — SVB collapse",
+    name: "Mar 2023 — SVB collapse", cat: "fin",
     outcome: "Contagion contained by backstop; regional stress but no systemic crisis",
     drift: -2.2, vol: 3.2, target: 55, actualIdx: 1,
     actual: [55,42,36,34,36,38,40,42,44,45,46,47,48,49,50,50,51,52,52,53,53,54,54,54,55,55,55,56,56,56],
   },
   {
-    name: "Jan 2021 — meme-stock mania",
+    name: "Jan 2021 — meme-stock mania", cat: "op",
     outcome: "Squeeze spiked then deflated; late buyers underwater within weeks",
     drift: +3.0, vol: 4.0, target: 36, actualIdx: 2,
     actual: [55,62,68,73,75,74,70,65,60,56,52,49,46,44,42,41,40,39,38,38,37,37,36,36,36,35,35,35,35,34],
+  },
+  {
+    name: "Mar 2020 — COVID crash",
+    outcome: "Fastest bear market on record; still deeply depressed a month in",
+    cat: "fin", drift: -3.2, vol: 3.8, target: 30, actualIdx: 2,
+    actual: [55,50,45,40,34,30,26,24,22,20,22,24,23,21,20,22,24,26,27,28,28,29,30,30,31,31,32,32,33,33],
+  },
+  {
+    name: "Jun 2016 — Brexit referendum",
+    outcome: "Sharp two-day shock, then markets recovered within weeks",
+    cat: "pol", drift: -2.8, vol: 3.2, target: 57, actualIdx: 1,
+    actual: [55,40,36,38,41,44,46,48,50,51,52,53,53,54,54,55,55,56,56,56,57,57,57,58,58,58,58,59,59,59],
+  },
+  {
+    name: "Jan 2007 — iPhone unveiling",
+    outcome: "Steady adoption optimism built over the following month",
+    cat: "tech", drift: +1.6, vol: 1.8, target: 76, actualIdx: 0,
+    actual: [55,58,61,63,65,66,67,68,69,70,70,71,71,72,72,73,73,73,74,74,74,75,75,75,75,76,76,76,76,77],
+  },
+  {
+    name: "Mar 2021 — Suez Canal blockage",
+    outcome: "Ship freed in six days; supply worries faded quickly",
+    cat: "op", drift: -1.8, vol: 2.4, target: 58, actualIdx: 1,
+    actual: [55,48,45,44,46,49,52,54,55,56,56,57,57,57,57,58,58,58,58,58,58,58,58,58,58,59,59,59,59,59],
   },
 ];
