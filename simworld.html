@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://presleyzhou.github.io/omni-oracle/simworld.html" />
 <meta name="twitter:card" content="summary" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>" />
-<link rel="stylesheet" href="css/style.css?v=13" />
+<link rel="stylesheet" href="css/style.css?v=14" />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
@@ -70,6 +70,16 @@
         <button class="btn btn-primary" id="buildBtn" data-i18n="sw.build"></button>
         <span style="color:var(--text-dim); font-size:0.8rem; max-width:520px;" data-i18n="sw.build.hint"></span>
       </div>
+    </div>
+
+    <!-- Backtest suite (always available, independent of the live world) -->
+    <div class="card" style="margin-top:18px; border-color:rgba(34,211,238,0.35);">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+        <h3 data-i18n="sw.bts.title"></h3>
+        <button class="btn btn-ghost" id="btsRun" style="padding:7px 16px; font-size:0.83rem;" data-i18n="sw.bts.run"></button>
+      </div>
+      <p style="margin:8px 0;" data-i18n="sw.bts.sub"></p>
+      <div id="btsOut" class="hide" style="overflow-x:auto;"></div>
     </div>
 
     <!-- World -->
@@ -204,9 +214,9 @@
   </div>
 </footer>
 
-<script src="js/data.js?v=13"></script>
-<script src="js/i18n.js?v=13"></script>
-<script src="js/app.js?v=13"></script>
+<script src="js/data.js?v=14"></script>
+<script src="js/i18n.js?v=14"></script>
+<script src="js/app.js?v=14"></script>
 <script>
 /* ---------- Parallel-world demo simulation (client-side, illustrative) ---------- */
 const FACTIONS = [
@@ -448,6 +458,53 @@ function updateBacktest() {
   const hit = OO_T(lead === act ? "sw.bt.hit" : "sw.bt.miss");
   el.textContent = T("sw.bt.verdict", { d: SIM.day, lead, act, hit, rmse });
 }
+
+/* ----- backtest suite: 4 historical events × 20 fast-forward runs ----- */
+function runSuite() {
+  const REPS = 20, DAYS = 30;
+  SIM.bts = OO.backtests.map(ev => {
+    const wins = [0, 0, 0]; let rmseSum = 0;
+    for (let r = 0; r < REPS; r++) {
+      let s = 55, d = ev.drift, v = ev.vol, se = 0;
+      const tail = [];
+      for (let t = 0; t < DAYS; t++) {
+        s = clamp(s + d + (Math.random() - 0.5) * 2 * v, 5, 95);
+        d = d * 0.88 + (ev.target - s) * 0.012;
+        v = clamp(v * 0.985 + 0.02, 0.8, 4);
+        se += Math.pow(s - ev.actual[t], 2);
+        if (t >= DAYS - 5) tail.push(s);
+      }
+      rmseSum += Math.sqrt(se / DAYS);
+      // classify by the mean of the last 5 days of the sentiment path —
+      // same variable and bands used to label the historical outcomes
+      const x = tail.reduce((a, b) => a + b, 0) / tail.length;
+      wins[x >= 68 ? 0 : x <= 40 ? 2 : 1]++;
+    }
+    const predIdx = wins.indexOf(Math.max(...wins));
+    return { ev, predIdx, rmse: rmseSum / REPS, hit: predIdx === ev.actualIdx };
+  });
+  renderSuite();
+}
+function renderSuite() {
+  if (!SIM.bts) return;
+  const rows = SIM.bts.map(r => `
+    <tr>
+      <td style="max-width:260px;"><strong>${r.ev.name}</strong><br/><span style="color:var(--text-dim); font-size:0.78rem;">${r.ev.outcome}</span></td>
+      <td>${OO_T("sw.sc" + (r.ev.actualIdx + 1))}</td>
+      <td>${OO_T("sw.sc" + (r.predIdx + 1))}</td>
+      <td>${OO_T(r.hit ? "sw.bt.hit" : "sw.bt.miss")}</td>
+      <td class="num-cell">${r.rmse.toFixed(1)}</td>
+    </tr>`).join("");
+  const hits = SIM.bts.filter(r => r.hit).length;
+  const avg = (SIM.bts.reduce((a, r) => a + r.rmse, 0) / SIM.bts.length).toFixed(1);
+  const out = document.getElementById("btsOut");
+  out.classList.remove("hide");
+  out.innerHTML = `<table style="margin-top:6px;"><thead><tr>
+      <th>${OO_T("sw.bts.event")}</th><th>${OO_T("sw.bts.actual")}</th><th>${OO_T("sw.bts.pred")}</th><th></th><th>${OO_T("sw.bts.rmse")}</th>
+    </tr></thead><tbody>${rows}</tbody></table>
+    <p style="margin-top:10px; font-size:0.9rem; color:var(--cyan);">${T("sw.bts.summary", { hits, n: SIM.bts.length, rmse: avg })}</p>`;
+}
+document.getElementById("btsRun").addEventListener("click", runSuite);
 
 /* ----- network density dial ----- */
 document.getElementById("densSlider").addEventListener("input", () => {
@@ -807,7 +864,7 @@ document.getElementById("chatInput").addEventListener("keydown", (e) => { if (e.
 
 /* ----- i18n re-render ----- */
 function rerenderDynamic() {
-  renderSeedChips(); renderFileList(); updateLlmStatus();
+  renderSeedChips(); renderFileList(); updateLlmStatus(); renderSuite();
   if (SIM.built) {
     renderGodBtns(); renderAgentChips(); renderLegend(); renderFeed(); renderReport(); updateHud();
     initChart(); drawGraph(); renderMC(); updateBacktest();

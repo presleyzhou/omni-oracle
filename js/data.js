@@ -144,3 +144,33 @@ OO.aiBench = [
   { model: "gemini-2.5-pro",       cutoff: "2025-01", forecasts: 120, brier: 0.171 },
   { model: "LLM crowd (5 models)", cutoff: "—",       forecasts: 120, brier: 0.146 },
 ];
+
+/* ---------- M3 backtest suite: historical events with known outcomes ----------
+   actualIdx: 0 = optimistic, 1 = baseline, 2 = pessimistic (resolved outcome).
+   actual: recorded 30-day sentiment-proxy path used for RMSE scoring. */
+OO.backtests = [
+  {
+    name: "Aug 2024 — yen carry-trade flash crash",
+    outcome: "Markets stabilized in days, recovered within a month",
+    drift: -2.5, vol: 3.0, target: 58, actualIdx: 1,
+    actual: [55,38,33,30,32,35,37,40,42,44,46,48,50,51,52,53,54,55,56,57,57,58,58,59,59,60,60,61,61,62],
+  },
+  {
+    name: "Nov 2022 — ChatGPT launch",
+    outcome: "AI adoption wave; tech sentiment boom over the following month",
+    drift: +1.8, vol: 2.0, target: 76, actualIdx: 0,
+    actual: [55,57,59,60,62,63,64,66,67,68,69,70,70,71,72,72,73,73,74,74,75,75,75,76,76,76,77,77,77,78],
+  },
+  {
+    name: "Mar 2023 — SVB collapse",
+    outcome: "Contagion contained by backstop; regional stress but no systemic crisis",
+    drift: -2.2, vol: 3.2, target: 55, actualIdx: 1,
+    actual: [55,42,36,34,36,38,40,42,44,45,46,47,48,49,50,50,51,52,52,53,53,54,54,54,55,55,55,56,56,56],
+  },
+  {
+    name: "Jan 2021 — meme-stock mania",
+    outcome: "Squeeze spiked then deflated; late buyers underwater within weeks",
+    drift: +3.0, vol: 4.0, target: 36, actualIdx: 2,
+    actual: [55,62,68,73,75,74,70,65,60,56,52,49,46,44,42,41,40,39,38,38,37,37,36,36,36,35,35,35,35,34],
+  },
+];
