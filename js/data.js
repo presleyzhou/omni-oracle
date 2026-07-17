@@ -197,4 +197,10 @@ OO.backtests = [
     cat: "op", drift: -1.8, vol: 2.4, target: 58, actualIdx: 1,
     actual: [55,48,45,44,46,49,52,54,55,56,56,57,57,57,57,58,58,58,58,58,58,58,58,58,58,59,59,59,59,59],
   },
+  {
+    name: "May 2021 — 'transitory inflation' consensus",
+    outcome: "Regime shift the calm priors missed: inflation proved persistent and sentiment bled out for months",
+    cat: "fin", adversarial: true, drift: -0.3, vol: 1.2, target: 56, actualIdx: 2,
+    actual: [55,54,54,53,53,52,52,51,50,50,49,48,48,47,46,46,45,44,44,43,42,42,41,40,40,39,39,38,38,37],
+  },
 ];
