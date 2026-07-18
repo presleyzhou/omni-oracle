@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#0b0f17" />
 <link rel="manifest" href="manifest.webmanifest" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>" />
-<link rel="stylesheet" href="css/style.css?v=17" />
+<link rel="stylesheet" href="css/style.css?v=18" />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
@@ -93,9 +93,9 @@
   </div>
 </footer>
 
-<script src="js/data.js?v=17"></script>
-<script src="js/i18n.js?v=17"></script>
-<script src="js/app.js?v=17"></script>
+<script src="js/data.js?v=18"></script>
+<script src="js/i18n.js?v=18"></script>
+<script src="js/app.js?v=18"></script>
 <script>
 /* ---------- single-market detail: history, depth, trading ---------- */
 const id = Math.min(OO.markets.length - 1, Math.max(0, +(new URLSearchParams(location.search).get("id") || 0)));
@@ -142,6 +142,8 @@ function depthLevels() {
   return { bids: mk(-1), asks: mk(+1) };
 }
 
+let liveSpot = null, liveSeries = null;
+
 function render() {
   document.getElementById("mq").textContent = m.q;
   document.getElementById("mp").textContent = Math.round(S.price * 100) + "¢";
@@ -149,7 +151,8 @@ function render() {
     `<span class="tag">${OO_T("cat." + m.cat)}</span>
      <span>${OO_T("mk.vol")} $${m.vol}</span>
      <span>${OO_T("mk.closes")} ${m.close}</span>
-     <span>${OO_T("mk.res")}: ${m.res}</span>`;
+     <span>${OO_T("mk.res")}: ${m.res}</span>` +
+    (liveSpot != null ? `<span class="tag green">● ${m.sym} $${liveSpot.toLocaleString("en-US")} · LIVE</span>` : "");
 
   /* price history */
   if (histChart) histChart.destroy();
@@ -165,10 +168,21 @@ function render() {
       }],
     },
     options: {
-      maintainAspectRatio: false, plugins: { legend: { display: false } },
+      maintainAspectRatio: false, plugins: { legend: { display: !!liveSeries } },
       scales: { y: { min: 0, max: 100 }, x: { ticks: { maxTicksLimit: 7 } } },
     },
   });
+  if (liveSeries) {
+    const n = pts.length;
+    const series = Array.from({ length: n }, (_, k) =>
+      liveSeries[Math.floor(k * (liveSeries.length - 1) / (n - 1))]);
+    histChart.data.datasets.push({
+      label: `${m.sym} spot · LIVE`, data: series,
+      borderColor: "#f59e0b", pointRadius: 0, tension: 0.25, yAxisID: "y2",
+    });
+    histChart.options.scales.y2 = { position: "right", grid: { drawOnChartArea: false } };
+    histChart.update();
+  }
 
   /* depth */
   const { bids, asks } = depthLevels();
@@ -249,6 +263,18 @@ document.getElementById("execBtn").addEventListener("click", () => {
   render();
   document.getElementById("execMsg").textContent = OO_T("mk.filled");
 });
+
+/* live crypto data for this market (CoinGecko public API; fails silently) */
+if (m.coin) {
+  fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${m.coin}&vs_currencies=usd`)
+    .then(r => r.ok ? r.json() : null)
+    .then(d => { if (d && d[m.coin]) { liveSpot = d[m.coin].usd; render(); } })
+    .catch(() => {});
+  fetch(`https://api.coingecko.com/api/v3/coins/${m.coin}/market_chart?vs_currency=usd&days=90`)
+    .then(r => r.ok ? r.json() : null)
+    .then(d => { if (d && d.prices && d.prices.length > 10) { liveSeries = d.prices.map(p => p[1]); render(); } })
+    .catch(() => {});
+}
 
 document.addEventListener("oo:lang", render);
 render();
