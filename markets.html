@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://presleyzhou.github.io/omni-oracle/markets.html" />
 <meta name="twitter:card" content="summary" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>" />
-<link rel="stylesheet" href="css/style.css?v=18" />
+<link rel="stylesheet" href="css/style.css?v=19" />
 </head>
 <body>
 
@@ -40,6 +40,12 @@
     <p class="section-sub" data-i18n="mk.sub"></p>
 
     <div class="chips" id="chips"></div>
+
+    <div class="card hide" id="pmLive" style="margin-bottom:24px; border-color:rgba(239,68,68,0.35);">
+      <h3 data-i18n="pm.live.title"></h3>
+      <p style="margin:8px 0 12px; font-size:0.85rem;" data-i18n="pm.live.sub"></p>
+      <div id="pmRows" style="display:flex; flex-direction:column; gap:10px;"></div>
+    </div>
 
     <div class="card hide" id="pfCard" style="margin-bottom:24px; overflow-x:auto;">
       <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
@@ -79,9 +85,9 @@
   </div>
 </footer>
 
-<script src="js/data.js?v=18"></script>
-<script src="js/i18n.js?v=18"></script>
-<script src="js/app.js?v=18"></script>
+<script src="js/data.js?v=19"></script>
+<script src="js/i18n.js?v=19"></script>
+<script src="js/app.js?v=19"></script>
 <script>
 const grid = document.getElementById("marketGrid");
 const chipsEl = document.getElementById("chips");
@@ -99,6 +105,32 @@ fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana
     if (!d) return;
     for (const k in d) SPOT[k] = d[k].usd;
     render();
+  })
+  .catch(() => {});
+
+/* live Polymarket odds (public Gamma API, CORS-open; card stays hidden on failure) */
+let PMDATA = null;
+function renderPmLive() {
+  if (!PMDATA) return;
+  document.getElementById("pmLive").classList.remove("hide");
+  document.getElementById("pmRows").innerHTML = PMDATA.map(m => `
+    <a href="https://polymarket.com/market/${m.slug}" target="_blank" rel="noopener"
+       style="display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit; padding:10px 12px; border:1px solid var(--border); border-radius:10px;">
+      <span style="flex:1; font-size:0.9rem;">${m.q}</span>
+      <span style="color:var(--text-dim); font-size:0.78rem; white-space:nowrap;">${OO_T("pm.live.vol24")} $${(m.vol / 1e6).toFixed(1)}M</span>
+      <span class="price-pill yes" style="font-size:0.9rem;">${m.o0} ${m.p0 < 0.01 ? "&lt;1¢" : m.p0 > 0.99 ? "&gt;99¢" : Math.round(m.p0 * 100) + "¢"}</span>
+    </a>`).join("");
+}
+fetch("https://gamma-api.polymarket.com/markets?limit=6&active=true&closed=false&order=volume24hr&ascending=false")
+  .then(r => r.ok ? r.json() : null)
+  .then(d => {
+    if (!Array.isArray(d) || !d.length) return;
+    PMDATA = d.map(m => {
+      let p0 = 0.5, o0 = "Yes";
+      try { p0 = +JSON.parse(m.outcomePrices)[0]; o0 = JSON.parse(m.outcomes)[0]; } catch (e) {}
+      return { q: m.question, slug: m.slug, vol: +m.volume24hr || 0, p0, o0 };
+    });
+    renderPmLive();
   })
   .catch(() => {});
 
@@ -219,6 +251,7 @@ function render() {
   }).join("");
   drawSparks();
   renderPortfolio();
+  renderPmLive();
 }
 
 /* Mini price-history sparklines (deterministic per market, ending at current price) */
