@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://presleyzhou.github.io/omni-oracle/trends.html" />
 <meta name="twitter:card" content="summary" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>" />
-<link rel="stylesheet" href="css/style.css?v=24" />
+<link rel="stylesheet" href="css/style.css?v=25" />
 </head>
 <body>
 
@@ -50,7 +50,7 @@
       <table id="companyTable">
         <thead>
           <tr>
-            <th data-i18n="tr.th.ticker"></th><th data-i18n="tr.th.company"></th><th data-i18n="tr.th.theme"></th>
+            <th data-i18n="tr.th.ticker"></th><th data-i18n="tr.th.company"></th><th data-i18n="tr.th.px"></th><th data-i18n="tr.th.theme"></th>
             <th data-i18n="tr.th.innov"></th><th data-i18n="tr.th.trend"></th><th data-i18n="tr.th.tone"></th><th data-i18n="tr.th.decile"></th>
             <th data-i18n="tr.th.milestone"></th><th data-i18n="tr.th.odds"></th>
           </tr>
@@ -70,9 +70,9 @@
   </div>
 </footer>
 
-<script src="js/data.js?v=24"></script>
-<script src="js/i18n.js?v=24"></script>
-<script src="js/app.js?v=24"></script>
+<script src="js/data.js?v=25"></script>
+<script src="js/i18n.js?v=25"></script>
+<script src="js/app.js?v=25"></script>
 <script>
 function renderThemes() {
   document.getElementById("themeGrid").innerHTML = OO.themes.map(t => `
@@ -102,6 +102,9 @@ function renderCompanies() {
     <tr>
       <td class="num-cell"><strong>${c.ticker}</strong></td>
       <td>${c.name}</td>
+      <td class="num-cell">${LIVEPX[c.ticker]
+        ? `$${LIVEPX[c.ticker].p.toLocaleString("en-US")} <span class="${LIVEPX[c.ticker].cp >= 0 ? "pos" : "neg"}" style="font-size:0.78rem;">${LIVEPX[c.ticker].cp >= 0 ? "+" : ""}${LIVEPX[c.ticker].cp.toFixed(2)}%</span>`
+        : "—"}</td>
       <td><span class="tag purple">${c.theme}</span></td>
       <td>${badge(c.innov)}</td>
       <td>${badge(c.trend)}</td>
@@ -113,8 +116,16 @@ function renderCompanies() {
   `).join("");
 }
 
+const LIVEPX = {};
 function renderAll() { renderThemes(); renderCompanies(); }
 renderAll();
+
+/* live quotes for scorecard companies (stockanalysis.com public API; cells show em-dash on failure) */
+Promise.all(OO.companies.map(c =>
+  fetch("https://stockanalysis.com/api/quotes/s/" + c.ticker)
+    .then(r => r.ok ? r.json() : null).catch(() => null)
+    .then(d => { if (d && d.data && d.data.p != null) LIVEPX[c.ticker] = { p: d.data.p, cp: d.data.cp || 0 }; })
+)).then(renderCompanies);
 document.addEventListener("oo:lang", renderAll);
 </script>
 </body>
