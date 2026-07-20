@@ -345,6 +345,18 @@ footer {
   margin-top: 28px;
 }
 
+/* ---------- Homepage live ticker ---------- */
+.ticker { overflow: hidden; border-bottom: 1px solid var(--border); background: rgba(9,13,22,0.6); }
+.ticker-inner {
+  display: inline-flex; gap: 44px; padding: 8px 0; white-space: nowrap;
+  animation: oo-tick 45s linear infinite; will-change: transform;
+}
+.ticker .itm { font-size: 0.82rem; color: var(--text-dim); font-family: var(--mono); }
+.ticker .up2 { color: var(--green); font-weight: 700; }
+.ticker .dn2 { color: var(--red); font-weight: 700; }
+@keyframes oo-tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .ticker-inner { animation: none; } }
+
 /* ---------- Sim world (M3) ---------- */
 .pipe-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
 .pipe-step {

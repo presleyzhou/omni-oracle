@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://presleyzhou.github.io/omni-oracle/markets.html" />
 <meta name="twitter:card" content="summary" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>" />
-<link rel="stylesheet" href="css/style.css?v=22" />
+<link rel="stylesheet" href="css/style.css?v=23" />
 </head>
 <body>
 
@@ -42,6 +42,11 @@
 
     <div class="chips" id="chips"></div>
 
+    <div style="display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap;">
+      <input class="oo-input" id="mkSearch" style="flex:1; min-width:220px;" />
+      <select class="oo-input" id="mkSort" style="max-width:200px;"></select>
+    </div>
+
     <div class="card hide" id="pmLive" style="margin-bottom:24px; border-color:rgba(239,68,68,0.35);">
       <h3 data-i18n="pm.live.title"></h3>
       <p style="margin:8px 0 12px; font-size:0.85rem;" data-i18n="pm.live.sub"></p>
@@ -56,7 +61,7 @@
       <table id="pfTable" style="margin-top:10px;">
         <thead><tr>
           <th data-i18n="pf.th.market"></th><th data-i18n="pf.th.side"></th><th data-i18n="pf.th.shares"></th>
-          <th data-i18n="pf.th.cost"></th><th data-i18n="pf.th.price"></th><th data-i18n="pf.th.value"></th><th data-i18n="pf.th.pnl"></th>
+          <th data-i18n="pf.th.cost"></th><th data-i18n="pf.th.price"></th><th data-i18n="pf.th.value"></th><th data-i18n="pf.th.pnl"></th><th></th>
         </tr></thead>
         <tbody></tbody>
       </table>
@@ -86,9 +91,9 @@
   </div>
 </footer>
 
-<script src="js/data.js?v=22"></script>
-<script src="js/i18n.js?v=22"></script>
-<script src="js/app.js?v=22"></script>
+<script src="js/data.js?v=23"></script>
+<script src="js/i18n.js?v=23"></script>
+<script src="js/app.js?v=23"></script>
 <script>
 const grid = document.getElementById("marketGrid");
 const chipsEl = document.getElementById("chips");
@@ -154,7 +159,11 @@ const REL = OO.markets.map((m, i) => {
 let PORT = [];
 try { PORT = JSON.parse(localStorage.getItem("oo-portfolio")) || []; } catch (e) { PORT = []; }
 PORT = PORT.filter(p => OO.markets[p.i]);
-function savePort() { localStorage.setItem("oo-portfolio", JSON.stringify(PORT)); }
+let REALIZED = +(localStorage.getItem("oo-realized") || 0);
+function savePort() {
+  localStorage.setItem("oo-portfolio", JSON.stringify(PORT));
+  localStorage.setItem("oo-realized", String(REALIZED));
+}
 function fmtPnl(x) { return (x >= 0 ? "+$" : "-$") + Math.abs(x).toFixed(2); }
 function renderPortfolio() {
   const card = document.getElementById("pfCard");
@@ -174,6 +183,7 @@ function renderPortfolio() {
       <td class="num-cell">${Math.round(cur * 100)}¢</td>
       <td class="num-cell">${fmtUSD(val)}</td>
       <td class="num-cell ${pnl >= 0 ? "pos" : "neg"}">${fmtPnl(pnl)}</td>
+      <td><button class="btn btn-ghost pf-close" data-k="${PORT.indexOf(p)}" style="padding:4px 12px; font-size:0.75rem;">${OO_T("pf.close")}</button></td>
     </tr>`;
   }).join("");
   const totPnl = totVal - totCost;
@@ -183,8 +193,21 @@ function renderPortfolio() {
     <td class="num-cell">${fmtUSD(totCost)}</td><td></td>
     <td class="num-cell">${fmtUSD(totVal)}</td>
     <td class="num-cell ${totPnl >= 0 ? "pos" : "neg"}">${fmtPnl(totPnl)}</td>
-  </tr>`;
+    <td></td>
+  </tr>` + (REALIZED !== 0 ? `<tr><td colspan="8" style="color:var(--cyan); font-size:0.85rem;">
+    ${OO_T("pf.realized")}: <strong class="num-cell ${REALIZED >= 0 ? "pos" : "neg"}">${fmtPnl(REALIZED)}</strong></td></tr>` : "");
 }
+document.getElementById("pfTable").addEventListener("click", (e) => {
+  const b = e.target.closest(".pf-close"); if (!b) return;
+  const p = PORT[+b.dataset.k]; if (!p) return;
+  const price = state[p.i].price;
+  const proceeds = -LMSR.cost(price, p.side, -p.shares);
+  state[p.i].price = Math.min(0.99, Math.max(0.01, LMSR.newPrice(price, p.side, -p.shares)));
+  REALIZED += proceeds - p.cost;
+  PORT.splice(+b.dataset.k, 1);
+  savePort();
+  render();
+});
 document.getElementById("pfClear").addEventListener("click", () => {
   PORT = []; savePort(); renderPortfolio();
 });
@@ -195,10 +218,30 @@ function renderChips() {
   ).join("");
 }
 
+/* search + sort */
+let SEARCH = "", SORTMODE = "def";
+const volNum = v => parseFloat(v) * (String(v).includes("M") ? 1e6 : String(v).includes("K") ? 1e3 : 1);
+function renderControls() {
+  document.getElementById("mkSearch").placeholder = OO_T("mk.search");
+  const sel = document.getElementById("mkSort");
+  sel.innerHTML = ["def", "pd", "pa", "vd"].map(k =>
+    `<option value="${k}">${OO_T("sort." + k)}</option>`).join("");
+  sel.value = SORTMODE;
+}
+document.getElementById("mkSearch").addEventListener("input", (e) => { SEARCH = e.target.value.toLowerCase(); render(); });
+document.getElementById("mkSort").addEventListener("change", (e) => { SORTMODE = e.target.value; render(); });
+
 function render() {
   renderChips();
-  grid.innerHTML = OO.markets.map((m, i) => {
+  renderControls();
+  let order = OO.markets.map((_, i) => i);
+  if (SORTMODE === "pd") order.sort((a, b) => state[b].price - state[a].price);
+  else if (SORTMODE === "pa") order.sort((a, b) => state[a].price - state[b].price);
+  else if (SORTMODE === "vd") order.sort((a, b) => volNum(OO.markets[b].vol) - volNum(OO.markets[a].vol));
+  grid.innerHTML = order.map(i => {
+    const m = OO.markets[i];
     if (activeCat !== "all" && m.cat !== activeCat) return "";
+    if (SEARCH && !m.q.toLowerCase().includes(SEARCH)) return "";
     const s = state[i];
     const yes = s.price;
     const cost = LMSR.cost(yes, s.side, s.shares);
