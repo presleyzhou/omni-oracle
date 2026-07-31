@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Macroeconomics Nowcast — Omni Oracle</title>
-<meta name="description" content="Real-time GDP and inflation nowcasts, Fed decision tree (model vs. market odds), and ensemble attribution — DFM, random forest and BVAR in one dashboard." />
+<title>Macroeconomics — Omni Oracle</title>
+<meta name="description" content="Official US macro data fetched live in your browser: BEA quarterly GDP growth, BLS CPI and unemployment, World Bank cross-country actuals, plus an AI macro analyst." />
 <link rel="canonical" href="https://presleyzhou.github.io/omni-oracle/macro.html" />
 <meta name="theme-color" content="#0b0f17" />
 <link rel="manifest" href="manifest.webmanifest" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Omni Oracle" />
-<meta property="og:title" content="Macroeconomics Nowcast — Omni Oracle" />
-<meta property="og:description" content="Real-time GDP and inflation nowcasts, Fed decision tree (model vs. market odds), and ensemble attribution — DFM, random forest and BVAR in one dashboard." />
+<meta property="og:title" content="Macroeconomics — Omni Oracle" />
+<meta property="og:description" content="Official US macro data fetched live in your browser: BEA quarterly GDP growth, BLS CPI and unemployment, World Bank cross-country actuals, plus an AI macro analyst." />
 <meta property="og:url" content="https://presleyzhou.github.io/omni-oracle/macro.html" />
 <meta name="twitter:card" content="summary" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>" />
-<link rel="stylesheet" href="css/style.css?v=28" />
+<link rel="stylesheet" href="css/style.css?v=29" />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
@@ -26,7 +26,7 @@
     <a class="logo" href="index.html">Omni<span>Oracle</span></a>
     <div class="nav-links">
       <a href="index.html" data-i18n="nav.home">Home</a>
-      <a href="macro.html" data-i18n="nav.macro">Macro & Finance</a>
+      <a href="macro.html" data-i18n="nav.macro">Macroeconomics</a>
       <a href="finance.html" data-i18n="nav.fin">Financial Markets</a>
       <a href="trends.html" data-i18n="nav.trends">Trend Companies</a>
       <a href="markets.html" data-i18n="nav.markets">Markets</a>
@@ -40,31 +40,29 @@
 <section>
   <div class="container">
     <h1 class="section-title" data-i18n="mac.title"></h1>
-    <p class="section-sub" data-i18n="mac.sub"></p>
+    <p class="section-sub" data-i18n="mac.real"></p>
 
-    <div class="stats-bar" style="margin-bottom: 28px;">
-      <div class="stat"><div class="num">2.3%</div><div class="lbl" data-i18n="mac.stat1"></div></div>
-      <div class="stat"><div class="num">2.3%</div><div class="lbl" data-i18n="mac.stat2"></div></div>
-      <div class="stat"><div class="num">2.5%</div><div class="lbl" data-i18n="mac.stat3"></div></div>
-      <div class="stat"><div class="num down" id="recProb">23%</div><div class="lbl" data-i18n="mac.stat4"></div></div>
+    <div class="stats-bar" style="margin-bottom:28px;" id="statsBar">
+      <div class="stat"><div class="num">…</div><div class="lbl" data-i18n="mac.loading"></div></div>
     </div>
 
     <div class="grid grid-2">
       <div class="card">
-        <h3 data-i18n="mac.gdp.title"></h3>
-        <p style="margin-bottom:14px;" data-i18n="mac.gdp.desc"></p>
+        <h3 data-i18n="mac.gdp.real"></h3>
+        <p style="margin-bottom:14px;" data-i18n="mac.gdp.realsub"></p>
         <div class="chart-box"><canvas id="gdpChart"></canvas></div>
       </div>
       <div class="card">
-        <h3 data-i18n="mac.cpi.title"></h3>
-        <p style="margin-bottom:14px;" data-i18n="mac.cpi.desc"></p>
+        <h3 data-i18n="mac.cpi.real"></h3>
+        <p style="margin-bottom:14px;" data-i18n="mac.cpi.realsub"></p>
         <div class="chart-box"><canvas id="cpiChart"></canvas></div>
       </div>
-      <div class="card">
-        <h3 data-i18n="mac.news.title"></h3>
-        <p style="margin-bottom:14px;" data-i18n="mac.news.desc"></p>
-        <div class="chart-box"><canvas id="newsChart"></canvas></div>
-      </div>
+    </div>
+
+    <div class="card" style="margin-top:18px;">
+      <h3 data-i18n="mac.unemp.title"></h3>
+      <p style="margin-bottom:14px;" data-i18n="mac.unemp.sub"></p>
+      <div class="chart-box short"><canvas id="unempChart"></canvas></div>
     </div>
 
     <div class="card hide" id="wbCard" style="margin-top:18px; border-color:rgba(34,197,94,0.35);">
@@ -86,13 +84,7 @@
       <div id="anOut" class="hide" style="margin-top:12px; padding:14px; border-radius:10px; background:rgba(139,92,246,0.08); border:1px solid rgba(139,92,246,0.3); font-size:0.9rem; color:var(--text-dim); white-space:pre-wrap;"></div>
     </div>
 
-    <div class="card" style="margin-top:18px;">
-      <h3 data-i18n="mac.ens.title"></h3>
-      <p style="margin-bottom:14px;" data-i18n="mac.ens.desc"></p>
-      <div class="chart-box short"><canvas id="ensembleChart"></canvas></div>
-    </div>
-
-    <div class="disclaimer" data-i18n="mac.disclaimer"></div>
+    <div class="disclaimer" data-i18n="mac.disc.real"></div>
   </div>
 </section>
 
@@ -103,80 +95,157 @@
   </div>
 </footer>
 
-<script src="js/data.js?v=28"></script>
-<script src="js/i18n.js?v=28"></script>
-<script src="js/app.js?v=28"></script>
+<script src="js/data.js?v=29"></script>
+<script src="js/i18n.js?v=29"></script>
+<script src="js/app.js?v=29"></script>
 <script>
-const M = OO.macro;
+/* ---------------------------------------------------------------
+   All series below are fetched live from official statistics.
+   GDP: BEA (NIPA table 1.1.1, line 1) via the DBnomics open API.
+   CPI / core CPI / unemployment: BLS public API v1 (no key).
+   Cross-country actuals: World Bank open API.
+   --------------------------------------------------------------- */
+const R = { gdp: null, cpi: null, core: null, unemp: null };
 let charts = [];
+
+const BLS = "https://api.bls.gov/publicAPI/v1/timeseries/data/";
+const monthLabel = (y, p) => y + "-" + p.slice(1);
+
+/* BLS index series -> year-over-year % change */
+function toYoY(points) {
+  const byKey = {};
+  points.forEach(d => { byKey[d.year + d.period] = +d.value; });
+  const out = [];
+  points.slice().reverse().forEach(d => {
+    const prev = byKey[(+d.year - 1) + d.period];
+    if (prev) out.push({ t: monthLabel(d.year, d.period), v: +(100 * (+d.value / prev - 1)).toFixed(2) });
+  });
+  return out.slice(-18);
+}
+
+function fetchBls(series) {
+  return fetch(BLS + series).then(r => r.ok ? r.json() : null)
+    .then(d => d && d.status === "REQUEST_SUCCEEDED" ? d.Results.series[0].data : null)
+    .catch(() => null);
+}
+
+/* naive AR(1) on the real actuals — a transparent baseline, not a product */
+function ar1Next(vals) {
+  const n = vals.length;
+  if (n < 4) return null;
+  const mean = vals.reduce((a, b) => a + b, 0) / n;
+  let num = 0, den = 0;
+  for (let i = 1; i < n; i++) { num += (vals[i] - mean) * (vals[i - 1] - mean); den += Math.pow(vals[i - 1] - mean, 2); }
+  const phi = den ? Math.max(-0.95, Math.min(0.95, num / den)) : 0;
+  return +(mean + phi * (vals[n - 1] - mean)).toFixed(2);
+}
+
+function renderStats() {
+  const cells = [];
+  const stat = (num, lblKey, period, cls) => cells.push(
+    `<div class="stat"><div class="num ${cls || ""}">${num}</div>
+     <div class="lbl">${OO_T(lblKey).replace("{p}", period)}</div></div>`);
+  if (R.gdp && R.gdp.length) {
+    const last = R.gdp[R.gdp.length - 1];
+    stat(last.v + "%", "mac.stat.gdp", last.t, last.v >= 2 ? "up" : last.v < 0 ? "down" : "");
+  }
+  if (R.cpi && R.cpi.length) {
+    const last = R.cpi[R.cpi.length - 1];
+    stat(last.v + "%", "mac.stat.cpi", last.t, "");
+  }
+  if (R.core && R.core.length) {
+    const last = R.core[R.core.length - 1];
+    stat(last.v + "%", "mac.stat.core", last.t, "");
+  }
+  if (R.unemp && R.unemp.length) {
+    const last = R.unemp[R.unemp.length - 1];
+    stat(last.v + "%", "mac.stat.unemp", last.t, last.v >= 4.5 ? "down" : "");
+  }
+  document.getElementById("statsBar").innerHTML = cells.join("") ||
+    `<div class="stat"><div class="num">…</div><div class="lbl">${OO_T("mac.loading")}</div></div>`;
+}
 
 function buildCharts() {
   charts.forEach(c => c.destroy());
   charts = [];
+  renderStats();
 
-  document.getElementById("recProb").textContent = fmtPct(M.recessionProb12m);
+  if (R.gdp && R.gdp.length) {
+    const vals = R.gdp.map(d => d.v);
+    const est = ar1Next(vals);
+    const labels = R.gdp.map(d => d.t).concat(est != null ? ["AR"] : []);
+    charts.push(new Chart(document.getElementById("gdpChart"), {
+      type: "line",
+      data: {
+        labels,
+        datasets: [
+          { label: OO_T("ch.gdpReal"), data: vals, borderColor: OO_COLORS.accent,
+            backgroundColor: "rgba(79,140,255,0.12)", fill: true, tension: 0.25, pointRadius: 3 },
+          ...(est != null ? [{
+            label: OO_T("ch.arEst"),
+            data: vals.map(() => null).slice(0, -1).concat([vals[vals.length - 1], est]),
+            borderColor: "#22d3ee", borderDash: [4, 4], pointRadius: 4, pointStyle: "rectRot", tension: 0,
+          }] : []),
+        ],
+      },
+      options: { maintainAspectRatio: false, scales: { y: { title: { display: true, text: "% SAAR" } } } },
+    }));
+  }
 
-  charts.push(new Chart(document.getElementById("gdpChart"), {
-    type: "line",
-    data: {
-      labels: M.quarters,
-      datasets: [
-        { label: OO_T("ch.nowcast"), data: M.gdpNowcast, borderColor: OO_COLORS.accent, backgroundColor: OO_COLORS.accent, tension: 0.3 },
-        { label: OO_T("ch.spf"), data: M.gdpSPF, borderColor: OO_COLORS.purple, backgroundColor: OO_COLORS.purple, borderDash: [6,4], tension: 0.3 },
-        { label: OO_T("ch.tsfm"), data: M.gdpTSFM, borderColor: "#22d3ee", backgroundColor: "#22d3ee", borderDash: [2,3], tension: 0.3, pointRadius: 2 },
-        { label: OO_T("ch.actual"), data: M.gdpActual, borderColor: OO_COLORS.green, backgroundColor: OO_COLORS.green, pointStyle: "rectRot", pointRadius: 5, showLine: false },
-      ],
-    },
-    options: { maintainAspectRatio: false, scales: { y: { title: { display: true, text: "% SAAR" } } } },
-  }));
+  if (R.cpi && R.cpi.length) {
+    charts.push(new Chart(document.getElementById("cpiChart"), {
+      type: "line",
+      data: {
+        labels: R.cpi.map(d => d.t),
+        datasets: [
+          { label: OO_T("ch.cpi"), data: R.cpi.map(d => d.v), borderColor: OO_COLORS.amber,
+            backgroundColor: OO_COLORS.amber, tension: 0.3, pointRadius: 2 },
+          ...(R.core ? [{ label: OO_T("ch.core"), data: R.core.map(d => d.v), borderColor: OO_COLORS.red,
+            backgroundColor: OO_COLORS.red, tension: 0.3, pointRadius: 2 }] : []),
+        ],
+      },
+      options: { maintainAspectRatio: false, scales: { y: { title: { display: true, text: "% YoY" } }, x: { ticks: { maxTicksLimit: 9 } } } },
+    }));
+  }
 
-  charts.push(new Chart(document.getElementById("cpiChart"), {
-    type: "line",
-    data: {
-      labels: M.months,
-      datasets: [
-        { label: OO_T("ch.cpi"), data: M.cpiYoY, borderColor: OO_COLORS.amber, backgroundColor: OO_COLORS.amber, tension: 0.3 },
-        { label: OO_T("ch.core"), data: M.coreYoY, borderColor: OO_COLORS.red, backgroundColor: OO_COLORS.red, tension: 0.3 },
-      ],
-    },
-    options: { maintainAspectRatio: false, scales: { y: { title: { display: true, text: "% YoY" } } } },
-  }));
-
-  charts.push(new Chart(document.getElementById("newsChart"), {
-    type: "bar",
-    data: {
-      labels: M.newsDecomp.map(d => d.release),
-      datasets: [{
-        label: OO_T("ch.newsLabel"),
-        data: M.newsDecomp.map(d => d.impact),
-        backgroundColor: M.newsDecomp.map(d => d.impact >= 0 ? "rgba(34,197,94,0.7)" : "rgba(239,68,68,0.7)"),
-      }],
-    },
-    options: { maintainAspectRatio: false, indexAxis: "y", plugins: { legend: { display: false } } },
-  }));
-
-  const ensKeys = ["ens.dfm", "ens.rf", "ens.tsfm", "ens.bvar", "ens.crowd", "ens.mkt"];
-  charts.push(new Chart(document.getElementById("ensembleChart"), {
-    type: "bar",
-    data: {
-      labels: [OO_T("ch.ensLabel")],
-      datasets: OO.macro.ensemble.map((e, i) => ({
-        label: OO_T(ensKeys[i]),
-        data: [e.weight],
-        backgroundColor: [OO_COLORS.accent, OO_COLORS.purple, "#22d3ee", OO_COLORS.green, OO_COLORS.amber, OO_COLORS.red][i],
-      })),
-    },
-    options: {
-      maintainAspectRatio: false, indexAxis: "y",
-      scales: { x: { stacked: true, max: 1, ticks: { callback: v => (100*v) + "%" } }, y: { stacked: true } },
-    },
-  }));
+  if (R.unemp && R.unemp.length) {
+    charts.push(new Chart(document.getElementById("unempChart"), {
+      type: "line",
+      data: {
+        labels: R.unemp.map(d => d.t),
+        datasets: [{ label: OO_T("ch.unemp"), data: R.unemp.map(d => d.v), borderColor: OO_COLORS.green,
+          backgroundColor: "rgba(34,197,94,0.12)", fill: true, tension: 0.3, pointRadius: 2 }],
+      },
+      options: { maintainAspectRatio: false, scales: { y: { title: { display: true, text: "%" } }, x: { ticks: { maxTicksLimit: 10 } } } },
+    }));
+  }
 }
-
 buildCharts();
+
+/* ---- BEA quarterly real GDP growth (via DBnomics open API) ---- */
+fetch("https://api.db.nomics.world/v22/series/BEA/NIPA-T10101/A191RL-Q?observations=1")
+  .then(r => r.ok ? r.json() : null)
+  .then(d => {
+    const doc = d && d.series && d.series.docs && d.series.docs[0];
+    if (!doc) return;
+    const rows = doc.period.map((t, i) => ({ t, v: doc.value[i] }))
+      .filter(x => typeof x.v === "number").slice(-12);
+    R.gdp = rows;
+    buildCharts();
+  }).catch(() => {});
+
+/* ---- BLS: headline CPI, core CPI, unemployment ---- */
+fetchBls("CUUR0000SA0").then(d => { if (d) { R.cpi = toYoY(d); buildCharts(); } });
+fetchBls("CUUR0000SA0L1E").then(d => { if (d) { R.core = toYoY(d); buildCharts(); } });
+fetchBls("LNS14000000").then(d => {
+  if (!d) return;
+  R.unemp = d.slice().reverse().map(x => ({ t: monthLabel(x.year, x.period), v: +x.value })).slice(-24);
+  buildCharts();
+});
+
 document.addEventListener("oo:lang", buildCharts);
 
-/* ---- World Bank actuals (open API, CORS-open, keyless) ---- */
+/* ---- World Bank cross-country actuals ---- */
 const WB = { countries: { USA: "US", CHN: "CN", EUU: "EU", JPN: "JP" }, gdp: {}, cpi: {} };
 let wbCharts = [];
 function renderWb() {
@@ -212,18 +281,17 @@ Promise.all(Object.keys(WB.countries).flatMap(iso => [
 ))).then(renderWb);
 document.addEventListener("oo:lang", renderWb);
 
-/* ---- AI macro analyst ---- */
+/* ---- AI macro analyst, fed only with the real series above ---- */
 ooAnalyst("anRun", "anOut", "anStatus", () => {
+  const s = (arr, n) => arr ? arr.slice(-n).map(d => d.t + ":" + d.v).join(", ") : "(unavailable)";
   const wbTxt = Object.entries(WB.gdp).map(([iso, v]) =>
-    `${WB.countries[iso]} GDP ${Object.entries(v).map(([y, x]) => y + ":" + x).join(",")}`).join(" | ");
+    `${WB.countries[iso]} ${Object.entries(v).map(([y, x]) => y + ":" + x).join(",")}`).join(" | ");
   return {
-    system: "You are the macro analyst of Omni Oracle. Write a concise, decision-oriented read (150-200 words): what the nowcast and inflation path imply, where model and market disagree, one thing to watch, one risk. No preamble, no markdown headers. Reply strictly in this language code: " + OO_LANG + ".",
-    user: `Nowcast GDP 2026Q2: ${M.gdpNowcast.at(-1)}% SAAR (SPF ${M.gdpSPF.at(-1)}%, TSFM ${M.gdpTSFM.at(-1)}%). ` +
-      `CPI YoY latest ${M.cpiYoY.at(-1)}%, core ${M.coreYoY.at(-1)}%, 12m path ${M.cpiYoY.join(",")}. ` +
-      `Recession probability ${Math.round(M.recessionProb12m * 100)}%. ` +
-      `Ensemble weights: ${M.ensemble.map(e => e.source + " " + Math.round(e.weight * 100) + "%").join(", ")}. ` +
-      `Nowcast news decomposition: ${M.newsDecomp.map(n => n.release + " " + n.impact).join("; ")}. ` +
-      `World Bank actuals: ${wbTxt || "(loading)"}.`,
+    system: "You are the macro analyst of Omni Oracle. All numbers you receive are official statistics (BEA, BLS, World Bank). Write a concise, decision-oriented read (150-200 words): what the growth and inflation picture implies, what the labour market adds, one thing to watch next, one risk. No preamble, no markdown headers. Reply strictly in this language code: " + OO_LANG + ".",
+    user: `US real GDP growth (BEA, quarterly SAAR, %): ${s(R.gdp, 8)}. ` +
+      `CPI YoY (BLS, %): ${s(R.cpi, 12)}. Core CPI YoY (BLS, %): ${s(R.core, 12)}. ` +
+      `Unemployment rate (BLS, %): ${s(R.unemp, 12)}. ` +
+      `World Bank annual GDP growth by economy: ${wbTxt || "(loading)"}.`,
   };
 });
 </script>
