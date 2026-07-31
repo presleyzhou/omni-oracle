@@ -80,6 +80,65 @@ window.addEventListener("load", () => {
   });
 });
 
+/* ---------- Shared LLM client (uses the keys set via the nav 🔑 panel) ---------- */
+const OO_LLM = {
+  get key() { return localStorage.getItem("oo-llm-key") || ""; },
+  get provider() { return localStorage.getItem("oo-llm-provider") || "anthropic"; },
+  get base() { return localStorage.getItem("oo-llm-base") || "https://api.openai.com/v1"; },
+  get model() {
+    return localStorage.getItem("oo-llm-model") ||
+      (this.provider === "openai" ? "gpt-4o-mini" : "claude-sonnet-5");
+  },
+  async ask(system, user, maxTokens = 500) {
+    if (this.provider === "openai") {
+      const res = await fetch(this.base.replace(/\/+$/, "") + "/chat/completions", {
+        method: "POST",
+        headers: { "content-type": "application/json", authorization: "Bearer " + this.key },
+        body: JSON.stringify({
+          model: this.model, max_tokens: maxTokens,
+          messages: [{ role: "system", content: system }, { role: "user", content: user }],
+        }),
+      });
+      if (!res.ok) throw new Error(res.status + " " + (await res.text()).slice(0, 120));
+      return ((await res.json()).choices?.[0]?.message?.content || "").trim();
+    }
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json", "x-api-key": this.key,
+        "anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true",
+      },
+      body: JSON.stringify({
+        model: this.model, max_tokens: maxTokens, system,
+        messages: [{ role: "user", content: user }],
+      }),
+    });
+    if (!res.ok) throw new Error(res.status + " " + (await res.text()).slice(0, 120));
+    return (await res.json()).content.map(b => b.text || "").join("").trim();
+  },
+};
+
+/* Wire an "AI analyst" card: button + output box, guarded on key presence */
+function ooAnalyst(btnId, outId, statusId, buildPrompt) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  btn.addEventListener("click", async () => {
+    const out = document.getElementById(outId), st = document.getElementById(statusId);
+    if (!OO_LLM.key) { st.textContent = "⚪ " + OO_T("tour.ai.nokey"); return; }
+    st.textContent = "🤖 " + OO_T("ai.an.running");
+    out.classList.remove("hide");
+    out.textContent = "…";
+    try {
+      const { system, user } = buildPrompt();
+      out.textContent = await OO_LLM.ask(system, user, 700);
+      st.textContent = "✓ " + OO_LLM.model;
+    } catch (err) {
+      out.textContent = "⚠️ " + OO_T("sw.llm.err") + err.message;
+      st.textContent = "";
+    }
+  });
+}
+
 /* ---------- Global LLM settings (🔑 in the nav, shared oo-llm-* storage) ---------- */
 (function () {
   const nav = document.querySelector(".nav-inner");

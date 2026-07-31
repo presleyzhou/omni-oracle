@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://presleyzhou.github.io/omni-oracle/simworld.html" />
 <meta name="twitter:card" content="summary" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>" />
-<link rel="stylesheet" href="css/style.css?v=27" />
+<link rel="stylesheet" href="css/style.css?v=28" />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
@@ -215,9 +215,9 @@
   </div>
 </footer>
 
-<script src="js/data.js?v=27"></script>
-<script src="js/i18n.js?v=27"></script>
-<script src="js/app.js?v=27"></script>
+<script src="js/data.js?v=28"></script>
+<script src="js/i18n.js?v=28"></script>
+<script src="js/app.js?v=28"></script>
 <script>
 /* ---------- Parallel-world demo simulation (client-side, illustrative) ---------- */
 const FACTIONS = [
@@ -736,47 +736,7 @@ document.getElementById("exportBtn").addEventListener("click", () => {
   URL.revokeObjectURL(a.href);
 });
 
-/* ----- optional real LLM (bring your own key; stored in localStorage only) ----- */
-const LLM = {
-  get key() { return localStorage.getItem("oo-llm-key") || ""; },
-  get provider() { return localStorage.getItem("oo-llm-provider") || "anthropic"; },
-  get base() { return localStorage.getItem("oo-llm-base") || "https://api.openai.com/v1"; },
-  get model() {
-    return localStorage.getItem("oo-llm-model") ||
-      (this.provider === "openai" ? "gpt-4o-mini" : "claude-sonnet-5");
-  },
-  async ask(system, user, maxTokens = 500) {
-    if (this.provider === "openai") {
-      const res = await fetch(this.base.replace(/\/+$/, "") + "/chat/completions", {
-        method: "POST",
-        headers: { "content-type": "application/json", authorization: "Bearer " + this.key },
-        body: JSON.stringify({
-          model: this.model, max_tokens: maxTokens,
-          messages: [{ role: "system", content: system }, { role: "user", content: user }],
-        }),
-      });
-      if (!res.ok) throw new Error(res.status + " " + (await res.text()).slice(0, 140));
-      const data = await res.json();
-      return (data.choices?.[0]?.message?.content || "").trim();
-    }
-    const res = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        "x-api-key": this.key,
-        "anthropic-version": "2023-06-01",
-        "anthropic-dangerous-direct-browser-access": "true",
-      },
-      body: JSON.stringify({
-        model: this.model, max_tokens: maxTokens,
-        system, messages: [{ role: "user", content: user }],
-      }),
-    });
-    if (!res.ok) throw new Error(res.status + " " + (await res.text()).slice(0, 140));
-    const data = await res.json();
-    return data.content.map((b) => b.text || "").join("").trim();
-  },
-};
+/* ----- LLM-powered agent chat & ReportAgent (uses the shared nav 🔑 settings) ----- */
 function worldStateText() {
   const probs = scenarioProbs();
   const lead = OO_T("sw.sc" + (probs.indexOf(Math.max(...probs)) + 1));
@@ -788,16 +748,16 @@ function worldStateText() {
 }
 function updateLlmStatus() {
   const el = document.getElementById("llmStatus");
-  const on = !!LLM.key;
+  const on = !!OO_LLM.key;
   el.textContent = (on ? "🟢 " : "⚪ ") + OO_T(on ? "sw.llm.on" : "sw.llm.off") +
-    (on ? ` · ${LLM.provider} · ${LLM.model}` : "");
+    (on ? ` · ${OO_LLM.provider} · ${OO_LLM.model}` : "");
   el.style.color = on ? "var(--green)" : "var(--text-dim)";
-  document.getElementById("llmProvider").value = LLM.provider;
+  document.getElementById("llmProvider").value = OO_LLM.provider;
   document.getElementById("llmModel").value = localStorage.getItem("oo-llm-model") || "";
-  document.getElementById("llmModel").placeholder = LLM.provider === "openai" ? "gpt-4o-mini" : "claude-sonnet-5";
+  document.getElementById("llmModel").placeholder = OO_LLM.provider === "openai" ? "gpt-4o-mini" : "claude-sonnet-5";
   document.getElementById("llmBase").value = localStorage.getItem("oo-llm-base") || "";
-  document.getElementById("llmBaseRow").classList.toggle("hide", LLM.provider !== "openai");
-  document.getElementById("llmKey").value = LLM.key;
+  document.getElementById("llmBaseRow").classList.toggle("hide", OO_LLM.provider !== "openai");
+  document.getElementById("llmKey").value = OO_LLM.key;
 }
 document.getElementById("llmProvider").addEventListener("change", () => {
   localStorage.setItem("oo-llm-provider", document.getElementById("llmProvider").value);
@@ -824,14 +784,14 @@ document.getElementById("aiRepBtn").addEventListener("click", async () => {
   if (!SIM.built) return;
   const box = document.getElementById("aiNarr");
   box.classList.remove("hide");
-  if (!LLM.key) { box.textContent = "⚪ " + OO_T("sw.llm.off"); return; }
+  if (!OO_LLM.key) { box.textContent = "⚪ " + OO_T("sw.llm.off"); return; }
   box.textContent = "🤖 " + OO_T("sw.llm.thinking");
   try {
     const sys = "You are the ReportAgent of Omni Oracle's parallel-world simulation engine. " +
       "Write a concise, decision-oriented forecast narrative (150-220 words) based on the simulation state you are given: " +
       "what is driving the leading scenario, key risks, what to watch, and one hedging recommendation. " +
       "No preamble, no markdown headers. Reply strictly in this language code: " + OO_LANG + ".";
-    box.textContent = "【" + OO_T("sw.llm.narrTitle") + "】\n" + (await LLM.ask(sys, worldStateText(), 600));
+    box.textContent = "【" + OO_T("sw.llm.narrTitle") + "】\n" + (await OO_LLM.ask(sys, worldStateText(), 600));
   } catch (err) {
     box.textContent = "⚠️ " + OO_T("sw.llm.err") + err.message;
   }
@@ -869,7 +829,7 @@ async function sendChat() {
   const box = document.getElementById("chatBox");
   box.insertAdjacentHTML("beforeend", `<div class="msg user">${q.replace(/</g, "&lt;")}</div>`);
   box.scrollTop = box.scrollHeight;
-  if (LLM.key) {
+  if (OO_LLM.key) {
     const persona = OO_T("sw.ag" + (SIM.chatAgent + 1));
     box.insertAdjacentHTML("beforeend", `<div class="msg agent" id="pendingMsg">🤖 ${OO_T("sw.llm.thinking")}</div>`);
     box.scrollTop = box.scrollHeight;
@@ -877,7 +837,7 @@ async function sendChat() {
       const sys = `You are "${persona}", an agent living inside a simulated parallel world built from real-world seed information. ` +
         "Stay strictly in character, speak in first person, 2-4 sentences, reference the world state naturally. " +
         "Reply strictly in this language code: " + OO_LANG + ". World state: " + worldStateText();
-      const txt = await LLM.ask(sys, q, 300);
+      const txt = await OO_LLM.ask(sys, q, 300);
       document.getElementById("pendingMsg")?.remove();
       appendAgentMsg(txt);
     } catch (err) {
