@@ -480,3 +480,16 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
   .market-meta { gap: 8px; }
   #worldCanvas { height: 300px; }
 }
+
+/* ---------- Data-provenance badges (live / cached / snapshot / demo) ---------- */
+.src-badge {
+  display: inline-block; margin-left: 8px; padding: 2px 8px; border-radius: 999px;
+  font-family: var(--mono); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.05em;
+  text-transform: uppercase; vertical-align: middle; white-space: nowrap;
+}
+.src-live { background: rgba(34,197,94,0.14); color: var(--green); }
+.src-cached { background: rgba(245,158,11,0.15); color: var(--amber); }
+.src-snapshot { background: rgba(34,211,238,0.14); color: var(--cyan); }
+.src-demo { background: rgba(147,160,184,0.16); color: var(--text-dim); }
+.src-line { text-align: right; margin-top: 8px; min-height: 1em; }
+.src-line .src-badge { margin-left: 0; }

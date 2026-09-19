@@ -80,15 +80,102 @@ window.addEventListener("load", () => {
   });
 });
 
+/* ---------- Resilient fetch: timeout + session cache + stale fallback ----------
+   OO_FETCH(url, {ttl, timeout}) resolves to parsed JSON or null — it never throws.
+   Fresh responses are kept in sessionStorage for `ttl` seconds so repeated page
+   loads don't hammer rate-limited public APIs (CoinGecko, BLS…). When the network
+   fails, the last cached copy is served even if stale.
+   OO_FETCH.source(url) tells how the last call was satisfied: "live" | "cached" | null. */
+const OO_FETCH = Object.assign(async function (url, { ttl = 300, timeout = 8000, init } = {}) {
+  const k = "oo-fetch:" + url;
+  let hit = null;
+  try { hit = JSON.parse(sessionStorage.getItem(k)); } catch (e) {}
+  if (hit && Date.now() - hit.t < ttl * 1000) { OO_FETCH._src[url] = "live"; return hit.d; }
+  try {
+    const res = await fetch(url, { ...init, signal: AbortSignal.timeout(timeout) });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const d = await res.json();
+    try { sessionStorage.setItem(k, JSON.stringify({ t: Date.now(), d })); } catch (e) {}
+    OO_FETCH._src[url] = "live";
+    return d;
+  } catch (e) {
+    if (hit) { OO_FETCH._src[url] = "cached"; return hit.d; }
+    OO_FETCH._src[url] = null;
+    return null;
+  }
+}, { _src: {}, source(url) { return this._src[url] || null; } });
+
+/* ---------- Daily snapshot (data/live.json, written by .github/workflows/snapshot.yml) ----------
+   The GitHub Action fetches every upstream API once a day and commits the raw
+   responses, so the site keeps working when a public API is rate-limited, down,
+   or closes its CORS policy. Slow-moving official series (BEA, BLS, World Bank)
+   are read from the snapshot first; prices are fetched live with the snapshot
+   as fallback. */
+const OO_SNAPSHOT = {
+  _p: null,
+  load() {
+    return this._p || (this._p = fetch("data/live.json", { signal: AbortSignal.timeout(6000) })
+      .then(r => r.ok ? r.json() : null).catch(() => null));
+  },
+  async get(path) {
+    const snap = await this.load();
+    return path.split(".").reduce((o, k) => (o == null ? undefined : o[k]), snap);
+  },
+  async date() {
+    const snap = await this.load();
+    return snap && snap.generated ? snap.generated.slice(0, 10) : "";
+  },
+};
+
+/* Live-first with snapshot fallback → { data, source } */
+async function ooLive(url, snapPath, opts) {
+  const d = await OO_FETCH(url, opts);
+  if (d != null) return { data: d, source: OO_FETCH.source(url) };
+  const s = snapPath ? await OO_SNAPSHOT.get(snapPath) : null;
+  return { data: s == null ? null : s, source: s == null ? null : "snapshot" };
+}
+/* Snapshot-first (official statistics), live only when the snapshot lacks the field */
+async function ooSnap(snapPath, url, opts) {
+  const s = await OO_SNAPSHOT.get(snapPath);
+  if (s != null) return { data: s, source: "snapshot" };
+  if (!url) return { data: null, source: null };
+  const d = await OO_FETCH(url, opts);
+  return { data: d, source: d == null ? null : OO_FETCH.source(url) };
+}
+
+/* Data-provenance badge (live / cached / snapshot / demo) on a card's heading */
+async function ooMarkSource(hostId, source, when) {
+  const host = document.getElementById(hostId);
+  if (!host) return;
+  if (source === "snapshot" && !when) when = await OO_SNAPSHOT.date();
+  host.dataset.src = source || "demo";
+  host.dataset.srcWhen = when || "";
+  paintSourceBadge(host);
+}
+function paintSourceBadge(host) {
+  const anchor = host.querySelector("[data-src-anchor], h3, h2") || host;
+  let b = anchor.querySelector(":scope > .src-badge");
+  if (!b) { b = document.createElement("span"); b.className = "src-badge"; anchor.appendChild(b); }
+  const src = host.dataset.src || "demo";
+  b.className = "src-badge src-" + src;
+  b.textContent = OO_T("ds." + src) + (host.dataset.srcWhen ? " · " + host.dataset.srcWhen : "");
+  b.title = OO_T("ds." + src + ".hint");
+}
+document.addEventListener("oo:lang", () => document.querySelectorAll("[data-src]").forEach(paintSourceBadge));
+
+/* ---------- Model defaults for the BYOK LLM client ----------
+   Override per browser via the 🔑 panel; the README lists these too. */
+const OO_MODELS = {
+  anthropic: { label: "Anthropic", model: "claude-sonnet-5", base: "https://api.anthropic.com" },
+  openai:    { label: "OpenAI-compatible", model: "gpt-4o-mini", base: "https://api.openai.com/v1" },
+};
+
 /* ---------- Shared LLM client (uses the keys set via the nav 🔑 panel) ---------- */
 const OO_LLM = {
   get key() { return localStorage.getItem("oo-llm-key") || ""; },
-  get provider() { return localStorage.getItem("oo-llm-provider") || "anthropic"; },
-  get base() { return localStorage.getItem("oo-llm-base") || "https://api.openai.com/v1"; },
-  get model() {
-    return localStorage.getItem("oo-llm-model") ||
-      (this.provider === "openai" ? "gpt-4o-mini" : "claude-sonnet-5");
-  },
+  get provider() { return OO_MODELS[localStorage.getItem("oo-llm-provider")] ? localStorage.getItem("oo-llm-provider") : "anthropic"; },
+  get base() { return localStorage.getItem("oo-llm-base") || OO_MODELS.openai.base; },
+  get model() { return localStorage.getItem("oo-llm-model") || OO_MODELS[this.provider].model; },
   async ask(system, user, maxTokens = 500) {
     if (this.provider === "openai") {
       const res = await fetch(this.base.replace(/\/+$/, "") + "/chat/completions", {
@@ -102,7 +189,7 @@ const OO_LLM = {
       if (!res.ok) throw new Error(res.status + " " + (await res.text()).slice(0, 120));
       return ((await res.json()).choices?.[0]?.message?.content || "").trim();
     }
-    const res = await fetch("https://api.anthropic.com/v1/messages", {
+    const res = await fetch(OO_MODELS.anthropic.base + "/v1/messages", {
       method: "POST",
       headers: {
         "content-type": "application/json", "x-api-key": this.key,
@@ -139,62 +226,74 @@ function ooAnalyst(btnId, outId, statusId, buildPrompt) {
   });
 }
 
-/* ---------- Global LLM settings (🔑 in the nav, shared oo-llm-* storage) ---------- */
+/* ---------- Global LLM settings (🔑 in the nav, shared oo-llm-* storage) ----------
+   Fires "oo:llm" on the document whenever the settings change, so pages can
+   refresh their own status lines. ooOpenLlmSettings() opens the dialog. */
+let ooOpenLlmSettings = () => {};
 (function () {
   const nav = document.querySelector(".nav-inner");
   if (!nav || typeof OO_T === "undefined") return;
   const btn = document.createElement("button");
-  btn.className = "llm-btn"; btn.id = "llmNavBtn"; btn.setAttribute("aria-label", "LLM settings");
+  btn.className = "llm-btn"; btn.id = "llmNavBtn";
+  btn.setAttribute("aria-label", "LLM settings");
+  btn.setAttribute("aria-haspopup", "dialog");
+  btn.setAttribute("aria-expanded", "false");
   nav.appendChild(btn);
   const key = () => localStorage.getItem("oo-llm-key") || "";
-  const provider = () => localStorage.getItem("oo-llm-provider") || "anthropic";
   const paintBtn = () => { btn.innerHTML = "🔑" + (key() ? '<span class="dot"></span>' : ""); };
   paintBtn();
+  const changed = () => { paintBtn(); document.dispatchEvent(new CustomEvent("oo:llm")); };
 
   let overlay = null;
-  function close() { if (overlay) { overlay.remove(); overlay = null; } }
+  function close() {
+    if (!overlay) return;
+    overlay.remove(); overlay = null;
+    btn.setAttribute("aria-expanded", "false");
+    btn.focus();
+  }
   function open() {
     close();
     overlay = document.createElement("div");
     overlay.className = "llm-overlay";
-    overlay.innerHTML = `<div class="llm-modal">
+    overlay.innerHTML = `<div class="llm-modal" role="dialog" aria-modal="true" aria-labelledby="glTitle">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-        <h3 style="font-size:1.05rem; font-weight:700;">${OO_T("sw.llm.title")}</h3>
-        <button class="btn btn-ghost" id="glClose" style="padding:4px 12px;">✕</button>
+        <h3 id="glTitle" style="font-size:1.05rem; font-weight:700;">${OO_T("sw.llm.title")}</h3>
+        <button class="btn btn-ghost" id="glClose" style="padding:4px 12px;" aria-label="Close">✕</button>
       </div>
       <p style="font-size:0.8rem; color:var(--text-dim); margin-bottom:12px;">${OO_T("sw.llm.hint")}</p>
       <div style="display:flex; gap:8px; margin-bottom:8px;">
-        <select class="oo-input" id="glProvider" style="max-width:190px;">
-          <option value="anthropic">Anthropic</option>
-          <option value="openai">OpenAI-compatible</option>
+        <select class="oo-input" id="glProvider" style="max-width:190px;" aria-label="Provider">
+          ${Object.entries(OO_MODELS).map(([k, v]) => `<option value="${k}">${v.label}</option>`).join("")}
         </select>
-        <input class="oo-input" id="glModel" autocomplete="off" />
+        <input class="oo-input" id="glModel" autocomplete="off" aria-label="Model" />
       </div>
-      <input class="oo-input hide" id="glBase" placeholder="https://api.openai.com/v1" autocomplete="off" style="margin-bottom:8px;" />
-      <input class="oo-input" id="glKey" type="password" placeholder="sk-…" autocomplete="off" />
+      <input class="oo-input hide" id="glBase" placeholder="${OO_MODELS.openai.base}" autocomplete="off" style="margin-bottom:8px;" aria-label="API base URL" />
+      <input class="oo-input" id="glKey" type="password" placeholder="sk-…" autocomplete="off" aria-label="API key" />
       <div style="display:flex; gap:8px; margin-top:12px; align-items:center; flex-wrap:wrap;">
         <button class="btn btn-primary" id="glSave" style="padding:7px 16px; font-size:0.85rem;">${OO_T("sw.llm.save")}</button>
         <button class="btn btn-ghost" id="glClear" style="padding:7px 16px; font-size:0.85rem;">${OO_T("sw.llm.clear")}</button>
-        <span id="glStatus" style="font-size:0.8rem;"></span>
+        <span id="glStatus" style="font-size:0.8rem;" aria-live="polite"></span>
       </div>
     </div>`;
     document.body.appendChild(overlay);
+    btn.setAttribute("aria-expanded", "true");
     const $ = (id) => document.getElementById(id);
     const refresh = () => {
-      const on = !!key();
+      const on = !!key(), prov = OO_LLM.provider;
       $("glStatus").textContent = (on ? "🟢 " : "⚪ ") + OO_T(on ? "sw.llm.on" : "sw.llm.off");
       $("glStatus").style.color = on ? "var(--green)" : "var(--text-dim)";
-      $("glProvider").value = provider();
+      $("glProvider").value = prov;
       $("glModel").value = localStorage.getItem("oo-llm-model") || "";
-      $("glModel").placeholder = provider() === "openai" ? "gpt-4o-mini" : "claude-sonnet-5";
+      $("glModel").placeholder = OO_MODELS[prov].model;
       $("glBase").value = localStorage.getItem("oo-llm-base") || "";
-      $("glBase").classList.toggle("hide", provider() !== "openai");
+      $("glBase").classList.toggle("hide", prov !== "openai");
       $("glKey").value = key();
       paintBtn();
     };
     refresh();
+    $("glKey").focus();
     $("glProvider").addEventListener("change", () => {
-      localStorage.setItem("oo-llm-provider", $("glProvider").value); refresh();
+      localStorage.setItem("oo-llm-provider", $("glProvider").value); refresh(); changed();
     });
     $("glSave").addEventListener("click", () => {
       const k = $("glKey").value.trim();
@@ -204,12 +303,13 @@ function ooAnalyst(btnId, outId, statusId, buildPrompt) {
       const b = $("glBase").value.trim();
       if (b) localStorage.setItem("oo-llm-base", b); else localStorage.removeItem("oo-llm-base");
       localStorage.setItem("oo-llm-provider", $("glProvider").value);
-      refresh();
+      refresh(); changed();
     });
-    $("glClear").addEventListener("click", () => { localStorage.removeItem("oo-llm-key"); refresh(); });
+    $("glClear").addEventListener("click", () => { localStorage.removeItem("oo-llm-key"); refresh(); changed(); });
     $("glClose").addEventListener("click", close);
     overlay.addEventListener("click", (e) => { if (e.target === overlay) close(); });
   }
+  ooOpenLlmSettings = open;
   btn.addEventListener("click", open);
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
 })();

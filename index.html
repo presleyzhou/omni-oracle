@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https:; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Omni Oracle — All-in-One Forecasting & Prediction Platform</title>
+<title>Omni Oracle — All-in-One Forecasting &amp; Prediction Platform</title>
 <meta name="description" content="Research-grounded forecasting platform: macro nowcasting, future-trend stock signals, prediction markets and a parallel-world simulation engine." />
 <link rel="canonical" href="https://presleyzhou.github.io/omni-oracle/" />
 <meta name="theme-color" content="#0b0f17" />
@@ -15,7 +16,7 @@
 <meta property="og:url" content="https://presleyzhou.github.io/omni-oracle/" />
 <meta name="twitter:card" content="summary" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>" />
-<link rel="stylesheet" href="css/style.css?v=29" />
+<link rel="stylesheet" href="css/style.css?v=30" />
 </head>
 <body>
 
@@ -24,7 +25,7 @@
     <a class="logo" href="index.html">Omni<span>Oracle</span></a>
     <div class="nav-links">
       <a href="index.html" data-i18n="nav.home">Home</a>
-      <a href="macro.html" data-i18n="nav.macro">Macro & Finance</a>
+      <a href="macro.html" data-i18n="nav.macro">Macro &amp; Finance</a>
       <a href="finance.html" data-i18n="nav.fin">Financial Markets</a>
       <a href="trends.html" data-i18n="nav.trends">Trend Companies</a>
       <a href="markets.html" data-i18n="nav.markets">Markets</a>
@@ -40,51 +41,52 @@
 <header class="hero">
   <div class="container">
     <h1 data-i18n="hero.title">Forecast everything.<br /><span class="grad">Score everything.</span></h1>
-    <p class="sub" data-i18n="hero.sub"></p>
+    <p class="sub" data-i18n="hero.sub">Omni Oracle combines machine-learning nowcasts, superforecaster crowds, and prediction-market prices into one calibrated view of the future — for individuals, institutions, and market participants.</p>
     <div class="cta">
-      <a class="btn btn-primary" href="macro.html" data-i18n="cta.macro"></a>
-      <a class="btn btn-ghost" href="markets.html" data-i18n="cta.markets"></a>
+      <a class="btn btn-primary" href="macro.html" data-i18n="cta.macro">Explore the Macro Dashboard</a>
+      <a class="btn btn-ghost" href="markets.html" data-i18n="cta.markets">Browse Prediction Markets</a>
     </div>
   </div>
 </header>
 
-<section>
+<section id="heroSection">
   <div class="container">
     <div class="stats-bar" id="heroStats">
-      <div class="stat"><div class="num">…</div><div class="lbl" data-i18n="mac.loading"></div></div>
+      <div class="stat"><div class="num">…</div><div class="lbl" data-i18n="mac.loading">Loading official data…</div></div>
     </div>
+    <p class="src-line" data-src-anchor></p>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2 class="section-title" data-i18n="idx.flag.title"></h2>
-    <p class="section-sub" data-i18n="idx.flag.sub"></p>
+    <h2 class="section-title" data-i18n="idx.flag.title">Flagship analytics modules</h2>
+    <p class="section-sub" data-i18n="idx.flag.sub">Two deep modules, each operationalizing a specific academic literature — see <a href="methodology.html">Methodology</a> for every citation.</p>
     <div class="grid grid-2">
       <a class="card card-link" href="macro.html">
-        <h3 data-i18n="idx.m1.title"></h3>
-        <p data-i18n="idx.m1.desc"></p>
+        <h3 data-i18n="idx.m1.title">M1 · Macroeconomics</h3>
+        <p data-i18n="idx.m1.desc">Real-time GDP and inflation nowcasts (dynamic factor models à la Giannone–Reichlin–Small), random-forest ML layer, BVAR scenarios, and a Fed-decision probability tree cross-checked against market odds.</p>
         <div class="tag-row">
           <span class="tag">DFM nowcasting</span><span class="tag purple">Random forest</span><span class="tag green">BVAR scenarios</span><span class="tag amber">News decomposition</span>
         </div>
       </a>
       <a class="card card-link" href="finance.html">
-        <h3 data-i18n="idx.m1b.title"></h3>
-        <p data-i18n="idx.m1b.desc"></p>
+        <h3 data-i18n="idx.m1b.title">M1 · Financial Markets</h3>
+        <p data-i18n="idx.m1b.desc">Live market signals fetched browser-direct — ECB FX rates, US Treasury average interest rates, tech mega-cap quotes with daily change — beside the Fed decision tree where model probabilities meet market odds.</p>
         <div class="tag-row">
           <span class="tag">FX · LIVE</span><span class="tag purple">Treasury rates</span><span class="tag green">Tech mega-caps</span><span class="tag amber">Fed decision tree</span>
         </div>
       </a>
       <a class="card card-link" href="trends.html">
-        <h3 data-i18n="idx.m2.title"></h3>
-        <p data-i18n="idx.m2.desc"></p>
+        <h3 data-i18n="idx.m2.title">M2 · Future-Trend Companies &amp; Stocks</h3>
+        <p data-i18n="idx.m2.desc">A theme ontology mined from patents and filings, innovation scores per Kogan et al. (QJE 2017), and Gu–Kelly–Xiu-style machine-learning return ranks — with honest uncertainty bands, not 'sure winners.'</p>
         <div class="tag-row">
           <span class="tag">Theme explorer</span><span class="tag purple">Patent value</span><span class="tag green">ML decile ranks</span><span class="tag amber">Milestone odds</span>
         </div>
       </a>
       <a class="card card-link" href="simworld.html">
-        <h3 data-i18n="idx.m3.title"></h3>
-        <p data-i18n="idx.m3.desc"></p>
+        <h3 data-i18n="idx.m3.title">M3 · Parallel-World Simulation</h3>
+        <p data-i18n="idx.m3.desc">Upload seed material — breaking news, draft policy, financial signals — and it auto-builds a high-fidelity digital twin society where thousands of memory-bearing agents interact. Inject variables god-view style and rehearse the future before betting on it.</p>
         <div class="tag-row">
           <span class="tag">GraphRAG</span><span class="tag purple">Persona agents</span><span class="tag green">God view</span><span class="tag amber">ReportAgent</span>
         </div>
@@ -95,122 +97,51 @@
 
 <section>
   <div class="container">
-    <h2 class="section-title" data-i18n="idx.pm.title"></h2>
-    <p class="section-sub" data-i18n="idx.pm.sub"></p>
+    <h2 class="section-title" data-i18n="idx.pm.title">Prediction market modules</h2>
+    <p class="section-sub" data-i18n="idx.pm.sub">Eight categories mirroring where real prediction-market volume concentrates — sports, politics and crypto alone are ~90% of Polymarket volume — plus the two bridges into our analytics: econ-release markets vs. the nowcast, and tech-milestone markets feeding company scorecards.</p>
     <div class="grid grid-4">
-      <a class="card card-link" href="markets.html?cat=politics"><h3 data-i18n="idx.p1.title"></h3><p data-i18n="idx.p1.desc"></p></a>
-      <a class="card card-link" href="markets.html?cat=crypto"><h3 data-i18n="idx.p2.title"></h3><p data-i18n="idx.p2.desc"></p></a>
-      <a class="card card-link" href="markets.html?cat=econ"><h3 data-i18n="idx.p3.title"></h3><p data-i18n="idx.p3.desc"></p></a>
-      <a class="card card-link" href="markets.html?cat=geo"><h3 data-i18n="idx.p4.title"></h3><p data-i18n="idx.p4.desc"></p></a>
-      <a class="card card-link" href="markets.html?cat=sports"><h3 data-i18n="idx.p5.title"></h3><p data-i18n="idx.p5.desc"></p></a>
-      <a class="card card-link" href="markets.html?cat=ent"><h3 data-i18n="idx.p6.title"></h3><p data-i18n="idx.p6.desc"></p></a>
-      <a class="card card-link" href="markets.html?cat=tech"><h3 data-i18n="idx.p7.title"></h3><p data-i18n="idx.p7.desc"></p></a>
-      <a class="card card-link" href="markets.html?cat=news"><h3 data-i18n="idx.p8.title"></h3><p data-i18n="idx.p8.desc"></p></a>
+      <a class="card card-link" href="markets.html?cat=politics"><h3 data-i18n="idx.p1.title">P1 · Politics &amp; Elections</h3><p data-i18n="idx.p1.desc">Winner-take-all and vote-share contracts. Markets historically halve poll error &gt;100 days out.</p></a>
+      <a class="card card-link" href="markets.html?cat=crypto"><h3 data-i18n="idx.p2.title">P2 · Crypto</h3><p data-i18n="idx.p2.desc">Price thresholds and protocol milestones, resolved by medianized exchange feeds.</p></a>
+      <a class="card card-link" href="markets.html?cat=econ"><h3 data-i18n="idx.p3.title">P3 · Econ Data &amp; Fed</h3><p data-i18n="idx.p3.desc">Fed decision buckets, CPI/NFP ranges — displayed side-by-side with the M1 nowcast.</p></a>
+      <a class="card card-link" href="markets.html?cat=geo"><h3 data-i18n="idx.p4.title">P4 · Geopolitics</h3><p data-i18n="idx.p4.desc">Event-by-date binaries with tightly worded, documented resolution criteria.</p></a>
+      <a class="card card-link" href="markets.html?cat=sports"><h3 data-i18n="idx.p5.title">P5 · Sports</h3><p data-i18n="idx.p5.desc">The volume anchor of real-world prediction markets (~39% of Polymarket volume).</p></a>
+      <a class="card card-link" href="markets.html?cat=ent"><h3 data-i18n="idx.p6.title">P6 · Awards &amp; Entertainment</h3><p data-i18n="idx.p6.desc">Oscars, box office, and culture — a classic accuracy domain in the literature.</p></a>
+      <a class="card card-link" href="markets.html?cat=tech"><h3 data-i18n="idx.p7.title">P7 · Tech &amp; AI Milestones</h3><p data-i18n="idx.p7.desc">Model releases, benchmarks, approvals — odds feed the M2 company pages.</p></a>
+      <a class="card card-link" href="markets.html?cat=news"><h3 data-i18n="idx.p8.title">P8 · Current Events</h3><p data-i18n="idx.p8.desc">The long tail, liquidity-seeded by a Hanson LMSR market maker.</p></a>
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2 class="section-title" data-i18n="idx.honest.title"></h2>
+    <h2 class="section-title" data-i18n="idx.honest.title">How the platform stays honest</h2>
     <div class="grid grid-3">
       <div class="card">
-        <h3 data-i18n="idx.h1.title"></h3>
-        <p data-i18n="idx.h1.desc"></p>
+        <h3 data-i18n="idx.h1.title">Proper scoring everywhere</h3>
+        <p data-i18n="idx.h1.desc">Every forecast — model, human, or market — is scored with Brier/log rules and public calibration curves (Gneiting's 'sharpness subject to calibration'). The platform grades itself in the open.</p>
       </div>
       <div class="card">
-        <h3 data-i18n="idx.h2.title"></h3>
-        <p data-i18n="idx.h2.desc"></p>
+        <h3 data-i18n="idx.h2.title">Ensemble with attribution</h3>
+        <p data-i18n="idx.h2.desc">Forecast combination per Timmermann (2006) with domain-fit extremizing (Satopää et al. 2014). Users see exactly which source — models, crowd, or markets — is winning in each domain.</p>
       </div>
       <div class="card">
-        <h3 data-i18n="idx.h3.title"></h3>
-        <p data-i18n="idx.h3.desc"></p>
+        <h3 data-i18n="idx.h3.title">Manipulation-resistant resolution</h3>
+        <p data-i18n="idx.h3.desc">Three-tier resolution: automated feeds, optimistic oracle with bonds and dispute windows, and an expert council — designed around documented oracle-attack case studies.</p>
       </div>
     </div>
-    <div class="disclaimer" data-i18n="idx.disclaimer"></div>
+    <div class="disclaimer" data-i18n="idx.disclaimer"><strong>Demo notice:</strong> This site is a design prototype. Macro, market and equity data are fetched live from official and public APIs. Prediction-market trading is play money. Nothing here is investment advice.</div>
   </div>
 </section>
 
 <footer>
   <div class="container footer-inner">
-    <div data-i18n="idx.footer"></div>
-    <div><a href="methodology.html" data-i18n="footer.method"></a></div>
+    <div data-i18n="idx.footer">© 2026 Omni Oracle — research-grounded forecasting. Built from <a href="https://github.com/presleyzhou/omni-oracle">the open design doc</a>.</div>
+    <div><a href="methodology.html" data-i18n="footer.method">Methodology &amp; reading list</a></div>
   </div>
 </footer>
 
-<script src="js/i18n.js?v=29"></script>
-<script src="js/app.js?v=29"></script>
-<script>
-/* hero stats: real figures only — BEA GDP, BLS CPI & unemployment, BTC, Polymarket count */
-(function () {
-  const S = [];
-  let pending = 5;
-  const push = (order, num, lblKey, period, cls) => S.push({ order, num, lblKey, period, cls });
-  const done = () => {
-    if (--pending > 0 || !S.length) return;
-    document.getElementById("heroStats").innerHTML = S.sort((a, b) => a.order - b.order)
-      .map(s => `<div class="stat"><div class="num ${s.cls || ""}">${s.num}</div>
-        <div class="lbl">${OO_T(s.lblKey).replace("{p}", s.period || "")}</div></div>`).join("");
-  };
-  fetch("https://api.db.nomics.world/v22/series/BEA/NIPA-T10101/A191RL-Q?observations=1")
-    .then(r => r.ok ? r.json() : null).then(d => {
-      const doc = d && d.series && d.series.docs && d.series.docs[0];
-      if (!doc) return;
-      const idx = doc.value.map((v, i) => [v, i]).filter(([v]) => typeof v === "number").pop();
-      if (idx) push(1, idx[0] + "%", "mac.stat.gdp", doc.period[idx[1]], idx[0] >= 2 ? "up" : "down");
-    }).catch(() => {}).finally(done);
-  const bls = (series, order, lblKey, yoy, cls) =>
-    fetch("https://api.bls.gov/publicAPI/v1/timeseries/data/" + series)
-      .then(r => r.ok ? r.json() : null).then(d => {
-        if (!d || d.status !== "REQUEST_SUCCEEDED") return;
-        const rows = d.Results.series[0].data;
-        const latest = rows[0], period = latest.year + "-" + latest.period.slice(1);
-        if (!yoy) { push(order, latest.value + "%", lblKey, period, cls); return; }
-        const prev = rows.find(x => +x.year === +latest.year - 1 && x.period === latest.period);
-        if (prev) push(order, (100 * (+latest.value / +prev.value - 1)).toFixed(1) + "%", lblKey, period, cls);
-      }).catch(() => {}).finally(done);
-  bls("CUUR0000SA0", 2, "mac.stat.cpi", true, "");
-  bls("CUUR0000SA0L1E", 3, "mac.stat.core", true, "");
-  bls("LNS14000000", 4, "mac.stat.unemp", false, "");
-  fetch("https://gamma-api.polymarket.com/markets?limit=1&active=true&closed=false&order=volume24hr&ascending=false")
-    .then(r => r.ok ? r.json() : null).then(d => {
-      if (Array.isArray(d) && d[0]) {
-        let p = 0.5; try { p = +JSON.parse(d[0].outcomePrices)[0]; } catch (e) {}
-        push(5, (p < 0.01 ? "<1" : Math.round(p * 100)) + "¢", "idx.stat.pm", "", "");
-      }
-    }).catch(() => {}).finally(done);
-})();
-
-/* live ticker: aggregates the site's real data sources; hidden if all fail */
-(function () {
-  const items = [];
-  let pending = 4;
-  const esc = s => String(s).replace(/[<>&]/g, "");
-  const fin = () => {
-    if (--pending > 0 || !items.length) return;
-    const html = items.map(t => `<span class="itm">${t}</span>`).join("");
-    document.getElementById("tickerInner").innerHTML = html + html;
-    document.getElementById("ticker").classList.remove("hide");
-  };
-  fetch("https://stockanalysis.com/api/quotes/s/NVDA").then(r => r.ok ? r.json() : null).then(d => {
-    if (d && d.data && d.data.p != null) { const c = d.data.cp || 0;
-      items.push(`NVDA $${d.data.p.toLocaleString("en-US")} <b class="${c >= 0 ? "up2" : "dn2"}">${c >= 0 ? "+" : ""}${c.toFixed(2)}%</b>`); }
-  }).catch(() => {}).finally(fin);
-  fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true").then(r => r.ok ? r.json() : null).then(d => {
-    if (d && d.bitcoin) { const c = d.bitcoin.usd_24h_change || 0;
-      items.push(`BTC $${d.bitcoin.usd.toLocaleString("en-US")} <b class="${c >= 0 ? "up2" : "dn2"}">${c >= 0 ? "+" : ""}${c.toFixed(2)}%</b>`); }
-  }).catch(() => {}).finally(fin);
-  fetch("https://api.frankfurter.dev/v1/latest?base=USD&symbols=CNY,EUR").then(r => r.ok ? r.json() : null).then(d => {
-    if (d && d.rates) { items.push(`USD/CNY ${d.rates.CNY}`); items.push(`USD/EUR ${d.rates.EUR}`); }
-  }).catch(() => {}).finally(fin);
-  fetch("https://gamma-api.polymarket.com/markets?limit=1&active=true&closed=false&order=volume24hr&ascending=false").then(r => r.ok ? r.json() : null).then(d => {
-    if (Array.isArray(d) && d[0]) {
-      let p = 0.5, o = "Yes";
-      try { p = +JSON.parse(d[0].outcomePrices)[0]; o = JSON.parse(d[0].outcomes)[0]; } catch (e) {}
-      items.push(`🔴 ${esc(d[0].question.slice(0, 48))} — ${esc(o)} ${p < 0.01 ? "&lt;1¢" : Math.round(p * 100) + "¢"}`);
-    }
-  }).catch(() => {}).finally(fin);
-})();
-</script>
+<script src="js/i18n.js?v=30"></script>
+<script src="js/app.js?v=30"></script>
+<script src="js/pages/index.js?v=30"></script>
 </body>
 </html>

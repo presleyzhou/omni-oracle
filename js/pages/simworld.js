@@ -1,0 +1,622 @@
+/* ---------- Parallel-world demo simulation (client-side, illustrative) ---------- */
+const FACTIONS = [
+  { key: "sw.f1", color: "#4f8cff" },
+  { key: "sw.f2", color: "#22c55e" },
+  { key: "sw.f3", color: "#f59e0b" },
+  { key: "sw.f4", color: "#8b5cf6" },
+];
+const N_AGENTS = 320;
+
+const SIM = {
+  built: false, running: false, day: 0,
+  sent: 55, conf: 60, drift: 0.05, vol: 1.4,
+  interventions: 0, regShift: 0, seedChip: 0,
+  agents: [], events: [], ivLog: [], files: [],
+  hist: { d: [], s: [], c: [] },
+  entities: [], mc: null,
+  chatAgent: 0, timer: null, chart: null, mcChart: null,
+};
+
+function T(key, params) {
+  let s = OO_T(key);
+  if (params) for (const k in params) s = s.replaceAll("{" + k + "}", params[k]);
+  return s;
+}
+const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
+
+/* ----- seed input ----- */
+const seedChips = document.getElementById("seedChips");
+const seedText = document.getElementById("seedText");
+const askText = document.getElementById("askText");
+
+function renderSeedChips() {
+  seedChips.innerHTML = [1,2,3,4,5,6,7].map(i =>
+    `<button class="chip ${SIM.seedChip === i ? "active" : ""}" data-i="${i}">${OO_T("sw.chip" + i)}</button>`
+  ).join("");
+  askText.placeholder = OO_T("sw.ask.ph");
+  document.getElementById("customIv").placeholder = OO_T("sw.custom.ph");
+  if (SIM.seedChip) seedText.value = OO_T("sw.smp" + SIM.seedChip);
+}
+seedChips.addEventListener("click", (e) => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  SIM.seedChip = +b.dataset.i;
+  renderSeedChips();
+});
+
+/* ----- file upload ----- */
+const fileInput = document.getElementById("seedFiles");
+document.getElementById("uploadBtn").addEventListener("click", () => fileInput.click());
+fileInput.addEventListener("change", () => {
+  for (const f of fileInput.files) {
+    SIM.files.push(f.name);
+    if (/\.(txt|md|csv|json)$/i.test(f.name)) {
+      const rd = new FileReader();
+      rd.onload = () => {
+        const txt = String(rd.result).slice(0, 800);
+        seedText.value = (seedText.value ? seedText.value + "\n\n" : "") + `[${f.name}]\n` + txt;
+      };
+      rd.readAsText(f);
+    }
+  }
+  renderFileList();
+});
+function renderFileList() {
+  document.getElementById("fileList").textContent =
+    SIM.files.length ? OO_T("sw.upload.attached") + " " + SIM.files.join(" · ") : "";
+}
+
+/* ----- build flow ----- */
+const steps = [...document.querySelectorAll(".pipe-step")];
+document.getElementById("buildBtn").addEventListener("click", () => {
+  if (SIM.built) return;
+  if (!SIM.seedChip && !seedText.value.trim()) { SIM.seedChip = 1; renderSeedChips(); }
+  const btn = document.getElementById("buildBtn");
+  btn.disabled = true; btn.style.opacity = 0.5;
+  let i = 0;
+  const tick = () => {
+    if (i > 0) { steps[i-1].classList.remove("active"); steps[i-1].classList.add("done"); }
+    if (i < steps.length) { steps[i].classList.add("active"); i++; setTimeout(tick, 650); }
+    else startWorld();
+  };
+  tick();
+});
+
+function startWorld() {
+  SIM.built = true; SIM.running = true;
+  SIM.density = 1;
+  SIM.backtest = (SIM.seedChip === 7);
+  if (SIM.backtest) { SIM.drift = -2.5; SIM.vol = 3; document.getElementById("btCard").classList.remove("hide"); updateBacktest(); }
+  document.getElementById("worldWrap").classList.remove("hide");
+  extractEntities(); initAgents(); initChart(); drawGraph();
+  renderGodBtns(); renderAgentChips(); renderLegend();
+  pushEvent({ key: "sw.built", params: { n: N_AGENTS }, god: true });
+  document.getElementById("pauseBtn").textContent = OO_T("sw.world.pause");
+  SIM.timer = setInterval(stepDay, 1300);
+  requestAnimationFrame(drawFrame);
+  document.getElementById("worldWrap").scrollIntoView({ behavior: "smooth" });
+}
+
+/* ----- GraphRAG entity graph (lightweight demo extraction) ----- */
+function extractEntities() {
+  const text = seedText.value + " " + askText.value;
+  const raw = text.split(/[^\p{L}\p{N}%#-]+/u).filter(w => w.length >= 2);
+  const stop = new Set(["the","and","for","with","are","from","this","that","une","des","los","las","que","und"]);
+  const seen = new Set(); const out = [];
+  for (const w of raw) {
+    const k = w.toLowerCase();
+    if (stop.has(k) || seen.has(k)) continue;
+    seen.add(k); out.push(w);
+    if (out.length >= 9) break;
+  }
+  SIM.entities = out;
+}
+function drawGraph() {
+  const g = document.getElementById("graphCanvas");
+  const c = g.getContext("2d");
+  const W = g.width, H = g.height;
+  c.clearRect(0, 0, W, H);
+  const hubs = FACTIONS.map((f, i) => ({
+    label: OO_T(f.key), color: f.color,
+    x: W * (0.16 + 0.68 * (i % 2)), y: H * (0.25 + 0.5 * Math.floor(i / 2)),
+  }));
+  // deterministic pseudo-random from entity index
+  const nodes = SIM.entities.map((e, i) => ({
+    label: e.length > 12 ? e.slice(0, 11) + "…" : e,
+    x: W * (0.28 + 0.44 * ((i * 0.618) % 1)),
+    y: H * (0.15 + 0.7 * ((i * 0.382 + 0.21) % 1)),
+    h1: i % 4, h2: (i + 1 + (i % 3)) % 4,
+  }));
+  c.lineWidth = 1;
+  for (const n of nodes) {
+    for (const h of [hubs[n.h1], hubs[n.h2]]) {
+      const grad = c.createLinearGradient(n.x, n.y, h.x, h.y);
+      grad.addColorStop(0, "rgba(148,180,255,0.28)");
+      grad.addColorStop(1, h.color + "55");
+      c.strokeStyle = grad;
+      c.beginPath(); c.moveTo(n.x, n.y); c.lineTo(h.x, h.y); c.stroke();
+    }
+  }
+  c.font = "600 11px Inter, sans-serif"; c.textAlign = "center";
+  for (const h of hubs) {
+    c.fillStyle = h.color; c.shadowColor = h.color; c.shadowBlur = 14;
+    c.beginPath(); c.arc(h.x, h.y, 7, 0, 7); c.fill();
+    c.shadowBlur = 0; c.fillStyle = "#e5eaf3"; c.fillText(h.label, h.x, h.y - 13);
+  }
+  for (const n of nodes) {
+    c.fillStyle = "#22d3ee"; c.shadowColor = "#22d3ee"; c.shadowBlur = 8;
+    c.beginPath(); c.arc(n.x, n.y, 3.5, 0, 7); c.fill();
+    c.shadowBlur = 0; c.fillStyle = "rgba(210,226,255,0.85)"; c.fillText(n.label, n.x, n.y - 8);
+  }
+}
+
+/* ----- agents canvas ----- */
+const cv = document.getElementById("worldCanvas");
+const ctx = cv.getContext("2d");
+function initAgents() {
+  const W = cv.width, H = cv.height;
+  SIM.agents = Array.from({ length: N_AGENTS }, (_, i) => {
+    const f = i % 4;
+    return {
+      f, x: Math.random() * W, y: Math.random() * H,
+      vx: 0, vy: 0,
+      cx: (0.25 + 0.5 * (f % 2)) * W + (Math.random() - 0.5) * 80,
+      cy: (0.3 + 0.4 * Math.floor(f / 2)) * H + (Math.random() - 0.5) * 60,
+    };
+  });
+  /* Small-world topology (Watts–Strogatz flavor): ring neighbors within
+     the same faction + occasional cross-faction rewires. */
+  SIM.agents.forEach((a, idx) => {
+    a.nbrs = [];
+    for (let d = 1; d <= 3; d++) a.nbrs.push((idx + d * 4) % N_AGENTS);
+    if (Math.random() < 0.2) a.nbrs.push((Math.random() * N_AGENTS) | 0);
+  });
+}
+function drawFrame() {
+  if (!SIM.built) return;
+  const W = cv.width, H = cv.height;
+  ctx.fillStyle = "rgba(6,10,18,0.35)"; ctx.fillRect(0, 0, W, H);
+  const excite = SIM.vol / 1.4;
+  ctx.strokeStyle = "rgba(79,140,255,0.08)"; ctx.lineWidth = 1;
+  const nEdges = 30 * excite * (SIM.density || 1);
+  for (let k = 0; k < nEdges; k++) {
+    const a = SIM.agents[(Math.random() * N_AGENTS) | 0];
+    const b = SIM.agents[a.nbrs[(Math.random() * a.nbrs.length) | 0]];
+    ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+  }
+  for (const a of SIM.agents) {
+    if (SIM.running) {
+      a.vx += (a.cx - a.x) * 0.0012 + (Math.random() - 0.5) * 0.5 * excite;
+      a.vy += (a.cy - a.y) * 0.0012 + (Math.random() - 0.5) * 0.5 * excite;
+      a.vx *= 0.93; a.vy *= 0.93;
+      a.x = clamp(a.x + a.vx, 4, W - 4); a.y = clamp(a.y + a.vy, 4, H - 4);
+    }
+    ctx.fillStyle = FACTIONS[a.f].color;
+    ctx.globalAlpha = 0.85;
+    ctx.beginPath(); ctx.arc(a.x, a.y, 2.1, 0, 7); ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+  requestAnimationFrame(drawFrame);
+}
+function renderLegend() {
+  document.getElementById("legend").innerHTML = FACTIONS.map(f =>
+    `<span><span class="dot" style="background:${f.color}"></span>${OO_T(f.key)}</span>`
+  ).join("");
+}
+
+/* ----- daily step ----- */
+function stepDay() {
+  if (!SIM.running) return;
+  SIM.day++;
+  SIM.sent = clamp(SIM.sent + SIM.drift + (Math.random() - 0.5) * 2 * SIM.vol, 5, 95);
+  SIM.conf = clamp(SIM.conf + SIM.drift * 0.8 + (Math.random() - 0.5) * 1.6 * SIM.vol, 5, 95);
+  if (SIM.backtest) SIM.drift = SIM.drift * 0.88 + (58 - SIM.sent) * 0.012; // crash-then-recovery mean reversion
+  else SIM.drift *= 0.97;
+  SIM.vol = clamp(SIM.vol * 0.985 + 0.02, 0.8, 4);
+  SIM.hist.d.push(SIM.day); SIM.hist.s.push(SIM.sent); SIM.hist.c.push(SIM.conf);
+  if (SIM.hist.d.length > 90) { SIM.hist.d.shift(); SIM.hist.s.shift(); SIM.hist.c.shift(); }
+  if (Math.random() < 0.25 + 0.2 * SIM.density) {
+    const f = FACTIONS[(Math.random() * 4) | 0];
+    const ev = "sw.ev" + (1 + ((Math.random() * 8) | 0));
+    pushEvent({ key: ev, params: { f: OO_T(f.key), dir: OO_T(SIM.drift >= 0 ? "sw.dir.up" : "sw.dir.down") } });
+  }
+  updateHud(); updateChart(); renderReport(); updateBacktest();
+}
+
+/* ----- historical backtest validation (seed #7: Aug 2024 carry-trade crash) ----- */
+const BT_ACTUAL = [55,38,33,30,32,35,37,40,42,44,46,48,50,51,52,53,54,55,56,57,57,58,58,59,59,60,60,61,61,62];
+function updateBacktest() {
+  if (!SIM.backtest) return;
+  const el = document.getElementById("btVerdict");
+  if (SIM.day < 10) { el.textContent = OO_T("sw.bt.wait"); return; }
+  const n = Math.min(SIM.day, BT_ACTUAL.length, SIM.hist.s.length);
+  let se = 0;
+  for (let k = 0; k < n; k++) se += Math.pow(SIM.hist.s[k] - BT_ACTUAL[k], 2);
+  const rmse = Math.sqrt(se / n).toFixed(1);
+  const probs = scenarioProbs();
+  const lead = OO_T("sw.sc" + (probs.indexOf(Math.max(...probs)) + 1));
+  const act = OO_T("sw.sc2"); // history resolved as baseline recovery
+  const hit = OO_T(lead === act ? "sw.bt.hit" : "sw.bt.miss");
+  el.textContent = T("sw.bt.verdict", { d: SIM.day, lead, act, hit, rmse });
+}
+
+/* ----- backtest suite: 4 historical events × 20 fast-forward runs ----- */
+function runSuite() {
+  const REPS = 20, DAYS = 30;
+  SIM.bts = OO.backtests.map(ev => {
+    const wins = [0, 0, 0]; let rmseSum = 0;
+    const meanPath = new Array(DAYS).fill(0);
+    for (let r = 0; r < REPS; r++) {
+      let s = 55, d = ev.drift, v = ev.vol, se = 0;
+      const tail = [];
+      for (let t = 0; t < DAYS; t++) {
+        s = clamp(s + d + (Math.random() - 0.5) * 2 * v, 5, 95);
+        d = d * 0.88 + (ev.target - s) * 0.012;
+        v = clamp(v * 0.985 + 0.02, 0.8, 4);
+        se += Math.pow(s - ev.actual[t], 2);
+        meanPath[t] += s / REPS;
+        if (t >= DAYS - 5) tail.push(s);
+      }
+      rmseSum += Math.sqrt(se / DAYS);
+      // classify by the mean of the last 5 days of the sentiment path —
+      // same variable and bands used to label the historical outcomes
+      const x = tail.reduce((a, b) => a + b, 0) / tail.length;
+      wins[x >= 68 ? 0 : x <= 40 ? 2 : 1]++;
+    }
+    const predIdx = wins.indexOf(Math.max(...wins));
+    return { ev, predIdx, rmse: rmseSum / REPS, hit: predIdx === ev.actualIdx, meanPath };
+  });
+  renderSuite();
+}
+function renderSuite() {
+  if (!SIM.bts) return;
+  const rows = SIM.bts.map((r, k) => `
+    <tr>
+      <td style="max-width:240px;"><strong>${r.ev.name}</strong><br/>
+        <span class="tag purple" style="margin-top:3px;">${OO_T("sw.btc." + r.ev.cat)}</span>${r.ev.adversarial ? ` <span class="tag red">${OO_T("sw.bts.adv")}</span>` : ""}<br/>
+        <span style="color:var(--text-dim); font-size:0.76rem;">${r.ev.outcome}</span></td>
+      <td><canvas class="bt-spark" data-k="${k}" width="150" height="40" style="display:block;"></canvas></td>
+      <td>${OO_T("sw.sc" + (r.ev.actualIdx + 1))}</td>
+      <td>${OO_T("sw.sc" + (r.predIdx + 1))}</td>
+      <td>${OO_T(r.hit ? "sw.bt.hit" : "sw.bt.miss")}</td>
+      <td class="num-cell">${r.rmse.toFixed(1)}</td>
+    </tr>`).join("");
+  const hits = SIM.bts.filter(r => r.hit).length;
+  const avg = (SIM.bts.reduce((a, r) => a + r.rmse, 0) / SIM.bts.length).toFixed(1);
+  const byCat = {};
+  SIM.bts.forEach(r => {
+    byCat[r.ev.cat] = byCat[r.ev.cat] || { h: 0, n: 0 };
+    byCat[r.ev.cat].n++; if (r.hit) byCat[r.ev.cat].h++;
+  });
+  const catLine = Object.entries(byCat).map(([c, v]) => `${OO_T("sw.btc." + c)} ${v.h}/${v.n}`).join(" · ");
+  const out = document.getElementById("btsOut");
+  out.classList.remove("hide");
+  out.innerHTML = `<table style="margin-top:6px;"><thead><tr>
+      <th>${OO_T("sw.bts.event")}</th><th>${OO_T("sw.bts.path")}</th><th>${OO_T("sw.bts.actual")}</th><th>${OO_T("sw.bts.pred")}</th><th></th><th>${OO_T("sw.bts.rmse")}</th>
+    </tr></thead><tbody>${rows}</tbody></table>
+    <p style="margin-top:10px; font-size:0.9rem; color:var(--cyan);">${T("sw.bts.summary", { hits, n: SIM.bts.length, rmse: avg })}</p>
+    <p style="margin-top:4px; font-size:0.84rem; color:var(--text-dim);">${OO_T("sw.bts.byCat")}${catLine}</p>
+    <p style="margin-top:8px; font-size:0.8rem; color:var(--amber, #f59e0b); background:rgba(245,158,11,0.07); border:1px solid rgba(245,158,11,0.25); border-radius:8px; padding:10px 12px;">${OO_T("sw.bts.limit")}</p>`;
+  // draw sim (amber dashed) vs actual (cyan) mini charts
+  out.querySelectorAll(".bt-spark").forEach(cv => {
+    const r = SIM.bts[+cv.dataset.k];
+    const c = cv.getContext("2d");
+    const W = 150, H = 40, y = v => H - 4 - ((v - 5) / 90) * (H - 8);
+    c.clearRect(0, 0, W, H);
+    const line = (pts, color, dash) => {
+      c.setLineDash(dash); c.strokeStyle = color; c.lineWidth = 1.6; c.beginPath();
+      pts.forEach((v, t) => { const x = t * (W / (pts.length - 1)); t ? c.lineTo(x, y(v)) : c.moveTo(x, y(v)); });
+      c.stroke();
+    };
+    line(r.ev.actual, "#22d3ee", []);
+    line(r.meanPath, "#f59e0b", [4, 3]);
+    c.setLineDash([]);
+  });
+}
+document.getElementById("btsRun").addEventListener("click", runSuite);
+
+/* ----- network density dial ----- */
+document.getElementById("densSlider").addEventListener("input", () => {
+  SIM.density = +document.getElementById("densSlider").value;
+  document.getElementById("densVal").textContent = SIM.density.toFixed(2) + "×";
+  if (SIM.built) pushEvent({ key: "sw.evTopo", params: { d: SIM.density.toFixed(2) }, god: true });
+});
+
+/* ----- HUD / feed ----- */
+function updateHud() {
+  document.getElementById("hud").textContent =
+    `${OO_T("sw.world.day")} ${SIM.day} · ${N_AGENTS} agents · vol ${SIM.vol.toFixed(2)}`;
+}
+function pushEvent(e) {
+  e.day = SIM.day; SIM.events.unshift(e);
+  if (SIM.events.length > 40) SIM.events.pop();
+  renderFeed();
+}
+function renderFeed() {
+  document.getElementById("feed").innerHTML = SIM.events.map(e =>
+    `<div class="ev ${e.god ? "god" : ""}"><span class="d">D${e.day}</span>${T(e.key, e.params)}</div>`
+  ).join("");
+}
+
+/* ----- indices chart ----- */
+function initChart() {
+  if (SIM.chart) SIM.chart.destroy();
+  SIM.chart = new Chart(document.getElementById("idxChart"), {
+    type: "line",
+    data: { labels: SIM.hist.d, datasets: [
+      { label: OO_T("sw.idx1"), data: SIM.hist.s, borderColor: OO_COLORS.accent, backgroundColor: OO_COLORS.accent, tension: 0.35, pointRadius: 0 },
+      { label: OO_T("sw.idx2"), data: SIM.hist.c, borderColor: OO_COLORS.purple, backgroundColor: OO_COLORS.purple, tension: 0.35, pointRadius: 0 },
+    ]},
+    options: { maintainAspectRatio: false, animation: false, scales: { y: { min: 0, max: 100 } } },
+  });
+}
+function updateChart() { if (SIM.chart) SIM.chart.update(); }
+
+/* ----- god view ----- */
+const GODS = [
+  { key: "sw.iv1", drift: +0.9, vol: +0.6 },
+  { key: "sw.iv2", drift: -0.8, vol: +0.5, reg: -8 },
+  { key: "sw.iv3", drift: -0.5, vol: +1.4 },
+  { key: "sw.iv4", drift: -0.3, vol: +0.8 },
+  { key: "sw.iv5", drift: -1.0, vol: +1.0 },
+];
+function applyIntervention(name, drift, vol, reg) {
+  const amp = 0.5 + 0.5 * (SIM.density || 1); // denser networks cascade harder
+  SIM.drift += drift * amp; SIM.vol = clamp(SIM.vol + vol * amp, 0.8, 4);
+  SIM.interventions++;
+  SIM.regShift += reg !== undefined ? reg : Math.round(drift * 3);
+  SIM.ivLog.push({ day: SIM.day, name });
+  for (const a of SIM.agents) { a.cx += (Math.random() - 0.5) * 120; a.cy += (Math.random() - 0.5) * 80; }
+  pushEvent({ key: "sw.evGod", params: { iv: name }, god: true });
+  renderReport();
+}
+function renderGodBtns() {
+  document.getElementById("godBtns").innerHTML = GODS.map((g, i) =>
+    `<button class="god-btn" data-g="${i}">⚡ ${OO_T(g.key)}</button>`
+  ).join("");
+}
+document.getElementById("godBtns").addEventListener("click", (e) => {
+  const b = e.target.closest(".god-btn"); if (!b || !SIM.running) return;
+  const g = GODS[+b.dataset.g];
+  applyIntervention(OO_T(g.key), g.drift, g.vol, g.reg);
+});
+document.getElementById("customIvBtn").addEventListener("click", () => {
+  const inp = document.getElementById("customIv");
+  const name = inp.value.trim(); if (!name || !SIM.built) return;
+  inp.value = "";
+  applyIntervention(name, (Math.random() - 0.45) * 1.6, 0.9);
+});
+
+/* ----- pause ----- */
+document.getElementById("pauseBtn").addEventListener("click", () => {
+  SIM.running = !SIM.running;
+  document.getElementById("pauseBtn").textContent = OO_T(SIM.running ? "sw.world.pause" : "sw.world.resume");
+});
+
+/* ----- Monte Carlo: hundred battles ----- */
+function runMC() {
+  if (!SIM.built) return;
+  const RUNS = 100, DAYS = 90;
+  const bins = new Array(10).fill(0);
+  const wins = [0, 0, 0];
+  for (let r = 0; r < RUNS; r++) {
+    let s = SIM.sent, c = SIM.conf, d = SIM.drift, v = SIM.vol;
+    for (let t = 0; t < DAYS; t++) {
+      s = clamp(s + d + (Math.random() - 0.5) * 2 * v, 5, 95);
+      c = clamp(c + d * 0.8 + (Math.random() - 0.5) * 1.6 * v, 5, 95);
+      d *= 0.97; v = clamp(v * 0.985 + 0.02, 0.8, 4);
+    }
+    const x = (s + c) / 2;
+    bins[clamp(Math.floor(x / 10), 0, 9)]++;
+    wins[x >= 60 ? 0 : x <= 40 ? 2 : 1]++;
+  }
+  SIM.mc = { bins, wins, runs: RUNS };
+  renderMC();
+}
+function renderMC() {
+  if (!SIM.mc) return;
+  const { bins, wins, runs } = SIM.mc;
+  if (SIM.mcChart) SIM.mcChart.destroy();
+  SIM.mcChart = new Chart(document.getElementById("mcChart"), {
+    type: "bar",
+    data: {
+      labels: bins.map((_, i) => `${i * 10}–${i * 10 + 10}`),
+      datasets: [{
+        label: OO_T("sw.mc.axis"),
+        data: bins,
+        backgroundColor: bins.map((_, i) => i >= 6 ? "rgba(34,197,94,0.75)" : i <= 3 ? "rgba(239,68,68,0.75)" : "rgba(79,140,255,0.75)"),
+      }],
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { x: { title: { display: true, text: OO_T("sw.mc.axis") } } },
+    },
+  });
+  const leadIdx = wins.indexOf(Math.max(...wins));
+  document.getElementById("mcResult").textContent =
+    T("sw.mc.result", { runs, lead: OO_T("sw.sc" + (leadIdx + 1)), p: wins[leadIdx] });
+}
+document.getElementById("mcBtn").addEventListener("click", runMC);
+
+/* ----- report ----- */
+function scenarioProbs() {
+  const x = (SIM.sent + SIM.conf) / 2;
+  let opt = clamp(Math.round(8 + (x - 30) * 0.9), 3, 80);
+  let pes = clamp(Math.round(8 + (70 - x) * 0.9), 3, 80);
+  let base = 100 - opt - pes;
+  if (base < 10) { const cut = 10 - base; base = 10; opt -= Math.ceil(cut/2); pes -= Math.floor(cut/2); }
+  return [opt, base, pes];
+}
+function renderReport() {
+  const probs = scenarioProbs();
+  const colors = [OO_COLORS.green, OO_COLORS.accent, OO_COLORS.red];
+  document.getElementById("scBars").innerHTML = [0,1,2].map(i => `
+    <div class="sc-row">
+      <span class="lbl">${OO_T("sw.sc" + (i+1))}</span>
+      <div class="sc-track"><div class="sc-fill" style="width:${probs[i]}%; background:${colors[i]};"></div></div>
+      <span class="sc-val" style="color:${colors[i]};">${probs[i]}%</span>
+    </div>`).join("");
+  const leadIdx = probs.indexOf(Math.max(...probs));
+  const lead = OO_T("sw.sc" + (leadIdx + 1));
+  const dir = OO_T(SIM.drift >= 0 ? "sw.dir.up" : "sw.dir.down");
+  const P = { lead, p: probs[leadIdx], n: SIM.interventions, sent: Math.round(SIM.sent), conf: Math.round(SIM.conf), dir, reg: SIM.regShift };
+  document.getElementById("findings").innerHTML = ["sw.kf1","sw.kf2","sw.kf3","sw.kf4"]
+    .map(k => `<li>${T(k, P)}</li>`).join("");
+  document.getElementById("stCons").textContent = clamp(Math.round(probs[leadIdx] * 0.6 + SIM.conf * 0.4), 30, 96) + "%";
+  document.getElementById("stConf").textContent = clamp(Math.round(52 + SIM.day * 0.35 - SIM.vol * 4), 30, 92) + "%";
+  document.getElementById("stRuns").textContent = (SIM.day * N_AGENTS).toLocaleString();
+}
+
+/* ----- export full report as Markdown ----- */
+function buildReportMd() {
+  const probs = scenarioProbs();
+  const leadIdx = probs.indexOf(Math.max(...probs));
+  const P = {
+    lead: OO_T("sw.sc" + (leadIdx + 1)), p: probs[leadIdx], n: SIM.interventions,
+    sent: Math.round(SIM.sent), conf: Math.round(SIM.conf),
+    dir: OO_T(SIM.drift >= 0 ? "sw.dir.up" : "sw.dir.down"), reg: SIM.regShift,
+  };
+  const L = [];
+  L.push(`# Omni Oracle — ${OO_T("sw.rep.title").replace(/^[④\s]*/, "")}`);
+  L.push(`${new Date().toISOString().slice(0, 10)} · ${OO_T("sw.rep.horizon")} · ${OO_T("sw.world.day")} ${SIM.day} · ${N_AGENTS} agents`);
+  L.push(`\n## ${OO_T("sw.md.seed")}\n`);
+  L.push("> " + (seedText.value.trim() || OO_T("sw.md.none")).replaceAll("\n", "\n> "));
+  L.push(`\n## ${OO_T("sw.md.ask")}\n`);
+  L.push("> " + (askText.value.trim() || OO_T("sw.md.none")).replaceAll("\n", "\n> "));
+  L.push(`\n## ${OO_T("sw.idxTitle")}\n`);
+  L.push(`- ${OO_T("sw.idx1")}: ${Math.round(SIM.sent)}/100`);
+  L.push(`- ${OO_T("sw.idx2")}: ${Math.round(SIM.conf)}/100`);
+  L.push(`\n## ${OO_T("sw.md.probs")}\n`);
+  [0,1,2].forEach(i => L.push(`- ${OO_T("sw.sc" + (i+1))}: **${probs[i]}%**`));
+  L.push(`\n## ${OO_T("sw.kfTitle")}\n`);
+  ["sw.kf1","sw.kf2","sw.kf3","sw.kf4"].forEach(k => L.push("- " + T(k, P)));
+  if (SIM.mc) {
+    const { wins, runs } = SIM.mc;
+    const mIdx = wins.indexOf(Math.max(...wins));
+    L.push(`\n## ${OO_T("sw.mc.title")}\n`);
+    L.push("- " + T("sw.mc.result", { runs, lead: OO_T("sw.sc" + (mIdx + 1)), p: wins[mIdx] }));
+    [0,1,2].forEach(i => L.push(`- ${OO_T("sw.sc" + (i+1))}: ${wins[i]}/${runs}`));
+  }
+  L.push(`\n## ${OO_T("sw.md.ivlog")}\n`);
+  if (SIM.ivLog.length) SIM.ivLog.forEach(iv => L.push(`- D${iv.day} — ${iv.name}`));
+  else L.push("- " + OO_T("sw.md.none"));
+  L.push(`\n## ${OO_T("sw.md.events")}\n`);
+  SIM.events.slice(0, 15).forEach(e => L.push(`- D${e.day} — ${T(e.key, e.params)}`));
+  L.push(`\n---\n${OO_T("sw.disclaimer").replace(/<[^>]+>/g, "")}`);
+  return L.join("\n");
+}
+document.getElementById("exportBtn").addEventListener("click", () => {
+  if (!SIM.built) return;
+  const blob = new Blob([buildReportMd()], { type: "text/markdown;charset=utf-8" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `omni-oracle-report-day${SIM.day}.md`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+/* ----- LLM-powered agent chat & ReportAgent (uses the shared nav 🔑 settings) ----- */
+function worldStateText() {
+  const probs = scenarioProbs();
+  const lead = OO_T("sw.sc" + (probs.indexOf(Math.max(...probs)) + 1));
+  const evs = SIM.events.slice(0, 5).map((e) => `D${e.day} ${T(e.key, e.params)}`).join(" | ");
+  return `Day ${SIM.day}/90. Sentiment ${Math.round(SIM.sent)}/100, market confidence ${Math.round(SIM.conf)}/100, volatility ${SIM.vol.toFixed(2)}. ` +
+    `Scenario odds: optimistic ${probs[0]}%, baseline ${probs[1]}%, pessimistic ${probs[2]}% (leading: ${lead}). ` +
+    `Interventions so far: ${SIM.ivLog.map((i) => i.name).join(", ") || "none"}. Recent events: ${evs || "none"}. ` +
+    `Seed material: ${seedText.value.slice(0, 500)}. Prediction request: ${askText.value.slice(0, 300) || "(none)"}.`;
+}
+/* LLM status line — settings live in the shared 🔑 dialog (js/app.js); "oo:llm" fires on change */
+function updateLlmStatus() {
+  const el = document.getElementById("llmStatus");
+  const on = !!OO_LLM.key;
+  el.textContent = (on ? "🟢 " : "⚪ ") + OO_T(on ? "sw.llm.on" : "sw.llm.off") +
+    (on ? ` · ${OO_LLM.provider} · ${OO_LLM.model}` : "");
+  el.style.color = on ? "var(--green)" : "var(--text-dim)";
+}
+document.getElementById("llmOpen").addEventListener("click", () => ooOpenLlmSettings());
+document.addEventListener("oo:llm", updateLlmStatus);
+
+/* ReportAgent narrative via LLM */
+document.getElementById("aiRepBtn").addEventListener("click", async () => {
+  if (!SIM.built) return;
+  const box = document.getElementById("aiNarr");
+  box.classList.remove("hide");
+  if (!OO_LLM.key) { box.textContent = "⚪ " + OO_T("sw.llm.off"); return; }
+  box.textContent = "🤖 " + OO_T("sw.llm.thinking");
+  try {
+    const sys = "You are the ReportAgent of Omni Oracle's parallel-world simulation engine. " +
+      "Write a concise, decision-oriented forecast narrative (150-220 words) based on the simulation state you are given: " +
+      "what is driving the leading scenario, key risks, what to watch, and one hedging recommendation. " +
+      "No preamble, no markdown headers. Reply strictly in this language code: " + OO_LANG + ".";
+    box.textContent = "【" + OO_T("sw.llm.narrTitle") + "】\n" + (await OO_LLM.ask(sys, worldStateText(), 600));
+  } catch (err) {
+    box.textContent = "⚠️ " + OO_T("sw.llm.err") + err.message;
+  }
+});
+
+/* ----- agent chat ----- */
+function renderAgentChips() {
+  document.getElementById("agentChips").innerHTML = [0,1,2].map(i =>
+    `<button class="chip ${SIM.chatAgent === i ? "active" : ""}" data-a="${i}">${OO_T("sw.ag" + (i+1))}</button>`
+  ).join("");
+  document.getElementById("chatInput").placeholder = OO_T("sw.chat.ph");
+}
+document.getElementById("agentChips").addEventListener("click", (e) => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  SIM.chatAgent = +b.dataset.a; renderAgentChips();
+});
+let replyFlip = 0;
+function cannedReply() {
+  const probs = scenarioProbs();
+  const lead = OO_T("sw.sc" + (probs.indexOf(Math.max(...probs)) + 1));
+  replyFlip = 1 - replyFlip;
+  const key = `sw.r${SIM.chatAgent + 1}${replyFlip + 1}`;
+  return T(key, { day: SIM.day, sent: Math.round(SIM.sent), conf: Math.round(SIM.conf), lead });
+}
+function appendAgentMsg(txt) {
+  const box = document.getElementById("chatBox");
+  box.insertAdjacentHTML("beforeend",
+    `<div class="msg agent"><strong style="color:var(--accent-2);">${OO_T("sw.ag" + (SIM.chatAgent + 1))}</strong><br/>${txt.replace(/</g, "&lt;")}</div>`);
+  box.scrollTop = box.scrollHeight;
+}
+async function sendChat() {
+  const inp = document.getElementById("chatInput");
+  const q = inp.value.trim(); if (!q || !SIM.built) return;
+  inp.value = "";
+  const box = document.getElementById("chatBox");
+  box.insertAdjacentHTML("beforeend", `<div class="msg user">${q.replace(/</g, "&lt;")}</div>`);
+  box.scrollTop = box.scrollHeight;
+  if (OO_LLM.key) {
+    const persona = OO_T("sw.ag" + (SIM.chatAgent + 1));
+    box.insertAdjacentHTML("beforeend", `<div class="msg agent" id="pendingMsg">🤖 ${OO_T("sw.llm.thinking")}</div>`);
+    box.scrollTop = box.scrollHeight;
+    try {
+      const sys = `You are "${persona}", an agent living inside a simulated parallel world built from real-world seed information. ` +
+        "Stay strictly in character, speak in first person, 2-4 sentences, reference the world state naturally. " +
+        "Reply strictly in this language code: " + OO_LANG + ". World state: " + worldStateText();
+      const txt = await OO_LLM.ask(sys, q, 300);
+      document.getElementById("pendingMsg")?.remove();
+      appendAgentMsg(txt);
+    } catch (err) {
+      document.getElementById("pendingMsg")?.remove();
+      appendAgentMsg("⚠️ " + OO_T("sw.llm.err") + err.message + " — " + cannedReply());
+    }
+    return;
+  }
+  setTimeout(() => appendAgentMsg(cannedReply()), 650);
+}
+document.getElementById("chatSend").addEventListener("click", sendChat);
+document.getElementById("chatInput").addEventListener("keydown", (e) => { if (e.key === "Enter") sendChat(); });
+
+/* ----- i18n re-render ----- */
+function rerenderDynamic() {
+  renderSeedChips(); renderFileList(); updateLlmStatus(); renderSuite();
+  if (SIM.built) {
+    renderGodBtns(); renderAgentChips(); renderLegend(); renderFeed(); renderReport(); updateHud();
+    initChart(); drawGraph(); renderMC(); updateBacktest();
+    document.getElementById("pauseBtn").textContent = OO_T(SIM.running ? "sw.world.pause" : "sw.world.resume");
+  }
+}
+document.addEventListener("oo:lang", rerenderDynamic);
+renderSeedChips();
+updateLlmStatus();

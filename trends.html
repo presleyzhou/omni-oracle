@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https:; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Future-Trend Companies — Omni Oracle</title>
 <meta name="description" content="Emerging-theme explorer and company scorecards: patent-based innovation scores, trend exposure and machine-learning return deciles." />
@@ -15,7 +16,7 @@
 <meta property="og:url" content="https://presleyzhou.github.io/omni-oracle/trends.html" />
 <meta name="twitter:card" content="summary" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>" />
-<link rel="stylesheet" href="css/style.css?v=29" />
+<link rel="stylesheet" href="css/style.css?v=30" />
 </head>
 <body>
 
@@ -24,7 +25,7 @@
     <a class="logo" href="index.html">Omni<span>Oracle</span></a>
     <div class="nav-links">
       <a href="index.html" data-i18n="nav.home">Home</a>
-      <a href="macro.html" data-i18n="nav.macro">Macro & Finance</a>
+      <a href="macro.html" data-i18n="nav.macro">Macro &amp; Finance</a>
       <a href="finance.html" data-i18n="nav.fin">Financial Markets</a>
       <a href="trends.html" data-i18n="nav.trends">Trend Companies</a>
       <a href="markets.html" data-i18n="nav.markets">Markets</a>
@@ -37,22 +38,22 @@
 
 <section>
   <div class="container">
-    <h1 class="section-title" data-i18n="tr.title"></h1>
-    <p class="section-sub" data-i18n="tr.sub"></p>
+    <h1 class="section-title" data-i18n="tr.title">M2 · Future-Trend Companies &amp; Stocks</h1>
+    <p class="section-sub" data-i18n="tr.sub">Themes mined from patents, filings and earnings calls; company innovation scores per Kogan–Papanikolaou–Seru–Stoffman (QJE 2017) and Kelly et al. (2021) disruptiveness; return ranks from a Gu–Kelly–Xiu-style ML ensemble. Ranks are probabilities, not promises.</p>
 
-    <h2 class="section-title" style="font-size:1.25rem;" data-i18n="tr.themes.title"></h2>
-    <p class="section-sub" data-i18n="tr.themes.sub"></p>
+    <h2 class="section-title" style="font-size:1.25rem;" data-i18n="tr.themes.title">Theme explorer</h2>
+    <p class="section-sub" data-i18n="tr.themes.sub">Maturity = estimated hype-cycle position from patent, funding and text signals (0 = frontier, 100 = mainstream).</p>
     <div class="grid grid-4" id="themeGrid"></div>
 
-    <h2 class="section-title" style="font-size:1.25rem; margin-top:44px;" data-i18n="tr.score.title"></h2>
-    <p class="section-sub" data-i18n="tr.score.sub"></p>
+    <h2 class="section-title" id="scoreCard" style="font-size:1.25rem; margin-top:44px;" data-i18n="tr.score.title">Company scorecards</h2>
+    <p class="section-sub" data-i18n="tr.score.sub"><strong>Innovation</strong>: patent economic value + disruptiveness (0–100). <strong>Trend exposure</strong>: text similarity of disclosures to theme definitions. <strong>ML rank</strong>: expected-return decile (10 = highest) from the GKX-style model, benchmarked against Fama–French / q-factors. <strong>Milestone odds</strong> come live from the P7 markets.</p>
     <div class="card" style="overflow-x:auto;">
       <table id="companyTable">
         <thead>
           <tr>
-            <th data-i18n="tr.th.ticker"></th><th data-i18n="tr.th.company"></th><th data-i18n="tr.th.px"></th><th data-i18n="tr.th.theme"></th>
-            <th data-i18n="tr.th.innov"></th><th data-i18n="tr.th.trend"></th><th data-i18n="tr.th.tone"></th><th data-i18n="tr.th.decile"></th>
-            <th data-i18n="tr.th.milestone"></th><th data-i18n="tr.th.odds"></th>
+            <th scope="col" data-i18n="tr.th.ticker">Ticker</th><th scope="col" data-i18n="tr.th.company">Company</th><th scope="col" data-i18n="tr.th.px">Price · LIVE</th><th scope="col" data-i18n="tr.th.theme">Theme</th>
+            <th scope="col" data-i18n="tr.th.innov">Innovation</th><th scope="col" data-i18n="tr.th.trend">Trend exposure</th><th scope="col" data-i18n="tr.th.tone">Text tone</th><th scope="col" data-i18n="tr.th.decile">ML decile</th>
+            <th scope="col" data-i18n="tr.th.milestone">Key milestone market (P7)</th><th scope="col" data-i18n="tr.th.odds">Odds</th>
           </tr>
         </thead>
         <tbody></tbody>
@@ -61,93 +62,28 @@
 
     <div class="card" style="margin-top:18px; border-color:rgba(139,92,246,0.35);">
       <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
-        <h3 data-i18n="ai.an.title"></h3>
-        <button class="btn btn-primary" id="anRun" style="padding:7px 16px; font-size:0.83rem;" data-i18n="ai.an.run"></button>
+        <h3 data-i18n="ai.an.title">🤖 AI analyst (bring your own key)</h3>
+        <button class="btn btn-primary" id="anRun" style="padding:7px 16px; font-size:0.83rem;" data-i18n="ai.an.run">⚡ Generate analysis</button>
       </div>
-      <p style="margin:8px 0; font-size:0.85rem;" data-i18n="ai.an.trends"></p>
-      <span id="anStatus" style="font-size:0.82rem; color:var(--text-dim);"></span>
+      <p style="margin:8px 0; font-size:0.85rem;" data-i18n="ai.an.trends">Your configured LLM reviews the scorecard — innovation scores, trend exposure, ML deciles, live quotes — and names which companies look mispriced relative to their signals.</p>
+      <span id="anStatus" aria-live="polite" style="font-size:0.82rem; color:var(--text-dim);"></span>
       <div id="anOut" class="hide" style="margin-top:12px; padding:14px; border-radius:10px; background:rgba(139,92,246,0.08); border:1px solid rgba(139,92,246,0.3); font-size:0.9rem; color:var(--text-dim); white-space:pre-wrap;"></div>
     </div>
 
-    <div class="disclaimer" data-i18n="tr.disclaimer"></div>
+    <div class="disclaimer" data-i18n="tr.disclaimer">Demo data for illustration — not investment advice. Production sources: USPTO PatentsView, Google Patents, SEC EDGAR full-text, earnings-call transcripts, CRSP/Compustat-class pricing data, arXiv/ClinicalTrials.gov, job postings, VC funding, GitHub activity. All signals reported with out-of-sample backtests and uncertainty bands.</div>
   </div>
 </section>
 
 <footer>
   <div class="container footer-inner">
-    <div data-i18n="footer.copy"></div>
-    <div><a href="methodology.html" data-i18n="footer.method"></a></div>
+    <div data-i18n="footer.copy">© 2026 Omni Oracle</div>
+    <div><a href="methodology.html" data-i18n="footer.method">Methodology &amp; reading list</a></div>
   </div>
 </footer>
 
-<script src="js/data.js?v=29"></script>
-<script src="js/i18n.js?v=29"></script>
-<script src="js/app.js?v=29"></script>
-<script>
-function renderThemes() {
-  document.getElementById("themeGrid").innerHTML = OO.themes.map(t => `
-    <div class="card">
-      <h3>${t.name}</h3>
-      <p>${t.desc}</p>
-      <div class="maturity"><div class="fill" style="width:${t.maturity}%"></div></div>
-      <div class="theme-stats">
-        <span>${OO_T("tr.maturity")} ${t.maturity}/100</span>
-        <span>${t.firms} ${OO_T("tr.firms")} · 12m ${t.ret12m}</span>
-      </div>
-    </div>
-  `).join("");
-}
-
-function badge(v) {
-  const cls = v >= 80 ? "hi" : v >= 60 ? "mid" : "lo";
-  return `<span class="score-badge ${cls}">${v}</span>`;
-}
-function decileBadge(d) {
-  const cls = d >= 8 ? "hi" : d >= 5 ? "mid" : "lo";
-  return `<span class="score-badge ${cls}">D${d}</span>`;
-}
-
-function renderCompanies() {
-  document.querySelector("#companyTable tbody").innerHTML = OO.companies.map(c => `
-    <tr>
-      <td class="num-cell"><strong>${c.ticker}</strong></td>
-      <td>${c.name}</td>
-      <td class="num-cell">${LIVEPX[c.ticker]
-        ? `$${LIVEPX[c.ticker].p.toLocaleString("en-US")} <span class="${LIVEPX[c.ticker].cp >= 0 ? "pos" : "neg"}" style="font-size:0.78rem;">${LIVEPX[c.ticker].cp >= 0 ? "+" : ""}${LIVEPX[c.ticker].cp.toFixed(2)}%</span>`
-        : "—"}</td>
-      <td><span class="tag purple">${c.theme}</span></td>
-      <td>${badge(c.innov)}</td>
-      <td>${badge(c.trend)}</td>
-      <td>${badge(c.tone)}</td>
-      <td>${decileBadge(c.mlDecile)}</td>
-      <td style="color:var(--text-dim); font-size:0.85rem;">${c.milestone.q}</td>
-      <td class="num-cell ${c.milestone.p >= 0.5 ? "pos" : "neg"}">${Math.round(c.milestone.p * 100)}%</td>
-    </tr>
-  `).join("");
-}
-
-const LIVEPX = {};
-function renderAll() { renderThemes(); renderCompanies(); }
-renderAll();
-
-/* live quotes for scorecard companies (stockanalysis.com public API; cells show em-dash on failure) */
-Promise.all(OO.companies.map(c =>
-  fetch("https://stockanalysis.com/api/quotes/s/" + c.ticker)
-    .then(r => r.ok ? r.json() : null).catch(() => null)
-    .then(d => { if (d && d.data && d.data.p != null) LIVEPX[c.ticker] = { p: d.data.p, cp: d.data.cp || 0 }; })
-)).then(renderCompanies);
-document.addEventListener("oo:lang", renderAll);
-
-/* ---- AI equity analyst over the scorecard ---- */
-ooAnalyst("anRun", "anOut", "anStatus", () => ({
-  system: "You are the equity analyst of Omni Oracle's trend-company module. Given research signals and live quotes, write 150-200 words: which names look mispriced relative to their signals (say why), which signal disagreements matter, and one caveat about acting on model ranks. No preamble, no markdown headers, no investment advice framing. Reply strictly in this language code: " + OO_LANG + ".",
-  user: OO.companies.map(c => {
-    const px = LIVEPX[c.ticker];
-    return `${c.ticker} (${c.name}, ${c.theme}): innovation ${c.innov}, trend exposure ${c.trend}, ` +
-      `text tone ${c.tone}, ML decile ${c.mlDecile}, milestone "${c.milestone.q}" ${Math.round(c.milestone.p * 100)}%` +
-      (px ? `, live $${px.p} (${px.cp >= 0 ? "+" : ""}${px.cp.toFixed(2)}% today)` : "");
-  }).join("\n"),
-}));
-</script>
+<script src="js/data.js?v=30"></script>
+<script src="js/i18n.js?v=30"></script>
+<script src="js/app.js?v=30"></script>
+<script src="js/pages/trends.js?v=30"></script>
 </body>
 </html>

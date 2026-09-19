@@ -1,47 +1,32 @@
 /* Omni Oracle — mock data layer.
-   All numbers are illustrative demo data; in production these come from the
-   nowcasting engine, signal pipeline, and market backend APIs. */
+   All numbers are illustrative demo data (snapshot authored 2026-07, question
+   set refreshed 2026-09); in production these come from the nowcasting engine,
+   signal pipeline, and market backend APIs. Live series live in js/pages/*.js. */
 
 const OO = {};
 
-/* ---------- Macro module (M1) ---------- */
+/* ---------- Macro module (M1) ----------
+   Every macro series on the site is official data (BEA / BLS / World Bank),
+   loaded by js/pages/macro.js. Only the Fed decision tree still uses demo
+   probabilities, and its meeting label always points at the next FOMC. */
+OO.fomc = [ // decision days; 2027 dates are the Fed's tentative calendar
+  "2026-01-28", "2026-03-18", "2026-04-29", "2026-06-17", "2026-07-29", "2026-09-16", "2026-10-28", "2026-12-09",
+  "2027-01-27", "2027-03-17", "2027-04-28", "2027-06-16", "2027-07-28", "2027-09-15", "2027-10-27", "2027-12-08",
+];
+OO.nextFomc = () => {
+  const today = new Date().toISOString().slice(0, 10);
+  return OO.fomc.find(d => d >= today) || OO.fomc[OO.fomc.length - 1];
+};
 OO.macro = {
-  quarters: ["2024Q3","2024Q4","2025Q1","2025Q2","2025Q3","2025Q4","2026Q1","2026Q2"],
-  gdpNowcast: [2.8, 2.4, 1.6, 2.1, 2.5, 2.2, 1.9, 2.3],
-  gdpSPF:     [2.5, 2.2, 1.9, 2.0, 2.3, 2.1, 2.0, 2.1],
-  gdpActual:  [3.1, 2.4, 1.4, 2.2, 2.6, 2.0, 1.8, null],
-  gdpTSFM:    [2.6, 2.3, 1.7, 2.0, 2.4, 2.1, 2.0, 2.2],
-
-  months: ["Jul 25","Aug 25","Sep 25","Oct 25","Nov 25","Dec 25","Jan 26","Feb 26","Mar 26","Apr 26","May 26","Jun 26"],
-  cpiYoY:   [2.9, 2.8, 2.6, 2.7, 2.5, 2.4, 2.6, 2.5, 2.3, 2.4, 2.2, 2.3],
-  coreYoY:  [3.2, 3.1, 3.0, 3.0, 2.9, 2.8, 2.9, 2.8, 2.7, 2.6, 2.6, 2.5],
-
-  recessionProb12m: 0.23,
-
-  fedMeeting: "July 29, 2026 FOMC",
+  get fedMeeting() {
+    return new Date(OO.nextFomc() + "T12:00:00Z")
+      .toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" }) + " FOMC";
+  },
   fedProbs: [
     { move: "-50 bps", model: 0.04, market: 0.06 },
     { move: "-25 bps", model: 0.38, market: 0.44 },
     { move: "Hold",    model: 0.55, market: 0.47 },
     { move: "+25 bps", model: 0.03, market: 0.03 },
-  ],
-
-  newsDecomp: [
-    { release: "Nonfarm Payrolls (Jun)", impact: +0.18 },
-    { release: "ISM Manufacturing (Jun)", impact: -0.07 },
-    { release: "Retail Sales (May)", impact: +0.11 },
-    { release: "CPI (May)", impact: -0.04 },
-    { release: "Housing Starts (May)", impact: -0.09 },
-    { release: "Industrial Production (May)", impact: +0.05 },
-  ],
-
-  ensemble: [
-    { source: "DFM nowcast", weight: 0.30 },
-    { source: "Random forest", weight: 0.24 },
-    { source: "TSFM (Chronos-2)", weight: 0.10 },
-    { source: "BVAR scenario", weight: 0.12 },
-    { source: "Crowd (tournament)", weight: 0.13 },
-    { source: "Market prices (P3)", weight: 0.11 },
   ],
 };
 
@@ -92,13 +77,13 @@ OO.markets = [
   { cat: "crypto",   coin: "bitcoin", sym: "BTC", q: "BTC above $150K on Dec 31, 2026?", yes: 0.36, vol: "22.7M", close: "Dec 2026", res: "Medianized exchange price feed" },
   { cat: "crypto",   coin: "ethereum", sym: "ETH", q: "ETH above $6K at any point in 2026?", yes: 0.51, vol: "9.3M", close: "Dec 2026", res: "Medianized exchange price feed" },
   { cat: "crypto",   coin: "solana", sym: "SOL", q: "Spot SOL ETF net inflows > $5B in first year?", yes: 0.42, vol: "3.8M", close: "Jul 2027", res: "Issuer flow reports" },
-  { cat: "econ",     q: "Fed cuts rates at the July 2026 FOMC?", yes: 0.50, vol: "15.2M", close: "Jul 29 2026", res: "FOMC statement" },
-  { cat: "econ",     q: "US CPI YoY below 2.5% for June 2026 print?", yes: 0.63, vol: "6.1M", close: "Jul 15 2026", res: "BLS release" },
+  { cat: "econ",     q: "Fed cuts rates at the December 2026 FOMC?", yes: 0.50, vol: "15.2M", close: "Dec 9 2026", res: "FOMC statement" },
+  { cat: "econ",     q: "US CPI YoY below 2.5% for the December 2026 print?", yes: 0.63, vol: "6.1M", close: "Jan 2027", res: "BLS release" },
   { cat: "econ",     q: "US recession (NBER-dated) beginning in 2026?", yes: 0.19, vol: "4.4M", close: "Dec 2026", res: "NBER dating committee" },
   { cat: "geo",      q: "New major-power ceasefire agreement signed in 2026?", yes: 0.33, vol: "5.6M", close: "Dec 2026", res: "Documented signed agreement" },
-  { cat: "geo",      q: "OPEC+ announces production increase before Q4 2026?", yes: 0.46, vol: "2.2M", close: "Oct 2026", res: "Official OPEC communiqué" },
+  { cat: "geo",      q: "OPEC+ announces production increase before Q2 2027?", yes: 0.46, vol: "2.2M", close: "Mar 2027", res: "Official OPEC communiqué" },
   { cat: "sports",   q: "Will the AFC team win Super Bowl LXI?", yes: 0.52, vol: "18.9M", close: "Feb 2027", res: "League result" },
-  { cat: "sports",   q: "A European club wins the 2026 FIFA Club World Cup?", yes: 0.71, vol: "7.7M", close: "Jul 2026", res: "FIFA result" },
+  { cat: "sports",   q: "A Spanish club wins the 2026-27 UEFA Champions League?", yes: 0.41, vol: "7.7M", close: "Jun 2027", res: "UEFA result" },
   { cat: "ent",      q: "A sequel tops the 2026 worldwide box office?", yes: 0.66, vol: "1.9M", close: "Jan 2027", res: "Box Office Mojo full-year chart" },
   { cat: "ent",      q: "Best Picture 2027 goes to a streaming-first film?", yes: 0.29, vol: "1.3M", close: "Mar 2027", res: "Academy announcement" },
   { cat: "tech",     q: "Frontier lab announces >90% on SWE-bench Verified by end-2026?", yes: 0.60, vol: "4.9M", close: "Dec 2026", res: "Official benchmark report" },

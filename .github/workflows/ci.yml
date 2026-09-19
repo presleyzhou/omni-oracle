@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Syntax-check every script
+        run: |
+          set -e
+          for f in $(git ls-files '*.js' '*.mjs'); do node --check "$f"; done
+      - name: i18n dictionaries are complete and consistent
+        run: node scripts/check-i18n.mjs
+      - name: Snapshot JSON parses and lists every field the pages read
+        run: node scripts/check-snapshot.mjs
+      - name: HTML validity
+        run: npx --yes html-validate@8 "*.html"

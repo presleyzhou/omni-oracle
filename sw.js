@@ -1,7 +1,10 @@
 /* Omni Oracle service worker — network-first runtime caching for offline support.
-   No precache manifest to maintain: every successful GET is cached; when the
-   network is unavailable, the last cached copy is served (ignoring ?v= params). */
-const CACHE = "omni-oracle-runtime-v1";
+   No precache manifest to maintain: every successful same-origin (or jsdelivr)
+   GET is cached; when the network is unavailable the cached copy is served.
+   The cache name carries the asset version (kept in sync by scripts/bump.sh) so
+   a deploy never mixes old JS with new HTML; assets match exactly (?v= included),
+   only navigations fall back loosely to the cached shell. */
+const CACHE = "omni-oracle-v30";
 
 self.addEventListener("install", () => self.skipWaiting());
 
@@ -29,9 +32,10 @@ self.addEventListener("fetch", (e) => {
         return res;
       })
       .catch(() =>
-        caches.match(req, { ignoreSearch: true }).then((m) =>
+        caches.match(req).then((m) =>
           m || (req.mode === "navigate"
-            ? caches.match("index.html", { ignoreSearch: true })
+            ? caches.match(req, { ignoreSearch: true })
+                .then((n) => n || caches.match("index.html", { ignoreSearch: true }))
             : Response.error())
         )
       )
