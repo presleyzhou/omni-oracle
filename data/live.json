@@ -1,270 +1,588 @@
 {
- "generated": "2026-09-20T02:36:23.676Z",
- "worldbank": {
-  "USA": {
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-07-13"
-    },
-    [
-     {
-      "date": "2025",
-      "value": null
-     },
-     {
-      "date": "2024",
-      "value": 2.94952520485207
-     },
-     {
-      "date": "2023",
-      "value": 4.11633838374488
-     },
-     {
-      "date": "2022",
-      "value": 8.00279982052121
-     },
-     {
-      "date": "2021",
-      "value": 4.69785886363742
-     }
-    ]
-   ],
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-07-13"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 2.16138195623856
-     },
-     {
-      "date": "2024",
-      "value": 2.79318715363841
-     },
-     {
-      "date": "2023",
-      "value": 2.93436322440155
-     },
-     {
-      "date": "2022",
-      "value": 2.52421385073222
-     },
-     {
-      "date": "2021",
-      "value": 6.15202247867526
-     }
-    ]
-   ]
-  },
-  "CHN": {
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-07-13"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 0.0595646916565403
-     },
-     {
-      "date": "2024",
-      "value": 0.218128938439177
-     },
-     {
-      "date": "2023",
-      "value": 0.234836828893051
-     },
-     {
-      "date": "2022",
-      "value": 1.97357555739051
-     },
-     {
-      "date": "2021",
-      "value": 0.981015135544882
-     }
-    ]
-   ],
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-07-13"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 4.95994886240992
-     },
-     {
-      "date": "2024",
-      "value": 4.95830378788091
-     },
-     {
-      "date": "2023",
-      "value": 5.41600334492955
-     },
-     {
-      "date": "2022",
-      "value": 3.13385438394069
-     },
-     {
-      "date": "2021",
-      "value": 8.57038414981781
-     }
-    ]
-   ]
-  },
-  "EUU": {
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-07-13"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 2.46705543774613
-     },
-     {
-      "date": "2024",
-      "value": 2.43531202435314
-     },
-     {
-      "date": "2023",
-      "value": 6.29942487419125
-     },
-     {
-      "date": "2022",
-      "value": 8.83369886749452
-     },
-     {
-      "date": "2021",
-      "value": 2.55450699642041
-     }
-    ]
-   ],
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-07-13"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 1.53795434836212
-     },
-     {
-      "date": "2024",
-      "value": 1.08657885620458
-     },
-     {
-      "date": "2023",
-      "value": 0.4380089249495
-     },
-     {
-      "date": "2022",
-      "value": 3.56455510630462
-     },
-     {
-      "date": "2021",
-      "value": 6.37773717070797
-     }
-    ]
-   ]
-  },
-  "JPN": {
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-07-13"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 3.17253034260248
-     },
-     {
-      "date": "2024",
-      "value": 2.73853681635241
-     },
-     {
-      "date": "2023",
-      "value": 3.26813365933163
-     },
-     {
-      "date": "2022",
-      "value": 2.49770278172255
-     },
-     {
-      "date": "2021",
-      "value": -0.233352779398264
-     }
-    ]
-   ],
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-07-13"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 1.19311288444599
-     },
-     {
-      "date": "2024",
-      "value": -0.240084236041696
-     },
-     {
-      "date": "2023",
-      "value": 0.720785304749811
-     },
-     {
-      "date": "2022",
-      "value": 1.33164750653741
-     },
-     {
-      "date": "2021",
-      "value": 3.56419531474475
-     }
-    ]
-   ]
-  }
+ "generated": "2026-09-20T11:25:48.586Z",
+ "bls": {
+  "CUUR0000SA0": [
+   {
+    "year": "2026",
+    "period": "M08",
+    "periodName": "August",
+    "value": "334.980"
+   },
+   {
+    "year": "2026",
+    "period": "M07",
+    "periodName": "July",
+    "value": "333.918"
+   },
+   {
+    "year": "2026",
+    "period": "M06",
+    "periodName": "June",
+    "value": "333.952"
+   },
+   {
+    "year": "2026",
+    "period": "M05",
+    "periodName": "May",
+    "value": "335.123"
+   },
+   {
+    "year": "2026",
+    "period": "M04",
+    "periodName": "April",
+    "value": "333.020"
+   },
+   {
+    "year": "2026",
+    "period": "M03",
+    "periodName": "March",
+    "value": "330.213"
+   },
+   {
+    "year": "2026",
+    "period": "M02",
+    "periodName": "February",
+    "value": "326.785"
+   },
+   {
+    "year": "2026",
+    "period": "M01",
+    "periodName": "January",
+    "value": "325.252"
+   },
+   {
+    "year": "2025",
+    "period": "M12",
+    "periodName": "December",
+    "value": "324.054"
+   },
+   {
+    "year": "2025",
+    "period": "M11",
+    "periodName": "November",
+    "value": "324.122"
+   },
+   {
+    "year": "2025",
+    "period": "M10",
+    "periodName": "October",
+    "value": "-"
+   },
+   {
+    "year": "2025",
+    "period": "M09",
+    "periodName": "September",
+    "value": "324.800"
+   },
+   {
+    "year": "2025",
+    "period": "M08",
+    "periodName": "August",
+    "value": "323.976"
+   },
+   {
+    "year": "2025",
+    "period": "M07",
+    "periodName": "July",
+    "value": "323.048"
+   },
+   {
+    "year": "2025",
+    "period": "M06",
+    "periodName": "June",
+    "value": "322.561"
+   },
+   {
+    "year": "2025",
+    "period": "M05",
+    "periodName": "May",
+    "value": "321.465"
+   },
+   {
+    "year": "2025",
+    "period": "M04",
+    "periodName": "April",
+    "value": "320.795"
+   },
+   {
+    "year": "2025",
+    "period": "M03",
+    "periodName": "March",
+    "value": "319.799"
+   },
+   {
+    "year": "2025",
+    "period": "M02",
+    "periodName": "February",
+    "value": "319.082"
+   },
+   {
+    "year": "2025",
+    "period": "M01",
+    "periodName": "January",
+    "value": "317.671"
+   },
+   {
+    "year": "2024",
+    "period": "M12",
+    "periodName": "December",
+    "value": "315.605"
+   },
+   {
+    "year": "2024",
+    "period": "M11",
+    "periodName": "November",
+    "value": "315.493"
+   },
+   {
+    "year": "2024",
+    "period": "M10",
+    "periodName": "October",
+    "value": "315.664"
+   },
+   {
+    "year": "2024",
+    "period": "M09",
+    "periodName": "September",
+    "value": "315.301"
+   },
+   {
+    "year": "2024",
+    "period": "M08",
+    "periodName": "August",
+    "value": "314.796"
+   },
+   {
+    "year": "2024",
+    "period": "M07",
+    "periodName": "July",
+    "value": "314.540"
+   },
+   {
+    "year": "2024",
+    "period": "M06",
+    "periodName": "June",
+    "value": "314.175"
+   },
+   {
+    "year": "2024",
+    "period": "M05",
+    "periodName": "May",
+    "value": "314.069"
+   },
+   {
+    "year": "2024",
+    "period": "M04",
+    "periodName": "April",
+    "value": "313.548"
+   },
+   {
+    "year": "2024",
+    "period": "M03",
+    "periodName": "March",
+    "value": "312.332"
+   },
+   {
+    "year": "2024",
+    "period": "M02",
+    "periodName": "February",
+    "value": "310.326"
+   },
+   {
+    "year": "2024",
+    "period": "M01",
+    "periodName": "January",
+    "value": "308.417"
+   }
+  ],
+  "CUUR0000SA0L1E": [
+   {
+    "year": "2026",
+    "period": "M08",
+    "periodName": "August",
+    "value": "338.041"
+   },
+   {
+    "year": "2026",
+    "period": "M07",
+    "periodName": "July",
+    "value": "337.133"
+   },
+   {
+    "year": "2026",
+    "period": "M06",
+    "periodName": "June",
+    "value": "336.882"
+   },
+   {
+    "year": "2026",
+    "period": "M05",
+    "periodName": "May",
+    "value": "336.846"
+   },
+   {
+    "year": "2026",
+    "period": "M04",
+    "periodName": "April",
+    "value": "335.803"
+   },
+   {
+    "year": "2026",
+    "period": "M03",
+    "periodName": "March",
+    "value": "334.391"
+   },
+   {
+    "year": "2026",
+    "period": "M02",
+    "periodName": "February",
+    "value": "333.242"
+   },
+   {
+    "year": "2026",
+    "period": "M01",
+    "periodName": "January",
+    "value": "331.950"
+   },
+   {
+    "year": "2025",
+    "period": "M12",
+    "periodName": "December",
+    "value": "330.506"
+   },
+   {
+    "year": "2025",
+    "period": "M11",
+    "periodName": "November",
+    "value": "330.425"
+   },
+   {
+    "year": "2025",
+    "period": "M10",
+    "periodName": "October",
+    "value": "-"
+   },
+   {
+    "year": "2025",
+    "period": "M09",
+    "periodName": "September",
+    "value": "330.804"
+   },
+   {
+    "year": "2025",
+    "period": "M08",
+    "periodName": "August",
+    "value": "329.970"
+   },
+   {
+    "year": "2025",
+    "period": "M07",
+    "periodName": "July",
+    "value": "328.980"
+   },
+   {
+    "year": "2025",
+    "period": "M06",
+    "periodName": "June",
+    "value": "328.364"
+   },
+   {
+    "year": "2025",
+    "period": "M05",
+    "periodName": "May",
+    "value": "327.509"
+   },
+   {
+    "year": "2025",
+    "period": "M04",
+    "periodName": "April",
+    "value": "326.815"
+   },
+   {
+    "year": "2025",
+    "period": "M03",
+    "periodName": "March",
+    "value": "325.933"
+   },
+   {
+    "year": "2025",
+    "period": "M02",
+    "periodName": "February",
+    "value": "325.252"
+   },
+   {
+    "year": "2025",
+    "period": "M01",
+    "periodName": "January",
+    "value": "323.842"
+   },
+   {
+    "year": "2024",
+    "period": "M12",
+    "periodName": "December",
+    "value": "322.007"
+   },
+   {
+    "year": "2024",
+    "period": "M11",
+    "periodName": "November",
+    "value": "321.947"
+   },
+   {
+    "year": "2024",
+    "period": "M10",
+    "periodName": "October",
+    "value": "321.758"
+   },
+   {
+    "year": "2024",
+    "period": "M09",
+    "periodName": "September",
+    "value": "321.109"
+   },
+   {
+    "year": "2024",
+    "period": "M08",
+    "periodName": "August",
+    "value": "320.017"
+   },
+   {
+    "year": "2024",
+    "period": "M07",
+    "periodName": "July",
+    "value": "319.214"
+   },
+   {
+    "year": "2024",
+    "period": "M06",
+    "periodName": "June",
+    "value": "319.003"
+   },
+   {
+    "year": "2024",
+    "period": "M05",
+    "periodName": "May",
+    "value": "318.629"
+   },
+   {
+    "year": "2024",
+    "period": "M04",
+    "periodName": "April",
+    "value": "317.978"
+   },
+   {
+    "year": "2024",
+    "period": "M03",
+    "periodName": "March",
+    "value": "317.088"
+   },
+   {
+    "year": "2024",
+    "period": "M02",
+    "periodName": "February",
+    "value": "315.419"
+   },
+   {
+    "year": "2024",
+    "period": "M01",
+    "periodName": "January",
+    "value": "313.623"
+   }
+  ],
+  "LNS14000000": [
+   {
+    "year": "2026",
+    "period": "M08",
+    "periodName": "August",
+    "value": "4.1"
+   },
+   {
+    "year": "2026",
+    "period": "M07",
+    "periodName": "July",
+    "value": "4.1"
+   },
+   {
+    "year": "2026",
+    "period": "M06",
+    "periodName": "June",
+    "value": "4.2"
+   },
+   {
+    "year": "2026",
+    "period": "M05",
+    "periodName": "May",
+    "value": "4.3"
+   },
+   {
+    "year": "2026",
+    "period": "M04",
+    "periodName": "April",
+    "value": "4.3"
+   },
+   {
+    "year": "2026",
+    "period": "M03",
+    "periodName": "March",
+    "value": "4.3"
+   },
+   {
+    "year": "2026",
+    "period": "M02",
+    "periodName": "February",
+    "value": "4.4"
+   },
+   {
+    "year": "2026",
+    "period": "M01",
+    "periodName": "January",
+    "value": "4.3"
+   },
+   {
+    "year": "2025",
+    "period": "M12",
+    "periodName": "December",
+    "value": "4.4"
+   },
+   {
+    "year": "2025",
+    "period": "M11",
+    "periodName": "November",
+    "value": "4.5"
+   },
+   {
+    "year": "2025",
+    "period": "M10",
+    "periodName": "October",
+    "value": "-"
+   },
+   {
+    "year": "2025",
+    "period": "M09",
+    "periodName": "September",
+    "value": "4.4"
+   },
+   {
+    "year": "2025",
+    "period": "M08",
+    "periodName": "August",
+    "value": "4.3"
+   },
+   {
+    "year": "2025",
+    "period": "M07",
+    "periodName": "July",
+    "value": "4.3"
+   },
+   {
+    "year": "2025",
+    "period": "M06",
+    "periodName": "June",
+    "value": "4.1"
+   },
+   {
+    "year": "2025",
+    "period": "M05",
+    "periodName": "May",
+    "value": "4.3"
+   },
+   {
+    "year": "2025",
+    "period": "M04",
+    "periodName": "April",
+    "value": "4.2"
+   },
+   {
+    "year": "2025",
+    "period": "M03",
+    "periodName": "March",
+    "value": "4.2"
+   },
+   {
+    "year": "2025",
+    "period": "M02",
+    "periodName": "February",
+    "value": "4.2"
+   },
+   {
+    "year": "2025",
+    "period": "M01",
+    "periodName": "January",
+    "value": "4.0"
+   },
+   {
+    "year": "2024",
+    "period": "M12",
+    "periodName": "December",
+    "value": "4.1"
+   },
+   {
+    "year": "2024",
+    "period": "M11",
+    "periodName": "November",
+    "value": "4.2"
+   },
+   {
+    "year": "2024",
+    "period": "M10",
+    "periodName": "October",
+    "value": "4.1"
+   },
+   {
+    "year": "2024",
+    "period": "M09",
+    "periodName": "September",
+    "value": "4.1"
+   },
+   {
+    "year": "2024",
+    "period": "M08",
+    "periodName": "August",
+    "value": "4.2"
+   },
+   {
+    "year": "2024",
+    "period": "M07",
+    "periodName": "July",
+    "value": "4.2"
+   },
+   {
+    "year": "2024",
+    "period": "M06",
+    "periodName": "June",
+    "value": "4.1"
+   },
+   {
+    "year": "2024",
+    "period": "M05",
+    "periodName": "May",
+    "value": "3.9"
+   },
+   {
+    "year": "2024",
+    "period": "M04",
+    "periodName": "April",
+    "value": "3.9"
+   },
+   {
+    "year": "2024",
+    "period": "M03",
+    "periodName": "March",
+    "value": "3.9"
+   },
+   {
+    "year": "2024",
+    "period": "M02",
+    "periodName": "February",
+    "value": "3.9"
+   },
+   {
+    "year": "2024",
+    "period": "M01",
+    "periodName": "January",
+    "value": "3.7"
+   }
+  ]
  },
  "bea_gdp": {
   "series": {
@@ -912,589 +1230,282 @@
    ]
   }
  },
- "bls": {
-  "CUUR0000SA0": [
-   {
-    "year": "2026",
-    "period": "M08",
-    "periodName": "August",
-    "value": "334.980"
-   },
-   {
-    "year": "2026",
-    "period": "M07",
-    "periodName": "July",
-    "value": "333.918"
-   },
-   {
-    "year": "2026",
-    "period": "M06",
-    "periodName": "June",
-    "value": "333.952"
-   },
-   {
-    "year": "2026",
-    "period": "M05",
-    "periodName": "May",
-    "value": "335.123"
-   },
-   {
-    "year": "2026",
-    "period": "M04",
-    "periodName": "April",
-    "value": "333.020"
-   },
-   {
-    "year": "2026",
-    "period": "M03",
-    "periodName": "March",
-    "value": "330.213"
-   },
-   {
-    "year": "2026",
-    "period": "M02",
-    "periodName": "February",
-    "value": "326.785"
-   },
-   {
-    "year": "2026",
-    "period": "M01",
-    "periodName": "January",
-    "value": "325.252"
-   },
-   {
-    "year": "2025",
-    "period": "M12",
-    "periodName": "December",
-    "value": "324.054"
-   },
-   {
-    "year": "2025",
-    "period": "M11",
-    "periodName": "November",
-    "value": "324.122"
-   },
-   {
-    "year": "2025",
-    "period": "M10",
-    "periodName": "October",
-    "value": "-"
-   },
-   {
-    "year": "2025",
-    "period": "M09",
-    "periodName": "September",
-    "value": "324.800"
-   },
-   {
-    "year": "2025",
-    "period": "M08",
-    "periodName": "August",
-    "value": "323.976"
-   },
-   {
-    "year": "2025",
-    "period": "M07",
-    "periodName": "July",
-    "value": "323.048"
-   },
-   {
-    "year": "2025",
-    "period": "M06",
-    "periodName": "June",
-    "value": "322.561"
-   },
-   {
-    "year": "2025",
-    "period": "M05",
-    "periodName": "May",
-    "value": "321.465"
-   },
-   {
-    "year": "2025",
-    "period": "M04",
-    "periodName": "April",
-    "value": "320.795"
-   },
-   {
-    "year": "2025",
-    "period": "M03",
-    "periodName": "March",
-    "value": "319.799"
-   },
-   {
-    "year": "2025",
-    "period": "M02",
-    "periodName": "February",
-    "value": "319.082"
-   },
-   {
-    "year": "2025",
-    "period": "M01",
-    "periodName": "January",
-    "value": "317.671"
-   },
-   {
-    "year": "2024",
-    "period": "M12",
-    "periodName": "December",
-    "value": "315.605"
-   },
-   {
-    "year": "2024",
-    "period": "M11",
-    "periodName": "November",
-    "value": "315.493"
-   },
-   {
-    "year": "2024",
-    "period": "M10",
-    "periodName": "October",
-    "value": "315.664"
-   },
-   {
-    "year": "2024",
-    "period": "M09",
-    "periodName": "September",
-    "value": "315.301"
-   },
-   {
-    "year": "2024",
-    "period": "M08",
-    "periodName": "August",
-    "value": "314.796"
-   },
-   {
-    "year": "2024",
-    "period": "M07",
-    "periodName": "July",
-    "value": "314.540"
-   },
-   {
-    "year": "2024",
-    "period": "M06",
-    "periodName": "June",
-    "value": "314.175"
-   },
-   {
-    "year": "2024",
-    "period": "M05",
-    "periodName": "May",
-    "value": "314.069"
-   },
-   {
-    "year": "2024",
-    "period": "M04",
-    "periodName": "April",
-    "value": "313.548"
-   },
-   {
-    "year": "2024",
-    "period": "M03",
-    "periodName": "March",
-    "value": "312.332"
-   },
-   {
-    "year": "2024",
-    "period": "M02",
-    "periodName": "February",
-    "value": "310.326"
-   },
-   {
-    "year": "2024",
-    "period": "M01",
-    "periodName": "January",
-    "value": "308.417"
-   }
-  ],
-  "CUUR0000SA0L1E": [
-   {
-    "year": "2026",
-    "period": "M08",
-    "periodName": "August",
-    "value": "338.041"
-   },
-   {
-    "year": "2026",
-    "period": "M07",
-    "periodName": "July",
-    "value": "337.133"
-   },
-   {
-    "year": "2026",
-    "period": "M06",
-    "periodName": "June",
-    "value": "336.882"
-   },
-   {
-    "year": "2026",
-    "period": "M05",
-    "periodName": "May",
-    "value": "336.846"
-   },
-   {
-    "year": "2026",
-    "period": "M04",
-    "periodName": "April",
-    "value": "335.803"
-   },
-   {
-    "year": "2026",
-    "period": "M03",
-    "periodName": "March",
-    "value": "334.391"
-   },
-   {
-    "year": "2026",
-    "period": "M02",
-    "periodName": "February",
-    "value": "333.242"
-   },
-   {
-    "year": "2026",
-    "period": "M01",
-    "periodName": "January",
-    "value": "331.950"
-   },
-   {
-    "year": "2025",
-    "period": "M12",
-    "periodName": "December",
-    "value": "330.506"
-   },
-   {
-    "year": "2025",
-    "period": "M11",
-    "periodName": "November",
-    "value": "330.425"
-   },
-   {
-    "year": "2025",
-    "period": "M10",
-    "periodName": "October",
-    "value": "-"
-   },
-   {
-    "year": "2025",
-    "period": "M09",
-    "periodName": "September",
-    "value": "330.804"
-   },
-   {
-    "year": "2025",
-    "period": "M08",
-    "periodName": "August",
-    "value": "329.970"
-   },
-   {
-    "year": "2025",
-    "period": "M07",
-    "periodName": "July",
-    "value": "328.980"
-   },
-   {
-    "year": "2025",
-    "period": "M06",
-    "periodName": "June",
-    "value": "328.364"
-   },
-   {
-    "year": "2025",
-    "period": "M05",
-    "periodName": "May",
-    "value": "327.509"
-   },
-   {
-    "year": "2025",
-    "period": "M04",
-    "periodName": "April",
-    "value": "326.815"
-   },
-   {
-    "year": "2025",
-    "period": "M03",
-    "periodName": "March",
-    "value": "325.933"
-   },
-   {
-    "year": "2025",
-    "period": "M02",
-    "periodName": "February",
-    "value": "325.252"
-   },
-   {
-    "year": "2025",
-    "period": "M01",
-    "periodName": "January",
-    "value": "323.842"
-   },
-   {
-    "year": "2024",
-    "period": "M12",
-    "periodName": "December",
-    "value": "322.007"
-   },
-   {
-    "year": "2024",
-    "period": "M11",
-    "periodName": "November",
-    "value": "321.947"
-   },
-   {
-    "year": "2024",
-    "period": "M10",
-    "periodName": "October",
-    "value": "321.758"
-   },
-   {
-    "year": "2024",
-    "period": "M09",
-    "periodName": "September",
-    "value": "321.109"
-   },
-   {
-    "year": "2024",
-    "period": "M08",
-    "periodName": "August",
-    "value": "320.017"
-   },
-   {
-    "year": "2024",
-    "period": "M07",
-    "periodName": "July",
-    "value": "319.214"
-   },
-   {
-    "year": "2024",
-    "period": "M06",
-    "periodName": "June",
-    "value": "319.003"
-   },
-   {
-    "year": "2024",
-    "period": "M05",
-    "periodName": "May",
-    "value": "318.629"
-   },
-   {
-    "year": "2024",
-    "period": "M04",
-    "periodName": "April",
-    "value": "317.978"
-   },
-   {
-    "year": "2024",
-    "period": "M03",
-    "periodName": "March",
-    "value": "317.088"
-   },
-   {
-    "year": "2024",
-    "period": "M02",
-    "periodName": "February",
-    "value": "315.419"
-   },
-   {
-    "year": "2024",
-    "period": "M01",
-    "periodName": "January",
-    "value": "313.623"
-   }
-  ],
-  "LNS14000000": [
-   {
-    "year": "2026",
-    "period": "M08",
-    "periodName": "August",
-    "value": "4.1"
-   },
-   {
-    "year": "2026",
-    "period": "M07",
-    "periodName": "July",
-    "value": "4.1"
-   },
-   {
-    "year": "2026",
-    "period": "M06",
-    "periodName": "June",
-    "value": "4.2"
-   },
-   {
-    "year": "2026",
-    "period": "M05",
-    "periodName": "May",
-    "value": "4.3"
-   },
-   {
-    "year": "2026",
-    "period": "M04",
-    "periodName": "April",
-    "value": "4.3"
-   },
-   {
-    "year": "2026",
-    "period": "M03",
-    "periodName": "March",
-    "value": "4.3"
-   },
-   {
-    "year": "2026",
-    "period": "M02",
-    "periodName": "February",
-    "value": "4.4"
-   },
-   {
-    "year": "2026",
-    "period": "M01",
-    "periodName": "January",
-    "value": "4.3"
-   },
-   {
-    "year": "2025",
-    "period": "M12",
-    "periodName": "December",
-    "value": "4.4"
-   },
-   {
-    "year": "2025",
-    "period": "M11",
-    "periodName": "November",
-    "value": "4.5"
-   },
-   {
-    "year": "2025",
-    "period": "M10",
-    "periodName": "October",
-    "value": "-"
-   },
-   {
-    "year": "2025",
-    "period": "M09",
-    "periodName": "September",
-    "value": "4.4"
-   },
-   {
-    "year": "2025",
-    "period": "M08",
-    "periodName": "August",
-    "value": "4.3"
-   },
-   {
-    "year": "2025",
-    "period": "M07",
-    "periodName": "July",
-    "value": "4.3"
-   },
-   {
-    "year": "2025",
-    "period": "M06",
-    "periodName": "June",
-    "value": "4.1"
-   },
-   {
-    "year": "2025",
-    "period": "M05",
-    "periodName": "May",
-    "value": "4.3"
-   },
-   {
-    "year": "2025",
-    "period": "M04",
-    "periodName": "April",
-    "value": "4.2"
-   },
-   {
-    "year": "2025",
-    "period": "M03",
-    "periodName": "March",
-    "value": "4.2"
-   },
-   {
-    "year": "2025",
-    "period": "M02",
-    "periodName": "February",
-    "value": "4.2"
-   },
-   {
-    "year": "2025",
-    "period": "M01",
-    "periodName": "January",
-    "value": "4.0"
-   },
-   {
-    "year": "2024",
-    "period": "M12",
-    "periodName": "December",
-    "value": "4.1"
-   },
-   {
-    "year": "2024",
-    "period": "M11",
-    "periodName": "November",
-    "value": "4.2"
-   },
-   {
-    "year": "2024",
-    "period": "M10",
-    "periodName": "October",
-    "value": "4.1"
-   },
-   {
-    "year": "2024",
-    "period": "M09",
-    "periodName": "September",
-    "value": "4.1"
-   },
-   {
-    "year": "2024",
-    "period": "M08",
-    "periodName": "August",
-    "value": "4.2"
-   },
-   {
-    "year": "2024",
-    "period": "M07",
-    "periodName": "July",
-    "value": "4.2"
-   },
-   {
-    "year": "2024",
-    "period": "M06",
-    "periodName": "June",
-    "value": "4.1"
-   },
-   {
-    "year": "2024",
-    "period": "M05",
-    "periodName": "May",
-    "value": "3.9"
-   },
-   {
-    "year": "2024",
-    "period": "M04",
-    "periodName": "April",
-    "value": "3.9"
-   },
-   {
-    "year": "2024",
-    "period": "M03",
-    "periodName": "March",
-    "value": "3.9"
-   },
-   {
-    "year": "2024",
-    "period": "M02",
-    "periodName": "February",
-    "value": "3.9"
-   },
-   {
-    "year": "2024",
-    "period": "M01",
-    "periodName": "January",
-    "value": "3.7"
-   }
-  ]
+ "worldbank": {
+  "USA": {
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-07-13"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 2.16138195623856
+     },
+     {
+      "date": "2024",
+      "value": 2.79318715363841
+     },
+     {
+      "date": "2023",
+      "value": 2.93436322440155
+     },
+     {
+      "date": "2022",
+      "value": 2.52421385073222
+     },
+     {
+      "date": "2021",
+      "value": 6.15202247867526
+     }
+    ]
+   ],
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-07-13"
+    },
+    [
+     {
+      "date": "2025",
+      "value": null
+     },
+     {
+      "date": "2024",
+      "value": 2.94952520485207
+     },
+     {
+      "date": "2023",
+      "value": 4.11633838374488
+     },
+     {
+      "date": "2022",
+      "value": 8.00279982052121
+     },
+     {
+      "date": "2021",
+      "value": 4.69785886363742
+     }
+    ]
+   ]
+  },
+  "EUU": {
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-07-13"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 2.46705543774613
+     },
+     {
+      "date": "2024",
+      "value": 2.43531202435314
+     },
+     {
+      "date": "2023",
+      "value": 6.29942487419125
+     },
+     {
+      "date": "2022",
+      "value": 8.83369886749452
+     },
+     {
+      "date": "2021",
+      "value": 2.55450699642041
+     }
+    ]
+   ],
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-07-13"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 1.53795434836212
+     },
+     {
+      "date": "2024",
+      "value": 1.08657885620458
+     },
+     {
+      "date": "2023",
+      "value": 0.4380089249495
+     },
+     {
+      "date": "2022",
+      "value": 3.56455510630462
+     },
+     {
+      "date": "2021",
+      "value": 6.37773717070797
+     }
+    ]
+   ]
+  },
+  "CHN": {
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-07-13"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 0.0595646916565403
+     },
+     {
+      "date": "2024",
+      "value": 0.218128938439177
+     },
+     {
+      "date": "2023",
+      "value": 0.234836828893051
+     },
+     {
+      "date": "2022",
+      "value": 1.97357555739051
+     },
+     {
+      "date": "2021",
+      "value": 0.981015135544882
+     }
+    ]
+   ],
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-07-13"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 4.95994886240992
+     },
+     {
+      "date": "2024",
+      "value": 4.95830378788091
+     },
+     {
+      "date": "2023",
+      "value": 5.41600334492955
+     },
+     {
+      "date": "2022",
+      "value": 3.13385438394069
+     },
+     {
+      "date": "2021",
+      "value": 8.57038414981781
+     }
+    ]
+   ]
+  },
+  "JPN": {
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-07-13"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 1.19311288444599
+     },
+     {
+      "date": "2024",
+      "value": -0.240084236041696
+     },
+     {
+      "date": "2023",
+      "value": 0.720785304749811
+     },
+     {
+      "date": "2022",
+      "value": 1.33164750653741
+     },
+     {
+      "date": "2021",
+      "value": 3.56419531474475
+     }
+    ]
+   ],
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-07-13"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 3.17253034260248
+     },
+     {
+      "date": "2024",
+      "value": 2.73853681635241
+     },
+     {
+      "date": "2023",
+      "value": 3.26813365933163
+     },
+     {
+      "date": "2022",
+      "value": 2.49770278172255
+     },
+     {
+      "date": "2021",
+      "value": -0.233352779398264
+     }
+    ]
+   ]
+  }
+ },
+ "fx": {
+  "amount": 1,
+  "base": "USD",
+  "date": "2026-09-18",
+  "rates": {
+   "CNY": 6.6976,
+   "EUR": 0.8726,
+   "GBP": 0.74939,
+   "JPY": 157.89
+  }
  },
  "treasury": {
   "data": [
@@ -1539,18 +1550,19 @@
    }
   ]
  },
- "fx": {
-  "amount": 1,
-  "base": "USD",
-  "date": "2026-09-18",
-  "rates": {
-   "CNY": 6.6976,
-   "EUR": 0.8726,
-   "GBP": 0.74939,
-   "JPY": 157.89
-  }
- },
  "quotes": {
+  "AAPL": {
+   "data": {
+    "p": 336.13,
+    "cp": -0.26
+   }
+  },
+  "GOOGL": {
+   "data": {
+    "p": 349.54,
+    "cp": 0.64
+   }
+  },
   "NVDA": {
    "data": {
     "p": 222.27,
@@ -1563,22 +1575,16 @@
     "cp": -0.8
    }
   },
-  "GOOGL": {
-   "data": {
-    "p": 349.54,
-    "cp": 0.64
-   }
-  },
-  "AAPL": {
-   "data": {
-    "p": 336.13,
-    "cp": -0.26
-   }
-  },
   "AVGO": {
    "data": {
     "p": 357.61,
     "cp": 2.97
+   }
+  },
+  "META": {
+   "data": {
+    "p": 665.75,
+    "cp": -2.43
    }
   },
   "VRT": {
@@ -1593,10 +1599,10 @@
     "cp": 3.92
    }
   },
-  "META": {
+  "TSLA": {
    "data": {
-    "p": 665.75,
-    "cp": -2.43
+    "p": 364.27,
+    "cp": -0.53
    }
   },
   "ISRG": {
@@ -1605,10 +1611,10 @@
     "cp": 2.55
    }
   },
-  "TSLA": {
+  "LLY": {
    "data": {
-    "p": 364.27,
-    "cp": -0.53
+    "p": 1152.93,
+    "cp": 0.04
    }
   },
   "NVO": {
@@ -1617,10 +1623,10 @@
     "cp": 0.12
    }
   },
-  "LLY": {
+  "IONQ": {
    "data": {
-    "p": 1152.93,
-    "cp": 0.04
+    "p": 39.13,
+    "cp": -3
    }
   },
   "RKLB": {
@@ -1629,22 +1635,16 @@
     "cp": -4.79
    }
   },
-  "CEG": {
-   "data": {
-    "p": 254.71,
-    "cp": -3.08
-   }
-  },
-  "IONQ": {
-   "data": {
-    "p": 39.13,
-    "cp": -3
-   }
-  },
   "GEV": {
    "data": {
     "p": 940.33,
     "cp": 1.66
+   }
+  },
+  "CEG": {
+   "data": {
+    "p": 254.71,
+    "cp": -3.08
    }
   }
  },
@@ -3732,16 +3732,16 @@
  ],
  "coingecko": {
   "bitcoin": {
-   "usd": 80900,
-   "usd_24h_change": -0.5072404332061738
+   "usd": 80315,
+   "usd_24h_change": -1.2509037234053955
   },
   "ethereum": {
-   "usd": 2610.16,
-   "usd_24h_change": -0.3546692369586635
+   "usd": 2570.28,
+   "usd_24h_change": -2.6961437932414545
   },
   "solana": {
-   "usd": 109.46,
-   "usd_24h_change": -3.6326523352099684
+   "usd": 108,
+   "usd_24h_change": -3.5743115357908763
   }
  },
  "treasury_curve": [
@@ -6324,43 +6324,43 @@
   {
    "question": "Will United Russia (ER) gain the most seats in the next Russian parliamentary election?",
    "slug": "will-united-russia-er-gain-the-most-seats-in-the-next-russian-parliamentary-election",
-   "volume24hr": 1721607.791308,
+   "volume24hr": 1717490.8079360006,
    "outcomePrices": "[\"0.805\", \"0.195\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "LSU vs. Ole Miss",
-   "slug": "cfb-lsu-miss-2026-09-19",
-   "volume24hr": 1538920.2046349996,
-   "outcomePrices": "[\"0.525\", \"0.475\"]",
-   "outcomes": "[\"LSU\", \"Ole Miss\"]"
-  },
-  {
-   "question": "UFC 331: Alexandre Pantoja vs. Joshua Van (Flyweight, Main Card)",
-   "slug": "ufc-ale8-jos49-2026-09-19",
-   "volume24hr": 896290.2678390001,
-   "outcomePrices": "[\"0.415\", \"0.585\"]",
-   "outcomes": "[\"Alexandre Pantoja\", \"Joshua Van\"]"
-  },
-  {
-   "question": "New York Yankees vs. Arizona Diamondbacks",
-   "slug": "mlb-nyy-ari-2026-09-19",
-   "volume24hr": 717750.2884490007,
-   "outcomePrices": "[\"0.555\", \"0.445\"]",
-   "outcomes": "[\"New York Yankees\", \"Arizona Diamondbacks\"]"
-  },
-  {
-   "question": "Will Greg Abbott win the 2028 Republican presidential nomination?",
-   "slug": "will-greg-abbott-win-the-2028-republican-presidential-nomination",
-   "volume24hr": 611522.458,
+   "question": "Will Hakeem Jeffries win the 2028 Democratic presidential nomination?",
+   "slug": "will-hakeem-jeffries-win-the-2028-democratic-presidential-nomination",
+   "volume24hr": 1320897.434,
    "outcomePrices": "[\"0.0015\", \"0.9985\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Clarity Act (H.R.3633) signed into law in 2026?",
-   "slug": "clarity-act-signed-into-law-in-2026",
-   "volume24hr": 554368.7157239999,
-   "outcomePrices": "[\"0.074\", \"0.926\"]",
+   "question": "Dota 2: Conventus Stellarum vs Xtreme Gaming (BO3) - PGL Wallachia Group Stage",
+   "slug": "dota2-cs-xtreme-2026-09-20",
+   "volume24hr": 1051692.8776780008,
+   "outcomePrices": "[\"0.0005\", \"0.9995\"]",
+   "outcomes": "[\"Conventus Stellarum\", \"Xtreme Gaming\"]"
+  },
+  {
+   "question": "Vikings vs. Bears",
+   "slug": "nfl-min-chi-2026-09-20",
+   "volume24hr": 918282.999781,
+   "outcomePrices": "[\"0.345\", \"0.655\"]",
+   "outcomes": "[\"Vikings\", \"Bears\"]"
+  },
+  {
+   "question": "Spread: BAL (-8.5)",
+   "slug": "nfl-no-bal-2026-09-20-spread-home-8pt5",
+   "volume24hr": 846185.991884,
+   "outcomePrices": "[\"0.495\", \"0.505\"]",
+   "outcomes": "[\"BAL\", \"NO\"]"
+  },
+  {
+   "question": "Will Greg Abbott win the 2028 Republican presidential nomination?",
+   "slug": "will-greg-abbott-win-the-2028-republican-presidential-nomination",
+   "volume24hr": 615530.531,
+   "outcomePrices": "[\"0.0015\", \"0.9985\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   }
  ]
