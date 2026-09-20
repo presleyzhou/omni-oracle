@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://presleyzhou.github.io/omni-oracle/macro.html" />
 <meta name="twitter:card" content="summary" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>" />
-<link rel="stylesheet" href="css/style.css?v=30" />
+<link rel="stylesheet" href="css/style.css?v=31" />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
@@ -66,6 +66,34 @@
       <div class="chart-box short"><canvas id="unempChart" role="img" aria-label="Line chart: US unemployment rate (BLS)"></canvas></div>
     </div>
 
+    <div class="card" id="crisisCard" style="margin-top:18px; border-color:rgba(239,68,68,0.35);">
+      <h3 data-i18n="cw.title">🚨 Financial-crisis early warning</h3>
+      <p style="margin:6px 0 14px; font-size:0.85rem; color:var(--text-dim);" data-i18n="cw.sub"></p>
+      <div class="cw-top">
+        <div class="cw-score">
+          <div class="cw-num" id="cwScore" aria-live="polite">…</div>
+          <div class="cw-regime" id="cwRegime" data-i18n="cw.loading">Loading indicators…</div>
+          <div class="lbl" data-i18n="cw.gauge">Composite stress score, 0–100</div>
+          <div class="cw-gauge" role="img" aria-label="Composite financial-stress gauge"><div class="cw-marker" id="cwMarker"></div></div>
+          <div class="cw-scale"><span data-i18n="cw.regime.calm">Calm</span><span data-i18n="cw.regime.watch">Watch</span><span data-i18n="cw.regime.elevated">Elevated</span><span data-i18n="cw.regime.crisis">Crisis</span></div>
+        </div>
+        <div style="overflow-x:auto; flex:1; min-width:0;">
+          <table id="cwTable">
+            <thead><tr>
+              <th scope="col" data-i18n="cw.col.ind">Indicator</th>
+              <th scope="col" data-i18n="cw.col.val">Latest</th>
+              <th scope="col" data-i18n="cw.col.th">Thresholds</th>
+              <th scope="col" data-i18n="cw.col.st">Status</th>
+            </tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <p style="margin:16px 0 8px; font-size:0.85rem;" data-i18n="cw.chart">Yield-curve slope (10Y − 3M, bp, left) and VIX (right), last 24 months</p>
+      <div class="chart-box short"><canvas id="cwChart" role="img" aria-label="Line chart: 10-year minus 3-month Treasury spread and VIX, last 24 months"></canvas></div>
+      <p class="cw-method" data-i18n="cw.method"></p>
+    </div>
+
     <div class="card hide" id="wbCard" style="margin-top:18px; border-color:rgba(34,197,94,0.35);">
       <h3 data-i18n="mac.wb.title">🌍 World Bank actuals · LIVE</h3>
       <p style="margin:6px 0 12px; font-size:0.82rem; color:var(--text-dim);" data-i18n="mac.wb.sub">Annual GDP growth and CPI inflation for major economies, fetched from the World Bank open API — the ground truth our nowcasts are ultimately scored against.</p>
@@ -96,9 +124,9 @@
   </div>
 </footer>
 
-<script src="js/data.js?v=30"></script>
-<script src="js/i18n.js?v=30"></script>
-<script src="js/app.js?v=30"></script>
-<script src="js/pages/macro.js?v=30"></script>
+<script src="js/data.js?v=31"></script>
+<script src="js/i18n.js?v=31"></script>
+<script src="js/app.js?v=31"></script>
+<script src="js/pages/macro.js?v=31"></script>
 </body>
 </html>

@@ -23,6 +23,8 @@ jobs:
         with:
           node-version: 22
       - run: node scripts/snapshot.mjs
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}   # optional: enables the Baa−10Y credit-spread indicator
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"

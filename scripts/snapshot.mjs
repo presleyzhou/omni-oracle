@@ -72,6 +72,56 @@ function setPath(o, p, v) {
   cur[ks[ks.length - 1]] = v;
 }
 
+
+/* --- crisis-warning inputs --------------------------------------------------- */
+const csvRows = (txt) => txt.trim().split(/\r?\n/).map(l => l.split(",").map(c => c.replace(/^"|"$/g, "").trim()));
+const iso = (mdy) => { const [m, d, y] = mdy.split("/"); return `${y}-${m.padStart(2, "0")}-${d.padStart(2, "0")}`; };
+async function getText(url) {
+  try {
+    const res = await fetch(url, { headers: { "user-agent": UA }, signal: AbortSignal.timeout(30000) });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return await res.text();
+  } catch (e) {
+    const { stdout } = await execFileP("curl", ["-sSL", "--fail", "--max-time", "40", "-A", UA, url], { maxBuffer: 32 * 1024 * 1024 });
+    return stdout;
+  }
+}
+/* US Treasury daily par yield curve, this year + last year → [{d, m3, y2, y10}] ascending */
+async function treasuryCurve() {
+  const y = new Date().getFullYear();
+  const rows = [];
+  for (const yr of [y - 1, y]) {
+    const txt = await getText(`https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/${yr}/all?type=daily_treasury_yield_curve&field_tdr_date_value=${yr}&page&_format=csv`);
+    const [head, ...body] = csvRows(txt);
+    const ix = (name) => head.indexOf(name);
+    const iD = ix("Date"), i3 = ix("3 Mo"), i2 = ix("2 Yr"), i10 = ix("10 Yr");
+    if (iD < 0 || i3 < 0 || i10 < 0) throw new Error("unexpected Treasury CSV header");
+    body.forEach(r => { if (r[iD] && r[i3] && r[i10]) rows.push({ d: iso(r[iD]), m3: +r[i3], y2: +r[i2], y10: +r[i10] }); });
+  }
+  rows.sort((a, b) => a.d < b.d ? -1 : 1);
+  return rows.length > 100 ? rows.slice(-520) : null;
+}
+/* CBOE VIX daily history → [{d, c}] ascending (close) */
+async function vixHistory() {
+  const txt = await getText("https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv");
+  const [head, ...body] = csvRows(txt);
+  const iD = head.findIndex(h => /date/i.test(h)), iC = head.findIndex(h => /close/i.test(h));
+  if (iD < 0 || iC < 0) throw new Error("unexpected VIX CSV header");
+  const rows = body.filter(r => r[iD] && r[iC]).map(r => ({ d: iso(r[iD]), c: +(+r[iC]).toFixed(2) }));
+  return rows.length > 100 ? rows.slice(-520) : null;
+}
+/* Moody's Baa − 10Y Treasury spread (FRED BAA10Y, daily, pp) → [{d, v}].
+   Needs a free FRED API key in FRED_API_KEY (repository secret); without it the
+   credit-spread row on the macro page shows n/a and is excluded from the composite. */
+async function baaSpread() {
+  const key = process.env.FRED_API_KEY;
+  if (!key) throw new Error("FRED_API_KEY not set — credit spread skipped");
+  const from = new Date(); from.setFullYear(from.getFullYear() - 2);
+  const d = await getJson(`https://api.stlouisfed.org/fred/series/observations?series_id=BAA10Y&api_key=${key}&file_type=json&observation_start=${from.toISOString().slice(0, 10)}`);
+  const rows = (d.observations || []).filter(o => o.value !== ".").map(o => ({ d: o.date, v: +o.value }));
+  return rows.length ? rows.slice(-520) : null;
+}
+
 const TASKS = [
   /* BEA real GDP growth via DBnomics — trimmed to the two arrays the site reads */
   () => field("bea_gdp", async () => {
@@ -99,6 +149,9 @@ const TASKS = [
     .then(d => d?.data ? { data: d.data } : null)),
   ...TICKERS.map(t => () => field(`quotes.${t}`, () => getJson("https://stockanalysis.com/api/quotes/s/" + t)
     .then(d => d?.data?.p != null ? { data: { p: d.data.p, cp: d.data.cp ?? 0 } } : null))),
+  () => field("treasury_curve", treasuryCurve),
+  () => field("vix", vixHistory),
+  () => field("baa_spread", baaSpread),
   () => field("coingecko", () => getJson("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd&include_24hr_change=true")),
   () => field("polymarket", () => getJson("https://gamma-api.polymarket.com/markets?limit=6&active=true&closed=false&order=volume24hr&ascending=false")
     .then(d => Array.isArray(d) ? d.map(({ question, slug, volume24hr, outcomePrices, outcomes }) => ({ question, slug, volume24hr, outcomePrices, outcomes })) : null)),

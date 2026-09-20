@@ -493,3 +493,33 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
 .src-demo { background: rgba(147,160,184,0.16); color: var(--text-dim); }
 .src-line { text-align: right; margin-top: 8px; min-height: 1em; }
 .src-line .src-badge { margin-left: 0; }
+
+/* ---------- Financial-crisis early-warning card ---------- */
+.cw-top { display: flex; gap: 22px; align-items: flex-start; flex-wrap: wrap; }
+.cw-score { flex: 0 0 240px; }
+.cw-num { font-family: var(--mono); font-size: 2.6rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+.cw-num.calm { color: var(--green); text-shadow: 0 0 18px rgba(34,197,94,0.4); }
+.cw-num.watch { color: var(--amber); text-shadow: 0 0 18px rgba(245,158,11,0.4); }
+.cw-num.elevated { color: #fb923c; text-shadow: 0 0 18px rgba(251,146,60,0.4); }
+.cw-num.crisis { color: var(--red); text-shadow: 0 0 18px rgba(239,68,68,0.5); }
+.cw-regime { font-weight: 700; margin: 6px 0 2px; }
+.cw-gauge {
+  position: relative; height: 10px; border-radius: 999px; margin-top: 10px;
+  background: linear-gradient(90deg, var(--green) 0%, var(--amber) 45%, #fb923c 70%, var(--red) 100%);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+}
+.cw-marker {
+  position: absolute; top: -5px; left: 0; width: 4px; height: 20px; border-radius: 2px;
+  background: #fff; box-shadow: 0 0 8px rgba(255,255,255,0.8); transform: translateX(-50%);
+  transition: left 0.6s ease;
+}
+.cw-scale { display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--text-dim); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+#cwTable td { font-size: 0.86rem; }
+#cwTable td.th { color: var(--text-dim); font-size: 0.78rem; white-space: nowrap; }
+.cw-pill { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.74rem; font-weight: 700; white-space: nowrap; }
+.cw-pill.ok { background: rgba(34,197,94,0.14); color: var(--green); }
+.cw-pill.warn { background: rgba(245,158,11,0.16); color: var(--amber); }
+.cw-pill.alert { background: rgba(239,68,68,0.16); color: var(--red); }
+.cw-pill.na { background: rgba(147,160,184,0.14); color: var(--text-dim); }
+.cw-method { margin-top: 14px; font-size: 0.8rem; color: var(--text-dim); line-height: 1.55; }
+@media (max-width: 720px) { .cw-score { flex-basis: 100%; } }

@@ -25,7 +25,7 @@ top-right corner; the choice persists across pages and visits).
 | Page | Module | What it shows |
 |---|---|---|
 | [index.html](index.html) | — | Platform overview, official-data hero stats, live market ticker |
-| [macro.html](macro.html) | M1 | BEA GDP, BLS CPI / core / unemployment, World Bank cross-country actuals, AI macro analyst |
+| [macro.html](macro.html) | M1 | BEA GDP, BLS CPI / core / unemployment, **financial-crisis early-warning composite** (yield curve, NY Fed probit, Sahm rule, VIX), World Bank actuals, AI macro analyst |
 | [finance.html](finance.html) | M1 | Live FX (ECB via Frankfurter), US Treasury rates, tech mega-cap quotes, Fed decision tree |
 | [trends.html](trends.html) | M2 | Emerging-theme explorer and company scorecards with live quotes and ML decile ranks |
 | [markets.html](markets.html) | P1–P8 | Prediction markets across 8 categories with a working Hanson LMSR trade simulator, live Polymarket odds, BYOK AI trader |
@@ -52,11 +52,18 @@ page load. Prices (stocks, crypto, FX, Polymarket) are **live-first** with the s
 fallback. The shared helpers live in [`js/app.js`](js/app.js) (`OO_FETCH`, `OO_SNAPSHOT`,
 `ooLive`, `ooSnap`, `ooMarkSource`).
 
+The macro page's **financial-crisis early-warning** card (yield-curve slope and the NY Fed probit
+recession probability, Sahm rule, VIX, growth and core-inflation backdrop) is built entirely from
+these inputs; the optional Baa − 10Y credit-spread row appears once a free
+[FRED API key](https://fred.stlouisfed.org/docs/api/api_key.html) is stored as the repository
+secret `FRED_API_KEY` (read only by the snapshot workflow, never shipped to browsers).
+
 Upstream sources: [DBnomics](https://db.nomics.world/) (BEA), [BLS](https://www.bls.gov/developers/),
 [World Bank](https://datahelpdesk.worldbank.org/knowledgebase/articles/889392),
 [Frankfurter](https://frankfurter.dev/) (ECB), [FiscalData](https://fiscaldata.treasury.gov/api-documentation/),
 [stockanalysis.com](https://stockanalysis.com/), [CoinGecko](https://www.coingecko.com/en/api),
-[Polymarket Gamma](https://docs.polymarket.com/).
+[Polymarket Gamma](https://docs.polymarket.com/), [US Treasury par yield curve](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve),
+[CBOE VIX history](https://www.cboe.com/tradable_products/vix/vix_historical_data/), optional [FRED](https://fred.stlouisfed.org/series/BAA10Y).
 
 ## Bring your own LLM key
 
