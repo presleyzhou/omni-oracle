@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-20T11:25:48.586Z",
+ "generated": "2026-09-21T12:50:09.178Z",
  "bls": {
   "CUUR0000SA0": [
    {
@@ -1232,6 +1232,38 @@
  },
  "worldbank": {
   "USA": {
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-07-13"
+    },
+    [
+     {
+      "date": "2025",
+      "value": null
+     },
+     {
+      "date": "2024",
+      "value": 2.94952520485207
+     },
+     {
+      "date": "2023",
+      "value": 4.11633838374488
+     },
+     {
+      "date": "2022",
+      "value": 8.00279982052121
+     },
+     {
+      "date": "2021",
+      "value": 4.69785886363742
+     }
+    ]
+   ],
    "gdp": [
     {
      "page": 1,
@@ -1263,6 +1295,40 @@
       "value": 6.15202247867526
      }
     ]
+   ]
+  },
+  "CHN": {
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-07-13"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 4.95994886240992
+     },
+     {
+      "date": "2024",
+      "value": 4.95830378788091
+     },
+     {
+      "date": "2023",
+      "value": 5.41600334492955
+     },
+     {
+      "date": "2022",
+      "value": 3.13385438394069
+     },
+     {
+      "date": "2021",
+      "value": 8.57038414981781
+     }
+    ]
    ],
    "cpi": [
     {
@@ -1276,23 +1342,23 @@
     [
      {
       "date": "2025",
-      "value": null
+      "value": 0.0595646916565403
      },
      {
       "date": "2024",
-      "value": 2.94952520485207
+      "value": 0.218128938439177
      },
      {
       "date": "2023",
-      "value": 4.11633838374488
+      "value": 0.234836828893051
      },
      {
       "date": "2022",
-      "value": 8.00279982052121
+      "value": 1.97357555739051
      },
      {
       "date": "2021",
-      "value": 4.69785886363742
+      "value": 0.981015135544882
      }
     ]
    ]
@@ -1359,72 +1425,6 @@
      {
       "date": "2021",
       "value": 6.37773717070797
-     }
-    ]
-   ]
-  },
-  "CHN": {
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-07-13"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 0.0595646916565403
-     },
-     {
-      "date": "2024",
-      "value": 0.218128938439177
-     },
-     {
-      "date": "2023",
-      "value": 0.234836828893051
-     },
-     {
-      "date": "2022",
-      "value": 1.97357555739051
-     },
-     {
-      "date": "2021",
-      "value": 0.981015135544882
-     }
-    ]
-   ],
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-07-13"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 4.95994886240992
-     },
-     {
-      "date": "2024",
-      "value": 4.95830378788091
-     },
-     {
-      "date": "2023",
-      "value": 5.41600334492955
-     },
-     {
-      "date": "2022",
-      "value": 3.13385438394069
-     },
-     {
-      "date": "2021",
-      "value": 8.57038414981781
      }
     ]
    ]
@@ -1551,6 +1551,12 @@
   ]
  },
  "quotes": {
+  "NVDA": {
+   "data": {
+    "p": 222.27,
+    "cp": 1.34
+   }
+  },
   "AAPL": {
    "data": {
     "p": 336.13,
@@ -1563,22 +1569,10 @@
     "cp": 0.64
    }
   },
-  "NVDA": {
-   "data": {
-    "p": 222.27,
-    "cp": 1.34
-   }
-  },
   "MSFT": {
    "data": {
     "p": 493.78,
     "cp": -0.8
-   }
-  },
-  "AVGO": {
-   "data": {
-    "p": 357.61,
-    "cp": 2.97
    }
   },
   "META": {
@@ -1587,28 +1581,22 @@
     "cp": -2.43
    }
   },
-  "VRT": {
-   "data": {
-    "p": 249.39,
-    "cp": 3.27
-   }
-  },
   "MU": {
    "data": {
     "p": 1015.8,
     "cp": 3.92
    }
   },
-  "TSLA": {
+  "AVGO": {
    "data": {
-    "p": 364.27,
-    "cp": -0.53
+    "p": 357.61,
+    "cp": 2.97
    }
   },
-  "ISRG": {
+  "VRT": {
    "data": {
-    "p": 393.33,
-    "cp": 2.55
+    "p": 249.39,
+    "cp": 3.27
    }
   },
   "LLY": {
@@ -1623,16 +1611,28 @@
     "cp": 0.12
    }
   },
+  "ISRG": {
+   "data": {
+    "p": 393.33,
+    "cp": 2.55
+   }
+  },
+  "TSLA": {
+   "data": {
+    "p": 364.27,
+    "cp": -0.53
+   }
+  },
+  "CEG": {
+   "data": {
+    "p": 254.71,
+    "cp": -3.08
+   }
+  },
   "IONQ": {
    "data": {
     "p": 39.13,
     "cp": -3
-   }
-  },
-  "RKLB": {
-   "data": {
-    "p": 64.57,
-    "cp": -4.79
    }
   },
   "GEV": {
@@ -1641,11 +1641,25 @@
     "cp": 1.66
    }
   },
-  "CEG": {
+  "RKLB": {
    "data": {
-    "p": 254.71,
-    "cp": -3.08
+    "p": 64.57,
+    "cp": -4.79
    }
+  }
+ },
+ "coingecko": {
+  "bitcoin": {
+   "usd": 85214,
+   "usd_24h_change": 6.055228107685851
+  },
+  "ethereum": {
+   "usd": 2725.43,
+   "usd_24h_change": 5.835086359664786
+  },
+  "solana": {
+   "usd": 116.63,
+   "usd_24h_change": 7.6978109492363265
   }
  },
  "vix": [
@@ -3730,20 +3744,6 @@
    "c": 14.81
   }
  ],
- "coingecko": {
-  "bitcoin": {
-   "usd": 80315,
-   "usd_24h_change": -1.2509037234053955
-  },
-  "ethereum": {
-   "usd": 2570.28,
-   "usd_24h_change": -2.6961437932414545
-  },
-  "solana": {
-   "usd": 108,
-   "usd_24h_change": -3.5743115357908763
-  }
- },
  "treasury_curve": [
   {
    "d": "2025-01-02",
@@ -6322,45 +6322,45 @@
  ],
  "polymarket": [
   {
-   "question": "Will United Russia (ER) gain the most seats in the next Russian parliamentary election?",
-   "slug": "will-united-russia-er-gain-the-most-seats-in-the-next-russian-parliamentary-election",
-   "volume24hr": 1717490.8079360006,
-   "outcomePrices": "[\"0.805\", \"0.195\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
+   "question": "Dota 2: Conventus Stellarum vs 1win (BO3) - PGL Wallachia Group Stage",
+   "slug": "dota2-cs-1win-2026-09-21",
+   "volume24hr": 699798.5762679996,
+   "outcomePrices": "[\"0.305\", \"0.695\"]",
+   "outcomes": "[\"Conventus Stellarum\", \"1win\"]"
   },
   {
-   "question": "Will Hakeem Jeffries win the 2028 Democratic presidential nomination?",
-   "slug": "will-hakeem-jeffries-win-the-2028-democratic-presidential-nomination",
-   "volume24hr": 1320897.434,
+   "question": "Dota 2: Team Nemesis vs MOUZ - Game 2 Winner",
+   "slug": "dota2-nem-mouz-2026-09-21-game2",
+   "volume24hr": 558507.3398200006,
+   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
+   "outcomes": "[\"Team Nemesis\", \"MOUZ\"]"
+  },
+  {
+   "question": "Will Shakhtar Donetsk win the 2026-27 UEFA Champions League Championship?",
+   "slug": "will-shakhtar-donetsk-win-the-2026-27-uefa-champions-league-championship-20260701202025578",
+   "volume24hr": 460040.34,
    "outcomePrices": "[\"0.0015\", \"0.9985\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Dota 2: Conventus Stellarum vs Xtreme Gaming (BO3) - PGL Wallachia Group Stage",
-   "slug": "dota2-cs-xtreme-2026-09-20",
-   "volume24hr": 1051692.8776780008,
-   "outcomePrices": "[\"0.0005\", \"0.9995\"]",
-   "outcomes": "[\"Conventus Stellarum\", \"Xtreme Gaming\"]"
+   "question": "Counter-Strike: Astralis vs Sangal (BO3) - Stake Pulse Beat II Group A",
+   "slug": "cs2-ast10-sng2-2026-09-21",
+   "volume24hr": 317397.1172560002,
+   "outcomePrices": "[\"0.765\", \"0.235\"]",
+   "outcomes": "[\"Astralis\", \"Sangal\"]"
   },
   {
-   "question": "Vikings vs. Bears",
-   "slug": "nfl-min-chi-2026-09-20",
-   "volume24hr": 918282.999781,
-   "outcomePrices": "[\"0.345\", \"0.655\"]",
-   "outcomes": "[\"Vikings\", \"Bears\"]"
+   "question": "Will the US confirm that aliens exist before 2027?",
+   "slug": "will-the-us-confirm-that-aliens-exist-before-2027-789-924-249",
+   "volume24hr": 291811.629987,
+   "outcomePrices": "[\"0.0345\", \"0.9655\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Spread: BAL (-8.5)",
-   "slug": "nfl-no-bal-2026-09-20-spread-home-8pt5",
-   "volume24hr": 846185.991884,
-   "outcomePrices": "[\"0.495\", \"0.505\"]",
-   "outcomes": "[\"BAL\", \"NO\"]"
-  },
-  {
-   "question": "Will Greg Abbott win the 2028 Republican presidential nomination?",
-   "slug": "will-greg-abbott-win-the-2028-republican-presidential-nomination",
-   "volume24hr": 615530.531,
-   "outcomePrices": "[\"0.0015\", \"0.9985\"]",
+   "question": "Friedrich Merz out as Chancellor of Germany before December 31, 2026?",
+   "slug": "friedrich-merz-out-as-chancellor-of-germany-before-2027",
+   "volume24hr": 266301.1111679999,
+   "outcomePrices": "[\"0.185\", \"0.815\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   }
  ]
