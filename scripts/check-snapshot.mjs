@@ -9,5 +9,8 @@ const need = ["generated", "bea_gdp.series.docs.0.period", "bls.CUUR0000SA0.0.va
 const get = (o, p) => p.split(".").reduce((a, k) => (a == null ? undefined : a[k]), o);
 const missing = need.filter(p => get(snap, p) == null);
 if (missing.length) { console.error("✗ snapshot missing: " + missing.join(", ")); process.exit(1); }
+const ledger = JSON.parse(fs.readFileSync(new URL("../data/questions.json", import.meta.url), "utf8"));
+if (!Array.isArray(ledger.questions)) { console.error("✗ data/questions.json has no questions array"); process.exit(1); }
+console.log(`✓ data/questions.json OK (${ledger.questions.length} questions, ${ledger.questions.filter(q => q.resolved != null).length} resolved)`);
 const age = (Date.now() - Date.parse(snap.generated)) / 864e5;
 console.log(`✓ data/live.json OK (${need.length} fields, generated ${snap.generated}, ${age.toFixed(1)} days old)`);

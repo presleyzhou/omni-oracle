@@ -1,0 +1,53 @@
+{
+ "updated": "2026-09-26T15:49:29.375Z",
+ "questions": [
+  {
+   "slug": "us-x-iran-ceasefire-continues-through-october-31-20260917",
+   "id": "4641065",
+   "question": "US x Iran ceasefire continues through October 31?",
+   "createdAt": "2026-09-17T15:54:12.416798Z",
+   "endDate": "2026-10-31T23:59:00Z",
+   "capturedAt": "2026-09-26T15:49:29.375Z",
+   "priceAtCapture": 0.565,
+   "price": 0.565,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "us-x-iran-ceasefire-continues-through-september-30-20260917",
+   "id": "4641064",
+   "question": "US x Iran ceasefire continues through September 30?",
+   "createdAt": "2026-09-17T15:54:12.123407Z",
+   "endDate": "2026-09-30T23:59:00Z",
+   "capturedAt": "2026-09-26T15:49:29.375Z",
+   "priceAtCapture": 0.905,
+   "price": 0.905,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "strait-of-hormuz-traffic-returns-to-normal-by-october-31-20260810151043583",
+   "id": "3501950",
+   "question": "Strait of Hormuz traffic returns to normal by October 31?",
+   "createdAt": "2026-08-10T22:38:21.735368Z",
+   "endDate": "2026-11-01T03:59:00Z",
+   "capturedAt": "2026-09-26T15:49:29.375Z",
+   "priceAtCapture": 0.075,
+   "price": 0.075,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "kharg-island-no-longer-under-iranian-control-by-december-31-20260730004337418",
+   "id": "3215073",
+   "question": "Kharg Island no longer under Iranian control by December 31?",
+   "createdAt": "2026-07-30T00:44:44.418462Z",
+   "endDate": "2027-01-01T04:59:00Z",
+   "capturedAt": "2026-09-26T15:49:29.375Z",
+   "priceAtCapture": 0.065,
+   "price": 0.065,
+   "closed": false,
+   "resolved": null
+  }
+ ]
+}

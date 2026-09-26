@@ -207,8 +207,10 @@ function renderLegend() {
 function stepDay() {
   if (!SIM.running) return;
   SIM.day++;
-  SIM.sent = clamp(SIM.sent + SIM.drift + (Math.random() - 0.5) * 2 * SIM.vol, 5, 95);
-  SIM.conf = clamp(SIM.conf + SIM.drift * 0.8 + (Math.random() - 0.5) * 1.6 * SIM.vol, 5, 95);
+  diffuseEvent();
+  const carry = 0.5 + 0.5 * SIM.informed; // only informed agents move sentiment
+  SIM.sent = clamp(SIM.sent + SIM.drift * carry + (Math.random() - 0.5) * 2 * SIM.vol, 5, 95);
+  SIM.conf = clamp(SIM.conf + SIM.drift * 0.8 * carry + (Math.random() - 0.5) * 1.6 * SIM.vol, 5, 95);
   if (SIM.backtest) SIM.drift = SIM.drift * 0.88 + (58 - SIM.sent) * 0.012; // crash-then-recovery mean reversion
   else SIM.drift *= 0.97;
   SIM.vol = clamp(SIM.vol * 0.985 + 0.02, 0.8, 4);
@@ -320,6 +322,116 @@ document.getElementById("densSlider").addEventListener("input", () => {
   document.getElementById("densVal").textContent = SIM.density.toFixed(2) + "×";
   if (SIM.built) pushEvent({ key: "sw.evTopo", params: { d: SIM.density.toFixed(2) }, god: true });
 });
+
+/* ----- information diffusion + scale audit -----------------------------------------
+   Messages now travel along the small-world graph: an event originates at one agent
+   and reaches neighbours up to `reach` hops away while it stays alive `lifetime`
+   days; sentiment only moves in proportion to the informed share. Before trusting a
+   mechanism at a larger population, arXiv 2608.22884 asks three questions — how often
+   can it fire, do agents actually use the information, and does the measurement
+   itself (counts vs. percentages) manufacture a scale effect. The audit below answers
+   them numerically for N = 80 … 5120 with the same topology rules as the live world. */
+SIM.reach = 3; SIM.lifetime = 3; SIM.informed = 1;
+function buildGraph(n) {
+  const nb = Array.from({ length: n }, () => []);
+  const link = (i, j) => { if (i !== j) { nb[i].push(j); nb[j].push(i); } };
+  for (let i = 0; i < n; i++) {
+    for (let d = 1; d <= 3; d++) link(i, (i + d * 4) % n);
+    if (Math.random() < 0.2) link(i, (Math.random() * n) | 0);
+  }
+  return nb;
+}
+/* undirected view of the live agents' neighbour lists */
+function liveGraph() {
+  const nb = SIM.agents.map(() => []);
+  SIM.agents.forEach((a, i) => a.nbrs.forEach(j => { nb[i].push(j); nb[j].push(i); }));
+  return nb;
+}
+function informedShare(nb, origin, reach) {
+  const seen = new Set([origin]); let frontier = [origin];
+  for (let h = 0; h < reach; h++) {
+    const next = [];
+    for (const i of frontier) for (const j of nb[i]) if (!seen.has(j)) { seen.add(j); next.push(j); }
+    frontier = next;
+  }
+  return seen.size / nb.length;
+}
+function diffuseEvent() {
+  const nb = liveGraph();
+  /* lifetime extends reach by one hop per extra day the message survives */
+  SIM.informed = informedShare(nb, (Math.random() * SIM.agents.length) | 0, SIM.reach + Math.max(0, SIM.lifetime - 1));
+}
+["reach", "lifetime"].forEach(k => {
+  const el = document.getElementById(k + "Slider");
+  el.addEventListener("input", () => {
+    SIM[k] = +el.value;
+    document.getElementById(k + "Val").textContent = SIM[k] + (k === "reach" ? " " + OO_T("sw.hops") : " " + OO_T("sw.days"));
+    if (SIM.built) pushEvent({ key: "sw.evDiff", params: { r: SIM.reach, l: SIM.lifetime }, god: true });
+  });
+});
+
+function runScaleAudit() {
+  const sizes = [80, 320, 1280, 5120], REPS = 20;
+  const effReach = SIM.reach + Math.max(0, SIM.lifetime - 1);
+  const rows = sizes.map(n => {
+    const nb = buildGraph(n);
+    let share = 0;
+    for (let r = 0; r < REPS; r++) share += informedShare(nb, (Math.random() * n) | 0, effReach);
+    share /= REPS;
+    return { n, share, count: Math.round(share * n), ok: share >= 0.5 };
+  });
+  const fail = rows.find(r => !r.ok);
+  const freq = (0.25 + 0.2 * (SIM.density || 1)).toFixed(2);
+  const out = document.getElementById("auditOut");
+  out.classList.remove("hide");
+  out.innerHTML = `<table style="margin-top:6px;"><thead><tr>
+      <th scope="col">N</th><th scope="col">${OO_T("sw.audit.share")}</th><th scope="col">${OO_T("sw.audit.count")}</th><th scope="col">${OO_T("sw.audit.verdict")}</th>
+    </tr></thead><tbody>${rows.map(r => `<tr><td class="num-cell">${r.n}</td><td class="num-cell">${Math.round(r.share * 100)}%</td><td class="num-cell">${r.count}</td><td>${OO_T(r.ok ? "sw.audit.ok" : "sw.audit.fail")}</td></tr>`).join("")}</tbody></table>
+    <ul class="dq-list" style="margin-top:10px;">
+      <li><strong>Q1 · ${OO_T("sw.audit.q1")}</strong> ${T("sw.audit.a1", { f: freq })}</li>
+      <li><strong>Q2 · ${OO_T("sw.audit.q2")}</strong> ${T("sw.audit.a2", { s: Math.round(rows[1].share * 100) })}</li>
+      <li><strong>Q3 · ${OO_T("sw.audit.q3")}</strong> ${T("sw.audit.a3", { c0: rows[0].count, c3: rows[3].count, p0: Math.round(rows[0].share * 100), p3: Math.round(rows[3].share * 100) })}</li>
+    </ul>
+    <p class="dim-note" style="margin-top:8px;">${fail ? T("sw.audit.limit", { n: fail.n }) : OO_T("sw.audit.nolimit")} · ${OO_T("sw.audit.src")}</p>`;
+}
+document.getElementById("auditRun").addEventListener("click", runScaleAudit);
+
+/* ----- pattern replication: two AgentSociety-style validation experiments -------------
+   AgentSociety (2502.08691) validates 10k-agent simulations by reproducing qualitative
+   patterns from real social experiments — polarization and the response to an external
+   shock among them. These are pattern-level checks on the engine's own dynamics
+   (variance between factions must widen under opposing drifts; a shock must produce a
+   V-shape that recovers ≥50% within 30 days). Stylized, not measured data. */
+function runPatterns() {
+  const REPS = 20, DAYS = 30;
+  let polPass = 0, shockPass = 0, varEnd = 0, recov = 0;
+  for (let r = 0; r < REPS; r++) {
+    /* polarization: factions 1–2 drift up, 3–4 drift down, common noise */
+    const s = [55, 55, 55, 55]; let v0 = 0, v1 = 0;
+    for (let t = 0; t < DAYS; t++) {
+      const common = (Math.random() - 0.5) * 2;
+      s.forEach((x, f) => { s[f] = clamp(x + (f < 2 ? 0.6 : -0.6) + common + (Math.random() - 0.5) * 1.5, 5, 95); });
+      const mean = s.reduce((a, b) => a + b, 0) / 4, vr = s.reduce((a, b) => a + (b - mean) ** 2, 0) / 4;
+      if (t === 2) v0 = vr; if (t === DAYS - 1) v1 = vr;
+    }
+    varEnd += v1 / REPS; if (v1 > 3 * Math.max(v0, 1)) polPass++;
+    /* external shock: drift −3, vol 3, mean-reverting toward 55 */
+    let x = 55, d = -3, vol = 3, min = 55, tmin = 0; const path = [];
+    for (let t = 0; t < DAYS; t++) {
+      x = clamp(x + d + (Math.random() - 0.5) * 2 * vol, 5, 95); d = d * 0.88 + (55 - x) * 0.012; vol = clamp(vol * 0.985 + 0.02, 0.8, 4);
+      path.push(x); if (x < min) { min = x; tmin = t; }
+    }
+    const rec = (path[DAYS - 1] - min) / Math.max(1, 55 - min); recov += rec / REPS;
+    if (tmin < 15 && rec >= 0.5) shockPass++;
+  }
+  const out = document.getElementById("patOut");
+  out.classList.remove("hide");
+  out.innerHTML = `<table style="margin-top:6px;"><thead><tr><th scope="col">${OO_T("sw.pat.exp")}</th><th scope="col">${OO_T("sw.pat.pred")}</th><th scope="col">${OO_T("sw.pat.result")}</th><th scope="col">${OO_T("sw.pat.pass")}</th></tr></thead><tbody>
+      <tr><td><strong>${OO_T("sw.pat.pol")}</strong></td><td>${OO_T("sw.pat.pol.pred")}</td><td class="num-cell">σ² ${varEnd.toFixed(1)}</td><td class="num-cell ${polPass >= REPS * 0.8 ? "pos" : "neg"}">${polPass}/${REPS}</td></tr>
+      <tr><td><strong>${OO_T("sw.pat.shock")}</strong></td><td>${OO_T("sw.pat.shock.pred")}</td><td class="num-cell">${Math.round(recov * 100)}%</td><td class="num-cell ${shockPass >= REPS * 0.8 ? "pos" : "neg"}">${shockPass}/${REPS}</td></tr>
+    </tbody></table><p class="dim-note" style="margin-top:8px;">${OO_T("sw.pat.note")}</p>`;
+}
+document.getElementById("patRun").addEventListener("click", runPatterns);
 
 /* ----- HUD / feed ----- */
 function updateHud() {

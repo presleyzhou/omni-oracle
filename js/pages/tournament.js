@@ -52,7 +52,15 @@ function buildCharts() {
 
 buildCharts();
 
-/* ----- AI forecaster bench (demo table + live BYOK mini-bench) ----- */
+/* ----- AI forecaster bench -----------------------------------------------------
+   Contamination-safe by construction: questions come from data/questions.json, a
+   ledger of real Polymarket markets that the daily snapshot appends on the day they
+   are created; the model only sees questions created AFTER its knowledge cutoff
+   (set in the 🔑 dialog). Forecasts are stored locally with the market price at
+   commit time; once the ledger shows a resolution they are graded — Brier for the
+   model vs Brier for the market at the same moment (Alpha-Score style,
+   arXiv 2605.00420). Evaluation discipline follows ForecastBench (2409.19839),
+   Agentic Time Machine (2606.21013) and WC2026-Agents (2607.17765). */
 function renderAiBench() {
   document.querySelector("#aiBench tbody").innerHTML = OO.aiBench.map(r => `
     <tr>
@@ -64,33 +72,77 @@ function renderAiBench() {
 }
 renderAiBench();
 
+let LEDGER = null;
+const AIF_KEY = "oo-ai-forecasts";
+let AIF = [];
+try { AIF = JSON.parse(localStorage.getItem(AIF_KEY)) || []; } catch (e) { AIF = []; }
+const saveAif = () => localStorage.setItem(AIF_KEY, JSON.stringify(AIF.slice(-400)));
+const brier = (p, y) => (p - y) * (p - y);
+
+/* eligible = open, created after the cutoff, not yet forecast by the current model set */
+function eligibleQuestions() {
+  if (!LEDGER) return [];
+  const cut = OO_LLM.cutoff ? Date.parse(OO_LLM.cutoff.length === 7 ? OO_LLM.cutoff + "-01" : OO_LLM.cutoff) : null;
+  const done = new Set(AIF.filter(f => f.model === OO_LLM.ensemble.join("+")).map(f => f.slug));
+  return LEDGER.questions.filter(q => !q.closed && !done.has(q.slug) && (cut == null || Date.parse(q.createdAt) > cut));
+}
+
+function renderAiLedger() {
+  const box = document.getElementById("aiLedger");
+  if (!LEDGER) { box.innerHTML = `<p class="dim-note">${OO_T("tour.ai.ledger.none")}</p>`; return; }
+  const bySlug = {}; LEDGER.questions.forEach(q => { bySlug[q.slug] = q; });
+  /* grade stored forecasts against resolutions */
+  const graded = AIF.map(f => { const q = bySlug[f.slug]; return q && q.resolved != null ? { ...f, y: q.resolved } : null; }).filter(Boolean);
+  const pending = AIF.filter(f => { const q = bySlug[f.slug]; return q && q.resolved == null; });
+  let html = `<p class="dim-note">${T2("tour.ai.ledger.stats", { n: LEDGER.questions.length, open: LEDGER.questions.filter(q => !q.closed).length, res: LEDGER.questions.filter(q => q.resolved != null).length, upd: (LEDGER.updated || "").slice(0, 10) })}</p>`;
+  if (graded.length) {
+    const byModel = {};
+    graded.forEach(f => { const m = byModel[f.model] = byModel[f.model] || { n: 0, b: 0, mb: 0 }; m.n++; m.b += brier(f.p, f.y); m.mb += brier(f.marketP, f.y); });
+    html += `<table style="margin-top:8px;"><thead><tr><th scope="col">${OO_T("tour.ai.model")}</th><th scope="col">${OO_T("tour.ai.graded")}</th><th scope="col">${OO_T("tour.th.brier")}</th><th scope="col">${OO_T("tour.ai.mktbrier")}</th><th scope="col">Δ</th></tr></thead><tbody>` +
+      Object.entries(byModel).map(([m, v]) => { const b = v.b / v.n, mb = v.mb / v.n; return `<tr><td><strong>${m}</strong></td><td class="num-cell">${v.n}</td><td class="num-cell">${b.toFixed(3)}</td><td class="num-cell">${mb.toFixed(3)}</td><td class="num-cell ${b <= mb ? "pos" : "neg"}">${(b - mb >= 0 ? "+" : "") + (b - mb).toFixed(3)}</td></tr>`; }).join("") + `</tbody></table>`;
+  }
+  if (pending.length) {
+    html += `<p class="dim-note" style="margin-top:10px;">${T2("tour.ai.pending", { n: pending.length })}</p><ul class="pending-list">` +
+      pending.slice(-8).reverse().map(f => `<li><span>${f.question.slice(0, 70)}${f.question.length > 70 ? "…" : ""}</span><span class="num-cell">${Math.round(f.p * 100)}% · ${OO_T("tour.ai.mkt")} ${Math.round(f.marketP * 100)}%</span></li>`).join("") + `</ul>`;
+  }
+  box.innerHTML = html;
+}
+function T2(key, params) { let s = OO_T(key); for (const k in params) s = s.replaceAll("{" + k + "}", params[k]); return s; }
+
+OO_FETCH("data/questions.json", { ttl: 900 }).then(d => { LEDGER = d && d.questions ? d : null; renderAiLedger(); });
+
 document.getElementById("aiRunBtn").addEventListener("click", async () => {
   const st = document.getElementById("aiRunStatus");
   if (!OO_LLM.key) { st.textContent = "⚪ " + OO_T("tour.ai.nokey"); return; }
-  const qs = [6, 7, 8].map(i => OO.markets[i]); // live econ questions
-  st.textContent = "🤖 " + OO_T("tour.ai.running");
+  if (!OO_LLM.cutoff) { st.textContent = "⚠️ " + OO_T("tour.ai.nocutoff"); return; }
+  const qs = eligibleQuestions().slice(0, 5);
+  if (!qs.length) { st.textContent = "⚪ " + OO_T("tour.ai.noq"); return; }
+  st.textContent = "🤖 " + T2("tour.ai.running", { n: qs.length, m: OO_LLM.ensemble.length });
   try {
-    const sys = "You are a careful probabilistic forecaster. Reply ONLY with a JSON array of 3 probabilities in [0,1], one per question, no other text.";
-    const raw = await OO_LLM.ask(sys, qs.map((m, k) => `${k + 1}. ${m.q}`).join("\n"));
-    const probs = JSON.parse(raw.match(/\[[^\]]*\]/)[0]).map(Number);
-    if (probs.length !== 3 || probs.some(p => !(p >= 0 && p <= 1))) throw new Error("bad output");
-    let mse = 0;
-    const rows = qs.map((m, k) => {
-      const gap = probs[k] - m.yes; mse += gap * gap / 3;
-      return `<tr><td style="max-width:340px;">${m.q}</td>
-        <td class="num-cell">${Math.round(probs[k] * 100)}%</td>
-        <td class="num-cell">${Math.round(m.yes * 100)}%</td>
+    const { per, agg } = await OO_LLM.askEnsemble(qs.map(q => q.question));
+    const modelTag = OO_LLM.ensemble.join("+");
+    const now = new Date().toISOString();
+    const rows = qs.map((q, k) => {
+      const p = agg[k].p, gap = p - q.price;
+      AIF.push({ slug: q.slug, question: q.question, p, marketP: q.price, model: modelTag, at: now, spread: agg[k].spread });
+      return `<tr><td style="max-width:340px;">${q.question}<br><span class="dim-note">${OO_T("tour.ai.created")} ${q.createdAt.slice(0, 10)} · ${OO_T("mk.closes")} ${q.endDate.slice(0, 10)}</span></td>
+        <td class="num-cell">${Math.round(p * 100)}%${agg[k].n > 1 ? ` <span class="tag ${agg[k].spread > 0.25 ? "dispute" : "consensus"}">±${Math.round(agg[k].spread * 50)}</span>` : ""}</td>
+        <td class="num-cell">${Math.round(q.price * 100)}%</td>
         <td class="num-cell ${Math.abs(gap) < 0.1 ? "pos" : "neg"}">${(gap >= 0 ? "+" : "") + Math.round(gap * 100)}pp</td></tr>`;
     }).join("");
+    saveAif();
     const live = document.getElementById("aiLive");
     live.classList.remove("hide");
-    live.innerHTML = `<table><thead><tr><th scope="col">${OO_T("tour.ai.q")}</th><th scope="col">LLM</th><th scope="col">${OO_T("tour.ai.mkt") === "tour.ai.mkt" ? "Market" : OO_T("tour.ai.mkt")}</th><th scope="col">Δ</th></tr></thead><tbody>${rows}</tbody></table>
-      <p style="margin-top:10px; font-size:0.85rem; color:var(--cyan);">${OO_T("tour.ai.alpha")}: <strong class="num-cell">${mse.toFixed(4)}</strong> · ${OO_LLM.model}</p>`;
+    live.innerHTML = `<table><thead><tr><th scope="col">${OO_T("tour.ai.q")}</th><th scope="col">LLM</th><th scope="col">${OO_T("tour.ai.mkt")}</th><th scope="col">Δ</th></tr></thead><tbody>${rows}</tbody></table>
+      <p class="dim-note" style="margin-top:8px;">${T2("tour.ai.saved", { m: modelTag, fail: per.filter(r => r.error).map(r => r.model).join(", ") || "—" })}</p>`;
     st.textContent = "✓";
+    renderAiLedger();
   } catch (err) {
     st.textContent = "⚠️ " + OO_T("sw.llm.err") + err.message;
   }
 });
+document.getElementById("aiClearBtn").addEventListener("click", () => { AIF = []; saveAif(); renderAiLedger(); });
+document.addEventListener("oo:llm", renderAiLedger);
 
 /* ----- my forecasts: pick a market, submit a probability, compare vs market ----- */
 let MYF = [];
@@ -137,4 +189,4 @@ document.getElementById("myOut").addEventListener("click", (e) => {
 });
 renderMy();
 
-document.addEventListener("oo:lang", () => { buildCharts(); renderAiBench(); renderMy(); });
+document.addEventListener("oo:lang", () => { buildCharts(); renderAiBench(); renderAiLedger(); renderMy(); });

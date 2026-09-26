@@ -149,6 +149,7 @@ const cpiSrc = [];
 const cpiBadge = () => ooMarkSource("cpiCard", cpiSrc.length ? cpiSrc.sort()[cpiSrc.length - 1] : null);
 fetchBls("CUUR0000SA0").then(({ rows, source }) => {
   loading--;
+  collectBlsNotes("CUUR0000SA0", "CPI", rows); renderNotes();
   if (rows) { R.cpi = toYoY(rows); cpiSrc.push(source); }
   cpiBadge(); buildCharts();
 });
@@ -159,6 +160,7 @@ fetchBls("CUUR0000SA0L1E").then(({ rows, source }) => {
 });
 fetchBls("LNS14000000").then(({ rows, source }) => {
   loading--;
+  collectBlsNotes("LNS14000000", "U-3", rows); renderNotes();
   /* BLS marks missing months (e.g. the Oct-2025 shutdown) with "-": drop them */
   if (rows) R.unemp = rows.slice().reverse().map(x => ({ t: monthLabel(x.year, x.period), v: +x.value }))
     .filter(x => Number.isFinite(x.v)).slice(-24);
@@ -211,6 +213,56 @@ Promise.all(Object.keys(WB.countries).flatMap(iso => [
   renderWb();
 });
 document.addEventListener("oo:lang", renderWb);
+
+/* ---- Data-quality notes: BLS footnotes (shutdown gaps, population-control and
+   benchmark revisions) and, when the snapshot carries FRED vintages, the gap between
+   first print and today's revised value. Real-time users must see both — the 2025–26
+   lapses in appropriations shifted release dates and left months unpublished, and the
+   2026 benchmark revision is large enough to change the labour-market read
+   (Cleveland Fed EC 2026-12). */
+const NOTES = { bls: [], gaps: [] };
+function collectBlsNotes(series, label, rows) {
+  if (!rows) return;
+  rows.slice(0, 36).forEach(r => {
+    if (r.notes) r.notes.forEach(t => NOTES.bls.push({ series: label, t: monthLabel(r.year, r.period), text: t }));
+    if (r.value === "-" || !Number.isFinite(+r.value)) NOTES.gaps.push({ series: label, t: monthLabel(r.year, r.period) });
+  });
+}
+function renderNotes() {
+  const host = document.getElementById("dqNotes");
+  if (!host) return;
+  const seen = new Set();
+  const items = NOTES.bls.filter(n => { const k = n.t + n.text; if (seen.has(k)) return false; seen.add(k); return true; })
+    .sort((a, b) => b.t.localeCompare(a.t)).slice(0, 6)
+    .map(n => `<li><span class="tag amber">${n.series} · ${n.t}</span> ${n.text}</li>`);
+  if (!items.length) { host.classList.add("hide"); return; }
+  host.classList.remove("hide");
+  host.querySelector("ul").innerHTML = items.join("");
+}
+
+/* FRED initial-release vintages (optional field written by the snapshot when FRED_API_KEY is set) */
+const VINT = { gdp: null, unemp: null };
+function renderVintage() {
+  const card = document.getElementById("vintCard");
+  if (!card) return;
+  const v = VINT.gdp || VINT.unemp;
+  if (!v) { card.classList.add("hide"); return; }
+  card.classList.remove("hide");
+  const rows = [];
+  const add = (label, vv, unit) => {
+    if (!vv) return;
+    const latest = {}; vv.latest.forEach(x => { latest[x.d] = x.v; });
+    const pairs = vv.initial.filter(x => latest[x.d] != null).slice(-8);
+    const err = pairs.map(x => latest[x.d] - x.v);
+    const mae = err.reduce((a, e) => a + Math.abs(e), 0) / Math.max(1, err.length);
+    pairs.slice(-4).forEach(x => rows.push(`<tr><td>${label}</td><td class="num-cell">${x.d}</td><td class="num-cell">${x.v.toFixed(1)}${unit}</td><td class="num-cell">${latest[x.d].toFixed(1)}${unit}</td><td class="num-cell ${Math.abs(latest[x.d] - x.v) >= 0.5 ? "neg" : ""}">${(latest[x.d] - x.v >= 0 ? "+" : "") + (latest[x.d] - x.v).toFixed(1)}</td></tr>`));
+    rows.push(`<tr><td colspan="5" class="dim-note">${label}: ${OO_T("vint.mae")} ${mae.toFixed(2)}${unit} (${pairs.length} ${OO_T("vint.obs")})</td></tr>`);
+  };
+  add("GDP", VINT.gdp, "%"); add(OO_T("ch.unemp"), VINT.unemp, "%");
+  card.querySelector("tbody").innerHTML = rows.join("");
+}
+Promise.all([OO_SNAPSHOT.get("vintage.gdp"), OO_SNAPSHOT.get("vintage.unemp")]).then(([g, u]) => { VINT.gdp = g || null; VINT.unemp = u || null; renderVintage(); ooMarkSource("vintCard", g || u ? "snapshot" : null); });
+document.addEventListener("oo:lang", () => { renderNotes(); renderVintage(); });
 
 /* ---- Financial-crisis early warning ----------------------------------------
    Composite of documented indicators, every one computed from real data:

@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://presleyzhou.github.io/omni-oracle/macro.html" />
 <meta name="twitter:card" content="summary" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>" />
-<link rel="stylesheet" href="css/style.css?v=31" />
+<link rel="stylesheet" href="css/style.css?v=32" />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
@@ -64,6 +64,18 @@
       <h3 data-i18n="mac.unemp.title">Unemployment rate — BLS official</h3>
       <p style="margin-bottom:14px;" data-i18n="mac.unemp.sub">Civilian unemployment rate (LNS14000000), monthly.</p>
       <div class="chart-box short"><canvas id="unempChart" role="img" aria-label="Line chart: US unemployment rate (BLS)"></canvas></div>
+    </div>
+
+    <div class="card hide" id="dqNotes" style="margin-top:18px; border-color:rgba(245,158,11,0.4);">
+      <h3 data-i18n="dq.title">⚠ Data-quality notes from the source agency</h3>
+      <p style="margin:6px 0 10px; font-size:0.82rem; color:var(--text-dim);" data-i18n="dq.sub">BLS footnotes carried through the snapshot: months left unpublished by the 2025–26 lapses in appropriations, population-control and benchmark revisions. Real-time analysis has to read the data together with these notes.</p>
+      <ul class="dq-list"></ul>
+    </div>
+
+    <div class="card hide" id="vintCard" style="margin-top:18px; border-color:rgba(34,211,238,0.35);">
+      <h3 data-i18n="vint.title">First print vs. today's number (FRED vintages)</h3>
+      <p style="margin:6px 0 10px; font-size:0.82rem; color:var(--text-dim);" data-i18n="vint.sub">What a forecaster saw at the time versus the revised series — the revision bias that MACROCAST (arXiv 2606.28670) rules out by training only on vintage-consistent data. Appears once the snapshot workflow has a FRED_API_KEY.</p>
+      <div style="overflow-x:auto;"><table><thead><tr><th scope="col" data-i18n="vint.series">Series</th><th scope="col" data-i18n="vint.period">Period</th><th scope="col" data-i18n="vint.first">First print</th><th scope="col" data-i18n="vint.latest">Latest</th><th scope="col">Δ</th></tr></thead><tbody></tbody></table></div>
     </div>
 
     <div class="card" id="crisisCard" style="margin-top:18px; border-color:rgba(239,68,68,0.35);">
@@ -124,9 +136,9 @@
   </div>
 </footer>
 
-<script src="js/data.js?v=31"></script>
-<script src="js/i18n.js?v=31"></script>
-<script src="js/app.js?v=31"></script>
-<script src="js/pages/macro.js?v=31"></script>
+<script src="js/data.js?v=32"></script>
+<script src="js/i18n.js?v=32"></script>
+<script src="js/app.js?v=32"></script>
+<script src="js/pages/macro.js?v=32"></script>
 </body>
 </html>

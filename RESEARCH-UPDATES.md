@@ -126,3 +126,19 @@ improvements it suggests. Companion to [DESIGN.md](DESIGN.md).
 **Demo-site quick wins (can ship now):** #1 as a demo panel (LLM answers tournament questions
 via the existing BYOK plumbing), #5 via question-text embeddings computed offline, and a
 "model knowledge cutoff" badge anywhere an LLM output is displayed.
+
+
+---
+
+## 2026 Q3 update (June–September 2026) — implemented
+
+| Paper | Finding | Change on the site |
+|---|---|---|
+| Agentic Time Machine, arXiv 2606.21013; ForecastBench (Wharton 2026-02); WC2026-Agents, arXiv 2607.17765 | Only contamination-free evaluation counts; on 104 World Cup matches none of four frontier agents beat the bookmaker's Brier | AI forecaster bench scores models only on real Polymarket questions created after the declared cutoff; forecasts stored with market price at commit and graded on resolution (`data/questions.json`, `js/pages/tournament.js`) |
+| Multi-agent AI oracles, arXiv 2605.30802 | Independent confidence-weighted voting 83.4% > best single model; deliberative consensus ~76%; hybrid auto-resolve 97.9% on the unanimous 47% | `OO_LLM.askEnsemble` (independent models, weighted mean, spread = disagreement); AI trader skips disputed markets; new resolution desk routes non-unanimous verdicts to human review |
+| Probing LLM forecasters, arXiv 2607.08046 | Forecasts largely fixed before reasoning; CoT often unfaithful; pre-reasoning routing saves 30–47% tokens | Analyst prompts ask for the bottom line first; `ooFaithNote` caveat under every free-text LLM output |
+| MACROCAST, arXiv 2606.28670 | First vintage-consistent TSFM; beats AR(1) on ~80% of FRED-MD series-horizons in real time | Optional FRED vintages (`output_type=4`) in the snapshot; "first print vs latest" card on the macro page; TSFM roadmap item now specifies vintage-consistent training |
+| BLS 2025–26 lapses; Cleveland Fed EC 2026-12 on benchmark revisions | Unpublished months and large benchmark revisions distort real-time reads | BLS footnotes carried through the snapshot and shown as data-quality notes; non-numeric observations dropped before YoY / Sahm computations |
+| Scale limits of social mechanisms, arXiv 2608.22884; AgentSociety, arXiv 2502.08691 | Audit a mechanism (frequency, usage, measurement) before scaling; validate against real social experiments | Sim Worlds: message reach/lifetime dials driving diffusion, four-population scale audit, two pattern-replication checks |
+
+Open items carried forward: vintage-consistent TSFM layer (needs offline training), M3 topology beyond the small-world ring, embedding-based related markets.

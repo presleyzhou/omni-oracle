@@ -523,3 +523,16 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
 .cw-pill.na { background: rgba(147,160,184,0.14); color: var(--text-dim); }
 .cw-method { margin-top: 14px; font-size: 0.8rem; color: var(--text-dim); line-height: 1.55; }
 @media (max-width: 720px) { .cw-score { flex-basis: 100%; } }
+
+/* ---------- LLM output caveats / ensemble ---------- */
+.faith-note { margin-top: 6px; font-size: 0.72rem; color: var(--text-dim); font-style: italic; }
+.tag.dispute { background: rgba(239,68,68,0.14); color: var(--red); }
+.tag.consensus { background: rgba(34,197,94,0.14); color: var(--green); }
+.dim-note { font-size: 0.78rem; color: var(--text-dim); }
+.pending-list { list-style: none; margin-top: 6px; font-size: 0.8rem; }
+.pending-list li { display: flex; justify-content: space-between; gap: 12px; padding: 4px 0; border-bottom: 1px dashed var(--border); color: var(--text-dim); }
+.res-verdict { padding: 10px 12px; border-radius: 8px; font-size: 0.9rem; border: 1px solid var(--border); }
+.res-verdict.auto { background: rgba(34,197,94,0.10); border-color: rgba(34,197,94,0.4); }
+.res-verdict.human { background: rgba(245,158,11,0.10); border-color: rgba(245,158,11,0.4); }
+.res-verdict.open { background: rgba(147,160,184,0.10); }
+.dq-list { list-style: none; font-size: 0.82rem; color: var(--text-dim); } .dq-list li { padding: 5px 0; border-bottom: 1px dashed var(--border); }

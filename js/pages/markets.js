@@ -292,23 +292,29 @@ grid.addEventListener("input", (e) => {
   dim[3].textContent = Math.round(newP * 100) + "¢";
 });
 
-/* ----- AI trader: LLM estimates vs LMSR prices, paper-trades the edge ----- */
+/* ----- AI trader: independent multi-model estimates vs LMSR prices ----------------
+   Each configured model answers alone; estimates are combined by confidence-weighted
+   voting (arXiv 2605.30802 — debate-style consensus made things worse). A market
+   where the models disagree by more than 25pp is flagged "disputed" and NOT traded:
+   the disagreement is the information. Paper money only — six frontier models
+   trading real markets for 57 days all lost money (Prediction Arena, 2604.07355),
+   and none of four agents beat the bookmaker on 104 World Cup matches (2607.17765). */
 const AI_PICKS = [0, 3, 6, 9, 15, 18];
+const DISPUTE = 0.25;
 document.getElementById("aiRun").addEventListener("click", async () => {
   const st = document.getElementById("aiStatus");
   if (!OO_LLM.key) { st.textContent = "⚪ " + OO_T("ai.nokey"); return; }
-  st.textContent = "🤖 " + OO_T("ai.running");
+  st.textContent = "🤖 " + OO_T("ai.running") + (OO_LLM.ensemble.length > 1 ? ` (${OO_LLM.ensemble.length} ${OO_T("ai.models")})` : "");
   try {
     const qs = AI_PICKS.map(i => OO.markets[i]);
-    const sys = "You are a careful probabilistic forecaster. Reply ONLY with a JSON array of 6 probabilities in [0,1], one per question, no other text.";
-    const raw = await OO_LLM.ask(sys, qs.map((m, k) => `${k + 1}. ${m.q}`).join("\n"));
-    const probs = JSON.parse(raw.match(/\[[^\]]*\]/)[0]).map(Number);
-    if (probs.length !== 6 || probs.some(p => !(p >= 0 && p <= 1))) throw new Error("bad output");
+    const { per, agg } = await OO_LLM.askEnsemble(qs.map(m => m.q));
+    const ok = per.filter(r => r.est);
     const rows = AI_PICKS.map((i, k) => {
       const price = state[i].price;
-      const edge = probs[k] - price;
+      const p = agg[k].p, edge = p - price, disputed = ok.length > 1 && agg[k].spread > DISPUTE;
       let action = "—";
-      if (Math.abs(edge) > 0.08) {
+      if (disputed) action = `<span class="tag dispute">${OO_T("ai.disputed")}</span>`;
+      else if (Math.abs(edge) > 0.08) {
         const side = edge > 0 ? "yes" : "no";
         const cost = LMSR.cost(price, side, 50);
         state[i].price = Math.min(0.99, Math.max(0.01, LMSR.newPrice(price, side, 50)));
@@ -317,8 +323,9 @@ document.getElementById("aiRun").addEventListener("click", async () => {
         else PORT.push({ i, side, shares: 50, cost, bot: true });
         action = `<span class="tag ${side === "yes" ? "green" : "red"}">${OO_T("ai.buy")} ${side.toUpperCase()}</span>`;
       }
+      const perModel = ok.length > 1 ? `<br><span class="dim-note">${ok.map(r => `${r.model.split("-").slice(0, 2).join("-")} ${Math.round(r.est[k].p * 100)}%`).join(" · ")}</span>` : "";
       return `<tr><td style="max-width:320px;">${OO.markets[i].q}</td>
-        <td class="num-cell">${Math.round(probs[k] * 100)}%</td>
+        <td class="num-cell">${Math.round(p * 100)}%${ok.length > 1 ? ` <span class="tag ${disputed ? "dispute" : "consensus"}">±${Math.round(agg[k].spread * 50)}</span>` : ""}${perModel}</td>
         <td class="num-cell">${Math.round(price * 100)}¢</td>
         <td class="num-cell ${edge >= 0 ? "pos" : "neg"}">${(edge >= 0 ? "+" : "") + Math.round(edge * 100)}¢</td>
         <td>${action}</td></tr>`;
@@ -326,13 +333,58 @@ document.getElementById("aiRun").addEventListener("click", async () => {
     savePort();
     const out = document.getElementById("aiOut");
     out.classList.remove("hide");
-    out.innerHTML = `<table><thead><tr><th scope="col">${OO_T("tour.ai.q")}</th><th scope="col">${OO_T("ai.est")}</th><th scope="col">${OO_T("tour.ai.mkt")}</th><th scope="col">${OO_T("ai.edge")}</th><th scope="col">${OO_T("ai.action")}</th></tr></thead><tbody>${rows}</tbody></table>`;
-    st.textContent = `✓ ${OO_LLM.model}`;
+    out.innerHTML = `<table><thead><tr><th scope="col">${OO_T("tour.ai.q")}</th><th scope="col">${OO_T("ai.est")}</th><th scope="col">${OO_T("tour.ai.mkt")}</th><th scope="col">${OO_T("ai.edge")}</th><th scope="col">${OO_T("ai.action")}</th></tr></thead><tbody>${rows}</tbody></table>` +
+      (per.some(r => r.error) ? `<p class="dim-note" style="margin-top:6px;">⚠ ${per.filter(r => r.error).map(r => r.model + ": " + r.error).join("; ")}</p>` : "");
+    st.textContent = `✓ ${ok.map(r => r.model).join(" + ")}`;
     render();
   } catch (err) {
     st.textContent = "⚠️ " + OO_T("sw.llm.err") + err.message;
   }
 });
 
+/* ----- Resolution desk: AI pre-settlement with disagreement routing ---------------
+   Hybrid design from arXiv 2605.30802: auto-resolve only when every model agrees with
+   high confidence (97.9% accuracy on the 47% of cases that qualify), route the rest to
+   a human. Here it only *proposes* a resolution for demo markets that close within
+   90 days; positions are never settled automatically. */
+function renderResDesk() {
+  const sel = document.getElementById("resMarket");
+  const cur = sel.value;
+  const soon = OO.markets.map((m, i) => ({ m, i })).filter(({ m }) => {
+    const t = Date.parse(m.close.replace(/^(\w{3}) (\d{4})$/, "$1 1 $2"));
+    return isFinite(t) ? (t - Date.now()) / 864e5 < 120 : true;
+  });
+  sel.innerHTML = soon.map(({ m, i }) => `<option value="${i}">${m.q}</option>`).join("");
+  if (cur) sel.value = cur;
+}
+renderResDesk();
+document.getElementById("resRun").addEventListener("click", async () => {
+  const st = document.getElementById("resStatus"), out = document.getElementById("resOut");
+  if (!OO_LLM.key) { st.textContent = "⚪ " + OO_T("ai.nokey"); return; }
+  const m = OO.markets[+document.getElementById("resMarket").value];
+  st.textContent = "🤖 " + OO_T("res.running");
+  try {
+    const sys = `You are a prediction-market resolution oracle. Decide whether the market has resolved YES, resolved NO, or is UNRESOLVED as of today (${new Date().toISOString().slice(0, 10)}). Use only facts you are confident are true; if the event date has not passed or you are unsure, answer UNRESOLVED. Reply ONLY with JSON {"verdict":"YES"|"NO"|"UNRESOLVED","confidence":number in [0,1],"basis":"one sentence"}.`;
+    const user = `Market: ${m.q}\nResolution source: ${m.res}\nCloses: ${m.close}`;
+    const per = await Promise.all(OO_LLM.ensemble.map(async (model) => {
+      try { const raw = await OO_LLM.ask(sys, user, 200, model); const j = JSON.parse(raw.match(/\{[\s\S]*\}/)[0]); return { model, v: String(j.verdict).toUpperCase(), c: Math.min(1, Math.max(0, +j.confidence || 0)), basis: String(j.basis || "").slice(0, 160) }; }
+      catch (err) { return { model, error: err.message }; }
+    }));
+    const ok = per.filter(r => r.v);
+    if (!ok.length) throw new Error(per.map(r => r.error).join("; "));
+    const verdicts = new Set(ok.map(r => r.v));
+    const unanimous = verdicts.size === 1, minC = Math.min(...ok.map(r => r.c));
+    const v = ok[0].v;
+    const route = unanimous && v !== "UNRESOLVED" && minC >= 0.8 ? "auto" : unanimous && v === "UNRESOLVED" ? "open" : "human";
+    out.classList.remove("hide");
+    out.innerHTML = `<div class="res-verdict ${route}"><strong>${OO_T("res.route." + route)}</strong> — ${OO_T("res.verdict")}: ${unanimous ? v : [...verdicts].join(" / ")} · ${OO_T("res.minconf")} ${Math.round(minC * 100)}%</div>
+      <ul class="pending-list">${ok.map(r => `<li><span><strong>${r.model}</strong> · ${r.v} (${Math.round(r.c * 100)}%)</span><span style="text-align:right; max-width:60%;">${r.basis}</span></li>`).join("")}</ul>
+      <p class="dim-note" style="margin-top:6px;">${OO_T("res.note")}</p>`;
+    st.textContent = "✓";
+  } catch (err) {
+    st.textContent = "⚠️ " + OO_T("sw.llm.err") + err.message;
+  }
+});
+
 render();
-document.addEventListener("oo:lang", render);
+document.addEventListener("oo:lang", () => { render(); renderResDesk(); });

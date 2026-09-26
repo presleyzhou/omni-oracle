@@ -65,6 +65,14 @@ Upstream sources: [DBnomics](https://db.nomics.world/) (BEA), [BLS](https://www.
 [Polymarket Gamma](https://docs.polymarket.com/), [US Treasury par yield curve](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve),
 [CBOE VIX history](https://www.cboe.com/tradable_products/vix/vix_historical_data/), optional [FRED](https://fred.stlouisfed.org/series/BAA10Y).
 
+### Question ledger (contamination-safe AI scoring)
+
+[`data/questions.json`](data/questions.json) is appended daily by the snapshot workflow with newly
+created, liquid, non-sports Polymarket markets and refreshed until they resolve. The tournament
+page's AI bench only asks a model about questions created after the knowledge cutoff you declare
+in the 🔑 dialog, stores each forecast with the market price at commit time, and grades it against
+the resolution — model Brier vs. market Brier at the same moment.
+
 ## Bring your own LLM key
 
 The 🔑 button in the nav opens one shared settings dialog for every AI feature (macro/equity
@@ -76,6 +84,10 @@ browser's `localStorage` and calls go straight from the browser to the provider.
 |---|---|---|
 | Anthropic | `claude-sonnet-5` | `https://api.anthropic.com` |
 | OpenAI-compatible | `gpt-4o-mini` | `https://api.openai.com/v1` (override the base URL for any compatible server) |
+
+Optional fields in the same dialog: **ensemble** (extra model ids of the same provider — they answer
+independently and are combined by confidence-weighted voting; markets where they disagree by >25pp
+are flagged and not traded) and **knowledge cutoff** (required for the contamination-safe AI bench).
 
 ## Repository layout
 

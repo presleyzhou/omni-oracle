@@ -176,13 +176,19 @@ const OO_LLM = {
   get provider() { return OO_MODELS[localStorage.getItem("oo-llm-provider")] ? localStorage.getItem("oo-llm-provider") : "anthropic"; },
   get base() { return localStorage.getItem("oo-llm-base") || OO_MODELS.openai.base; },
   get model() { return localStorage.getItem("oo-llm-model") || OO_MODELS[this.provider].model; },
-  async ask(system, user, maxTokens = 500) {
+  /* optional ensemble: extra model ids of the same provider, comma-separated in the 🔑 dialog */
+  get ensemble() {
+    const extra = (localStorage.getItem("oo-llm-ensemble") || "").split(",").map(x => x.trim()).filter(Boolean);
+    return [this.model].concat(extra.filter(m => m !== this.model));
+  },
+  get cutoff() { return localStorage.getItem("oo-llm-cutoff") || ""; },
+  async ask(system, user, maxTokens = 500, model = this.model) {
     if (this.provider === "openai") {
       const res = await fetch(this.base.replace(/\/+$/, "") + "/chat/completions", {
         method: "POST",
         headers: { "content-type": "application/json", authorization: "Bearer " + this.key },
         body: JSON.stringify({
-          model: this.model, max_tokens: maxTokens,
+          model, max_tokens: maxTokens,
           messages: [{ role: "system", content: system }, { role: "user", content: user }],
         }),
       });
@@ -196,14 +202,50 @@ const OO_LLM = {
         "anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true",
       },
       body: JSON.stringify({
-        model: this.model, max_tokens: maxTokens, system,
+        model, max_tokens: maxTokens, system,
         messages: [{ role: "user", content: user }],
       }),
     });
     if (!res.ok) throw new Error(res.status + " " + (await res.text()).slice(0, 120));
     return (await res.json()).content.map(b => b.text || "").join("").trim();
   },
+  /* Independent aggregation with confidence-weighted voting — the configuration that
+     beat both single models and deliberative consensus in arXiv 2605.30802 ("confidently
+     wrong models flip correct ones" when models debate). Each model answers alone with
+     a JSON array of {p, c} (probability, self-reported confidence 0–1) per question;
+     the ensemble estimate is Σc·p/Σc and `spread` = max−min is the disagreement signal. */
+  async askEnsemble(questions, maxTokens = 400) {
+    const n = questions.length;
+    const sys = `You are a careful probabilistic forecaster. For each numbered question give the probability that it resolves YES and your confidence in that estimate. Reply ONLY with a JSON array of ${n} objects {"p": number in [0,1], "c": number in [0,1]}, in order, no other text.`;
+    const user = questions.map((q, k) => `${k + 1}. ${q}`).join("\n");
+    const per = await Promise.all(this.ensemble.map(async (model) => {
+      try {
+        const raw = await this.ask(sys, user, maxTokens, model);
+        const arr = JSON.parse(raw.match(/\[[\s\S]*\]/)[0]);
+        if (!Array.isArray(arr) || arr.length !== n) throw new Error("bad shape");
+        return { model, est: arr.map(o => ({ p: Math.min(1, Math.max(0, +o.p)), c: Math.min(1, Math.max(0.05, +o.c || 0.5)) })) };
+      } catch (err) { return { model, error: err.message }; }
+    }));
+    const ok = per.filter(r => r.est);
+    if (!ok.length) throw new Error(per.map(r => r.model + ": " + r.error).join("; "));
+    const agg = questions.map((_, k) => {
+      const ps = ok.map(r => r.est[k].p), cs = ok.map(r => r.est[k].c);
+      const wsum = cs.reduce((a, b) => a + b, 0);
+      return { p: ps.reduce((a, p, i) => a + p * cs[i], 0) / wsum, spread: Math.max(...ps) - Math.min(...ps), n: ok.length };
+    });
+    return { per, agg };
+  },
 };
+
+/* Faithfulness caveat under every free-text LLM output: arXiv 2607.08046 finds forecasts are
+   largely fixed before reasoning begins and chain-of-thought often does not reflect what
+   actually moved the estimate. */
+function ooFaithNote(el) {
+  if (!el || (el.nextElementSibling && el.nextElementSibling.classList.contains("faith-note"))) return;
+  const p = document.createElement("p");
+  p.className = "faith-note"; p.textContent = OO_T("ai.faith");
+  el.insertAdjacentElement("afterend", p);
+}
 
 /* Wire an "AI analyst" card: button + output box, guarded on key presence */
 function ooAnalyst(btnId, outId, statusId, buildPrompt) {
@@ -217,8 +259,10 @@ function ooAnalyst(btnId, outId, statusId, buildPrompt) {
     out.textContent = "…";
     try {
       const { system, user } = buildPrompt();
-      out.textContent = await OO_LLM.ask(system, user, 700);
+      /* conclusion first, reasons second — pre-reasoning answers carry the signal (arXiv 2607.08046) */
+      out.textContent = await OO_LLM.ask(system + " Structure: one-sentence bottom line first, then the reasons.", user, 700);
       st.textContent = "✓ " + OO_LLM.model;
+      ooFaithNote(out);
     } catch (err) {
       out.textContent = "⚠️ " + OO_T("sw.llm.err") + err.message;
       st.textContent = "";
@@ -269,6 +313,10 @@ let ooOpenLlmSettings = () => {};
       </div>
       <input class="oo-input hide" id="glBase" placeholder="${OO_MODELS.openai.base}" autocomplete="off" style="margin-bottom:8px;" aria-label="API base URL" />
       <input class="oo-input" id="glKey" type="password" placeholder="sk-…" autocomplete="off" aria-label="API key" />
+      <div style="display:flex; gap:8px; margin-top:8px;">
+        <input class="oo-input" id="glEnsemble" autocomplete="off" aria-label="Ensemble models" placeholder="${OO_T("sw.llm.ensemble.ph")}" title="${OO_T("sw.llm.ensemble.hint")}" />
+        <input class="oo-input" id="glCutoff" autocomplete="off" aria-label="Knowledge cutoff" placeholder="${OO_T("sw.llm.cutoff.ph")}" title="${OO_T("sw.llm.cutoff.hint")}" style="max-width:190px;" />
+      </div>
       <div style="display:flex; gap:8px; margin-top:12px; align-items:center; flex-wrap:wrap;">
         <button class="btn btn-primary" id="glSave" style="padding:7px 16px; font-size:0.85rem;">${OO_T("sw.llm.save")}</button>
         <button class="btn btn-ghost" id="glClear" style="padding:7px 16px; font-size:0.85rem;">${OO_T("sw.llm.clear")}</button>
@@ -288,6 +336,8 @@ let ooOpenLlmSettings = () => {};
       $("glBase").value = localStorage.getItem("oo-llm-base") || "";
       $("glBase").classList.toggle("hide", prov !== "openai");
       $("glKey").value = key();
+      $("glEnsemble").value = localStorage.getItem("oo-llm-ensemble") || "";
+      $("glCutoff").value = localStorage.getItem("oo-llm-cutoff") || "";
       paintBtn();
     };
     refresh();
@@ -302,6 +352,10 @@ let ooOpenLlmSettings = () => {};
       if (m) localStorage.setItem("oo-llm-model", m); else localStorage.removeItem("oo-llm-model");
       const b = $("glBase").value.trim();
       if (b) localStorage.setItem("oo-llm-base", b); else localStorage.removeItem("oo-llm-base");
+      const e = $("glEnsemble").value.trim();
+      if (e) localStorage.setItem("oo-llm-ensemble", e); else localStorage.removeItem("oo-llm-ensemble");
+      const c = $("glCutoff").value.trim();
+      if (/^\d{4}-\d{2}(-\d{2})?$/.test(c)) localStorage.setItem("oo-llm-cutoff", c); else localStorage.removeItem("oo-llm-cutoff");
       localStorage.setItem("oo-llm-provider", $("glProvider").value);
       refresh(); changed();
     });
