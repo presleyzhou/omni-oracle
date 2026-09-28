@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-27T12:05:08.188Z",
+ "updated": "2026-09-28T13:58:20.963Z",
  "questions": [
   {
    "slug": "us-x-iran-ceasefire-continues-through-october-31-20260917",
@@ -9,7 +9,7 @@
    "endDate": "2026-10-31T23:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.565,
-   "price": 0.515,
+   "price": 0.56,
    "closed": false,
    "resolved": null
   },
@@ -21,7 +21,7 @@
    "endDate": "2026-09-30T23:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.905,
-   "price": 0.895,
+   "price": 0.967,
    "closed": false,
    "resolved": null
   },
@@ -33,7 +33,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.075,
-   "price": 0.06,
+   "price": 0.065,
    "closed": false,
    "resolved": null
   },
@@ -45,7 +45,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.065,
-   "price": 0.065,
+   "price": 0.055,
    "closed": false,
    "resolved": null
   },
@@ -58,6 +58,114 @@
    "capturedAt": "2026-09-27T12:05:08.188Z",
    "priceAtCapture": 0.515,
    "price": 0.515,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-bitcoin-dip-to-82pt5k-in-september-2026",
+   "id": "4797724",
+   "question": "Will Bitcoin dip to $82,500 in September?",
+   "createdAt": "2026-09-21T16:17:00.875167Z",
+   "endDate": "2026-10-01T04:00:00Z",
+   "capturedAt": "2026-09-28T13:58:20.963Z",
+   "priceAtCapture": 0.615,
+   "price": 0.615,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "trump-renames-ai-by-september-30",
+   "id": "4769494",
+   "question": "Trump renames AI by September 30?",
+   "createdAt": "2026-09-20T19:22:44.443275Z",
+   "endDate": "2026-10-01T03:59:00Z",
+   "capturedAt": "2026-09-28T13:58:20.963Z",
+   "priceAtCapture": 0.345,
+   "price": 0.345,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-ethereum-dip-to-2500-in-september-2026-from-september-18",
+   "id": "4689737",
+   "question": "Will Ethereum dip to $2,500 in September?",
+   "createdAt": "2026-09-18T16:18:12.880096Z",
+   "endDate": "2026-10-01T04:00:00Z",
+   "capturedAt": "2026-09-28T13:58:20.963Z",
+   "priceAtCapture": 0.055,
+   "price": 0.055,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-bitcoin-dip-to-77pt5k-in-september-2026-from-september-18",
+   "id": "4689728",
+   "question": "Will Bitcoin dip to $77,500 in September?",
+   "createdAt": "2026-09-18T16:17:00.731659Z",
+   "endDate": "2026-10-01T04:00:00Z",
+   "capturedAt": "2026-09-28T13:58:20.963Z",
+   "priceAtCapture": 0.0375,
+   "price": 0.0375,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-bitcoin-dip-to-80k-in-september-2026-from-september-18",
+   "id": "4689727",
+   "question": "Will Bitcoin dip to $80,000 in September?",
+   "createdAt": "2026-09-18T16:17:00.46252Z",
+   "endDate": "2026-10-01T04:00:00Z",
+   "capturedAt": "2026-09-28T13:58:20.963Z",
+   "priceAtCapture": 0.1275,
+   "price": 0.1275,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "saudi-oil-pipeline-east-west-restarts-by-october-31",
+   "id": "4619164",
+   "question": "Saudi Oil Pipeline (East-West) restarts by October 31?",
+   "createdAt": "2026-09-16T16:45:12.286699Z",
+   "endDate": "2026-11-01T03:59:00Z",
+   "capturedAt": "2026-09-28T13:58:20.963Z",
+   "priceAtCapture": 0.7905,
+   "price": 0.7905,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "saudi-oil-pipeline-east-west-restarts-by-september-30",
+   "id": "4487273",
+   "question": "Saudi Oil Pipeline (East-West) restarts by September 30?",
+   "createdAt": "2026-09-11T23:26:05.674887Z",
+   "endDate": "2026-10-01T03:59:00Z",
+   "capturedAt": "2026-09-28T13:58:20.963Z",
+   "priceAtCapture": 0.29,
+   "price": 0.29,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-bitcoin-reach-87pt5k-in-september-2026",
+   "id": "4052418",
+   "question": "Will Bitcoin reach $87,500 in September?",
+   "createdAt": "2026-09-01T05:07:01.691756Z",
+   "endDate": "2026-10-01T04:00:00Z",
+   "capturedAt": "2026-09-28T13:58:20.963Z",
+   "priceAtCapture": 0.115,
+   "price": 0.115,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-ethereum-dip-to-2250-by-december-31-2026",
+   "id": "3866000",
+   "question": "Will Ethereum dip to $2,250 by December 31, 2026?",
+   "createdAt": "2026-08-25T03:53:37.814833Z",
+   "endDate": "2027-01-01T05:00:00Z",
+   "capturedAt": "2026-09-28T13:58:20.963Z",
+   "priceAtCapture": 0.305,
+   "price": 0.305,
    "closed": false,
    "resolved": null
   }
