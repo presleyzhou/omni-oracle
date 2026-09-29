@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-28T13:56:58.822Z",
+ "generated": "2026-09-29T12:54:44.466Z",
  "bls": {
   "CUUR0000SA0": [
    {
@@ -1309,105 +1309,7 @@
     ]
    ]
   },
-  "EUU": {
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-07-13"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 1.53795434836212
-     },
-     {
-      "date": "2024",
-      "value": 1.08657885620458
-     },
-     {
-      "date": "2023",
-      "value": 0.4380089249495
-     },
-     {
-      "date": "2022",
-      "value": 3.56455510630462
-     },
-     {
-      "date": "2021",
-      "value": 6.37773717070797
-     }
-    ]
-   ],
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-07-13"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 2.46705543774613
-     },
-     {
-      "date": "2024",
-      "value": 2.43531202435314
-     },
-     {
-      "date": "2023",
-      "value": 6.29942487419125
-     },
-     {
-      "date": "2022",
-      "value": 8.83369886749452
-     },
-     {
-      "date": "2021",
-      "value": 2.55450699642041
-     }
-    ]
-   ]
-  },
   "CHN": {
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-07-13"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 0.0595646916565403
-     },
-     {
-      "date": "2024",
-      "value": 0.218128938439177
-     },
-     {
-      "date": "2023",
-      "value": 0.234836828893051
-     },
-     {
-      "date": "2022",
-      "value": 1.97357555739051
-     },
-     {
-      "date": "2021",
-      "value": 0.981015135544882
-     }
-    ]
-   ],
    "gdp": [
     {
      "page": 1,
@@ -1439,9 +1341,73 @@
       "value": 8.57038414981781
      }
     ]
+   ],
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-07-13"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 0.0595646916565403
+     },
+     {
+      "date": "2024",
+      "value": 0.218128938439177
+     },
+     {
+      "date": "2023",
+      "value": 0.234836828893051
+     },
+     {
+      "date": "2022",
+      "value": 1.97357555739051
+     },
+     {
+      "date": "2021",
+      "value": 0.981015135544882
+     }
+    ]
    ]
   },
-  "JPN": {
+  "EUU": {
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-07-13"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 2.46705543774613
+     },
+     {
+      "date": "2024",
+      "value": 2.43531202435314
+     },
+     {
+      "date": "2023",
+      "value": 6.29942487419125
+     },
+     {
+      "date": "2022",
+      "value": 8.83369886749452
+     },
+     {
+      "date": "2021",
+      "value": 2.55450699642041
+     }
+    ]
+   ],
    "gdp": [
     {
      "page": 1,
@@ -1454,26 +1420,28 @@
     [
      {
       "date": "2025",
-      "value": 1.19311288444599
+      "value": 1.53795434836212
      },
      {
       "date": "2024",
-      "value": -0.240084236041696
+      "value": 1.08657885620458
      },
      {
       "date": "2023",
-      "value": 0.720785304749811
+      "value": 0.4380089249495
      },
      {
       "date": "2022",
-      "value": 1.33164750653741
+      "value": 3.56455510630462
      },
      {
       "date": "2021",
-      "value": 3.56419531474475
+      "value": 6.37773717070797
      }
     ]
-   ],
+   ]
+  },
+  "JPN": {
    "cpi": [
     {
      "page": 1,
@@ -1505,18 +1473,50 @@
       "value": -0.233352779398264
      }
     ]
+   ],
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-07-13"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 1.19311288444599
+     },
+     {
+      "date": "2024",
+      "value": -0.240084236041696
+     },
+     {
+      "date": "2023",
+      "value": 0.720785304749811
+     },
+     {
+      "date": "2022",
+      "value": 1.33164750653741
+     },
+     {
+      "date": "2021",
+      "value": 3.56419531474475
+     }
+    ]
    ]
   }
  },
  "fx": {
   "amount": 1,
   "base": "USD",
-  "date": "2026-09-25",
+  "date": "2026-09-28",
   "rates": {
-   "CNY": 6.7132,
-   "EUR": 0.87696,
-   "GBP": 0.75458,
-   "JPY": 157.59
+   "CNY": 6.7105,
+   "EUR": 0.87889,
+   "GBP": 0.75396,
+   "JPY": 156.88
   }
  },
  "treasury": {
@@ -1563,108 +1563,104 @@
   ]
  },
  "quotes": {
-  "AAPL": {
+  "NVDA": {
    "data": {
-    "p": 342.06,
-    "cp": 0.29
+    "p": 228.86,
+    "cp": 1.68
    }
   },
   "MSFT": {
    "data": {
-    "p": 507.44,
-    "cp": -1.69
+    "p": 509.22,
+    "cp": -1.35
+   }
+  },
+  "AAPL": {
+   "data": {
+    "p": 338.4,
+    "cp": -0.78
    }
   },
   "GOOGL": {
    "data": {
-    "p": 342.3,
-    "cp": -0.47
-   }
-  },
-  "NVDA": {
-   "data": {
-    "p": 232.14,
-    "cp": 3.14
+    "p": 342.75,
+    "cp": -0.34
    }
   },
   "MU": {
    "data": {
-    "p": 1059.1,
-    "cp": -2.14
-   }
-  },
-  "AVGO": {
-   "data": {
-    "p": 352.18,
-    "cp": -0.18
+    "p": 1053.98,
+    "cp": -2.61
    }
   },
   "META": {
    "data": {
-    "p": 721.57,
-    "cp": -4
+    "p": 715.62,
+    "cp": -4.79
+   }
+  },
+  "AVGO": {
+   "data": {
+    "p": 349.57,
+    "cp": -0.92
    }
   },
   "VRT": {
    "data": {
-    "p": 249.61,
-    "cp": -1.45
-   }
-  },
-  "NVO": {
-   "data": {
-    "p": 38.265,
-    "cp": -1.38
-   }
-  },
-  "TSLA": {
-   "data": {
-    "p": 363.29,
-    "cp": -2.37
-   }
-  },
-  "ISRG": {
-   "data": {
-    "p": 408.71,
-    "cp": 0.87
+    "p": 244.04,
+    "cp": -3.65
    }
   },
   "LLY": {
    "data": {
-    "p": 1180,
-    "cp": -0.29
+    "p": 1184.78,
+    "cp": 0.11
    }
   },
-  "CEG": {
+  "TSLA": {
    "data": {
-    "p": 259.46,
-    "cp": -1.45
+    "p": 357.45,
+    "cp": -3.94
    }
   },
-  "IONQ": {
+  "ISRG": {
    "data": {
-    "p": 47.59,
-    "cp": 4.64
+    "p": 414.79,
+    "cp": 2.37
    }
   },
-  "RKLB": {
+  "NVO": {
    "data": {
-    "p": 72.85,
-    "cp": -1.49
+    "p": 38.71,
+    "cp": -0.23
    }
   },
   "GEV": {
    "data": {
-    "p": 949.21,
-    "cp": -0.88
+    "p": 949.77,
+    "cp": -0.82
+   }
+  },
+  "IONQ": {
+   "data": {
+    "p": 44.58,
+    "cp": -1.98
+   }
+  },
+  "CEG": {
+   "data": {
+    "p": 260.43,
+    "cp": -1.08
+   }
+  },
+  "RKLB": {
+   "data": {
+    "p": 72.19,
+    "cp": -2.38
    }
   }
  },
  "vix": [
-  {
-   "d": "2024-09-20",
-   "c": 16.15
-  },
   {
    "d": "2024-09-23",
    "c": 15.89
@@ -3740,6 +3736,10 @@
   {
    "d": "2026-09-25",
    "c": 14.87
+  },
+  {
+   "d": "2026-09-28",
+   "c": 16.07
   }
  ],
  "treasury_curve": [
@@ -6346,6 +6346,56 @@
    "m3": 4.24,
    "y2": 4.81,
    "y10": 5.17
+  },
+  {
+   "d": "2026-09-28",
+   "m3": 4.28,
+   "y2": 4.92,
+   "y10": 5.24
+  }
+ ],
+ "polymarket": [
+  {
+   "question": "Dota 2: 1win vs Natus Vincere - Game 1 Winner",
+   "slug": "dota2-1win-navi-2026-09-29-game1",
+   "volume24hr": 628010.5227519998,
+   "outcomePrices": "[\"0.62\", \"0.38\"]",
+   "outcomes": "[\"1win\", \"Natus Vincere\"]"
+  },
+  {
+   "question": "Strait of Hormuz traffic returns to normal by September 30?",
+   "slug": "strait-of-hormuz-traffic-returns-to-normal-by-september-30-20260702154339440",
+   "volume24hr": 564940.895137,
+   "outcomePrices": "[\"0.0005\", \"0.9995\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
+  },
+  {
+   "question": "Hangzhou Open: Daniil Medvedev vs Andrey Rublev",
+   "slug": "atp-medvede-rublev-2026-09-29",
+   "volume24hr": 514345.08677099925,
+   "outcomePrices": "[\"0.945\", \"0.055\"]",
+   "outcomes": "[\"Daniil Medvedev\", \"Andrey Rublev\"]"
+  },
+  {
+   "question": "Will Brazil win on 2026-09-29?",
+   "slug": "fif-aus-bra-2026-09-29-bra",
+   "volume24hr": 499212.8660679999,
+   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
+  },
+  {
+   "question": "Valorant: Karmine Corp vs NRG (BO3) - VCT Champions Group D",
+   "slug": "val-kc3-nrg-2026-09-29",
+   "volume24hr": 485182.2261050002,
+   "outcomePrices": "[\"0.625\", \"0.375\"]",
+   "outcomes": "[\"Karmine Corp\", \"NRG\"]"
+  },
+  {
+   "question": "Chengdu Open: Hubert Hurkacz vs Alejandro Davidovich Fokina",
+   "slug": "atp-hurkacz-fokina-2026-09-29",
+   "volume24hr": 479971.75617199985,
+   "outcomePrices": "[\"0.185\", \"0.815\"]",
+   "outcomes": "[\"Hubert Hurkacz\", \"Alejandro Davidovich Fokina\"]"
   }
  ],
  "coingecko": {
@@ -6361,49 +6411,5 @@
    "usd": 119.98,
    "usd_24h_change": -2.4170093648945667
   }
- },
- "polymarket": [
-  {
-   "question": "Eagles vs. Bears",
-   "slug": "nfl-phi-chi-2026-09-29",
-   "volume24hr": 1078278.2777260002,
-   "outcomePrices": "[\"0.645\", \"0.355\"]",
-   "outcomes": "[\"Eagles\", \"Bears\"]"
-  },
-  {
-   "question": "Chengdu Open: Hubert Hurkacz vs Denis Shapovalov",
-   "slug": "atp-hurkacz-shapova-2026-09-28",
-   "volume24hr": 731132.4115939998,
-   "outcomePrices": "[\"0.955\", \"0.045\"]",
-   "outcomes": "[\"Hubert Hurkacz\", \"Denis Shapovalov\"]"
-  },
-  {
-   "question": "Will Shakhtar Donetsk win the 2026-27 UEFA Champions League Championship?",
-   "slug": "will-shakhtar-donetsk-win-the-2026-27-uefa-champions-league-championship-20260701202025578",
-   "volume24hr": 427384.44,
-   "outcomePrices": "[\"0.0015\", \"0.9985\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  },
-  {
-   "question": "Spread: Eagles (-3.5)",
-   "slug": "nfl-phi-chi-2026-09-29-spread-away-3pt5",
-   "volume24hr": 414892.34446800005,
-   "outcomePrices": "[\"0.505\", \"0.495\"]",
-   "outcomes": "[\"Eagles\", \"Bears\"]"
-  },
-  {
-   "question": "Hangzhou Open: Daniil Medvedev vs Roman Safiullin",
-   "slug": "atp-medvede-safiull-2026-09-28",
-   "volume24hr": 403096.8592640001,
-   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
-   "outcomes": "[\"Daniil Medvedev\", \"Roman Safiullin\"]"
-  },
-  {
-   "question": "US x Iran ceasefire continues through September 30?",
-   "slug": "us-x-iran-ceasefire-continues-through-september-30-20260917",
-   "volume24hr": 402085.294091,
-   "outcomePrices": "[\"0.967\", \"0.033\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  }
- ]
+ }
 }
