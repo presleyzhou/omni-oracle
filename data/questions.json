@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-29T12:55:47.980Z",
+ "updated": "2026-09-30T12:37:09.469Z",
  "questions": [
   {
    "slug": "us-x-iran-ceasefire-continues-through-october-31-20260917",
@@ -9,7 +9,7 @@
    "endDate": "2026-10-31T23:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.565,
-   "price": 0.595,
+   "price": 0.615,
    "closed": false,
    "resolved": null
   },
@@ -21,7 +21,7 @@
    "endDate": "2026-09-30T23:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.905,
-   "price": 0.969,
+   "price": 0.982,
    "closed": false,
    "resolved": null
   },
@@ -45,7 +45,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.065,
-   "price": 0.055,
+   "price": 0.065,
    "closed": false,
    "resolved": null
   },
@@ -69,7 +69,7 @@
    "endDate": "2026-10-01T04:00:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.615,
-   "price": 0.285,
+   "price": 0.12,
    "closed": false,
    "resolved": null
   },
@@ -93,7 +93,7 @@
    "endDate": "2026-10-01T04:00:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.055,
-   "price": 0.018,
+   "price": 0.009,
    "closed": false,
    "resolved": null
   },
@@ -105,7 +105,7 @@
    "endDate": "2026-10-01T04:00:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.0375,
-   "price": 0.013,
+   "price": 0.006,
    "closed": false,
    "resolved": null
   },
@@ -117,7 +117,7 @@
    "endDate": "2026-10-01T04:00:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.1275,
-   "price": 0.034,
+   "price": 0.0135,
    "closed": false,
    "resolved": null
   },
@@ -129,7 +129,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.7905,
-   "price": 0.7385,
+   "price": 0.671,
    "closed": false,
    "resolved": null
   },
@@ -141,7 +141,7 @@
    "endDate": "2026-10-01T03:59:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.29,
-   "price": 0.14,
+   "price": 0.0475,
    "closed": false,
    "resolved": null
   },
@@ -153,7 +153,7 @@
    "endDate": "2026-10-01T04:00:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.115,
-   "price": 0.095,
+   "price": 0.083,
    "closed": false,
    "resolved": null
   },
@@ -165,7 +165,7 @@
    "endDate": "2027-01-01T05:00:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.305,
-   "price": 0.27,
+   "price": 0.275,
    "closed": false,
    "resolved": null
   },
@@ -189,7 +189,7 @@
    "endDate": "2026-09-30T23:59:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.0885,
-   "price": 0.0885,
+   "price": 0.0255,
    "closed": false,
    "resolved": null
   },
@@ -201,7 +201,7 @@
    "endDate": "2026-10-01T04:00:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.43,
-   "price": 0.43,
+   "price": 0.225,
    "closed": false,
    "resolved": null
   },
@@ -213,7 +213,7 @@
    "endDate": "2026-10-02T11:35:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.9645,
-   "price": 0.9645,
+   "price": 0.9665,
    "closed": false,
    "resolved": null
   },
@@ -225,7 +225,7 @@
    "endDate": "2026-10-02T11:35:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.034,
-   "price": 0.034,
+   "price": 0.0215,
    "closed": false,
    "resolved": null
   },
@@ -237,7 +237,7 @@
    "endDate": "2026-10-01T04:00:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.112,
-   "price": 0.112,
+   "price": 0.021,
    "closed": false,
    "resolved": null
   },
@@ -249,7 +249,43 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.04,
-   "price": 0.04,
+   "price": 0.032,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "unl-den-prt-2026-10-01-prt",
+   "id": "4678642",
+   "question": "Will Portugal win on 2026-10-01?",
+   "createdAt": "2026-09-18T10:00:12.406586Z",
+   "endDate": "2026-10-01T18:45:00Z",
+   "capturedAt": "2026-09-30T12:37:09.469Z",
+   "priceAtCapture": 0.475,
+   "price": 0.475,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "another-fed-rate-hike-in-2026",
+   "id": "4620900",
+   "question": "Another Fed rate hike in 2026?",
+   "createdAt": "2026-09-16T18:24:00.620744Z",
+   "endDate": "2026-12-09T00:00:00Z",
+   "capturedAt": "2026-09-30T12:37:09.469Z",
+   "priceAtCapture": 0.825,
+   "price": 0.825,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "israel-x-iran-ceasefire-continues-through-october-31",
+   "id": "3399459",
+   "question": "Israel x Iran ceasefire continues through October 31?",
+   "createdAt": "2026-08-07T14:27:19.254718Z",
+   "endDate": "2026-10-31T20:29:00Z",
+   "capturedAt": "2026-09-30T12:37:09.469Z",
+   "priceAtCapture": 0.775,
+   "price": 0.775,
    "closed": false,
    "resolved": null
   }

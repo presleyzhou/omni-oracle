@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-29T12:54:44.466Z",
+ "generated": "2026-09-30T12:36:27.310Z",
  "bls": {
   "CUUR0000SA0": [
    {
@@ -1244,38 +1244,6 @@
  },
  "worldbank": {
   "USA": {
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-07-13"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 2.16138195623856
-     },
-     {
-      "date": "2024",
-      "value": 2.79318715363841
-     },
-     {
-      "date": "2023",
-      "value": 2.93436322440155
-     },
-     {
-      "date": "2022",
-      "value": 2.52421385073222
-     },
-     {
-      "date": "2021",
-      "value": 6.15202247867526
-     }
-    ]
-   ],
    "cpi": [
     {
      "page": 1,
@@ -1307,9 +1275,7 @@
       "value": 4.69785886363742
      }
     ]
-   ]
-  },
-  "CHN": {
+   ],
    "gdp": [
     {
      "page": 1,
@@ -1322,55 +1288,23 @@
     [
      {
       "date": "2025",
-      "value": 4.95994886240992
+      "value": 2.16138195623856
      },
      {
       "date": "2024",
-      "value": 4.95830378788091
+      "value": 2.79318715363841
      },
      {
       "date": "2023",
-      "value": 5.41600334492955
+      "value": 2.93436322440155
      },
      {
       "date": "2022",
-      "value": 3.13385438394069
+      "value": 2.52421385073222
      },
      {
       "date": "2021",
-      "value": 8.57038414981781
-     }
-    ]
-   ],
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-07-13"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 0.0595646916565403
-     },
-     {
-      "date": "2024",
-      "value": 0.218128938439177
-     },
-     {
-      "date": "2023",
-      "value": 0.234836828893051
-     },
-     {
-      "date": "2022",
-      "value": 1.97357555739051
-     },
-     {
-      "date": "2021",
-      "value": 0.981015135544882
+      "value": 6.15202247867526
      }
     ]
    ]
@@ -1437,6 +1371,72 @@
      {
       "date": "2021",
       "value": 6.37773717070797
+     }
+    ]
+   ]
+  },
+  "CHN": {
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-07-13"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 0.0595646916565403
+     },
+     {
+      "date": "2024",
+      "value": 0.218128938439177
+     },
+     {
+      "date": "2023",
+      "value": 0.234836828893051
+     },
+     {
+      "date": "2022",
+      "value": 1.97357555739051
+     },
+     {
+      "date": "2021",
+      "value": 0.981015135544882
+     }
+    ]
+   ],
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-07-13"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 4.95994886240992
+     },
+     {
+      "date": "2024",
+      "value": 4.95830378788091
+     },
+     {
+      "date": "2023",
+      "value": 5.41600334492955
+     },
+     {
+      "date": "2022",
+      "value": 3.13385438394069
+     },
+     {
+      "date": "2021",
+      "value": 8.57038414981781
      }
     ]
    ]
@@ -1511,12 +1511,12 @@
  "fx": {
   "amount": 1,
   "base": "USD",
-  "date": "2026-09-28",
+  "date": "2026-09-29",
   "rates": {
-   "CNY": 6.7105,
-   "EUR": 0.87889,
-   "GBP": 0.75396,
-   "JPY": 156.88
+   "CNY": 6.7034,
+   "EUR": 0.88067,
+   "GBP": 0.75489,
+   "JPY": 157.12
   }
  },
  "treasury": {
@@ -1565,106 +1565,102 @@
  "quotes": {
   "NVDA": {
    "data": {
-    "p": 228.86,
-    "cp": 1.68
-   }
-  },
-  "MSFT": {
-   "data": {
-    "p": 509.22,
-    "cp": -1.35
+    "p": 227.21,
+    "cp": -0.72
    }
   },
   "AAPL": {
    "data": {
-    "p": 338.4,
-    "cp": -0.78
+    "p": 329.4,
+    "cp": -2.66
+   }
+  },
+  "MSFT": {
+   "data": {
+    "p": 508.96,
+    "cp": -0.05
    }
   },
   "GOOGL": {
    "data": {
-    "p": 342.75,
-    "cp": -0.34
-   }
-  },
-  "MU": {
-   "data": {
-    "p": 1053.98,
-    "cp": -2.61
-   }
-  },
-  "META": {
-   "data": {
-    "p": 715.62,
-    "cp": -4.79
+    "p": 340.92,
+    "cp": -0.53
    }
   },
   "AVGO": {
    "data": {
-    "p": 349.57,
-    "cp": -0.92
+    "p": 355.1,
+    "cp": 1.58
+   }
+  },
+  "META": {
+   "data": {
+    "p": 738.79,
+    "cp": 3.24
+   }
+  },
+  "MU": {
+   "data": {
+    "p": 1065.08,
+    "cp": 1.05
    }
   },
   "VRT": {
    "data": {
-    "p": 244.04,
-    "cp": -3.65
+    "p": 248.34,
+    "cp": 1.76
    }
   },
   "LLY": {
    "data": {
-    "p": 1184.78,
-    "cp": 0.11
-   }
-  },
-  "TSLA": {
-   "data": {
-    "p": 357.45,
-    "cp": -3.94
-   }
-  },
-  "ISRG": {
-   "data": {
-    "p": 414.79,
-    "cp": 2.37
+    "p": 1184.63,
+    "cp": -0.01
    }
   },
   "NVO": {
    "data": {
-    "p": 38.71,
-    "cp": -0.23
+    "p": 38.31,
+    "cp": -1.03
    }
   },
-  "GEV": {
+  "ISRG": {
    "data": {
-    "p": 949.77,
-    "cp": -0.82
+    "p": 412.18,
+    "cp": -0.63
    }
   },
-  "IONQ": {
+  "TSLA": {
    "data": {
-    "p": 44.58,
-    "cp": -1.98
-   }
-  },
-  "CEG": {
-   "data": {
-    "p": 260.43,
-    "cp": -1.08
+    "p": 352.84,
+    "cp": -1.29
    }
   },
   "RKLB": {
    "data": {
-    "p": 72.19,
-    "cp": -2.38
+    "p": 69.7,
+    "cp": -3.45
+   }
+  },
+  "IONQ": {
+   "data": {
+    "p": 43.91,
+    "cp": -1.5
+   }
+  },
+  "GEV": {
+   "data": {
+    "p": 962.49,
+    "cp": 1.34
+   }
+  },
+  "CEG": {
+   "data": {
+    "p": 264.58,
+    "cp": 1.59
    }
   }
  },
  "vix": [
-  {
-   "d": "2024-09-23",
-   "c": 15.89
-  },
   {
    "d": "2024-09-24",
    "c": 15.39
@@ -3740,6 +3736,10 @@
   {
    "d": "2026-09-28",
    "c": 16.07
+  },
+  {
+   "d": "2026-09-29",
+   "c": 16.04
   }
  ],
  "treasury_curve": [
@@ -6352,64 +6352,70 @@
    "m3": 4.28,
    "y2": 4.92,
    "y10": 5.24
-  }
- ],
- "polymarket": [
-  {
-   "question": "Dota 2: 1win vs Natus Vincere - Game 1 Winner",
-   "slug": "dota2-1win-navi-2026-09-29-game1",
-   "volume24hr": 628010.5227519998,
-   "outcomePrices": "[\"0.62\", \"0.38\"]",
-   "outcomes": "[\"1win\", \"Natus Vincere\"]"
   },
   {
-   "question": "Strait of Hormuz traffic returns to normal by September 30?",
-   "slug": "strait-of-hormuz-traffic-returns-to-normal-by-september-30-20260702154339440",
-   "volume24hr": 564940.895137,
-   "outcomePrices": "[\"0.0005\", \"0.9995\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  },
-  {
-   "question": "Hangzhou Open: Daniil Medvedev vs Andrey Rublev",
-   "slug": "atp-medvede-rublev-2026-09-29",
-   "volume24hr": 514345.08677099925,
-   "outcomePrices": "[\"0.945\", \"0.055\"]",
-   "outcomes": "[\"Daniil Medvedev\", \"Andrey Rublev\"]"
-  },
-  {
-   "question": "Will Brazil win on 2026-09-29?",
-   "slug": "fif-aus-bra-2026-09-29-bra",
-   "volume24hr": 499212.8660679999,
-   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  },
-  {
-   "question": "Valorant: Karmine Corp vs NRG (BO3) - VCT Champions Group D",
-   "slug": "val-kc3-nrg-2026-09-29",
-   "volume24hr": 485182.2261050002,
-   "outcomePrices": "[\"0.625\", \"0.375\"]",
-   "outcomes": "[\"Karmine Corp\", \"NRG\"]"
-  },
-  {
-   "question": "Chengdu Open: Hubert Hurkacz vs Alejandro Davidovich Fokina",
-   "slug": "atp-hurkacz-fokina-2026-09-29",
-   "volume24hr": 479971.75617199985,
-   "outcomePrices": "[\"0.185\", \"0.815\"]",
-   "outcomes": "[\"Hubert Hurkacz\", \"Alejandro Davidovich Fokina\"]"
+   "d": "2026-09-29",
+   "m3": 4.25,
+   "y2": 4.89,
+   "y10": 5.26
   }
  ],
  "coingecko": {
   "bitcoin": {
-   "usd": 83656,
-   "usd_24h_change": -1.5041466993533756
+   "usd": 84501,
+   "usd_24h_change": 0.24905424071738916
   },
   "ethereum": {
-   "usd": 2691.99,
-   "usd_24h_change": -0.5670438696309658
+   "usd": 2722.4,
+   "usd_24h_change": -0.5901808382587044
   },
   "solana": {
-   "usd": 119.98,
-   "usd_24h_change": -2.4170093648945667
+   "usd": 121.03,
+   "usd_24h_change": 0.5852114549233084
   }
- }
+ },
+ "polymarket": [
+  {
+   "question": "China Open: Nuno Borges vs Novak Djokovic",
+   "slug": "atp-borges-djokovi-2026-09-29",
+   "volume24hr": 1115215.7057530005,
+   "outcomePrices": "[\"0.145\", \"0.855\"]",
+   "outcomes": "[\"Nuno Borges\", \"Novak Djokovic\"]"
+  },
+  {
+   "question": "Will there be no change in Fed interest rates after the October 2026 meeting?",
+   "slug": "will-there-be-no-change-in-fed-interest-rates-after-the-october-2026-meeting-20260617190324031",
+   "volume24hr": 847097.7380550004,
+   "outcomePrices": "[\"0.665\", \"0.335\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
+  },
+  {
+   "question": "LoL: T1 Academy vs Galions (BO5) - World Star Challengers Invitational Playoffs",
+   "slug": "lol-t1a-gal-2026-09-30",
+   "volume24hr": 763374.073517,
+   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
+   "outcomes": "[\"T1 Academy\", \"Galions\"]"
+  },
+  {
+   "question": "Will Benjamin Netanyahu be the next Prime Minister of Israel?",
+   "slug": "will-benjamin-netanyahu-be-the-next-prime-minister-of-israel",
+   "volume24hr": 750263.5133599995,
+   "outcomePrices": "[\"0.335\", \"0.665\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
+  },
+  {
+   "question": "Will the Fed increase interest rates by 25 bps after the October 2026 meeting?",
+   "slug": "will-the-fed-increase-interest-rates-by-25-bps-after-the-october-2026-meeting-20260617190324032",
+   "volume24hr": 628275.4956699997,
+   "outcomePrices": "[\"0.32\", \"0.68\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
+  },
+  {
+   "question": "LoL: T1 Academy vs Galions - Game 2 Winner",
+   "slug": "lol-t1a-gal-2026-09-30-game2",
+   "volume24hr": 517179.2345289997,
+   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
+   "outcomes": "[\"T1 Academy\", \"Galions\"]"
+  }
+ ]
 }
