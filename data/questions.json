@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-30T12:37:09.469Z",
+ "updated": "2026-10-01T13:19:30.824Z",
  "questions": [
   {
    "slug": "us-x-iran-ceasefire-continues-through-october-31-20260917",
@@ -9,7 +9,7 @@
    "endDate": "2026-10-31T23:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.565,
-   "price": 0.615,
+   "price": 0.595,
    "closed": false,
    "resolved": null
   },
@@ -33,7 +33,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.075,
-   "price": 0.0405,
+   "price": 0.0295,
    "closed": false,
    "resolved": null
   },
@@ -129,7 +129,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.7905,
-   "price": 0.671,
+   "price": 0.606,
    "closed": false,
    "resolved": null
   },
@@ -165,7 +165,7 @@
    "endDate": "2027-01-01T05:00:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.305,
-   "price": 0.275,
+   "price": 0.29,
    "closed": false,
    "resolved": null
   },
@@ -177,7 +177,7 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.17,
-   "price": 0.17,
+   "price": 0.075,
    "closed": false,
    "resolved": null
   },
@@ -249,7 +249,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.04,
-   "price": 0.032,
+   "price": 0.0345,
    "closed": false,
    "resolved": null
   },
@@ -273,7 +273,7 @@
    "endDate": "2026-12-09T00:00:00Z",
    "capturedAt": "2026-09-30T12:37:09.469Z",
    "priceAtCapture": 0.825,
-   "price": 0.825,
+   "price": 0.815,
    "closed": false,
    "resolved": null
   },
@@ -285,7 +285,127 @@
    "endDate": "2026-10-31T20:29:00Z",
    "capturedAt": "2026-09-30T12:37:09.469Z",
    "priceAtCapture": 0.775,
-   "price": 0.775,
+   "price": 0.815,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "us-x-iran-ceasefire-continues-through-october-7",
+   "id": "5130977",
+   "question": "US x Iran ceasefire continues through October 7?",
+   "createdAt": "2026-09-29T16:28:37.337849Z",
+   "endDate": "2026-10-08T03:59:00Z",
+   "capturedAt": "2026-10-01T13:19:30.824Z",
+   "priceAtCapture": 0.915,
+   "price": 0.915,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "bitcoin-above-86k-on-october-2-2026",
+   "id": "4950489",
+   "question": "Will the price of Bitcoin be above $86,000 on October 2?",
+   "createdAt": "2026-09-25T16:00:07.017224Z",
+   "endDate": "2026-10-02T16:00:00Z",
+   "capturedAt": "2026-10-01T13:19:30.824Z",
+   "priceAtCapture": 0.075,
+   "price": 0.075,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "bitcoin-above-82k-on-october-2-2026",
+   "id": "4950486",
+   "question": "Will the price of Bitcoin be above $82,000 on October 2?",
+   "createdAt": "2026-09-25T16:00:06.642422Z",
+   "endDate": "2026-10-02T16:00:00Z",
+   "capturedAt": "2026-10-01T13:19:30.824Z",
+   "priceAtCapture": 0.835,
+   "price": 0.835,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "saudi-oil-pipeline-east-west-restarts-by-october-15",
+   "id": "4885967",
+   "question": "Saudi Oil Pipeline (East-West) restarts by October 15?",
+   "createdAt": "2026-09-23T18:13:46.003729Z",
+   "endDate": "2026-10-16T03:59:00Z",
+   "capturedAt": "2026-10-01T13:19:30.824Z",
+   "priceAtCapture": 0.365,
+   "price": 0.365,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "elon-musk-of-tweets-september-25-october-2-2026-180-199",
+   "id": "4828203",
+   "question": "Will Elon Musk post 180-199 tweets from September 25 to October 2, 2026?",
+   "createdAt": "2026-09-22T04:00:03.752157Z",
+   "endDate": "2026-10-02T16:00:00Z",
+   "capturedAt": "2026-10-01T13:19:30.824Z",
+   "priceAtCapture": 0.315,
+   "price": 0.315,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-flavio-bolsonaro-win-the-most-votes-in-the-first-round-of-the-2026-brazil-presidential-election",
+   "id": "4037600",
+   "question": "Will Flavio Bolsonaro win the most votes in the first round of the 2026 Brazil presidential election?",
+   "createdAt": "2026-08-31T17:47:04.295057Z",
+   "endDate": "2026-10-05T03:59:00Z",
+   "capturedAt": "2026-10-01T13:19:30.824Z",
+   "priceAtCapture": 0.305,
+   "price": 0.305,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-lula-win-the-most-votes-in-the-first-round-of-the-2026-brazil-presidential-election",
+   "id": "4037599",
+   "question": "Will Lula win the most votes in the first round of the 2026 Brazil presidential election?",
+   "createdAt": "2026-08-31T17:47:03.958721Z",
+   "endDate": "2026-10-05T03:59:00Z",
+   "capturedAt": "2026-10-01T13:19:30.824Z",
+   "priceAtCapture": 0.69,
+   "price": 0.69,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "bab-el-mandeb-strait-effectively-closed-by-october-31",
+   "id": "3758964",
+   "question": "Bab el-Mandeb Strait effectively closed by October 31?",
+   "createdAt": "2026-08-21T07:44:43.708902Z",
+   "endDate": "2026-11-01T03:59:00Z",
+   "capturedAt": "2026-10-01T13:19:30.824Z",
+   "priceAtCapture": 0.065,
+   "price": 0.065,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-google-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841120",
+   "id": "3554659",
+   "question": "Will Google have the best AI model at the end of October 2026?",
+   "createdAt": "2026-08-13T00:01:27.413567Z",
+   "endDate": "2026-10-31T16:00:00Z",
+   "capturedAt": "2026-10-01T13:19:30.824Z",
+   "priceAtCapture": 0.7185,
+   "price": 0.7185,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-anthropic-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841118",
+   "id": "3554657",
+   "question": "Will Anthropic have the best AI model at the end of October 2026?",
+   "createdAt": "2026-08-13T00:01:26.680281Z",
+   "endDate": "2026-10-31T16:00:00Z",
+   "capturedAt": "2026-10-01T13:19:30.824Z",
+   "priceAtCapture": 0.275,
+   "price": 0.275,
    "closed": false,
    "resolved": null
   }
