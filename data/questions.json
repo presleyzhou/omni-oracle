@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-01T13:19:30.824Z",
+ "updated": "2026-10-02T12:37:34.916Z",
  "questions": [
   {
    "slug": "us-x-iran-ceasefire-continues-through-october-31-20260917",
@@ -9,7 +9,7 @@
    "endDate": "2026-10-31T23:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.565,
-   "price": 0.595,
+   "price": 0.605,
    "closed": false,
    "resolved": null
   },
@@ -33,7 +33,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.075,
-   "price": 0.0295,
+   "price": 0.0235,
    "closed": false,
    "resolved": null
   },
@@ -129,7 +129,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.7905,
-   "price": 0.606,
+   "price": 0.629,
    "closed": false,
    "resolved": null
   },
@@ -165,7 +165,7 @@
    "endDate": "2027-01-01T05:00:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.305,
-   "price": 0.29,
+   "price": 0.28,
    "closed": false,
    "resolved": null
   },
@@ -177,7 +177,7 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.17,
-   "price": 0.075,
+   "price": 0.095,
    "closed": false,
    "resolved": null
   },
@@ -249,7 +249,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.04,
-   "price": 0.0345,
+   "price": 0.03,
    "closed": false,
    "resolved": null
   },
@@ -273,7 +273,7 @@
    "endDate": "2026-12-09T00:00:00Z",
    "capturedAt": "2026-09-30T12:37:09.469Z",
    "priceAtCapture": 0.825,
-   "price": 0.815,
+   "price": 0.735,
    "closed": false,
    "resolved": null
   },
@@ -285,7 +285,7 @@
    "endDate": "2026-10-31T20:29:00Z",
    "capturedAt": "2026-09-30T12:37:09.469Z",
    "priceAtCapture": 0.775,
-   "price": 0.815,
+   "price": 0.805,
    "closed": false,
    "resolved": null
   },
@@ -309,7 +309,7 @@
    "endDate": "2026-10-02T16:00:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.075,
-   "price": 0.075,
+   "price": 0.84,
    "closed": false,
    "resolved": null
   },
@@ -321,7 +321,7 @@
    "endDate": "2026-10-02T16:00:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.835,
-   "price": 0.835,
+   "price": 0.9955,
    "closed": false,
    "resolved": null
   },
@@ -333,7 +333,7 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.365,
-   "price": 0.365,
+   "price": 0.36,
    "closed": false,
    "resolved": null
   },
@@ -357,7 +357,7 @@
    "endDate": "2026-10-05T03:59:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.305,
-   "price": 0.305,
+   "price": 0.275,
    "closed": false,
    "resolved": null
   },
@@ -369,7 +369,7 @@
    "endDate": "2026-10-05T03:59:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.69,
-   "price": 0.69,
+   "price": 0.725,
    "closed": false,
    "resolved": null
   },
@@ -381,7 +381,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.065,
-   "price": 0.065,
+   "price": 0.075,
    "closed": false,
    "resolved": null
   },
@@ -393,7 +393,7 @@
    "endDate": "2026-10-31T16:00:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.7185,
-   "price": 0.7185,
+   "price": 0.6055,
    "closed": false,
    "resolved": null
   },
@@ -405,7 +405,151 @@
    "endDate": "2026-10-31T16:00:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.275,
-   "price": 0.275,
+   "price": 0.395,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-bitcoin-dip-to-65k-in-october-2026",
+   "id": "5170744",
+   "question": "Will Bitcoin dip to $65,000 in October?",
+   "createdAt": "2026-10-01T05:07:03.469648Z",
+   "endDate": "2026-11-01T04:00:00Z",
+   "capturedAt": "2026-10-02T12:37:34.916Z",
+   "priceAtCapture": 0.0315,
+   "price": 0.0315,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-bitcoin-reach-87pt5k-in-october-2026",
+   "id": "5170735",
+   "question": "Will Bitcoin reach $87,500 in October?",
+   "createdAt": "2026-10-01T05:07:02.049195Z",
+   "endDate": "2026-11-01T04:00:00Z",
+   "capturedAt": "2026-10-02T12:37:34.916Z",
+   "priceAtCapture": 0.92,
+   "price": 0.92,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-bitcoin-reach-92pt5k-in-october-2026",
+   "id": "5170733",
+   "question": "Will Bitcoin reach $92,500 in October?",
+   "createdAt": "2026-10-01T05:07:01.74014Z",
+   "endDate": "2026-11-01T04:00:00Z",
+   "capturedAt": "2026-10-02T12:37:34.916Z",
+   "priceAtCapture": 0.515,
+   "price": 0.515,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-bitcoin-reach-97pt5k-in-october-2026",
+   "id": "5170731",
+   "question": "Will Bitcoin reach $97,500 in October?",
+   "createdAt": "2026-10-01T05:07:01.453112Z",
+   "endDate": "2026-11-01T04:00:00Z",
+   "capturedAt": "2026-10-02T12:37:34.916Z",
+   "priceAtCapture": 0.225,
+   "price": 0.225,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-bitcoin-reach-100k-in-october-2026",
+   "id": "5170730",
+   "question": "Will Bitcoin reach $100,000 in October?",
+   "createdAt": "2026-10-01T05:07:01.300636Z",
+   "endDate": "2026-11-01T04:00:00Z",
+   "capturedAt": "2026-10-02T12:37:34.916Z",
+   "priceAtCapture": 0.155,
+   "price": 0.155,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-bitcoin-reach-102pt5k-in-october-2026",
+   "id": "5170729",
+   "question": "Will Bitcoin reach $102,500 in October?",
+   "createdAt": "2026-10-01T05:07:01.155443Z",
+   "endDate": "2026-11-01T04:00:00Z",
+   "capturedAt": "2026-10-02T12:37:34.916Z",
+   "priceAtCapture": 0.095,
+   "price": 0.095,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "any-of-the-cornell-7-charged-with-a-felony-sex-crime",
+   "id": "5166375",
+   "question": "Any of the Cornell 7 charged with a felony sex crime?",
+   "createdAt": "2026-09-30T23:10:57.837016Z",
+   "endDate": "2027-02-01T04:59:00Z",
+   "capturedAt": "2026-10-02T12:37:34.916Z",
+   "priceAtCapture": 0.355,
+   "price": 0.355,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "israel-accuses-iranproxies-of-plane-stabbing-incident-by-oct-31",
+   "id": "5164765",
+   "question": "Israel accuses Iran/proxies of plane stabbing incident by Oct 31?",
+   "createdAt": "2026-09-30T21:34:42.561925Z",
+   "endDate": "2026-11-01T03:59:00Z",
+   "capturedAt": "2026-10-02T12:37:34.916Z",
+   "priceAtCapture": 0.155,
+   "price": 0.155,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-bitcoin-reach-90k-september-28-october-4-2026",
+   "id": "5062258",
+   "question": "Will Bitcoin reach $90,000 September 28-October 4?",
+   "createdAt": "2026-09-28T04:00:02.337197Z",
+   "endDate": "2026-10-05T04:00:00Z",
+   "capturedAt": "2026-10-02T12:37:34.916Z",
+   "priceAtCapture": 0.188,
+   "price": 0.188,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-bitcoin-reach-92k-september-28-october-4-2026",
+   "id": "5062249",
+   "question": "Will Bitcoin reach $92,000 September 28-October 4?",
+   "createdAt": "2026-09-28T04:00:02.102895Z",
+   "endDate": "2026-10-05T04:00:00Z",
+   "capturedAt": "2026-10-02T12:37:34.916Z",
+   "priceAtCapture": 0.073,
+   "price": 0.073,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "fif-bol-gam-2026-10-04-draw",
+   "id": "5029249",
+   "question": "Will Bolivia vs. Gambia end in a draw?",
+   "createdAt": "2026-09-27T13:00:06.214319Z",
+   "endDate": "2026-10-04T22:30:00Z",
+   "capturedAt": "2026-10-02T12:37:34.916Z",
+   "priceAtCapture": 0.953,
+   "price": 0.953,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-bitcoin-dip-to-70000-by-december-31-2026-from-august-24",
+   "id": "3865960",
+   "question": "Will Bitcoin dip to $70,000 by December 31, 2026?",
+   "createdAt": "2026-08-25T03:42:56.32922Z",
+   "endDate": "2027-01-01T05:00:00Z",
+   "capturedAt": "2026-10-02T12:37:34.916Z",
+   "priceAtCapture": 0.285,
+   "price": 0.285,
    "closed": false,
    "resolved": null
   }
