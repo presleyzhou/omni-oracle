@@ -550,5 +550,13 @@
   "my.export.hint": "Todo se califica localmente; exporta para mover tu historial entre navegadores.",
   "my.import.bad": "Ese archivo no es una exportación de pronósticos de Omni Oracle.",
   "ch.real": "Pronósticos reales calificados (tú + IA)",
-  "mk.rel.real": "Mercado real de Polymarket relacionado"
+  "mk.rel.real": "Mercado real de Polymarket relacionado",
+  "tour.real.title": "Marcador real — preguntas del registro resueltas",
+  "tour.real.who": "Participante",
+  "tour.real.vsmkt": "Δ vs mercado al comprometerse",
+  "tour.real.market": "Precio de mercado al capturar (referencia)",
+  "tour.real.uniform": "Siempre 50 % (referencia)",
+  "tour.real.you": "Tú (este navegador)",
+  "tour.real.note": "Las referencias se calculan a partir del propio registro y no necesitan clave. Cada fila se puntúa solo en las preguntas que ese participante realmente pronosticó, por eso n difiere; la referencia de mercado cubre todas las preguntas resueltas y es la cifra a batir.",
+  "idx.stat.ledger": "Preguntas reales resueltas · Brier del mercado al capturar {p}"
 }

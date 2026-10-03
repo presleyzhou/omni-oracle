@@ -143,6 +143,7 @@ async function questionLedger() {
   const lists = await Promise.all([
     getJson("https://gamma-api.polymarket.com/markets?limit=300&closed=false&active=true&order=volume24hr&ascending=false").catch(() => []),
     getJson("https://gamma-api.polymarket.com/markets?limit=300&closed=false&active=true&order=liquidity&ascending=false").catch(() => []),
+    getJson("https://gamma-api.polymarket.com/markets?limit=500&closed=false&active=true&order=createdAt&ascending=false").catch(() => []),
   ]);
   const seen = new Set();
   const fresh = lists.flat().filter(m => m && !seen.has(m.slug) && seen.add(m.slug))

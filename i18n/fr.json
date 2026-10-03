@@ -550,5 +550,13 @@
   "my.export.hint": "Tout est noté localement ; exportez pour transférer votre historique entre navigateurs.",
   "my.import.bad": "Ce fichier n'est pas un export de prévisions Omni Oracle.",
   "ch.real": "Vraies prévisions notées (vous + IA)",
-  "mk.rel.real": "Vrai marché Polymarket associé"
+  "mk.rel.real": "Vrai marché Polymarket associé",
+  "tour.real.title": "Tableau réel — questions du registre résolues",
+  "tour.real.who": "Participant",
+  "tour.real.vsmkt": "Δ vs marché à l'engagement",
+  "tour.real.market": "Prix de marché à la capture (référence)",
+  "tour.real.uniform": "Toujours 50 % (référence)",
+  "tour.real.you": "Vous (ce navigateur)",
+  "tour.real.note": "Les références sont calculées à partir du registre lui-même, sans clé. Chaque ligne n'est notée que sur les questions réellement prévues par ce participant, d'où des n différents ; la référence marché couvre toutes les questions résolues et constitue le chiffre à battre.",
+  "idx.stat.ledger": "Vraies questions résolues · Brier du marché à la capture {p}"
 }

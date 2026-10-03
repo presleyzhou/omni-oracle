@@ -5,7 +5,7 @@
 /* hero stats: BEA GDP, BLS CPI / core CPI / unemployment, top Polymarket market */
 (function () {
   const S = [];
-  let pending = 5, worst = "live";
+  let pending = 6, worst = "live";
   const rank = { live: 0, cached: 1, snapshot: 2 };
   const note = (src) => { if (src && rank[src] > rank[worst]) worst = src; };
   const push = (order, num, lblKey, period, cls) => S.push({ order, num, lblKey, period, cls });
@@ -50,6 +50,14 @@
   bls("CUUR0000SA0L1E", 3, "mac.stat.core", true, "");
   bls("LNS14000000", 4, "mac.stat.unemp", false, "");
 
+  /* real question ledger: how many resolved, and the market's own Brier at capture */
+  OO_FETCH("data/questions.json", { ttl: 900 }).then(q => {
+    const res = q && q.questions ? q.questions.filter(x => x.resolved != null) : [];
+    if (!res.length) return;
+    const b = res.reduce((a, x) => a + (x.priceAtCapture - x.resolved) ** 2, 0) / res.length;
+    note("snapshot");
+    push(6, String(res.length), "idx.stat.ledger", b.toFixed(3), "");
+  }).finally(done);
   ooLive("https://gamma-api.polymarket.com/markets?limit=6&active=true&closed=false&order=volume24hr&ascending=false", "polymarket", { ttl: 120 })
     .then(({ data: d, source }) => {
       if (Array.isArray(d) && d[0]) {

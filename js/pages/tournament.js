@@ -102,11 +102,26 @@ function renderAiLedger() {
   const graded = AIF.map(f => { const q = bySlug[f.slug]; return q && q.resolved != null ? { ...f, y: q.resolved } : null; }).filter(Boolean);
   const pending = AIF.filter(f => { const q = bySlug[f.slug]; return q && q.resolved == null; });
   let html = `<p class="dim-note">${T2("tour.ai.ledger.stats", { n: LEDGER.questions.length, open: LEDGER.questions.filter(q => !q.closed).length, res: LEDGER.questions.filter(q => q.resolved != null).length, upd: (LEDGER.updated || "").slice(0, 10) })}</p>`;
-  if (graded.length) {
+  /* real scoreboard, no key needed: baselines computed from the ledger itself (market price at
+     capture, uniform 50%), then your graded forecasts, then each model's. Every row is scored
+     only on questions it actually forecast, so n differs by row — the market baseline covers
+     all resolved questions and is the number any participant has to beat. */
+  const resolved = LEDGER.questions.filter(q => q.resolved != null);
+  if (resolved.length) {
+    const rows = [];
+    const mean = (arr) => arr.reduce((a, b) => a + b, 0) / arr.length;
+    rows.push({ name: OO_T("tour.real.market"), n: resolved.length, b: mean(resolved.map(q => brier(q.priceAtCapture, q.resolved))), real: true });
+    rows.push({ name: OO_T("tour.real.uniform"), n: resolved.length, b: 0.25, real: true });
+    const gh = gradedHuman(bySlug);
+    if (gh.length) rows.push({ name: OO_T("tour.real.you"), n: gh.length, b: mean(gh.map(x => brier(x.p, x.y))), mb: mean(gh.map(x => brier(x.mp, x.y))) });
     const byModel = {};
-    graded.forEach(f => { const m = byModel[f.model] = byModel[f.model] || { n: 0, b: 0, mb: 0 }; m.n++; m.b += brier(f.p, f.y); m.mb += brier(f.marketP, f.y); });
-    html += `<table style="margin-top:8px;"><thead><tr><th scope="col">${OO_T("tour.ai.model")}</th><th scope="col">${OO_T("tour.ai.graded")}</th><th scope="col">${OO_T("tour.th.brier")}</th><th scope="col">${OO_T("tour.ai.mktbrier")}</th><th scope="col">Δ</th></tr></thead><tbody>` +
-      Object.entries(byModel).map(([m, v]) => { const b = v.b / v.n, mb = v.mb / v.n; return `<tr><td><strong>${m}</strong></td><td class="num-cell">${v.n}</td><td class="num-cell">${b.toFixed(3)}</td><td class="num-cell">${mb.toFixed(3)}</td><td class="num-cell ${b <= mb ? "pos" : "neg"}">${(b - mb >= 0 ? "+" : "") + (b - mb).toFixed(3)}</td></tr>`; }).join("") + `</tbody></table>`;
+    graded.forEach(f => { const m = byModel[f.model] = byModel[f.model] || { b: [], mb: [] }; m.b.push(brier(f.p, f.y)); m.mb.push(brier(f.marketP, f.y)); });
+    Object.entries(byModel).forEach(([m, v]) => rows.push({ name: m, n: v.b.length, b: mean(v.b), mb: mean(v.mb) }));
+    rows.sort((a, b) => a.b - b.b);
+    html += `<h4 class="real-h">${OO_T("tour.real.title")}</h4>
+      <table style="margin-top:6px;"><thead><tr><th scope="col">${OO_T("tour.real.who")}</th><th scope="col">${OO_T("tour.ai.graded")}</th><th scope="col">${OO_T("tour.th.brier")}</th><th scope="col">${OO_T("tour.real.vsmkt")}</th></tr></thead><tbody>` +
+      rows.map(r => `<tr><td>${r.real ? "" : "<strong>"}${r.name}${r.real ? "" : "</strong>"}</td><td class="num-cell">${r.n}</td><td class="num-cell">${r.b.toFixed(3)}</td><td class="num-cell ${r.mb == null ? "" : r.b <= r.mb ? "pos" : "neg"}">${r.mb == null ? "—" : (r.b - r.mb >= 0 ? "+" : "") + (r.b - r.mb).toFixed(3)}</td></tr>`).join("") +
+      `</tbody></table><p class="dim-note" style="margin-top:6px;">${OO_T("tour.real.note")}</p>`;
   }
   if (pending.length) {
     html += `<p class="dim-note" style="margin-top:10px;">${T2("tour.ai.pending", { n: pending.length })}</p><ul class="pending-list">` +

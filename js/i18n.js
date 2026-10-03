@@ -565,7 +565,15 @@ en: {
   "my.export.hint": "Everything is scored locally; export to move your record between browsers.",
   "my.import.bad": "That file is not an Omni Oracle forecast export.",
   "ch.real": "Real graded forecasts (you + AI)",
-  "mk.rel.real": "Related real Polymarket market"
+  "mk.rel.real": "Related real Polymarket market",
+  "tour.real.title": "Real scoreboard — resolved ledger questions",
+  "tour.real.who": "Participant",
+  "tour.real.vsmkt": "Δ vs market at commit",
+  "tour.real.market": "Market price at capture (baseline)",
+  "tour.real.uniform": "Always 50% (baseline)",
+  "tour.real.you": "You (this browser)",
+  "tour.real.note": "Baselines are computed from the ledger itself and need no key. Each row is scored only on the questions that participant actually forecast, so n differs; the market baseline covers every resolved question and is the number to beat.",
+  "idx.stat.ledger": "Real questions resolved · market Brier at capture {p}"
 },
 };
 

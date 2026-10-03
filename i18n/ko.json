@@ -550,5 +550,13 @@
   "my.export.hint": "모든 채점은 로컬에서 이루어집니다; 내보내기로 브라우저 간 기록을 옮기세요.",
   "my.import.bad": "Omni Oracle 예측 내보내기 파일이 아닙니다.",
   "ch.real": "채점된 실제 예측(나 + AI)",
-  "mk.rel.real": "관련된 실제 Polymarket 시장"
+  "mk.rel.real": "관련된 실제 Polymarket 시장",
+  "tour.real.title": "실제 스코어보드 — 확정된 원장 질문",
+  "tour.real.who": "참가자",
+  "tour.real.vsmkt": "Δ vs 제출 시 시장",
+  "tour.real.market": "수집 시 시장 가격(기준선)",
+  "tour.real.uniform": "항상 50%(기준선)",
+  "tour.real.you": "나(이 브라우저)",
+  "tour.real.note": "기준선은 원장 자체에서 계산되며 키가 필요 없습니다. 각 행은 해당 참가자가 실제로 예측한 질문에 대해서만 채점되므로 n이 다릅니다. 시장 기준선은 확정된 모든 질문을 포함하며 모두가 넘어야 할 숫자입니다.",
+  "idx.stat.ledger": "확정된 실제 질문 · 수집 시 시장 Brier {p}"
 }

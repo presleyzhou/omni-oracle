@@ -550,5 +550,13 @@
   "my.export.hint": "所有评分都在本地完成；导出后可在不同浏览器之间迁移记录。",
   "my.import.bad": "该文件不是 Omni Oracle 的预测导出文件。",
   "ch.real": "真实已评分预测（你 + AI）",
-  "mk.rel.real": "相关的真实 Polymarket 市场"
+  "mk.rel.real": "相关的真实 Polymarket 市场",
+  "tour.real.title": "真实记分板——已结算的台账问题",
+  "tour.real.who": "参与者",
+  "tour.real.vsmkt": "Δ vs 提交时市场",
+  "tour.real.market": "入账时市场价格（基准）",
+  "tour.real.uniform": "恒为 50%（基准）",
+  "tour.real.you": "你（本浏览器）",
+  "tour.real.note": "基准由台账本身计算，无需任何密钥。每一行只在该参与者实际预测过的问题上计分，因此 n 各不相同；市场基准覆盖全部已结算问题，是所有人要击败的数字。",
+  "idx.stat.ledger": "已结算的真实问题 · 入账时市场 Brier {p}"
 }
