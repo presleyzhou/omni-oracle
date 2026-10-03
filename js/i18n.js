@@ -141,7 +141,7 @@ en: {
   "tr.th.ticker": "Ticker",
   "tr.th.px": "Price · LIVE",
   "my.title": "🎯 My forecasts (local)",
-  "my.sub": "Pick any open market, set your probability, submit. Stored only in your browser; Δ shows how far you stand from the current market price.",
+  "my.sub": "Forecast demo markets, or real Polymarket questions from the daily ledger — those are stored with the market price at commit and graded on resolution, so the same Brier table compares you, the AI bench and the market. Everything stays in your browser.",
   "my.prob": "My probability",
   "my.submit": "Submit",
   "my.delta": "Δ vs market",
@@ -552,7 +552,20 @@ en: {
   "me.upd.3": "<strong>Probing LLM forecasters (arXiv 2607.08046)</strong> — forecasts are largely fixed before reasoning; explanations are often unfaithful. → Analyst prompts ask for the bottom line first; every free-text LLM output carries a faithfulness caveat.",
   "me.upd.4": "<strong>MACROCAST (arXiv 2606.28670)</strong> — the first vintage-consistent TSFM, ruling out revision bias. → The macro page can show first print vs. latest for GDP and unemployment (FRED vintages), and TSFM roadmap work targets vintage-consistent training.",
   "me.upd.5": "<strong>BLS 2025–26 lapses and the 2026 benchmark revision (Cleveland Fed EC 2026-12)</strong> — → BLS footnotes (unpublished months, population-control revisions) are carried through the snapshot and displayed next to the series.",
-  "me.upd.6": "<strong>Scale limits of social mechanisms (arXiv 2608.22884) · AgentSociety (2502.08691)</strong> — audit a mechanism before scaling it; validate against real social experiments. → Sim Worlds gained message reach/lifetime dials, a four-population scale audit and two pattern-replication checks."
+  "me.upd.6": "<strong>Scale limits of social mechanisms (arXiv 2608.22884) · AgentSociety (2502.08691)</strong> — audit a mechanism before scaling it; validate against real social experiments. → Sim Worlds gained message reach/lifetime dials, a four-population scale audit and two pattern-replication checks.",
+  "my.src.demo": "Demo markets",
+  "my.src.real": "Real questions (ledger, graded on resolution)",
+  "my.real.none": "No open ledger questions left to forecast",
+  "my.real.open": "awaiting resolution",
+  "my.demo": "demo",
+  "my.status": "Status",
+  "my.graded": "Your graded real forecasts: {n} · your Brier {b} · market Brier at commit {mb}",
+  "my.export": "⬇ Export forecasts (JSON)",
+  "my.import": "⬆ Import",
+  "my.export.hint": "Everything is scored locally; export to move your record between browsers.",
+  "my.import.bad": "That file is not an Omni Oracle forecast export.",
+  "ch.real": "Real graded forecasts (you + AI)",
+  "mk.rel.real": "Related real Polymarket market"
 },
 };
 

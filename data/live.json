@@ -1,39 +1,7 @@
 {
- "generated": "2026-10-03T11:40:45.180Z",
+ "generated": "2026-10-03T14:58:54.488Z",
  "worldbank": {
   "USA": {
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-07-13"
-    },
-    [
-     {
-      "date": "2025",
-      "value": null
-     },
-     {
-      "date": "2024",
-      "value": 2.94952520485207
-     },
-     {
-      "date": "2023",
-      "value": 4.11633838374488
-     },
-     {
-      "date": "2022",
-      "value": 8.00279982052121
-     },
-     {
-      "date": "2021",
-      "value": 4.69785886363742
-     }
-    ]
-   ],
    "gdp": [
     {
      "page": 1,
@@ -63,6 +31,38 @@
      {
       "date": "2021",
       "value": 6.15202247867526
+     }
+    ]
+   ],
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-07-13"
+    },
+    [
+     {
+      "date": "2025",
+      "value": null
+     },
+     {
+      "date": "2024",
+      "value": 2.94952520485207
+     },
+     {
+      "date": "2023",
+      "value": 4.11633838374488
+     },
+     {
+      "date": "2022",
+      "value": 8.00279982052121
+     },
+     {
+      "date": "2021",
+      "value": 4.69785886363742
      }
     ]
    ]
@@ -134,38 +134,6 @@
    ]
   },
   "CHN": {
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-07-13"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 4.95994886240992
-     },
-     {
-      "date": "2024",
-      "value": 4.95830378788091
-     },
-     {
-      "date": "2023",
-      "value": 5.41600334492955
-     },
-     {
-      "date": "2022",
-      "value": 3.13385438394069
-     },
-     {
-      "date": "2021",
-      "value": 8.57038414981781
-     }
-    ]
-   ],
    "cpi": [
     {
      "page": 1,
@@ -197,9 +165,7 @@
       "value": 0.981015135544882
      }
     ]
-   ]
-  },
-  "JPN": {
+   ],
    "gdp": [
     {
      "page": 1,
@@ -212,26 +178,28 @@
     [
      {
       "date": "2025",
-      "value": 1.19311288444599
+      "value": 4.95994886240992
      },
      {
       "date": "2024",
-      "value": -0.240084236041696
+      "value": 4.95830378788091
      },
      {
       "date": "2023",
-      "value": 0.720785304749811
+      "value": 5.41600334492955
      },
      {
       "date": "2022",
-      "value": 1.33164750653741
+      "value": 3.13385438394069
      },
      {
       "date": "2021",
-      "value": 3.56419531474475
+      "value": 8.57038414981781
      }
     ]
-   ],
+   ]
+  },
+  "JPN": {
    "cpi": [
     {
      "page": 1,
@@ -261,6 +229,38 @@
      {
       "date": "2021",
       "value": -0.233352779398264
+     }
+    ]
+   ],
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-07-13"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 1.19311288444599
+     },
+     {
+      "date": "2024",
+      "value": -0.240084236041696
+     },
+     {
+      "date": "2023",
+      "value": 0.720785304749811
+     },
+     {
+      "date": "2022",
+      "value": 1.33164750653741
+     },
+     {
+      "date": "2021",
+      "value": 3.56419531474475
      }
     ]
    ]
@@ -1575,16 +1575,16 @@
     "cp": 1.56
    }
   },
-  "AAPL": {
-   "data": {
-    "p": 333.69,
-    "cp": 1.02
-   }
-  },
   "MSFT": {
    "data": {
     "p": 517.53,
     "cp": 0.92
+   }
+  },
+  "AAPL": {
+   "data": {
+    "p": 333.69,
+    "cp": 1.02
    }
   },
   "NVDA": {
@@ -1593,16 +1593,16 @@
     "cp": 1.34
    }
   },
+  "VRT": {
+   "data": {
+    "p": 252.18,
+    "cp": 2.46
+   }
+  },
   "META": {
    "data": {
     "p": 728.08,
     "cp": 0.3
-   }
-  },
-  "MU": {
-   "data": {
-    "p": 1074.89,
-    "cp": -2.05
    }
   },
   "AVGO": {
@@ -1611,16 +1611,10 @@
     "cp": 3.35
    }
   },
-  "VRT": {
+  "MU": {
    "data": {
-    "p": 252.18,
-    "cp": 2.46
-   }
-  },
-  "TSLA": {
-   "data": {
-    "p": 370.59,
-    "cp": 4.65
+    "p": 1074.89,
+    "cp": -2.05
    }
   },
   "LLY": {
@@ -1629,10 +1623,10 @@
     "cp": -0.61
    }
   },
-  "ISRG": {
+  "TSLA": {
    "data": {
-    "p": 391.95,
-    "cp": -2.32
+    "p": 370.59,
+    "cp": 4.65
    }
   },
   "NVO": {
@@ -1641,16 +1635,22 @@
     "cp": -0.21
    }
   },
-  "RKLB": {
+  "ISRG": {
    "data": {
-    "p": 73.92,
-    "cp": 4.91
+    "p": 391.95,
+    "cp": -2.32
    }
   },
   "GEV": {
    "data": {
     "p": 988.7,
     "cp": 0.13
+   }
+  },
+  "RKLB": {
+   "data": {
+    "p": 73.92,
+    "cp": 4.91
    }
   },
   "IONQ": {
@@ -6386,60 +6386,60 @@
  ],
  "coingecko": {
   "bitcoin": {
-   "usd": 84645,
-   "usd_24h_change": -2.110516995602367
+   "usd": 84829,
+   "usd_24h_change": -1.0219487022809963
   },
   "ethereum": {
-   "usd": 2685.09,
-   "usd_24h_change": -2.379592047941834
+   "usd": 2682.55,
+   "usd_24h_change": -0.998222993642223
   },
   "solana": {
-   "usd": 119.37,
-   "usd_24h_change": -2.1993408790857982
+   "usd": 119.74,
+   "usd_24h_change": -0.7625907623976591
   }
  },
  "polymarket": [
   {
    "question": "Will Indiana enact a data center moratorium by December 31, 2027?",
    "slug": "will-indiana-enact-a-data-center-moratorium-by-december-31-2027",
-   "volume24hr": 1923343.046927,
-   "outcomePrices": "[\"0.125\", \"0.875\"]",
+   "volume24hr": 1926617.780838,
+   "outcomePrices": "[\"0.115\", \"0.885\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Counter-Strike: Legacy vs PARIVISION (BO3) - ESL Pro League Group Stage",
-   "slug": "cs2-lgc-prv-2026-10-03",
-   "volume24hr": 1844936.4556369998,
-   "outcomePrices": "[\"0.245\", \"0.755\"]",
-   "outcomes": "[\"Legacy\", \"PARIVISION\"]"
-  },
-  {
-   "question": "Will there be no change in Fed interest rates after the October 2026 meeting?",
-   "slug": "will-there-be-no-change-in-fed-interest-rates-after-the-october-2026-meeting-20260617190324031",
-   "volume24hr": 953980.8575140003,
-   "outcomePrices": "[\"0.825\", \"0.175\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  },
-  {
-   "question": "LoL: Team Vitality vs BNK FEARX (BO1) - Demacia Cup Global Invitational Group Stage",
-   "slug": "lol-vit-fox1-2026-10-03",
-   "volume24hr": 860456.7106630008,
-   "outcomePrices": "[\"0.0005\", \"0.9995\"]",
-   "outcomes": "[\"Team Vitality\", \"BNK FEARX\"]"
+   "question": "LoL: HANJIN BRION vs JD Gaming (BO1) - Demacia Cup Global Invitational Group Stage",
+   "slug": "lol-bro2-jdg-2026-10-03",
+   "volume24hr": 1313632.0444259988,
+   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
+   "outcomes": "[\"HANJIN BRION\", \"JD Gaming\"]"
   },
   {
    "question": "Will Anthropic announce bankruptcy by December 31, 2027?",
    "slug": "will-anthropic-announce-bankruptcy-by-december-31-2027",
-   "volume24hr": 857536.139099,
+   "volume24hr": 856804.730907,
    "outcomePrices": "[\"0.105\", \"0.895\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "LoL: Shopify Rebellion vs KT Rolster (BO1) - Demacia Cup Global Invitational Group Stage",
-   "slug": "lol-sr-kt-2026-10-03",
-   "volume24hr": 627660.8457129999,
+   "question": "China Open: Elena Rybakina vs Alina Charaeva",
+   "slug": "wta-rybakin-charaev-2026-10-01",
+   "volume24hr": 826558.6786820007,
    "outcomePrices": "[\"0.0005\", \"0.9995\"]",
-   "outcomes": "[\"Shopify Rebellion\", \"KT Rolster\"]"
+   "outcomes": "[\"Elena Rybakina\", \"Alina Charaeva\"]"
+  },
+  {
+   "question": "Will Luiz Inácio Lula da Silva win the 2026 Brazilian presidential election?",
+   "slug": "will-luiz-incio-lula-da-silva-win-the-2026-brazilian-presidential-election",
+   "volume24hr": 654638.8607279999,
+   "outcomePrices": "[\"0.415\", \"0.585\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
+  },
+  {
+   "question": "Counter-Strike: Spirit vs ShindeN (BO3) - ESL Pro League Group Stage",
+   "slug": "cs2-ts7-shin-2026-10-03",
+   "volume24hr": 639889.6123260007,
+   "outcomePrices": "[\"0.9825\", \"0.0175\"]",
+   "outcomes": "[\"Spirit\", \"ShindeN\"]"
   }
  ]
 }

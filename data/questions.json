@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-03T11:41:25.132Z",
+ "updated": "2026-10-03T15:04:26.244Z",
  "questions": [
   {
    "slug": "us-x-iran-ceasefire-continues-through-october-31-20260917",
@@ -9,7 +9,7 @@
    "endDate": "2026-10-31T23:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.565,
-   "price": 0.625,
+   "price": 0.615,
    "closed": false,
    "resolved": null
   },
@@ -21,9 +21,10 @@
    "endDate": "2026-09-30T23:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.905,
-   "price": 0.982,
-   "closed": false,
-   "resolved": null
+   "price": 1,
+   "closed": true,
+   "resolved": 1,
+   "resolvedAt": "2026-09-30 22:47:27+00"
   },
   {
    "slug": "strait-of-hormuz-traffic-returns-to-normal-by-october-31-20260810151043583",
@@ -33,7 +34,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.075,
-   "price": 0.024,
+   "price": 0.0275,
    "closed": false,
    "resolved": null
   },
@@ -50,18 +51,6 @@
    "resolved": null
   },
   {
-   "slug": "unl-bel-fra-2026-09-28-fra",
-   "id": "4581768",
-   "question": "Will France win on 2026-09-28?",
-   "createdAt": "2026-09-15T10:00:35.496998Z",
-   "endDate": "2026-09-28T18:45:00Z",
-   "capturedAt": "2026-09-27T12:05:08.188Z",
-   "priceAtCapture": 0.515,
-   "price": 0.515,
-   "closed": false,
-   "resolved": null
-  },
-  {
    "slug": "will-bitcoin-dip-to-82pt5k-in-september-2026",
    "id": "4797724",
    "question": "Will Bitcoin dip to $82,500 in September?",
@@ -69,9 +58,10 @@
    "endDate": "2026-10-01T04:00:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.615,
-   "price": 0.12,
-   "closed": false,
-   "resolved": null
+   "price": 0,
+   "closed": true,
+   "resolved": 0,
+   "resolvedAt": "2026-10-01 04:21:17+00"
   },
   {
    "slug": "trump-renames-ai-by-september-30",
@@ -81,9 +71,10 @@
    "endDate": "2026-10-01T03:59:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.345,
-   "price": 0.405,
-   "closed": false,
-   "resolved": null
+   "price": 1,
+   "closed": true,
+   "resolved": 1,
+   "resolvedAt": "2026-09-29 23:22:35+00"
   },
   {
    "slug": "will-ethereum-dip-to-2500-in-september-2026-from-september-18",
@@ -93,9 +84,10 @@
    "endDate": "2026-10-01T04:00:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.055,
-   "price": 0.009,
-   "closed": false,
-   "resolved": null
+   "price": 0,
+   "closed": true,
+   "resolved": 0,
+   "resolvedAt": "2026-10-01 04:23:32+00"
   },
   {
    "slug": "will-bitcoin-dip-to-77pt5k-in-september-2026-from-september-18",
@@ -105,9 +97,10 @@
    "endDate": "2026-10-01T04:00:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.0375,
-   "price": 0.006,
-   "closed": false,
-   "resolved": null
+   "price": 0,
+   "closed": true,
+   "resolved": 0,
+   "resolvedAt": "2026-10-01 04:21:15+00"
   },
   {
    "slug": "will-bitcoin-dip-to-80k-in-september-2026-from-september-18",
@@ -117,9 +110,10 @@
    "endDate": "2026-10-01T04:00:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.1275,
-   "price": 0.0135,
-   "closed": false,
-   "resolved": null
+   "price": 0,
+   "closed": true,
+   "resolved": 0,
+   "resolvedAt": "2026-10-01 04:23:39+00"
   },
   {
    "slug": "saudi-oil-pipeline-east-west-restarts-by-october-31",
@@ -129,7 +123,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.7905,
-   "price": 0.6215,
+   "price": 0.62,
    "closed": false,
    "resolved": null
   },
@@ -141,9 +135,10 @@
    "endDate": "2026-10-01T03:59:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.29,
-   "price": 0.0475,
-   "closed": false,
-   "resolved": null
+   "price": 0,
+   "closed": true,
+   "resolved": 0,
+   "resolvedAt": "2026-10-01 06:03:44+00"
   },
   {
    "slug": "will-bitcoin-reach-87pt5k-in-september-2026",
@@ -153,9 +148,10 @@
    "endDate": "2026-10-01T04:00:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.115,
-   "price": 0.083,
-   "closed": false,
-   "resolved": null
+   "price": 0,
+   "closed": true,
+   "resolved": 0,
+   "resolvedAt": "2026-10-01 04:21:17+00"
   },
   {
    "slug": "will-ethereum-dip-to-2250-by-december-31-2026",
@@ -177,7 +173,7 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.17,
-   "price": 0.085,
+   "price": 0.115,
    "closed": false,
    "resolved": null
   },
@@ -189,9 +185,10 @@
    "endDate": "2026-09-30T23:59:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.0885,
-   "price": 0.0255,
-   "closed": false,
-   "resolved": null
+   "price": 0,
+   "closed": true,
+   "resolved": 0,
+   "resolvedAt": "2026-10-01 06:04:20+00"
   },
   {
    "slug": "will-ethereum-reach-2800-in-september-2026-from-september-22",
@@ -201,33 +198,10 @@
    "endDate": "2026-10-01T04:00:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.43,
-   "price": 0.225,
-   "closed": false,
-   "resolved": null
-  },
-  {
-   "slug": "fif-chn-tkm-2026-10-02-draw",
-   "id": "4685134",
-   "question": "Will China PR vs. Turkmenistan end in a draw?",
-   "createdAt": "2026-09-18T13:00:04.676635Z",
-   "endDate": "2026-10-02T11:35:00Z",
-   "capturedAt": "2026-09-29T12:55:47.980Z",
-   "priceAtCapture": 0.9645,
-   "price": 0.9665,
-   "closed": false,
-   "resolved": null
-  },
-  {
-   "slug": "fif-chn-tkm-2026-10-02-chn",
-   "id": "4685133",
-   "question": "Will China PR win on 2026-10-02?",
-   "createdAt": "2026-09-18T13:00:04.515825Z",
-   "endDate": "2026-10-02T11:35:00Z",
-   "capturedAt": "2026-09-29T12:55:47.980Z",
-   "priceAtCapture": 0.034,
-   "price": 0.0215,
-   "closed": false,
-   "resolved": null
+   "price": 0,
+   "closed": true,
+   "resolved": 0,
+   "resolvedAt": "2026-10-01 04:23:32+00"
   },
   {
    "slug": "will-ethereum-reach-2900-in-september-2026",
@@ -237,9 +211,10 @@
    "endDate": "2026-10-01T04:00:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.112,
-   "price": 0.021,
-   "closed": false,
-   "resolved": null
+   "price": 0,
+   "closed": true,
+   "resolved": 0,
+   "resolvedAt": "2026-10-01 04:23:32+00"
   },
   {
    "slug": "us-iran-final-nuclear-deal-by-october-31-2026",
@@ -249,19 +224,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.04,
-   "price": 0.022,
-   "closed": false,
-   "resolved": null
-  },
-  {
-   "slug": "unl-den-prt-2026-10-01-prt",
-   "id": "4678642",
-   "question": "Will Portugal win on 2026-10-01?",
-   "createdAt": "2026-09-18T10:00:12.406586Z",
-   "endDate": "2026-10-01T18:45:00Z",
-   "capturedAt": "2026-09-30T12:37:09.469Z",
-   "priceAtCapture": 0.475,
-   "price": 0.475,
+   "price": 0.021,
    "closed": false,
    "resolved": null
   },
@@ -273,7 +236,7 @@
    "endDate": "2026-12-09T00:00:00Z",
    "capturedAt": "2026-09-30T12:37:09.469Z",
    "priceAtCapture": 0.825,
-   "price": 0.72,
+   "price": 0.725,
    "closed": false,
    "resolved": null
   },
@@ -297,7 +260,7 @@
    "endDate": "2026-10-08T03:59:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.915,
-   "price": 0.93,
+   "price": 0.935,
    "closed": false,
    "resolved": null
   },
@@ -309,9 +272,10 @@
    "endDate": "2026-10-02T16:00:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.075,
-   "price": 0.84,
-   "closed": false,
-   "resolved": null
+   "price": 0,
+   "closed": true,
+   "resolved": 0,
+   "resolvedAt": "2026-10-02 16:13:44+00"
   },
   {
    "slug": "bitcoin-above-82k-on-october-2-2026",
@@ -321,9 +285,10 @@
    "endDate": "2026-10-02T16:00:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.835,
-   "price": 0.9955,
-   "closed": false,
-   "resolved": null
+   "price": 1,
+   "closed": true,
+   "resolved": 1,
+   "resolvedAt": "2026-10-02 16:12:33+00"
   },
   {
    "slug": "saudi-oil-pipeline-east-west-restarts-by-october-15",
@@ -333,7 +298,7 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.365,
-   "price": 0.365,
+   "price": 0.355,
    "closed": false,
    "resolved": null
   },
@@ -345,9 +310,10 @@
    "endDate": "2026-10-02T16:00:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.315,
-   "price": 0.315,
-   "closed": false,
-   "resolved": null
+   "price": 0,
+   "closed": true,
+   "resolved": 0,
+   "resolvedAt": "2026-10-01 22:12:09+00"
   },
   {
    "slug": "will-flavio-bolsonaro-win-the-most-votes-in-the-first-round-of-the-2026-brazil-presidential-election",
@@ -357,7 +323,7 @@
    "endDate": "2026-10-05T03:59:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.305,
-   "price": 0.255,
+   "price": 0.265,
    "closed": false,
    "resolved": null
   },
@@ -369,7 +335,7 @@
    "endDate": "2026-10-05T03:59:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.69,
-   "price": 0.745,
+   "price": 0.735,
    "closed": false,
    "resolved": null
   },
@@ -393,7 +359,7 @@
    "endDate": "2026-10-31T16:00:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.7185,
-   "price": 0.6355,
+   "price": 0.6505,
    "closed": false,
    "resolved": null
   },
@@ -405,7 +371,7 @@
    "endDate": "2026-10-31T16:00:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.275,
-   "price": 0.36,
+   "price": 0.355,
    "closed": false,
    "resolved": null
   },
@@ -417,7 +383,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.0315,
-   "price": 0.0385,
+   "price": 0.038,
    "closed": false,
    "resolved": null
   },
@@ -429,7 +395,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.92,
-   "price": 0.705,
+   "price": 0.725,
    "closed": false,
    "resolved": null
   },
@@ -465,7 +431,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.155,
-   "price": 0.085,
+   "price": 0.095,
    "closed": false,
    "resolved": null
   },
@@ -477,7 +443,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.095,
-   "price": 0.055,
+   "price": 0.065,
    "closed": false,
    "resolved": null
   },
@@ -513,7 +479,7 @@
    "endDate": "2026-10-05T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.188,
-   "price": 0.0065,
+   "price": 0.0125,
    "closed": false,
    "resolved": null
   },
@@ -525,19 +491,7 @@
    "endDate": "2026-10-05T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.073,
-   "price": 0.0035,
-   "closed": false,
-   "resolved": null
-  },
-  {
-   "slug": "fif-bol-gam-2026-10-04-draw",
-   "id": "5029249",
-   "question": "Will Bolivia vs. Gambia end in a draw?",
-   "createdAt": "2026-09-27T13:00:06.214319Z",
-   "endDate": "2026-10-04T22:30:00Z",
-   "capturedAt": "2026-10-02T12:37:34.916Z",
-   "priceAtCapture": 0.953,
-   "price": 0.953,
+   "price": 0.004,
    "closed": false,
    "resolved": null
   },
@@ -561,7 +515,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-03T11:41:25.132Z",
    "priceAtCapture": 0.135,
-   "price": 0.135,
+   "price": 0.145,
    "closed": false,
    "resolved": null
   },
@@ -573,7 +527,19 @@
    "endDate": "2026-10-05T04:00:00Z",
    "capturedAt": "2026-10-03T11:41:25.132Z",
    "priceAtCapture": 0.039,
-   "price": 0.039,
+   "price": 0.044,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-bitcoin-reach-88k-september-28-october-4-2026",
+   "id": "5062265",
+   "question": "Will Bitcoin reach $88,000 September 28-October 4?",
+   "createdAt": "2026-09-28T04:00:02.63678Z",
+   "endDate": "2026-10-05T04:00:00Z",
+   "capturedAt": "2026-10-03T14:40:59.523Z",
+   "priceAtCapture": 0.04,
+   "price": 0.041,
    "closed": false,
    "resolved": null
   }

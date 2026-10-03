@@ -44,20 +44,36 @@ ooLive("https://gamma-api.polymarket.com/markets?limit=6&active=true&closed=fals
     renderPmLive();
   });
 
-/* related markets: token overlap + same-category bonus (semantic clustering, demo-grade) */
-const REL = OO.markets.map((m, i) => {
+/* related markets: TF-IDF cosine neighbours computed daily by the snapshot
+   (data/related.json, demo markets + live ledger questions); token overlap with a
+   same-category bonus is the fallback when the file is missing. */
+const relFallback = (i) => {
   const toks = (q) => new Set(q.toLowerCase().split(/[^a-z0-9]+/).filter(w => w.length > 3));
-  const a = toks(m.q);
-  return OO.markets
-    .map((n, j) => {
-      if (i === j) return { j, s: -1 };
-      let s = 0;
-      toks(n.q).forEach(w => { if (a.has(w)) s++; });
-      if (n.cat === m.cat) s += 1.5;
-      return { j, s };
-    })
-    .sort((x, y) => y.s - x.s).slice(0, 2).map(x => x.j);
+  const a = toks(OO.markets[i].q);
+  return OO.markets.map((n, j) => {
+    if (i === j) return { j, s: -1 };
+    let s = 0; toks(n.q).forEach(w => { if (a.has(w)) s++; });
+    if (n.cat === OO.markets[i].cat) s += 1.5;
+    return { j, s };
+  }).sort((x, y) => y.s - x.s).slice(0, 2).map(x => ({ id: "demo:" + x.j }));
+};
+let REL = OO.markets.map((_, i) => relFallback(i));
+let RELQ = {}; // pm:<slug> → question
+Promise.all([OO_FETCH("data/related.json", { ttl: 900 }), OO_FETCH("data/questions.json", { ttl: 900 })]).then(([r, q]) => {
+  if (q && q.questions) q.questions.forEach(x => { RELQ[x.slug] = x; });
+  if (r && r.related) {
+    REL = OO.markets.map((_, i) => {
+      const nb = (r.related["demo:" + i] || []).filter(x => x.id.startsWith("demo:") || RELQ[x.id.slice(3)]);
+      return nb.length ? nb : relFallback(i);
+    });
+    render();
+  }
 });
+const relLink = (x) => {
+  if (x.id.startsWith("demo:")) { const j = +x.id.slice(5); return `<a href="#" class="rel-link" data-j="${j}">${OO.markets[j].q.slice(0, 42)}${OO.markets[j].q.length > 42 ? "…" : ""}</a>`; }
+  const q = RELQ[x.id.slice(3)]; if (!q) return "";
+  return `<a href="https://polymarket.com/market/${q.slug}" target="_blank" rel="noopener" class="rel-link real" title="${OO_T("mk.rel.real")} · ${Math.round(q.price * 100)}¢">🔴 ${q.question.slice(0, 42)}${q.question.length > 42 ? "…" : ""}</a>`;
+};
 
 /* play-money portfolio, persisted in localStorage */
 let PORT = [];
@@ -169,7 +185,7 @@ function render() {
       </div>
       <div class="market-meta" style="font-size:0.76rem;">
         <span>${OO_T("mk.rel")}:</span>
-        ${REL[i].map(j => `<a href="#" class="rel-link" data-j="${j}">${OO.markets[j].q.slice(0, 42)}${OO.markets[j].q.length > 42 ? "…" : ""}</a>`).join(" ")}
+        ${REL[i].map(relLink).join(" ")}
       </div>
       <div>
         <button class="btn btn-ghost btn-trade" style="padding:7px 16px; font-size:0.83rem;">

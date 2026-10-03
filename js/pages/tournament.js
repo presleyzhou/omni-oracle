@@ -9,6 +9,18 @@ document.querySelector("#lb tbody").innerHTML = OO.leaderboard.map(r => `
   </tr>
 `).join("");
 
+/* shared state for the AI bench, my forecasts and the real calibration overlay —
+   declared up front because buildCharts() runs before those sections */
+let LEDGER = null;
+const AIF_KEY = "oo-ai-forecasts";
+let AIF = [];
+try { AIF = JSON.parse(localStorage.getItem(AIF_KEY)) || []; } catch (e) { AIF = []; }
+const saveAif = () => localStorage.setItem(AIF_KEY, JSON.stringify(AIF.slice(-400)));
+const brier = (p, y) => (p - y) * (p - y);
+let MYF = [];
+try { MYF = JSON.parse(localStorage.getItem("oo-myforecasts")) || []; } catch (e) { MYF = []; }
+MYF = MYF.filter(f => f.slug || OO.markets[f.i]);
+
 const C = OO.calibration;
 let charts = [];
 
@@ -24,6 +36,7 @@ function buildCharts() {
         { label: OO_T("ch.perfect"), data: C.bins, borderColor: "rgba(147,160,184,0.5)", borderDash: [5,5], pointRadius: 0 },
         { label: OO_T("ch.crowd"), data: C.crowd, borderColor: OO_COLORS.amber, backgroundColor: OO_COLORS.amber, tension: 0.2 },
         { label: OO_T("ch.supers"), data: C.supers, borderColor: OO_COLORS.green, backgroundColor: OO_COLORS.green, tension: 0.2 },
+        ...(typeof realCalibration === "function" && realCalibration() ? [{ label: OO_T("ch.real"), data: realCalibration(), borderColor: "#22d3ee", backgroundColor: "#22d3ee", pointRadius: 5, pointStyle: "rectRot", showLine: false, spanGaps: false }] : []),
       ],
     },
     options: {
@@ -72,12 +85,6 @@ function renderAiBench() {
 }
 renderAiBench();
 
-let LEDGER = null;
-const AIF_KEY = "oo-ai-forecasts";
-let AIF = [];
-try { AIF = JSON.parse(localStorage.getItem(AIF_KEY)) || []; } catch (e) { AIF = []; }
-const saveAif = () => localStorage.setItem(AIF_KEY, JSON.stringify(AIF.slice(-400)));
-const brier = (p, y) => (p - y) * (p - y);
 
 /* eligible = open, created after the cutoff, not yet forecast by the current model set */
 function eligibleQuestions() {
@@ -109,7 +116,7 @@ function renderAiLedger() {
 }
 function T2(key, params) { let s = OO_T(key); for (const k in params) s = s.replaceAll("{" + k + "}", params[k]); return s; }
 
-OO_FETCH("data/questions.json", { ttl: 900 }).then(d => { LEDGER = d && d.questions ? d : null; renderAiLedger(); });
+OO_FETCH("data/questions.json", { ttl: 900 }).then(d => { LEDGER = d && d.questions ? d : null; renderAiLedger(); if (typeof renderMy === "function") { renderMy(); buildCharts(); } });
 
 document.getElementById("aiRunBtn").addEventListener("click", async () => {
   const st = document.getElementById("aiRunStatus");
@@ -144,48 +151,104 @@ document.getElementById("aiRunBtn").addEventListener("click", async () => {
 document.getElementById("aiClearBtn").addEventListener("click", () => { AIF = []; saveAif(); renderAiLedger(); });
 document.addEventListener("oo:llm", renderAiLedger);
 
-/* ----- my forecasts: pick a market, submit a probability, compare vs market ----- */
-let MYF = [];
-try { MYF = JSON.parse(localStorage.getItem("oo-myforecasts")) || []; } catch (e) { MYF = []; }
-MYF = MYF.filter(f => OO.markets[f.i]);
+/* ----- my forecasts: demo markets OR real ledger questions ----------------------------
+   Human forecasts on ledger questions are stored with the market price at commit and
+   graded on resolution exactly like the AI bench, so the same table compares you, the
+   models and the market. Graded forecasts (≥10) also draw a real calibration curve. */
+const saveMy = () => localStorage.setItem("oo-myforecasts", JSON.stringify(MYF));
+let MYSRC = "demo";
 function renderMy() {
   const sel = document.getElementById("myMarket");
   const cur = sel.value;
-  sel.innerHTML = OO.markets.map((m, i) => `<option value="${i}">${m.q}</option>`).join("");
-  if (cur) sel.value = cur;
+  if (MYSRC === "real" && LEDGER) {
+    const done = new Set(MYF.filter(f => f.slug).map(f => f.slug));
+    const open = LEDGER.questions.filter(q => !q.closed && !done.has(q.slug));
+    sel.innerHTML = open.map(q => `<option value="${q.slug}">${q.question}</option>`).join("") || `<option value="">${OO_T("my.real.none")}</option>`;
+  } else {
+    sel.innerHTML = OO.markets.map((m, i) => `<option value="${i}">${m.q}</option>`).join("");
+  }
+  if (cur && [...sel.options].some(o => o.value === cur)) sel.value = cur;
+  document.querySelectorAll("#mySrc .chip").forEach(c => c.classList.toggle("active", c.dataset.src === MYSRC));
   const out = document.getElementById("myOut");
   if (!MYF.length) { out.classList.add("hide"); return; }
   out.classList.remove("hide");
-  out.innerHTML = `<table><thead><tr>
-      <th scope="col">${OO_T("pf.th.market")}</th><th scope="col">${OO_T("my.prob")}</th><th scope="col">${OO_T("tour.ai.mkt")}</th><th scope="col">${OO_T("my.delta")}</th><th scope="col"></th>
-    </tr></thead><tbody>` + MYF.map((f, k) => {
-    const mkt = OO.markets[f.i].yes;
+  const bySlug = {}; if (LEDGER) LEDGER.questions.forEach(q => { bySlug[q.slug] = q; });
+  const row = (f, k) => {
+    const real = !!f.slug, q = real ? bySlug[f.slug] : null;
+    const label = real ? (q ? q.question : f.question) : OO.markets[f.i].q;
+    const mkt = real ? (q ? q.price : f.marketP) : OO.markets[f.i].yes;
     const d = f.p - mkt * 100;
+    const status = real ? (q && q.resolved != null ? `<span class="tag ${brier(f.p / 100, q.resolved) <= brier(f.marketP, q.resolved) ? "green" : "red"}">${q.resolved ? "YES" : "NO"} · Brier ${brier(f.p / 100, q.resolved).toFixed(3)} vs ${OO_T("tour.ai.mkt")} ${brier(f.marketP, q.resolved).toFixed(3)}</span>` : `<span class="tag">${OO_T("my.real.open")}</span>`) : `<span class="tag purple">${OO_T("my.demo")}</span>`;
     return `<tr>
-      <td style="max-width:340px;">${OO.markets[f.i].q}</td>
+      <td style="max-width:340px;">${label}</td>
       <td class="num-cell">${f.p}%</td>
       <td class="num-cell">${Math.round(mkt * 100)}%</td>
       <td class="num-cell ${Math.abs(d) <= 10 ? "pos" : "neg"}">${d >= 0 ? "+" : ""}${d.toFixed(0)}pp</td>
+      <td>${status}</td>
       <td><button class="btn btn-ghost my-del" data-k="${k}" style="padding:3px 10px; font-size:0.75rem;">✕</button></td>
     </tr>`;
-  }).join("") + "</tbody></table>";
+  };
+  out.innerHTML = `<table><thead><tr>
+      <th scope="col">${OO_T("pf.th.market")}</th><th scope="col">${OO_T("my.prob")}</th><th scope="col">${OO_T("tour.ai.mkt")}</th><th scope="col">${OO_T("my.delta")}</th><th scope="col">${OO_T("my.status")}</th><th scope="col"></th>
+    </tr></thead><tbody>${MYF.map(row).join("")}</tbody></table>` + humanSummary(bySlug);
 }
+/* graded human forecasts → Brier vs market, and the real calibration points for the chart */
+function gradedHuman(bySlug) {
+  return MYF.filter(f => f.slug && bySlug[f.slug] && bySlug[f.slug].resolved != null).map(f => ({ p: f.p / 100, mp: f.marketP, y: bySlug[f.slug].resolved }));
+}
+function humanSummary(bySlug) {
+  const g = gradedHuman(bySlug);
+  if (!g.length) return "";
+  const b = g.reduce((a, x) => a + brier(x.p, x.y), 0) / g.length, mb = g.reduce((a, x) => a + brier(x.mp, x.y), 0) / g.length;
+  return `<p class="dim-note" style="margin-top:8px;">${T2("my.graded", { n: g.length, b: b.toFixed(3), mb: mb.toFixed(3) })}</p>`;
+}
+function realCalibration() {
+  const bySlug = {}; if (LEDGER) LEDGER.questions.forEach(q => { bySlug[q.slug] = q; });
+  const g = gradedHuman(bySlug).concat(AIF.map(f => { const q = bySlug[f.slug]; return q && q.resolved != null ? { p: f.p, y: q.resolved } : null; }).filter(Boolean));
+  if (g.length < 10) return null;
+  return C.bins.map(b => { const pts = g.filter(x => Math.abs(x.p - b) <= 0.05); return pts.length ? pts.reduce((a, x) => a + x.y, 0) / pts.length : null; });
+}
+document.getElementById("mySrc").addEventListener("click", (e) => {
+  const c = e.target.closest(".chip"); if (!c) return;
+  MYSRC = c.dataset.src; renderMy();
+});
 document.getElementById("myProb").addEventListener("input", (e) => {
   document.getElementById("myProbVal").textContent = e.target.value + "%";
 });
 document.getElementById("mySubmit").addEventListener("click", () => {
-  const i = +document.getElementById("myMarket").value;
+  const v = document.getElementById("myMarket").value;
   const p = +document.getElementById("myProb").value;
-  const ex = MYF.find(f => f.i === i);
-  if (ex) ex.p = p; else MYF.push({ i, p });
-  localStorage.setItem("oo-myforecasts", JSON.stringify(MYF));
-  renderMy();
+  if (MYSRC === "real") {
+    const q = LEDGER && LEDGER.questions.find(x => x.slug === v); if (!q) return;
+    MYF.push({ slug: q.slug, question: q.question, p, marketP: q.price, at: new Date().toISOString() });
+  } else {
+    const i = +v, ex = MYF.find(f => !f.slug && f.i === i);
+    if (ex) ex.p = p; else MYF.push({ i, p });
+  }
+  saveMy(); renderMy(); buildCharts();
 });
 document.getElementById("myOut").addEventListener("click", (e) => {
   const b = e.target.closest(".my-del"); if (!b) return;
-  MYF.splice(+b.dataset.k, 1);
-  localStorage.setItem("oo-myforecasts", JSON.stringify(MYF));
-  renderMy();
+  MYF.splice(+b.dataset.k, 1); saveMy(); renderMy(); buildCharts();
+});
+/* export / import everything scored locally (human + AI forecasts) as one JSON file */
+document.getElementById("fcExport").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify({ exported: new Date().toISOString(), my: MYF, ai: AIF }, null, 1)], { type: "application/json" });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "omni-oracle-forecasts.json"; a.click(); URL.revokeObjectURL(a.href);
+});
+document.getElementById("fcImport").addEventListener("change", (e) => {
+  const f = e.target.files[0]; if (!f) return;
+  const rd = new FileReader();
+  rd.onload = () => {
+    try {
+      const d = JSON.parse(String(rd.result));
+      const key = x => x.slug ? "s:" + x.slug + ":" + (x.model || "h") : "i:" + x.i;
+      const merge = (cur, inc) => { const seen = new Set(cur.map(key)); (inc || []).forEach(x => { if (!seen.has(key(x))) cur.push(x); }); return cur; };
+      MYF = merge(MYF, d.my); AIF = merge(AIF, d.ai); saveMy(); saveAif(); renderMy(); renderAiLedger(); buildCharts();
+    } catch (err) { alert(OO_T("my.import.bad")); }
+    e.target.value = "";
+  };
+  rd.readAsText(f);
 });
 renderMy();
 

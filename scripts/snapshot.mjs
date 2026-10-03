@@ -129,7 +129,8 @@ async function baaSpread() {
    model's knowledge cutoff and grades them once the market resolves — the
    evaluation discipline of ForecastBench / Agentic Time Machine (arXiv 2606.21013). */
 const LEDGER = path.join(ROOT, "data", "questions.json");
-const SPORTS = /\b(nhl|nba|mlb|nfl|ncaa|ufc|mls|epl|la liga|serie a|bundesliga|atp|wta|f1|grand prix|o\/u|spread|moneyline|vs\.)\b/i;
+/* sports lines dominate Polymarket's new-market feed; "vs." needs no trailing word boundary */
+const SPORTS = /\b(nhl|nba|mlb|nfl|ncaa|ufc|mls|epl|la liga|serie a|bundesliga|premier league|champions league|atp|wta|f1|grand prix|o\/u|spread|moneyline|end in a draw|win on \d{4}-\d{2}-\d{2}|match|game \d)\b|\bvs\.?\s/i;
 async function questionLedger() {
   let ledger = { updated: null, questions: [] };
   try { ledger = JSON.parse(fs.readFileSync(LEDGER, "utf8")); } catch (e) {}
@@ -138,9 +139,10 @@ async function questionLedger() {
   /* 1. new candidates */
   /* the newest markets are mostly sports lines; take liquid ones by volume and
      liquidity and keep those created in the last 45 days */
+  /* a failed candidate fetch must not stop the refresh of existing entries */
   const lists = await Promise.all([
-    getJson("https://gamma-api.polymarket.com/markets?limit=300&closed=false&active=true&order=volume24hr&ascending=false"),
-    getJson("https://gamma-api.polymarket.com/markets?limit=300&closed=false&active=true&order=liquidity&ascending=false"),
+    getJson("https://gamma-api.polymarket.com/markets?limit=300&closed=false&active=true&order=volume24hr&ascending=false").catch(() => []),
+    getJson("https://gamma-api.polymarket.com/markets?limit=300&closed=false&active=true&order=liquidity&ascending=false").catch(() => []),
   ]);
   const seen = new Set();
   const fresh = lists.flat().filter(m => m && !seen.has(m.slug) && seen.add(m.slug))
@@ -164,7 +166,9 @@ async function questionLedger() {
   for (let i = 0; i < open.length; i += 4) {
     await Promise.all(open.slice(i, i + 4).map(async (q) => {
       try {
-        const r = await getJson(`https://gamma-api.polymarket.com/markets?slug=${encodeURIComponent(q.slug)}`);
+        /* /markets?slug= omits closed markets, so look up by id (fallback: slug + closed=true) */
+        const r = q.id ? await getJson(`https://gamma-api.polymarket.com/markets/${q.id}`)
+          : await getJson(`https://gamma-api.polymarket.com/markets?slug=${encodeURIComponent(q.slug)}&closed=true`);
         const m = Array.isArray(r) ? r[0] : r;
         if (!m) return;
         const prices = JSON.parse(m.outcomePrices).map(Number);
@@ -175,7 +179,9 @@ async function questionLedger() {
       } catch (e) { /* keep previous state */ }
     }));
   }
-  /* 3. bound the ledger: keep resolved entries ≤ 180 days, open entries ≤ 500 */
+  /* 3. prune sports entries captured before the filter was tightened */
+  ledger.questions = ledger.questions.filter(q => !SPORTS.test(q.question + " " + q.slug));
+  /* 4. bound the ledger: keep resolved entries ≤ 180 days, open entries ≤ 500 */
   const cutoff = Date.now() - 180 * 864e5;
   ledger.questions = ledger.questions.concat(added)
     .filter(q => !q.resolvedAt || Date.parse(q.resolvedAt) > cutoff).slice(-500);
@@ -195,6 +201,35 @@ async function fredVintage(series) {
   const rows = (d) => (d.observations || []).filter(o => o.value !== ".").map(o => ({ d: o.date, v: +o.value }));
   const out = { initial: rows(init), latest: rows(latest) };
   return out.initial.length && out.latest.length ? out : null;
+}
+
+/* --- related markets (data/related.json) ---------------------------------------------
+   Offline TF-IDF cosine similarity over question text — the demo markets plus the
+   live ledger — so every market card can point at semantically related markets
+   (roadmap #5) without an embedding API. Semantic-lite, but real text, computed
+   daily; the front end falls back to token overlap when the file is missing. */
+const RELATED = path.join(ROOT, "data", "related.json");
+const STOP = new Set("the a an of in on at to by for and or will be is are was were this that with from as into over under before after than then its it their his her he she they them we you your our not no yes any all do does did has have had than through about above below up down out off when where who whom which what why how".split(" "));
+function tokens(q) {
+  return q.toLowerCase().replace(/[^a-z0-9$%.\s-]/g, " ").split(/\s+/).map(w => w.replace(/^[.-]+|[.-]+$/g, "")).filter(w => w.length > 2 && !STOP.has(w));
+}
+function relatedMarkets(demoQuestions) {
+  let ledger = { questions: [] };
+  try { ledger = JSON.parse(fs.readFileSync(LEDGER, "utf8")); } catch (e) {}
+  const docs = demoQuestions.map((q, i) => ({ id: "demo:" + i, q }))
+    .concat(ledger.questions.filter(x => !x.closed).map(x => ({ id: "pm:" + x.slug, q: x.question })));
+  const tf = docs.map(d => { const m = {}; tokens(d.q).forEach(t => { m[t] = (m[t] || 0) + 1; }); return m; });
+  const df = {}; tf.forEach(m => Object.keys(m).forEach(t => { df[t] = (df[t] || 0) + 1; }));
+  const N = docs.length;
+  const vec = tf.map(m => { const v = {}; let norm = 0; for (const t in m) { const w = m[t] * Math.log((N + 1) / (df[t] + 1)); v[t] = w; norm += w * w; } norm = Math.sqrt(norm) || 1; for (const t in v) v[t] /= norm; return v; });
+  const cos = (a, b) => { let s = 0; for (const t in a) if (b[t]) s += a[t] * b[t]; return s; };
+  const out = {};
+  docs.forEach((d, i) => {
+    out[d.id] = docs.map((e, j) => ({ id: e.id, s: i === j ? -1 : cos(vec[i], vec[j]) }))
+      .filter(x => x.s > 0.08).sort((a, b) => b.s - a.s).slice(0, 4).map(x => ({ id: x.id, s: +x.s.toFixed(3) }));
+  });
+  fs.writeFileSync(RELATED, JSON.stringify({ generated: new Date().toISOString(), method: "tf-idf cosine over question text", related: out }, null, 1) + "\n");
+  return Object.values(out).filter(v => v.length).length;
 }
 
 const TASKS = [
@@ -236,11 +271,19 @@ const TASKS = [
   () => field("polymarket", () => getJson("https://gamma-api.polymarket.com/markets?limit=6&active=true&closed=false&order=volume24hr&ascending=false")
     .then(d => Array.isArray(d) ? d.map(({ question, slug, volume24hr, outcomePrices, outcomes }) => ({ question, slug, volume24hr, outcomePrices, outcomes })) : null)),
 ];
-for (let i = 0; i < TASKS.length; i += 4) await Promise.all(TASKS.slice(i, i + 4).map(t => t()));
+/* `node scripts/snapshot.mjs --ledger-only` refreshes the question ledger and related
+   markets without re-fetching every price feed */
+const LEDGER_ONLY = process.argv.includes("--ledger-only");
+if (!LEDGER_ONLY) for (let i = 0; i < TASKS.length; i += 4) await Promise.all(TASKS.slice(i, i + 4).map(t => t()));
 try { await questionLedger(); } catch (e) { log.push(`✗ questions ledger (${e.message})`); }
+try {
+  const OO = {}; new Function("OO", fs.readFileSync(path.join(ROOT, "js", "data.js"), "utf8").replace("const OO = {};", ""))(OO);
+  const n = relatedMarkets(OO.markets.map(m => m.q));
+  log.push(`✓ related markets: ${n} documents with neighbours`);
+} catch (e) { log.push(`✗ related markets (${e.message})`); }
 
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
-fs.writeFileSync(OUT, JSON.stringify(out, null, 1) + "\n");
+if (!LEDGER_ONLY) fs.writeFileSync(OUT, JSON.stringify(out, null, 1) + "\n");
 console.log(log.sort().join("\n"));
-console.log(`\nwrote ${path.relative(ROOT, OUT)} (${(fs.statSync(OUT).size / 1024).toFixed(1)} KB)`);
+if (!LEDGER_ONLY) console.log(`\nwrote ${path.relative(ROOT, OUT)} (${(fs.statSync(OUT).size / 1024).toFixed(1)} KB)`);
 if (log.every(l => l.startsWith("✗"))) process.exit(1);

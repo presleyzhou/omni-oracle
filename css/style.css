@@ -536,3 +536,4 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
 .res-verdict.human { background: rgba(245,158,11,0.10); border-color: rgba(245,158,11,0.4); }
 .res-verdict.open { background: rgba(147,160,184,0.10); }
 .dq-list { list-style: none; font-size: 0.82rem; color: var(--text-dim); } .dq-list li { padding: 5px 0; border-bottom: 1px dashed var(--border); }
+.rel-link.real { color: var(--cyan); }

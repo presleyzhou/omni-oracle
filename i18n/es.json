@@ -126,7 +126,7 @@
   "tr.th.ticker": "Símbolo",
   "tr.th.px": "Precio · LIVE",
   "my.title": "🎯 Mis pronósticos (local)",
-  "my.sub": "Elige un mercado abierto, fija tu probabilidad y envía. Guardado solo en tu navegador; Δ muestra tu distancia al precio de mercado.",
+  "my.sub": "Pronostica mercados demo o preguntas reales de Polymarket del registro diario — estas se guardan con el precio de mercado al comprometerse y se califican al resolverse, de modo que la misma tabla de Brier te compara con el banco de IA y con el mercado. Todo permanece en tu navegador.",
   "my.prob": "Mi probabilidad",
   "my.submit": "Enviar",
   "my.delta": "Δ vs mercado",
@@ -537,5 +537,18 @@
   "me.upd.3": "<strong>Sondeo de pronosticadores LLM (arXiv 2607.08046)</strong> — los pronósticos quedan fijados antes del razonamiento; las explicaciones suelen ser infieles. → Los prompts de analista piden primero la conclusión; toda salida LLM en texto libre lleva una advertencia de fidelidad.",
   "me.upd.4": "<strong>MACROCAST (arXiv 2606.28670)</strong> — primer TSFM coherente por vintage, sin sesgo de revisión. → La página macro puede mostrar primera publicación vs última para PIB y desempleo (vintages FRED); el trabajo TSFM de la hoja de ruta apunta a entrenamiento coherente por vintage.",
   "me.upd.5": "<strong>Interrupciones del BLS 2025–26 y revisión de referencia 2026 (Fed de Cleveland EC 2026-12)</strong> — → Las notas del BLS (meses sin publicar, revisiones de controles de población) pasan por la instantánea y se muestran junto a las series.",
-  "me.upd.6": "<strong>Límites de escala de mecanismos sociales (arXiv 2608.22884) · AgentSociety (2502.08691)</strong> — auditar un mecanismo antes de escalarlo; validar con experimentos sociales reales. → Sim Worlds incorpora ajustes de alcance/vida útil de mensajes, una auditoría de escala a cuatro poblaciones y dos comprobaciones de replicación de patrones."
+  "me.upd.6": "<strong>Límites de escala de mecanismos sociales (arXiv 2608.22884) · AgentSociety (2502.08691)</strong> — auditar un mecanismo antes de escalarlo; validar con experimentos sociales reales. → Sim Worlds incorpora ajustes de alcance/vida útil de mensajes, una auditoría de escala a cuatro poblaciones y dos comprobaciones de replicación de patrones.",
+  "my.src.demo": "Mercados demo",
+  "my.src.real": "Preguntas reales (registro, calificadas al resolverse)",
+  "my.real.none": "No quedan preguntas abiertas del registro por pronosticar",
+  "my.real.open": "a la espera de resolución",
+  "my.demo": "demo",
+  "my.status": "Estado",
+  "my.graded": "Tus pronósticos reales calificados: {n} · tu Brier {b} · Brier del mercado al comprometerte {mb}",
+  "my.export": "⬇ Exportar pronósticos (JSON)",
+  "my.import": "⬆ Importar",
+  "my.export.hint": "Todo se califica localmente; exporta para mover tu historial entre navegadores.",
+  "my.import.bad": "Ese archivo no es una exportación de pronósticos de Omni Oracle.",
+  "ch.real": "Pronósticos reales calificados (tú + IA)",
+  "mk.rel.real": "Mercado real de Polymarket relacionado"
 }

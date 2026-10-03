@@ -12,5 +12,8 @@ if (missing.length) { console.error("✗ snapshot missing: " + missing.join(", "
 const ledger = JSON.parse(fs.readFileSync(new URL("../data/questions.json", import.meta.url), "utf8"));
 if (!Array.isArray(ledger.questions)) { console.error("✗ data/questions.json has no questions array"); process.exit(1); }
 console.log(`✓ data/questions.json OK (${ledger.questions.length} questions, ${ledger.questions.filter(q => q.resolved != null).length} resolved)`);
+const rel = JSON.parse(fs.readFileSync(new URL("../data/related.json", import.meta.url), "utf8"));
+if (!rel.related || typeof rel.related !== "object") { console.error("✗ data/related.json malformed"); process.exit(1); }
+console.log(`✓ data/related.json OK (${Object.keys(rel.related).length} documents)`);
 const age = (Date.now() - Date.parse(snap.generated)) / 864e5;
 console.log(`✓ data/live.json OK (${need.length} fields, generated ${snap.generated}, ${age.toFixed(1)} days old)`);

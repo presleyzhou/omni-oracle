@@ -126,7 +126,7 @@
   "tr.th.ticker": "Symbole",
   "tr.th.px": "Cours · LIVE",
   "my.title": "🎯 Mes prévisions (local)",
-  "my.sub": "Choisissez un marché ouvert, fixez votre probabilité, soumettez. Stocké uniquement dans votre navigateur ; Δ montre votre écart au prix du marché.",
+  "my.sub": "Prévoyez des marchés démo ou de vraies questions Polymarket issues du registre quotidien — celles-ci sont stockées avec le prix de marché à l'engagement et notées à la résolution, si bien qu'un même tableau de Brier vous compare au banc IA et au marché. Tout reste dans votre navigateur.",
   "my.prob": "Ma probabilité",
   "my.submit": "Soumettre",
   "my.delta": "Δ vs marché",
@@ -537,5 +537,18 @@
   "me.upd.3": "<strong>Sondage des prévisionnistes LLM (arXiv 2607.08046)</strong> — les prévisions sont fixées avant le raisonnement ; les explications sont souvent infidèles. → Les prompts d'analyste demandent la conclusion d'abord ; chaque sortie LLM en texte libre porte une mise en garde de fidélité.",
   "me.upd.4": "<strong>MACROCAST (arXiv 2606.28670)</strong> — premier TSFM cohérent par millésime, excluant le biais de révision. → La page macro peut afficher première publication vs dernière pour le PIB et le chômage (millésimes FRED) ; le travail TSFM de la feuille de route vise un entraînement cohérent par millésime.",
   "me.upd.5": "<strong>Interruptions du BLS 2025–26 et révision de référence 2026 (Fed de Cleveland EC 2026-12)</strong> — → Les notes du BLS (mois non publiés, révisions des contrôles de population) traversent l'instantané et s'affichent à côté des séries.",
-  "me.upd.6": "<strong>Limites d'échelle des mécanismes sociaux (arXiv 2608.22884) · AgentSociety (2502.08691)</strong> — auditer un mécanisme avant de le mettre à l'échelle ; valider sur des expériences sociales réelles. → Sim Worlds gagne des réglages de portée/durée de vie des messages, un audit d'échelle à quatre populations et deux vérifications de réplication de motifs."
+  "me.upd.6": "<strong>Limites d'échelle des mécanismes sociaux (arXiv 2608.22884) · AgentSociety (2502.08691)</strong> — auditer un mécanisme avant de le mettre à l'échelle ; valider sur des expériences sociales réelles. → Sim Worlds gagne des réglages de portée/durée de vie des messages, un audit d'échelle à quatre populations et deux vérifications de réplication de motifs.",
+  "my.src.demo": "Marchés démo",
+  "my.src.real": "Vraies questions (registre, notées à la résolution)",
+  "my.real.none": "Plus aucune question ouverte du registre à prévoir",
+  "my.real.open": "en attente de résolution",
+  "my.demo": "démo",
+  "my.status": "Statut",
+  "my.graded": "Vos vraies prévisions notées : {n} · votre Brier {b} · Brier du marché à l'engagement {mb}",
+  "my.export": "⬇ Exporter les prévisions (JSON)",
+  "my.import": "⬆ Importer",
+  "my.export.hint": "Tout est noté localement ; exportez pour transférer votre historique entre navigateurs.",
+  "my.import.bad": "Ce fichier n'est pas un export de prévisions Omni Oracle.",
+  "ch.real": "Vraies prévisions notées (vous + IA)",
+  "mk.rel.real": "Vrai marché Polymarket associé"
 }

@@ -126,7 +126,7 @@
   "tr.th.ticker": "代码",
   "tr.th.px": "现价 · LIVE",
   "my.title": "🎯 我的预测（本地）",
-  "my.sub": "任选一个进行中的市场，设定你的概率并提交。仅保存在你的浏览器；Δ 表示你与当前市场价的差距。",
+  "my.sub": "可以预测演示市场，也可以预测每日台账中的真实 Polymarket 问题——后者连同提交时的市场价保存，结算后评分，与 AI 基准、市场在同一张 Brier 表中对比。所有数据只保存在你的浏览器。",
   "my.prob": "我的概率",
   "my.submit": "提交",
   "my.delta": "Δ 对比市场",
@@ -537,5 +537,18 @@
   "me.upd.3": "<strong>探测 LLM 预测者内部表示（arXiv 2607.08046）</strong>——预测在推理之前已大体确定；解释常不忠实。→ 分析师提示词要求先给结论；所有自由文本 LLM 输出附带忠实性提示。",
   "me.upd.4": "<strong>MACROCAST（arXiv 2606.28670）</strong>——首个 vintage 一致的 TSFM，排除修订偏差。→ 宏观页可展示 GDP 与失业率的首次发布值 vs 最新值（FRED vintage）；TSFM 路线图以 vintage 一致训练为目标。",
   "me.upd.5": "<strong>BLS 2025–26 年拨款中断与 2026 年基准修订（克利夫兰联储 EC 2026-12）</strong>——→ BLS 脚注（未发布月份、人口控制修订）随快照保留并显示在序列旁。",
-  "me.upd.6": "<strong>社会机制的尺度极限（arXiv 2608.22884）· AgentSociety（2502.08691）</strong>——扩大规模前先审计机制；用真实社会实验验证。→ 模拟世界新增消息可达/寿命拨盘、四种人口规模的尺度审计与两项模式复现检验。"
+  "me.upd.6": "<strong>社会机制的尺度极限（arXiv 2608.22884）· AgentSociety（2502.08691）</strong>——扩大规模前先审计机制；用真实社会实验验证。→ 模拟世界新增消息可达/寿命拨盘、四种人口规模的尺度审计与两项模式复现检验。",
+  "my.src.demo": "演示市场",
+  "my.src.real": "真实问题（台账，结算后评分）",
+  "my.real.none": "台账中已没有可预测的开放问题",
+  "my.real.open": "等待结算",
+  "my.demo": "演示",
+  "my.status": "状态",
+  "my.graded": "你已评分的真实预测：{n} 条 · 你的 Brier {b} · 提交时市场 Brier {mb}",
+  "my.export": "⬇ 导出预测（JSON）",
+  "my.import": "⬆ 导入",
+  "my.export.hint": "所有评分都在本地完成；导出后可在不同浏览器之间迁移记录。",
+  "my.import.bad": "该文件不是 Omni Oracle 的预测导出文件。",
+  "ch.real": "真实已评分预测（你 + AI）",
+  "mk.rel.real": "相关的真实 Polymarket 市场"
 }
