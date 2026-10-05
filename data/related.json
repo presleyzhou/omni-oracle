@@ -1,47 +1,31 @@
 {
- "generated": "2026-10-04T12:24:00.044Z",
+ "generated": "2026-10-05T14:42:28.731Z",
  "method": "tf-idf cosine over question text",
  "related": {
   "demo:0": [
    {
     "id": "demo:1",
-    "s": 0.178
+    "s": 0.171
    },
    {
     "id": "demo:2",
-    "s": 0.177
+    "s": 0.167
    }
   ],
   "demo:1": [
    {
     "id": "demo:0",
-    "s": 0.178
-   },
-   {
-    "id": "pm:will-lula-win-the-most-votes-in-the-first-round-of-the-2026-brazil-presidential-election",
-    "s": 0.125
+    "s": 0.171
    },
    {
     "id": "demo:11",
-    "s": 0.12
-   },
-   {
-    "id": "pm:will-flavio-bolsonaro-win-the-most-votes-in-the-first-round-of-the-2026-brazil-presidential-election",
-    "s": 0.116
+    "s": 0.167
    }
   ],
   "demo:2": [
    {
     "id": "demo:0",
-    "s": 0.177
-   },
-   {
-    "id": "pm:will-lula-win-the-most-votes-in-the-first-round-of-the-2026-brazil-presidential-election",
-    "s": 0.13
-   },
-   {
-    "id": "pm:will-flavio-bolsonaro-win-the-most-votes-in-the-first-round-of-the-2026-brazil-presidential-election",
-    "s": 0.121
+    "s": 0.167
    }
   ],
   "demo:3": [],
@@ -49,25 +33,17 @@
   "demo:5": [
    {
     "id": "demo:19",
-    "s": 0.128
-   },
-   {
-    "id": "pm:will-lula-win-the-most-votes-in-the-first-round-of-the-2026-brazil-presidential-election",
-    "s": 0.088
-   },
-   {
-    "id": "pm:will-flavio-bolsonaro-win-the-most-votes-in-the-first-round-of-the-2026-brazil-presidential-election",
-    "s": 0.082
+    "s": 0.124
    }
   ],
   "demo:6": [
    {
     "id": "pm:another-fed-rate-hike-in-2026",
-    "s": 0.207
+    "s": 0.209
    },
    {
     "id": "pm:will-bitcoin-dip-to-70000-by-december-31-2026-from-august-24",
-    "s": 0.157
+    "s": 0.152
    },
    {
     "id": "pm:will-ethereum-dip-to-2250-by-december-31-2026",
@@ -75,13 +51,13 @@
    },
    {
     "id": "demo:7",
-    "s": 0.116
+    "s": 0.118
    }
   ],
   "demo:7": [
    {
     "id": "pm:will-bitcoin-dip-to-70000-by-december-31-2026-from-august-24",
-    "s": 0.153
+    "s": 0.148
    },
    {
     "id": "pm:will-ethereum-dip-to-2250-by-december-31-2026",
@@ -89,30 +65,30 @@
    },
    {
     "id": "demo:6",
-    "s": 0.116
+    "s": 0.118
    },
    {
     "id": "pm:kharg-island-no-longer-under-iranian-control-by-december-31-20260730004337418",
-    "s": 0.09
+    "s": 0.089
    }
   ],
   "demo:8": [],
   "demo:9": [
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
-    "s": 0.187
+    "s": 0.174
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-october-7",
-    "s": 0.187
+    "s": 0.174
+   },
+   {
+    "id": "pm:us-x-iran-ceasefire-continues-through-october-15",
+    "s": 0.174
    },
    {
     "id": "demo:18",
-    "s": 0.167
-   },
-   {
-    "id": "pm:israel-x-iran-ceasefire-continues-through-october-31",
-    "s": 0.156
+    "s": 0.17
    }
   ],
   "demo:10": [
@@ -126,21 +102,17 @@
    },
    {
     "id": "demo:17",
-    "s": 0.127
+    "s": 0.126
    },
    {
     "id": "demo:15",
-    "s": 0.117
+    "s": 0.116
    }
   ],
   "demo:11": [
    {
     "id": "demo:1",
-    "s": 0.12
-   },
-   {
-    "id": "pm:will-lula-win-the-most-votes-in-the-first-round-of-the-2026-brazil-presidential-election",
-    "s": 0.085
+    "s": 0.167
    }
   ],
   "demo:12": [],
@@ -160,7 +132,7 @@
    },
    {
     "id": "demo:17",
-    "s": 0.114
+    "s": 0.113
    }
   ],
   "demo:15": [
@@ -170,43 +142,43 @@
    },
    {
     "id": "demo:10",
-    "s": 0.117
+    "s": 0.116
    }
   ],
   "demo:16": [
    {
-    "id": "pm:us-announces-end-of-iranian-blockade-by-october-15-2026",
-    "s": 0.157
-   },
-   {
     "id": "pm:will-google-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841120",
-    "s": 0.157
+    "s": 0.16
    },
    {
     "id": "pm:will-anthropic-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841118",
-    "s": 0.157
+    "s": 0.16
+   },
+   {
+    "id": "pm:us-announces-end-of-iranian-blockade-by-october-15-2026",
+    "s": 0.16
    }
   ],
   "demo:17": [
    {
     "id": "demo:10",
-    "s": 0.127
+    "s": 0.126
    },
    {
     "id": "demo:14",
-    "s": 0.114
+    "s": 0.113
    }
   ],
   "demo:18": [
    {
     "id": "demo:9",
-    "s": 0.167
+    "s": 0.17
    }
   ],
   "demo:19": [
    {
     "id": "demo:5",
-    "s": 0.128
+    "s": 0.124
    }
   ],
   "pm:us-x-iran-ceasefire-continues-through-october-31-20260917": [
@@ -215,22 +187,22 @@
     "s": 1
    },
    {
+    "id": "pm:us-x-iran-ceasefire-continues-through-october-15",
+    "s": 1
+   },
+   {
     "id": "pm:israel-x-iran-ceasefire-continues-through-october-31",
-    "s": 0.833
+    "s": 0.836
    },
    {
     "id": "demo:9",
-    "s": 0.187
-   },
-   {
-    "id": "pm:israel-accuses-iranproxies-of-plane-stabbing-incident-by-oct-31",
-    "s": 0.145
+    "s": 0.174
    }
   ],
   "pm:strait-of-hormuz-traffic-returns-to-normal-by-october-31-20260810151043583": [
    {
     "id": "pm:bab-el-mandeb-strait-effectively-closed-by-october-31",
-    "s": 0.177
+    "s": 0.17
    }
   ],
   "pm:kharg-island-no-longer-under-iranian-control-by-december-31-20260730004337418": [
@@ -240,15 +212,15 @@
    },
    {
     "id": "pm:will-bitcoin-dip-to-70000-by-december-31-2026-from-august-24",
-    "s": 0.122
+    "s": 0.115
    },
    {
     "id": "pm:will-ethereum-dip-to-2250-by-december-31-2026",
-    "s": 0.116
+    "s": 0.113
    },
    {
     "id": "demo:6",
-    "s": 0.093
+    "s": 0.091
    }
   ],
   "pm:saudi-oil-pipeline-east-west-restarts-by-october-31": [
@@ -260,29 +232,29 @@
   "pm:will-ethereum-dip-to-2250-by-december-31-2026": [
    {
     "id": "pm:will-ethereum-dip-to-2100-in-october-2026",
-    "s": 0.482
+    "s": 0.499
    },
    {
     "id": "pm:will-bitcoin-dip-to-70000-by-december-31-2026-from-august-24",
-    "s": 0.366
+    "s": 0.374
    },
    {
     "id": "pm:will-bitcoin-dip-to-65k-in-october-2026",
-    "s": 0.185
+    "s": 0.204
    },
    {
-    "id": "pm:will-bitcoin-dip-to-82k-september-28-october-4-2026",
-    "s": 0.153
+    "id": "demo:6",
+    "s": 0.15
    }
   ],
   "pm:us-announces-end-of-iranian-blockade-by-october-15-2026": [
    {
     "id": "pm:will-google-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841120",
-    "s": 0.223
+    "s": 0.216
    },
    {
     "id": "pm:will-anthropic-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841118",
-    "s": 0.223
+    "s": 0.216
    },
    {
     "id": "pm:kharg-island-no-longer-under-iranian-control-by-december-31-20260730004337418",
@@ -297,25 +269,25 @@
   "pm:another-fed-rate-hike-in-2026": [
    {
     "id": "demo:6",
-    "s": 0.207
+    "s": 0.209
    }
   ],
   "pm:israel-x-iran-ceasefire-continues-through-october-31": [
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
-    "s": 0.833
+    "s": 0.836
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-october-7",
-    "s": 0.833
+    "s": 0.836
+   },
+   {
+    "id": "pm:us-x-iran-ceasefire-continues-through-october-15",
+    "s": 0.836
    },
    {
     "id": "pm:israel-accuses-iranproxies-of-plane-stabbing-incident-by-oct-31",
-    "s": 0.3
-   },
-   {
-    "id": "demo:9",
-    "s": 0.156
+    "s": 0.276
    }
   ],
   "pm:us-x-iran-ceasefire-continues-through-october-7": [
@@ -324,16 +296,16 @@
     "s": 1
    },
    {
+    "id": "pm:us-x-iran-ceasefire-continues-through-october-15",
+    "s": 1
+   },
+   {
     "id": "pm:israel-x-iran-ceasefire-continues-through-october-31",
-    "s": 0.833
+    "s": 0.836
    },
    {
     "id": "demo:9",
-    "s": 0.187
-   },
-   {
-    "id": "pm:israel-accuses-iranproxies-of-plane-stabbing-incident-by-oct-31",
-    "s": 0.145
+    "s": 0.174
    }
   ],
   "pm:saudi-oil-pipeline-east-west-restarts-by-october-15": [
@@ -342,60 +314,24 @@
     "s": 1
    }
   ],
-  "pm:will-flavio-bolsonaro-win-the-most-votes-in-the-first-round-of-the-2026-brazil-presidential-election": [
-   {
-    "id": "pm:will-lula-win-the-most-votes-in-the-first-round-of-the-2026-brazil-presidential-election",
-    "s": 0.792
-   },
-   {
-    "id": "demo:2",
-    "s": 0.121
-   },
-   {
-    "id": "demo:1",
-    "s": 0.116
-   },
-   {
-    "id": "demo:5",
-    "s": 0.082
-   }
-  ],
-  "pm:will-lula-win-the-most-votes-in-the-first-round-of-the-2026-brazil-presidential-election": [
-   {
-    "id": "pm:will-flavio-bolsonaro-win-the-most-votes-in-the-first-round-of-the-2026-brazil-presidential-election",
-    "s": 0.792
-   },
-   {
-    "id": "demo:2",
-    "s": 0.13
-   },
-   {
-    "id": "demo:1",
-    "s": 0.125
-   },
-   {
-    "id": "demo:5",
-    "s": 0.088
-   }
-  ],
   "pm:bab-el-mandeb-strait-effectively-closed-by-october-31": [
    {
     "id": "pm:strait-of-hormuz-traffic-returns-to-normal-by-october-31-20260810151043583",
-    "s": 0.177
+    "s": 0.17
    }
   ],
   "pm:will-google-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841120": [
    {
     "id": "pm:will-anthropic-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841118",
-    "s": 0.674
+    "s": 0.67
    },
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-october-15-2026",
-    "s": 0.223
+    "s": 0.216
    },
    {
     "id": "demo:16",
-    "s": 0.157
+    "s": 0.16
    },
    {
     "id": "demo:14",
@@ -405,15 +341,15 @@
   "pm:will-anthropic-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841118": [
    {
     "id": "pm:will-google-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841120",
-    "s": 0.674
+    "s": 0.67
    },
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-october-15-2026",
-    "s": 0.223
+    "s": 0.216
    },
    {
     "id": "demo:16",
-    "s": 0.157
+    "s": 0.16
    },
    {
     "id": "demo:14",
@@ -423,232 +359,224 @@
   "pm:will-bitcoin-dip-to-65k-in-october-2026": [
    {
     "id": "pm:will-bitcoin-dip-to-70000-by-december-31-2026-from-august-24",
-    "s": 0.427
-   },
-   {
-    "id": "pm:will-bitcoin-dip-to-82k-september-28-october-4-2026",
-    "s": 0.388
+    "s": 0.482
    },
    {
     "id": "pm:will-bitcoin-reach-100k-in-october-2026",
-    "s": 0.313
+    "s": 0.342
    },
    {
-    "id": "pm:will-ethereum-dip-to-2100-in-october-2026",
-    "s": 0.244
+    "id": "pm:will-bitcoin-reach-105k-in-october-2026",
+    "s": 0.342
+   },
+   {
+    "id": "pm:will-bitcoin-reach-92k-october-5-11-2026",
+    "s": 0.292
    }
   ],
   "pm:will-bitcoin-reach-87pt5k-in-october-2026": [
    {
     "id": "pm:will-bitcoin-reach-92pt5k-in-october-2026",
-    "s": 0.554
+    "s": 0.563
    },
    {
     "id": "pm:will-bitcoin-reach-97pt5k-in-october-2026",
-    "s": 0.522
+    "s": 0.531
    },
    {
     "id": "pm:will-bitcoin-reach-102pt5k-in-october-2026",
-    "s": 0.522
+    "s": 0.531
    },
    {
     "id": "pm:will-bitcoin-reach-100k-in-october-2026",
-    "s": 0.29
+    "s": 0.298
    }
   ],
   "pm:will-bitcoin-reach-92pt5k-in-october-2026": [
    {
-    "id": "pm:will-bitcoin-reach-92k-september-28-october-4-2026",
-    "s": 0.569
+    "id": "pm:will-bitcoin-reach-92k-october-5-11-2026",
+    "s": 0.6
    },
    {
     "id": "pm:will-bitcoin-reach-87pt5k-in-october-2026",
-    "s": 0.554
+    "s": 0.563
    },
    {
     "id": "pm:will-bitcoin-reach-97pt5k-in-october-2026",
-    "s": 0.554
+    "s": 0.563
    },
    {
     "id": "pm:will-bitcoin-reach-102pt5k-in-october-2026",
-    "s": 0.554
+    "s": 0.563
    }
   ],
   "pm:will-bitcoin-reach-97pt5k-in-october-2026": [
    {
     "id": "pm:will-bitcoin-reach-92pt5k-in-october-2026",
-    "s": 0.554
+    "s": 0.563
    },
    {
     "id": "pm:will-bitcoin-reach-87pt5k-in-october-2026",
-    "s": 0.522
+    "s": 0.531
    },
    {
     "id": "pm:will-bitcoin-reach-102pt5k-in-october-2026",
-    "s": 0.522
+    "s": 0.531
    },
    {
     "id": "pm:will-bitcoin-reach-100k-in-october-2026",
-    "s": 0.29
+    "s": 0.298
    }
   ],
   "pm:will-bitcoin-reach-100k-in-october-2026": [
    {
-    "id": "pm:will-bitcoin-reach-92k-september-28-october-4-2026",
-    "s": 0.365
+    "id": "pm:will-bitcoin-reach-105k-in-october-2026",
+    "s": 0.513
    },
    {
-    "id": "pm:will-bitcoin-reach-90k-september-28-october-4-2026",
-    "s": 0.35
-   },
-   {
-    "id": "pm:will-bitcoin-reach-88k-september-28-october-4-2026",
-    "s": 0.35
+    "id": "pm:will-bitcoin-reach-92k-october-5-11-2026",
+    "s": 0.438
    },
    {
     "id": "pm:will-bitcoin-dip-to-65k-in-october-2026",
-    "s": 0.313
+    "s": 0.342
+   },
+   {
+    "id": "pm:will-bitcoin-reach-92pt5k-in-october-2026",
+    "s": 0.316
    }
   ],
   "pm:will-bitcoin-reach-102pt5k-in-october-2026": [
    {
     "id": "pm:will-bitcoin-reach-92pt5k-in-october-2026",
-    "s": 0.554
+    "s": 0.563
    },
    {
     "id": "pm:will-bitcoin-reach-87pt5k-in-october-2026",
-    "s": 0.522
+    "s": 0.531
    },
    {
     "id": "pm:will-bitcoin-reach-97pt5k-in-october-2026",
-    "s": 0.522
+    "s": 0.531
    },
    {
     "id": "pm:will-bitcoin-reach-100k-in-october-2026",
-    "s": 0.29
+    "s": 0.298
    }
   ],
   "pm:any-of-the-cornell-7-charged-with-a-felony-sex-crime": [],
   "pm:israel-accuses-iranproxies-of-plane-stabbing-incident-by-oct-31": [
    {
     "id": "pm:israel-x-iran-ceasefire-continues-through-october-31",
-    "s": 0.3
+    "s": 0.276
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
-    "s": 0.145
+    "s": 0.136
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-october-7",
-    "s": 0.145
-   }
-  ],
-  "pm:will-bitcoin-reach-90k-september-28-october-4-2026": [
-   {
-    "id": "pm:will-bitcoin-reach-92k-september-28-october-4-2026",
-    "s": 0.677
+    "s": 0.136
    },
    {
-    "id": "pm:will-bitcoin-reach-88k-september-28-october-4-2026",
-    "s": 0.648
-   },
-   {
-    "id": "pm:will-bitcoin-dip-to-82k-september-28-october-4-2026",
-    "s": 0.533
-   },
-   {
-    "id": "pm:will-bitcoin-reach-100k-in-october-2026",
-    "s": 0.35
-   }
-  ],
-  "pm:will-bitcoin-reach-92k-september-28-october-4-2026": [
-   {
-    "id": "pm:will-bitcoin-reach-90k-september-28-october-4-2026",
-    "s": 0.677
-   },
-   {
-    "id": "pm:will-bitcoin-reach-88k-september-28-october-4-2026",
-    "s": 0.677
-   },
-   {
-    "id": "pm:will-bitcoin-reach-92pt5k-in-october-2026",
-    "s": 0.569
-   },
-   {
-    "id": "pm:will-bitcoin-dip-to-82k-september-28-october-4-2026",
-    "s": 0.557
+    "id": "pm:us-x-iran-ceasefire-continues-through-october-15",
+    "s": 0.136
    }
   ],
   "pm:will-bitcoin-dip-to-70000-by-december-31-2026-from-august-24": [
    {
     "id": "pm:will-bitcoin-dip-to-65k-in-october-2026",
-    "s": 0.427
+    "s": 0.482
    },
    {
     "id": "pm:will-ethereum-dip-to-2250-by-december-31-2026",
-    "s": 0.366
-   },
-   {
-    "id": "pm:will-bitcoin-dip-to-82k-september-28-october-4-2026",
-    "s": 0.354
+    "s": 0.374
    },
    {
     "id": "pm:will-bitcoin-reach-100k-in-october-2026",
-    "s": 0.242
+    "s": 0.287
+   },
+   {
+    "id": "pm:will-bitcoin-reach-105k-in-october-2026",
+    "s": 0.287
    }
   ],
   "pm:will-ethereum-dip-to-2100-in-october-2026": [
    {
     "id": "pm:will-ethereum-dip-to-2250-by-december-31-2026",
-    "s": 0.482
+    "s": 0.499
    },
    {
     "id": "pm:will-bitcoin-dip-to-65k-in-october-2026",
-    "s": 0.244
+    "s": 0.247
    },
    {
     "id": "pm:will-bitcoin-dip-to-70000-by-december-31-2026-from-august-24",
-    "s": 0.183
-   },
-   {
-    "id": "pm:will-bitcoin-dip-to-82k-september-28-october-4-2026",
-    "s": 0.167
+    "s": 0.203
    }
   ],
-  "pm:will-bitcoin-dip-to-82k-september-28-october-4-2026": [
+  "pm:will-bitcoin-reach-92k-october-5-11-2026": [
    {
-    "id": "pm:will-bitcoin-reach-92k-september-28-october-4-2026",
-    "s": 0.557
-   },
-   {
-    "id": "pm:will-bitcoin-reach-90k-september-28-october-4-2026",
-    "s": 0.533
-   },
-   {
-    "id": "pm:will-bitcoin-reach-88k-september-28-october-4-2026",
-    "s": 0.533
-   },
-   {
-    "id": "pm:will-bitcoin-dip-to-65k-in-october-2026",
-    "s": 0.388
-   }
-  ],
-  "pm:will-bitcoin-reach-88k-september-28-october-4-2026": [
-   {
-    "id": "pm:will-bitcoin-reach-92k-september-28-october-4-2026",
-    "s": 0.677
-   },
-   {
-    "id": "pm:will-bitcoin-reach-90k-september-28-october-4-2026",
-    "s": 0.648
-   },
-   {
-    "id": "pm:will-bitcoin-dip-to-82k-september-28-october-4-2026",
-    "s": 0.533
+    "id": "pm:will-bitcoin-reach-92pt5k-in-october-2026",
+    "s": 0.6
    },
    {
     "id": "pm:will-bitcoin-reach-100k-in-october-2026",
-    "s": 0.35
+    "s": 0.438
+   },
+   {
+    "id": "pm:will-bitcoin-reach-105k-in-october-2026",
+    "s": 0.438
+   },
+   {
+    "id": "pm:will-bitcoin-dip-to-65k-in-october-2026",
+    "s": 0.292
+   }
+  ],
+  "pm:israel-military-action-against-lebanon-on-october-15": [
+   {
+    "id": "pm:israel-x-iran-ceasefire-continues-through-october-31",
+    "s": 0.217
+   },
+   {
+    "id": "pm:israel-accuses-iranproxies-of-plane-stabbing-incident-by-oct-31",
+    "s": 0.107
+   }
+  ],
+  "pm:will-bitcoin-reach-105k-in-october-2026": [
+   {
+    "id": "pm:will-bitcoin-reach-100k-in-october-2026",
+    "s": 0.513
+   },
+   {
+    "id": "pm:will-bitcoin-reach-92k-october-5-11-2026",
+    "s": 0.438
+   },
+   {
+    "id": "pm:will-bitcoin-dip-to-65k-in-october-2026",
+    "s": 0.342
+   },
+   {
+    "id": "pm:will-bitcoin-reach-92pt5k-in-october-2026",
+    "s": 0.316
+   }
+  ],
+  "pm:us-x-iran-ceasefire-continues-through-october-15": [
+   {
+    "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
+    "s": 1
+   },
+   {
+    "id": "pm:us-x-iran-ceasefire-continues-through-october-7",
+    "s": 1
+   },
+   {
+    "id": "pm:israel-x-iran-ceasefire-continues-through-october-31",
+    "s": 0.836
+   },
+   {
+    "id": "demo:9",
+    "s": 0.174
    }
   ]
  }
