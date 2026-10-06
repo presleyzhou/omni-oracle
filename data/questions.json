@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-05T14:42:27.771Z",
+ "updated": "2026-10-06T13:20:18.616Z",
  "questions": [
   {
    "slug": "us-x-iran-ceasefire-continues-through-october-31-20260917",
@@ -34,7 +34,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.075,
-   "price": 0.029,
+   "price": 0.0225,
    "closed": false,
    "resolved": null
   },
@@ -46,7 +46,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.065,
-   "price": 0.065,
+   "price": 0.055,
    "closed": false,
    "resolved": null
   },
@@ -123,9 +123,10 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.7905,
-   "price": 0.5435,
-   "closed": false,
-   "resolved": null
+   "price": 1,
+   "closed": true,
+   "resolved": 1,
+   "resolvedAt": "2026-10-06 12:33:28+00"
   },
   {
    "slug": "saudi-oil-pipeline-east-west-restarts-by-september-30",
@@ -173,7 +174,7 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.17,
-   "price": 0.125,
+   "price": 0.135,
    "closed": false,
    "resolved": null
   },
@@ -224,7 +225,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.04,
-   "price": 0.027,
+   "price": 0.0225,
    "closed": false,
    "resolved": null
   },
@@ -236,7 +237,7 @@
    "endDate": "2026-12-09T00:00:00Z",
    "capturedAt": "2026-09-30T12:37:09.469Z",
    "priceAtCapture": 0.825,
-   "price": 0.765,
+   "price": 0.755,
    "closed": false,
    "resolved": null
   },
@@ -260,7 +261,7 @@
    "endDate": "2026-10-08T03:59:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.915,
-   "price": 0.969,
+   "price": 0.981,
    "closed": false,
    "resolved": null
   },
@@ -298,9 +299,10 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.365,
-   "price": 0.275,
-   "closed": false,
-   "resolved": null
+   "price": 1,
+   "closed": true,
+   "resolved": 1,
+   "resolvedAt": "2026-10-06 11:41:25+00"
   },
   {
    "slug": "elon-musk-of-tweets-september-25-october-2-2026-180-199",
@@ -361,7 +363,7 @@
    "endDate": "2026-10-31T16:00:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.7185,
-   "price": 0.665,
+   "price": 0.6775,
    "closed": false,
    "resolved": null
   },
@@ -373,7 +375,7 @@
    "endDate": "2026-10-31T16:00:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.275,
-   "price": 0.325,
+   "price": 0.31,
    "closed": false,
    "resolved": null
   },
@@ -385,7 +387,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.0315,
-   "price": 0.0365,
+   "price": 0.0285,
    "closed": false,
    "resolved": null
   },
@@ -397,7 +399,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.92,
-   "price": 0.795,
+   "price": 0.805,
    "closed": false,
    "resolved": null
   },
@@ -409,7 +411,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.515,
-   "price": 0.385,
+   "price": 0.425,
    "closed": false,
    "resolved": null
   },
@@ -421,7 +423,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.225,
-   "price": 0.165,
+   "price": 0.175,
    "closed": false,
    "resolved": null
   },
@@ -433,7 +435,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.155,
-   "price": 0.115,
+   "price": 0.095,
    "closed": false,
    "resolved": null
   },
@@ -445,7 +447,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.095,
-   "price": 0.075,
+   "price": 0.065,
    "closed": false,
    "resolved": null
   },
@@ -469,7 +471,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.155,
-   "price": 0.045,
+   "price": 0.09,
    "closed": false,
    "resolved": null
   },
@@ -507,7 +509,7 @@
    "endDate": "2027-01-01T05:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.285,
-   "price": 0.245,
+   "price": 0.255,
    "closed": false,
    "resolved": null
   },
@@ -519,7 +521,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-03T11:41:25.132Z",
    "priceAtCapture": 0.135,
-   "price": 0.115,
+   "price": 0.085,
    "closed": false,
    "resolved": null
   },
@@ -557,7 +559,7 @@
    "endDate": "2026-10-12T04:00:00Z",
    "capturedAt": "2026-10-05T14:42:27.771Z",
    "priceAtCapture": 0.125,
-   "price": 0.125,
+   "price": 0.105,
    "closed": false,
    "resolved": null
   },
@@ -569,7 +571,7 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-10-05T14:42:27.771Z",
    "priceAtCapture": 0.605,
-   "price": 0.605,
+   "price": 0.845,
    "closed": false,
    "resolved": null
   },
@@ -581,7 +583,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-05T14:42:27.771Z",
    "priceAtCapture": 0.0495,
-   "price": 0.0495,
+   "price": 0.0445,
    "closed": false,
    "resolved": null
   },
@@ -593,7 +595,163 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-10-05T14:42:27.771Z",
    "priceAtCapture": 0.885,
-   "price": 0.885,
+   "price": 0.875,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "highest-temperature-in-panama-city-on-october-8-2026-33c",
+   "id": "5373970",
+   "question": "Will the highest temperature in Panama City be 33°C on October 8?",
+   "createdAt": "2026-10-06T12:56:43.106063Z",
+   "endDate": "2026-10-08T12:00:00Z",
+   "capturedAt": "2026-10-06T13:20:18.616Z",
+   "priceAtCapture": 0.245,
+   "price": 0.245,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "highest-temperature-in-panama-city-on-october-8-2026-32c",
+   "id": "5373969",
+   "question": "Will the highest temperature in Panama City be 32°C on October 8?",
+   "createdAt": "2026-10-06T12:56:42.919452Z",
+   "endDate": "2026-10-08T12:00:00Z",
+   "capturedAt": "2026-10-06T13:20:18.616Z",
+   "priceAtCapture": 0.25,
+   "price": 0.25,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "highest-temperature-in-panama-city-on-october-8-2026-31c",
+   "id": "5373968",
+   "question": "Will the highest temperature in Panama City be 31°C on October 8?",
+   "createdAt": "2026-10-06T12:56:42.747451Z",
+   "endDate": "2026-10-08T12:00:00Z",
+   "capturedAt": "2026-10-06T13:20:18.616Z",
+   "priceAtCapture": 0.245,
+   "price": 0.245,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "highest-temperature-in-panama-city-on-october-8-2026-30c",
+   "id": "5373967",
+   "question": "Will the highest temperature in Panama City be 30°C on October 8?",
+   "createdAt": "2026-10-06T12:56:42.562816Z",
+   "endDate": "2026-10-08T12:00:00Z",
+   "capturedAt": "2026-10-06T13:20:18.616Z",
+   "priceAtCapture": 0.245,
+   "price": 0.245,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "highest-temperature-in-panama-city-on-october-8-2026-29c",
+   "id": "5373966",
+   "question": "Will the highest temperature in Panama City be 29°C on October 8?",
+   "createdAt": "2026-10-06T12:56:42.389124Z",
+   "endDate": "2026-10-08T12:00:00Z",
+   "capturedAt": "2026-10-06T13:20:18.616Z",
+   "priceAtCapture": 0.245,
+   "price": 0.245,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "highest-temperature-in-panama-city-on-october-8-2026-28c",
+   "id": "5373965",
+   "question": "Will the highest temperature in Panama City be 28°C on October 8?",
+   "createdAt": "2026-10-06T12:56:42.219349Z",
+   "endDate": "2026-10-08T12:00:00Z",
+   "capturedAt": "2026-10-06T13:20:18.616Z",
+   "priceAtCapture": 0.245,
+   "price": 0.245,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "highest-temperature-in-mexico-city-on-october-8-2026-23c",
+   "id": "5373959",
+   "question": "Will the highest temperature in Mexico City be 23°C on October 8?",
+   "createdAt": "2026-10-06T12:56:34.7758Z",
+   "endDate": "2026-10-08T12:00:00Z",
+   "capturedAt": "2026-10-06T13:20:18.616Z",
+   "priceAtCapture": 0.3,
+   "price": 0.3,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "highest-temperature-in-mexico-city-on-october-8-2026-22c",
+   "id": "5373958",
+   "question": "Will the highest temperature in Mexico City be 22°C on October 8?",
+   "createdAt": "2026-10-06T12:56:34.596274Z",
+   "endDate": "2026-10-08T12:00:00Z",
+   "capturedAt": "2026-10-06T13:20:18.616Z",
+   "priceAtCapture": 0.28,
+   "price": 0.28,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "highest-temperature-in-mexico-city-on-october-8-2026-21c",
+   "id": "5373957",
+   "question": "Will the highest temperature in Mexico City be 21°C on October 8?",
+   "createdAt": "2026-10-06T12:56:34.408069Z",
+   "endDate": "2026-10-08T12:00:00Z",
+   "capturedAt": "2026-10-06T13:20:18.616Z",
+   "priceAtCapture": 0.28,
+   "price": 0.28,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "highest-temperature-in-mexico-city-on-october-8-2026-20c",
+   "id": "5373956",
+   "question": "Will the highest temperature in Mexico City be 20°C on October 8?",
+   "createdAt": "2026-10-06T12:56:34.224494Z",
+   "endDate": "2026-10-08T12:00:00Z",
+   "capturedAt": "2026-10-06T13:20:18.616Z",
+   "priceAtCapture": 0.16,
+   "price": 0.16,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "highest-temperature-in-mexico-city-on-october-8-2026-19c",
+   "id": "5373955",
+   "question": "Will the highest temperature in Mexico City be 19°C on October 8?",
+   "createdAt": "2026-10-06T12:56:34.033011Z",
+   "endDate": "2026-10-08T12:00:00Z",
+   "capturedAt": "2026-10-06T13:20:18.616Z",
+   "priceAtCapture": 0.155,
+   "price": 0.155,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "highest-temperature-in-toronto-on-october-8-2026-21c",
+   "id": "5373948",
+   "question": "Will the highest temperature in Toronto be 21°C on October 8?",
+   "createdAt": "2026-10-06T12:55:57.409376Z",
+   "endDate": "2026-10-08T12:00:00Z",
+   "capturedAt": "2026-10-06T13:20:18.616Z",
+   "priceAtCapture": 0.18,
+   "price": 0.18,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "highest-temperature-in-toronto-on-october-8-2026-20c",
+   "id": "5373947",
+   "question": "Will the highest temperature in Toronto be 20°C on October 8?",
+   "createdAt": "2026-10-06T12:55:57.254671Z",
+   "endDate": "2026-10-08T12:00:00Z",
+   "capturedAt": "2026-10-06T13:20:18.616Z",
+   "priceAtCapture": 0.22,
+   "price": 0.22,
    "closed": false,
    "resolved": null
   }
