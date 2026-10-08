@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-07T13:26:35.094Z",
+ "updated": "2026-10-08T13:32:00.389Z",
  "questions": [
   {
    "slug": "us-x-iran-ceasefire-continues-through-october-31-20260917",
@@ -9,7 +9,7 @@
    "endDate": "2026-10-31T23:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.565,
-   "price": 0.745,
+   "price": 0.695,
    "closed": false,
    "resolved": null
   },
@@ -34,7 +34,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.075,
-   "price": 0.0235,
+   "price": 0.0185,
    "closed": false,
    "resolved": null
   },
@@ -162,7 +162,7 @@
    "endDate": "2027-01-01T05:00:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.305,
-   "price": 0.35,
+   "price": 0.38,
    "closed": false,
    "resolved": null
   },
@@ -225,7 +225,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.04,
-   "price": 0.0235,
+   "price": 0.0305,
    "closed": false,
    "resolved": null
   },
@@ -237,7 +237,7 @@
    "endDate": "2026-12-09T00:00:00Z",
    "capturedAt": "2026-09-30T12:37:09.469Z",
    "priceAtCapture": 0.825,
-   "price": 0.765,
+   "price": 0.78,
    "closed": false,
    "resolved": null
   },
@@ -249,7 +249,7 @@
    "endDate": "2026-10-31T20:29:00Z",
    "capturedAt": "2026-09-30T12:37:09.469Z",
    "priceAtCapture": 0.775,
-   "price": 0.84,
+   "price": 0.825,
    "closed": false,
    "resolved": null
   },
@@ -261,7 +261,7 @@
    "endDate": "2026-10-08T03:59:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.915,
-   "price": 0.9895,
+   "price": 0.997,
    "closed": false,
    "resolved": null
   },
@@ -363,7 +363,7 @@
    "endDate": "2026-10-31T16:00:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.7185,
-   "price": 0.688,
+   "price": 0.6925,
    "closed": false,
    "resolved": null
   },
@@ -375,7 +375,7 @@
    "endDate": "2026-10-31T16:00:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.275,
-   "price": 0.295,
+   "price": 0.265,
    "closed": false,
    "resolved": null
   },
@@ -387,7 +387,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.0315,
-   "price": 0.035,
+   "price": 0.044,
    "closed": false,
    "resolved": null
   },
@@ -399,7 +399,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.92,
-   "price": 0.565,
+   "price": 0.485,
    "closed": false,
    "resolved": null
   },
@@ -411,7 +411,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.515,
-   "price": 0.245,
+   "price": 0.225,
    "closed": false,
    "resolved": null
   },
@@ -423,7 +423,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.225,
-   "price": 0.085,
+   "price": 0.075,
    "closed": false,
    "resolved": null
   },
@@ -435,7 +435,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.155,
-   "price": 0.055,
+   "price": 0.045,
    "closed": false,
    "resolved": null
   },
@@ -447,7 +447,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.095,
-   "price": 0.036,
+   "price": 0.0235,
    "closed": false,
    "resolved": null
   },
@@ -471,7 +471,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.155,
-   "price": 0.115,
+   "price": 0.105,
    "closed": false,
    "resolved": null
   },
@@ -509,7 +509,7 @@
    "endDate": "2027-01-01T05:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.285,
-   "price": 0.325,
+   "price": 0.39,
    "closed": false,
    "resolved": null
   },
@@ -521,7 +521,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-03T11:41:25.132Z",
    "priceAtCapture": 0.135,
-   "price": 0.135,
+   "price": 0.165,
    "closed": false,
    "resolved": null
   },
@@ -559,7 +559,7 @@
    "endDate": "2026-10-12T04:00:00Z",
    "capturedAt": "2026-10-05T14:42:27.771Z",
    "priceAtCapture": 0.125,
-   "price": 0.0155,
+   "price": 0.0095,
    "closed": false,
    "resolved": null
   },
@@ -571,7 +571,7 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-10-05T14:42:27.771Z",
    "priceAtCapture": 0.605,
-   "price": 0.775,
+   "price": 0.815,
    "closed": false,
    "resolved": null
   },
@@ -583,7 +583,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-05T14:42:27.771Z",
    "priceAtCapture": 0.0495,
-   "price": 0.0215,
+   "price": 0.0145,
    "closed": false,
    "resolved": null
   },
@@ -595,7 +595,7 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-10-05T14:42:27.771Z",
    "priceAtCapture": 0.885,
-   "price": 0.915,
+   "price": 0.885,
    "closed": false,
    "resolved": null
   },
@@ -607,7 +607,7 @@
    "endDate": "2026-10-08T12:00:00Z",
    "capturedAt": "2026-10-06T13:20:18.616Z",
    "priceAtCapture": 0.245,
-   "price": 0.085,
+   "price": 0.13,
    "closed": false,
    "resolved": null
   },
@@ -619,7 +619,7 @@
    "endDate": "2026-10-08T12:00:00Z",
    "capturedAt": "2026-10-06T13:20:18.616Z",
    "priceAtCapture": 0.25,
-   "price": 0.445,
+   "price": 0.57,
    "closed": false,
    "resolved": null
   },
@@ -631,7 +631,7 @@
    "endDate": "2026-10-08T12:00:00Z",
    "capturedAt": "2026-10-06T13:20:18.616Z",
    "priceAtCapture": 0.245,
-   "price": 0.365,
+   "price": 0.27,
    "closed": false,
    "resolved": null
   },
@@ -643,7 +643,7 @@
    "endDate": "2026-10-08T12:00:00Z",
    "capturedAt": "2026-10-06T13:20:18.616Z",
    "priceAtCapture": 0.245,
-   "price": 0.1055,
+   "price": 0.046,
    "closed": false,
    "resolved": null
   },
@@ -655,7 +655,7 @@
    "endDate": "2026-10-08T12:00:00Z",
    "capturedAt": "2026-10-06T13:20:18.616Z",
    "priceAtCapture": 0.245,
-   "price": 0.0345,
+   "price": 0.008,
    "closed": false,
    "resolved": null
   },
@@ -667,7 +667,7 @@
    "endDate": "2026-10-08T12:00:00Z",
    "capturedAt": "2026-10-06T13:20:18.616Z",
    "priceAtCapture": 0.245,
-   "price": 0.0055,
+   "price": 0.0005,
    "closed": false,
    "resolved": null
   },
@@ -679,7 +679,7 @@
    "endDate": "2026-10-08T12:00:00Z",
    "capturedAt": "2026-10-06T13:20:18.616Z",
    "priceAtCapture": 0.3,
-   "price": 0.21,
+   "price": 0.14,
    "closed": false,
    "resolved": null
   },
@@ -691,7 +691,7 @@
    "endDate": "2026-10-08T12:00:00Z",
    "capturedAt": "2026-10-06T13:20:18.616Z",
    "priceAtCapture": 0.28,
-   "price": 0.415,
+   "price": 0.39,
    "closed": false,
    "resolved": null
   },
@@ -703,7 +703,7 @@
    "endDate": "2026-10-08T12:00:00Z",
    "capturedAt": "2026-10-06T13:20:18.616Z",
    "priceAtCapture": 0.28,
-   "price": 0.25,
+   "price": 0.31,
    "closed": false,
    "resolved": null
   },
@@ -715,7 +715,7 @@
    "endDate": "2026-10-08T12:00:00Z",
    "capturedAt": "2026-10-06T13:20:18.616Z",
    "priceAtCapture": 0.16,
-   "price": 0.04,
+   "price": 0.152,
    "closed": false,
    "resolved": null
   },
@@ -727,7 +727,7 @@
    "endDate": "2026-10-08T12:00:00Z",
    "capturedAt": "2026-10-06T13:20:18.616Z",
    "priceAtCapture": 0.155,
-   "price": 0.0055,
+   "price": 0.0235,
    "closed": false,
    "resolved": null
   },
@@ -739,7 +739,7 @@
    "endDate": "2026-10-08T12:00:00Z",
    "capturedAt": "2026-10-06T13:20:18.616Z",
    "priceAtCapture": 0.18,
-   "price": 0.026,
+   "price": 0.0005,
    "closed": false,
    "resolved": null
   },
@@ -751,7 +751,7 @@
    "endDate": "2026-10-08T12:00:00Z",
    "capturedAt": "2026-10-06T13:20:18.616Z",
    "priceAtCapture": 0.22,
-   "price": 0.04,
+   "price": 0.0075,
    "closed": false,
    "resolved": null
   },
@@ -763,7 +763,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-07T13:26:35.094Z",
    "priceAtCapture": 0.0465,
-   "price": 0.0465,
+   "price": 0.0425,
    "closed": false,
    "resolved": null
   },
@@ -775,7 +775,7 @@
    "endDate": "2026-10-12T04:00:00Z",
    "capturedAt": "2026-10-07T13:26:35.094Z",
    "priceAtCapture": 0.54,
-   "price": 0.54,
+   "price": 0.635,
    "closed": false,
    "resolved": null
   },
@@ -787,7 +787,7 @@
    "endDate": "2026-10-09T16:00:00Z",
    "capturedAt": "2026-10-07T13:26:35.094Z",
    "priceAtCapture": 0.285,
-   "price": 0.285,
+   "price": 0.0025,
    "closed": false,
    "resolved": null
   },
@@ -799,7 +799,7 @@
    "endDate": "2026-10-09T16:00:00Z",
    "capturedAt": "2026-10-07T13:26:35.094Z",
    "priceAtCapture": 0.054,
-   "price": 0.054,
+   "price": 0.003,
    "closed": false,
    "resolved": null
   },
@@ -823,7 +823,91 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-07T13:26:35.094Z",
    "priceAtCapture": 0.205,
-   "price": 0.205,
+   "price": 0.185,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "us-x-iran-ceasefire-continues-through-october-12",
+   "id": "5234660",
+   "question": "US x Iran ceasefire continues through October 12?",
+   "createdAt": "2026-10-03T14:35:42.661004Z",
+   "endDate": "2026-10-13T03:59:00Z",
+   "capturedAt": "2026-10-08T13:32:00.389Z",
+   "priceAtCapture": 0.925,
+   "price": 0.925,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "elon-musk-of-tweets-october-2-october-9-2026-360-379",
+   "id": "5114501",
+   "question": "Will Elon Musk post 360-379 tweets from October 2 to October 9, 2026?",
+   "createdAt": "2026-09-29T04:00:04.584954Z",
+   "endDate": "2026-10-09T16:00:00Z",
+   "capturedAt": "2026-10-08T13:32:00.389Z",
+   "priceAtCapture": 0.036,
+   "price": 0.036,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "elon-musk-of-tweets-october-2-october-9-2026-340-359",
+   "id": "5114496",
+   "question": "Will Elon Musk post 340-359 tweets from October 2 to October 9, 2026?",
+   "createdAt": "2026-09-29T04:00:04.383947Z",
+   "endDate": "2026-10-09T16:00:00Z",
+   "capturedAt": "2026-10-08T13:32:00.389Z",
+   "priceAtCapture": 0.089,
+   "price": 0.089,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "elon-musk-of-tweets-october-2-october-9-2026-320-339",
+   "id": "5114492",
+   "question": "Will Elon Musk post 320-339 tweets from October 2 to October 9, 2026?",
+   "createdAt": "2026-09-29T04:00:04.200396Z",
+   "endDate": "2026-10-09T16:00:00Z",
+   "capturedAt": "2026-10-08T13:32:00.389Z",
+   "priceAtCapture": 0.1485,
+   "price": 0.1485,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "elon-musk-of-tweets-october-2-october-9-2026-300-319",
+   "id": "5114486",
+   "question": "Will Elon Musk post 300-319 tweets from October 2 to October 9, 2026?",
+   "createdAt": "2026-09-29T04:00:04.003193Z",
+   "endDate": "2026-10-09T16:00:00Z",
+   "capturedAt": "2026-10-08T13:32:00.389Z",
+   "priceAtCapture": 0.299,
+   "price": 0.299,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "elon-musk-of-tweets-october-2-october-9-2026-280-299",
+   "id": "5114482",
+   "question": "Will Elon Musk post 280-299 tweets from October 2 to October 9, 2026?",
+   "createdAt": "2026-09-29T04:00:03.831858Z",
+   "endDate": "2026-10-09T16:00:00Z",
+   "capturedAt": "2026-10-08T13:32:00.389Z",
+   "priceAtCapture": 0.306,
+   "price": 0.306,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "elon-musk-of-tweets-october-2-october-9-2026-260-279",
+   "id": "5114479",
+   "question": "Will Elon Musk post 260-279 tweets from October 2 to October 9, 2026?",
+   "createdAt": "2026-09-29T04:00:03.659128Z",
+   "endDate": "2026-10-09T16:00:00Z",
+   "capturedAt": "2026-10-08T13:32:00.389Z",
+   "priceAtCapture": 0.093,
+   "price": 0.093,
    "closed": false,
    "resolved": null
   }
