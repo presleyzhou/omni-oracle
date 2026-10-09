@@ -576,5 +576,12 @@
   "lb.topic.economy": "Économie",
   "lb.topic.tech": "Tech",
   "lb.topic.other": "Autre",
-  "tour.real.bytopic": "Référence marché par thème"
+  "tour.real.bytopic": "Référence marché par thème",
+  "tour.real.byhorizon": "Référence marché par horizon à la capture",
+  "me.score.title": "Règles de notation (ce que signifie chaque chiffre réel du site)",
+  "me.score.1": "<strong>Score de Brier</strong> = moyenne de (prévision − résultat)² ; 0 est parfait, 0,25 vaut « toujours 50 % ». Plus bas est meilleur, et c'est une règle de score propre : on ne peut l'améliorer qu'en rapportant sa vraie croyance.",
+  "me.score.2": "<strong>Registre de questions.</strong> L'instantané quotidien ajoute les marchés binaires Polymarket le jour de leur création (via des événements étiquetés ; sports, hausse/baisse récurrents, météo et marchés de tweets exclus ; au plus trois marchés par événement et deux par famille d'échelle de prix) et les rafraîchit jusqu'à résolution. Chaque entrée conserve le prix de marché à la capture.",
+  "me.score.3": "<strong>Référence marché</strong> = Brier du prix de capture sur chaque question résolue. Calculée à partir du seul registre, sans clé, c'est le chiffre que tout participant doit battre. Les lignes par thème et par horizon utilisent les étiquettes Polymarket et les jours jusqu'à résolution à la capture.",
+  "me.score.4": "<strong>Participants.</strong> Humains et modèles ne prévoient que des questions du registre encore ouvertes ; un modèle est de plus limité aux questions créées après sa date de coupure déclarée. Chaque prévision conserve le prix de marché à l'engagement ; Δ vs marché compare les deux Briers sur les mêmes questions au même instant (style Alpha Score).",
+  "me.score.5": "<strong>Ce qui reste démo.</strong> Le classement, les courbes de calibration hors points réels, les prix des marchés démo et le tableau du banc IA sont illustratifs. Tout ce qui est marqué <em>En direct</em>, <em>Instantané</em> ou lié au registre est réel."
 }

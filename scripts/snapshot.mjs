@@ -13,6 +13,7 @@ import dns from "node:dns";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { fileURLToPath } from "node:url";
+import { LADDERS, family, FAMILY_CAP, topicOf, SPORTS, TAG_EXCLUDE, topicFromTags, EVENT_CAP } from "./ledger-rules.mjs";
 
 dns.setDefaultResultOrder("ipv4first"); // some sandboxes have broken IPv6 egress
 const execFileP = promisify(execFile);
@@ -130,22 +131,6 @@ async function baaSpread() {
    evaluation discipline of ForecastBench / Agentic Time Machine (arXiv 2606.21013). */
 const LEDGER = path.join(ROOT, "data", "questions.json");
 /* sports lines dominate Polymarket's new-market feed; "vs." needs no trailing word boundary */
-/* low-information ladders (daily temperature, tweet counts) are excluded outright; price
-   ladders ("Bitcoin reach $X in October") are capped per family so one asset's strike
-   grid cannot dominate the market baseline */
-const LADDERS = /\b(highest|lowest) temperature\b|\btweets?\b|\bof tweets\b/i;
-const family = (slug) => slug.replace(/\d+(pt\d+)?k?/g, "#");
-const FAMILY_CAP = 2;
-/* coarse topic tags used by the tournament page's per-topic baselines */
-const TOPICS = [
-  ["crypto", /\b(bitcoin|btc|ethereum|eth|solana|sol|xrp|dogecoin|crypto|token|etf)\b/i],
-  ["geo", /\b(ceasefire|war|iran|israel|russia|ukraine|china|taiwan|nato|hormuz|strike|missile|troops|military|gaza|sanction)\b/i],
-  ["politics", /\b(trump|president|congress|senate|house|election|governor|vote|bill|executive order|supreme court|cabinet|attorney general|impeach|shutdown)\b/i],
-  ["economy", /\b(fed|fomc|rate (hike|cut)|inflation|cpi|gdp|unemployment|recession|tariff|oil|opec|treasury|dollar|yield)\b/i],
-  ["tech", /\b(ai|openai|anthropic|google|apple|nvidia|tesla|spacex|launch|model|gpt|chip|iphone)\b/i],
-];
-const topicOf = (q) => (TOPICS.find(([, re]) => re.test(q)) || ["other"])[0];
-const SPORTS = /\b(nhl|nba|mlb|nfl|ncaa|ufc|mls|epl|la liga|serie a|bundesliga|premier league|champions league|atp|wta|f1|grand prix|o\/u|spread|moneyline|end in a draw|win on \d{4}-\d{2}-\d{2}|match|game \d)\b|\bvs\.?\s/i;
 async function questionLedger() {
   let ledger = { updated: null, questions: [] };
   try { ledger = JSON.parse(fs.readFileSync(LEDGER, "utf8")); } catch (e) {}
@@ -156,16 +141,6 @@ async function questionLedger() {
      an authoritative topic and let us drop sports, recurring up/down ladders, weather and
      tweet-count markets by tag rather than by regex. Event liquidity/volume stands in for
      market liquidity (event-embedded market objects do not carry it). */
-  const TAG_EXCLUDE = /^(sports|games|esports|soccer|tennis|basketball|baseball|hockey|football|cfb.*|nfl|nba|mlb|nhl|mma|ufc|golf|f1|recurring|up or down|hide from new|weather|daily temperature|highest temperature|lowest temperature|tweet markets|5m|15m|hourly)$/i;
-  const TAG_TOPIC = [
-    ["crypto", /^(crypto|bitcoin|ethereum|solana|xrp|crypto prices|hit price|stablecoins?|defi)$/i],
-    ["geo", /^(geopolitics|military|military strikes|iran|israel|middle east|strait of hormuz|russia|ukraine|china|taiwan|nato|war|ceasefire|houthis|yemen)$/i],
-    ["politics", /^(politics|elections|us election|global elections|world elections|main election|trump|midterms|congress|senate|house|supreme court|cabinet|.* election)$/i],
-    ["economy", /^(economy|fed|oil|business|finance|macro|inflation|tariffs?|trade|rates|gdp|jobs|treasury)$/i],
-    ["tech", /^(tech|ai|science|space|openai|anthropic|spacex|nvidia|apple|google|tesla)$/i],
-  ];
-  const topicFromTags = (tags) => { for (const [t, re] of TAG_TOPIC) if (tags.some(l => re.test(l))) return t; return null; };
-  const EVENT_CAP = 3;
   const lists = await Promise.all([
     getJson("https://gamma-api.polymarket.com/events?limit=300&closed=false&active=true&order=createdAt&ascending=false").catch(() => []),
     getJson("https://gamma-api.polymarket.com/events?limit=300&closed=false&active=true&order=volume24hr&ascending=false").catch(() => []),

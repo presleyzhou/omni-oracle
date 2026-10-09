@@ -576,5 +576,12 @@
   "lb.topic.economy": "Economía",
   "lb.topic.tech": "Tecnología",
   "lb.topic.other": "Otros",
-  "tour.real.bytopic": "Referencia de mercado por tema"
+  "tour.real.bytopic": "Referencia de mercado por tema",
+  "tour.real.byhorizon": "Referencia de mercado por horizonte al capturar",
+  "me.score.title": "Reglas de puntuación (qué significa cada número real de este sitio)",
+  "me.score.1": "<strong>Puntuación de Brier</strong> = media de (pronóstico − resultado)²; 0 es perfecto, 0,25 equivale a \"siempre 50 %\". Menor es mejor, y es una regla de puntuación propia: solo se mejora informando la creencia verdadera.",
+  "me.score.2": "<strong>Registro de preguntas.</strong> La instantánea diaria añade mercados binarios de Polymarket el día en que se crean (vía eventos etiquetados; se excluyen deportes, subidas/bajadas recurrentes, clima y mercados de tuits; como máximo tres mercados por evento y dos por familia de escalera de precios) y los actualiza hasta resolverse. Cada entrada conserva el precio de mercado al capturar.",
+  "me.score.3": "<strong>Referencia de mercado</strong> = Brier del precio de captura en cada pregunta resuelta. Se calcula solo con el registro, sin clave, y es la cifra que cualquier participante debe batir. Las líneas por tema y por horizonte usan las etiquetas de Polymarket y los días hasta la resolución al capturar.",
+  "me.score.4": "<strong>Participantes.</strong> Humanos y modelos solo pronostican preguntas del registro aún abiertas; un modelo se limita además a preguntas creadas después de su corte declarado. Cada pronóstico guarda el precio de mercado al comprometerse; Δ vs mercado compara ambos Briers en las mismas preguntas y el mismo instante (estilo Alpha Score).",
+  "me.score.5": "<strong>Lo que sigue siendo demo.</strong> La clasificación, las curvas de calibración salvo los puntos reales, los precios de los mercados demo y la tabla del banco de IA son ilustrativos. Todo lo marcado <em>En vivo</em>, <em>Instantánea</em> o ligado al registro es real."
 }

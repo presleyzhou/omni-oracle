@@ -591,7 +591,14 @@ en: {
   "lb.topic.economy": "Economy",
   "lb.topic.tech": "Tech",
   "lb.topic.other": "Other",
-  "tour.real.bytopic": "Market baseline by topic"
+  "tour.real.bytopic": "Market baseline by topic",
+  "tour.real.byhorizon": "Market baseline by horizon at capture",
+  "me.score.title": "Scoring rules (what every real number on this site means)",
+  "me.score.1": "<strong>Brier score</strong> = mean of (forecast − outcome)²; 0 is perfect, 0.25 is \"always 50%\". Lower is better, and it is a proper scoring rule: you cannot improve it by reporting anything other than your true belief.",
+  "me.score.2": "<strong>Question ledger.</strong> The daily snapshot appends binary Polymarket markets on the day they are created (via tagged events; sports, recurring up/down, weather and tweet markets excluded; at most three markets per event and two per price-ladder family) and refreshes them until resolution. Each entry keeps the market price at capture.",
+  "me.score.3": "<strong>Market baseline</strong> = Brier of the capture price on every resolved question. It is computed from the ledger alone, needs no key, and is the number any participant must beat. Per-topic and per-horizon lines use Polymarket's tags and days-to-resolution at capture.",
+  "me.score.4": "<strong>Participants.</strong> Humans and AI models forecast only ledger questions that are still open; a model is also restricted to questions created after its declared knowledge cutoff. Every forecast stores the market price at commit; Δ vs market compares the two Briers on the same questions at the same moment (Alpha-Score style).",
+  "me.score.5": "<strong>What is still demo.</strong> The leaderboard, calibration curves other than the real points, the demo markets' prices and the AI bench table are illustrative. Anything marked <em>Live</em>, <em>Snapshot</em> or tied to the ledger is real."
 },
 };
 

@@ -119,6 +119,10 @@ function renderAiLedger() {
   if (resolved.length) {
     const byTopic = {};
     resolved.forEach(q => { const t = topicOf(q); (byTopic[t] = byTopic[t] || []).push(brier(q.priceAtCapture, q.resolved)); });
+    /* horizon at capture: short questions are easy for markets, long ones are where skill shows */
+    const byH = { "≤7d": [], "8–30d": [], ">30d": [] };
+    resolved.forEach(q => { const d = (Date.parse(q.endDate) - Date.parse(q.capturedAt)) / 864e5; (d <= 7 ? byH["≤7d"] : d <= 30 ? byH["8–30d"] : byH[">30d"]).push(brier(q.priceAtCapture, q.resolved)); });
+    const horizonLine = Object.entries(byH).filter(([, arr]) => arr.length).map(([h, arr]) => `${h} ${(arr.reduce((a, b) => a + b, 0) / arr.length).toFixed(3)} (${arr.length})`).join(" · ");
     const topicLine = Object.entries(byTopic).sort((a, b) => b[1].length - a[1].length)
       .map(([t, arr]) => `${OO_T("lb.topic." + t)} ${(arr.reduce((a, b) => a + b, 0) / arr.length).toFixed(3)} (${arr.length})`).join(" · ");
     const rows = [];
@@ -134,7 +138,7 @@ function renderAiLedger() {
     html += `<h4 class="real-h">${OO_T("tour.real.title")}</h4>
       <table style="margin-top:6px;"><thead><tr><th scope="col">${OO_T("tour.real.who")}</th><th scope="col">${OO_T("tour.ai.graded")}</th><th scope="col">${OO_T("tour.th.brier")}</th><th scope="col">${OO_T("tour.real.vsmkt")}</th></tr></thead><tbody>` +
       rows.map(r => `<tr><td>${r.real ? "" : "<strong>"}${r.name}${r.real ? "" : "</strong>"}</td><td class="num-cell">${r.n}</td><td class="num-cell">${r.b.toFixed(3)}</td><td class="num-cell ${r.mb == null ? "" : r.b <= r.mb ? "pos" : "neg"}">${r.mb == null ? "—" : (r.b - r.mb >= 0 ? "+" : "") + (r.b - r.mb).toFixed(3)}</td></tr>`).join("") +
-      `</tbody></table><p class="dim-note" style="margin-top:6px;">${OO_T("tour.real.bytopic")}: ${topicLine}</p><p class="dim-note">${OO_T("tour.real.note")}</p>`;
+      `</tbody></table><p class="dim-note" style="margin-top:6px;">${OO_T("tour.real.bytopic")}: ${topicLine}</p><p class="dim-note">${OO_T("tour.real.byhorizon")}: ${horizonLine}</p><p class="dim-note">${OO_T("tour.real.note")}</p>`;
   }
   if (pending.length) {
     html += `<p class="dim-note" style="margin-top:10px;">${T2("tour.ai.pending", { n: pending.length })}</p><ul class="pending-list">` +
