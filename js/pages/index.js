@@ -57,6 +57,13 @@
     const b = res.reduce((a, x) => a + (x.priceAtCapture - x.resolved) ** 2, 0) / res.length;
     note("snapshot");
     push(6, String(res.length), "idx.stat.ledger", b.toFixed(3), "");
+    /* per-topic market baseline under the stats bar */
+    const byT = {};
+    res.forEach(x => { const t = x.topic || "other"; (byT[t] = byT[t] || []).push((x.priceAtCapture - x.resolved) ** 2); });
+    const line = Object.entries(byT).sort((a, c) => c[1].length - a[1].length)
+      .map(([t, arr]) => `${OO_T("lb.topic." + t)} ${(arr.reduce((p, q) => p + q, 0) / arr.length).toFixed(3)} (${arr.length})`).join(" · ");
+    const el = document.getElementById("heroTopics");
+    if (el) { el.textContent = OO_T("tour.real.bytopic") + ": " + line; el.classList.remove("hide"); }
   }).finally(done);
   ooLive("https://gamma-api.polymarket.com/markets?limit=6&active=true&closed=false&order=volume24hr&ascending=false", "polymarket", { ttl: 120 })
     .then(({ data: d, source }) => {

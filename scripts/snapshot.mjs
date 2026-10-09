@@ -152,33 +152,53 @@ async function questionLedger() {
   const known = new Set(ledger.questions.map(q => q.slug));
   const today = new Date();
   /* 1. new candidates */
-  /* the newest markets are mostly sports lines; take liquid ones by volume and
-     liquidity and keep those created in the last 45 days */
-  /* a failed candidate fetch must not stop the refresh of existing entries */
+  /* Candidates come from /events: every event carries Polymarket's own tags, which give
+     an authoritative topic and let us drop sports, recurring up/down ladders, weather and
+     tweet-count markets by tag rather than by regex. Event liquidity/volume stands in for
+     market liquidity (event-embedded market objects do not carry it). */
+  const TAG_EXCLUDE = /^(sports|games|esports|soccer|tennis|basketball|baseball|hockey|football|cfb.*|nfl|nba|mlb|nhl|mma|ufc|golf|f1|recurring|up or down|hide from new|weather|daily temperature|highest temperature|lowest temperature|tweet markets|5m|15m|hourly)$/i;
+  const TAG_TOPIC = [
+    ["crypto", /^(crypto|bitcoin|ethereum|solana|xrp|crypto prices|hit price|stablecoins?|defi)$/i],
+    ["geo", /^(geopolitics|military|military strikes|iran|israel|middle east|strait of hormuz|russia|ukraine|china|taiwan|nato|war|ceasefire|houthis|yemen)$/i],
+    ["politics", /^(politics|elections|us election|global elections|world elections|main election|trump|midterms|congress|senate|house|supreme court|cabinet|.* election)$/i],
+    ["economy", /^(economy|fed|oil|business|finance|macro|inflation|tariffs?|trade|rates|gdp|jobs|treasury)$/i],
+    ["tech", /^(tech|ai|science|space|openai|anthropic|spacex|nvidia|apple|google|tesla)$/i],
+  ];
+  const topicFromTags = (tags) => { for (const [t, re] of TAG_TOPIC) if (tags.some(l => re.test(l))) return t; return null; };
+  const EVENT_CAP = 3;
   const lists = await Promise.all([
-    getJson("https://gamma-api.polymarket.com/markets?limit=300&closed=false&active=true&order=volume24hr&ascending=false").catch(() => []),
-    getJson("https://gamma-api.polymarket.com/markets?limit=300&closed=false&active=true&order=liquidity&ascending=false").catch(() => []),
-    getJson("https://gamma-api.polymarket.com/markets?limit=500&closed=false&active=true&order=createdAt&ascending=false").catch(() => []),
+    getJson("https://gamma-api.polymarket.com/events?limit=300&closed=false&active=true&order=createdAt&ascending=false").catch(() => []),
+    getJson("https://gamma-api.polymarket.com/events?limit=300&closed=false&active=true&order=volume24hr&ascending=false").catch(() => []),
   ]);
-  const seen = new Set();
-  const fresh = lists.flat().filter(m => m && !seen.has(m.slug) && seen.add(m.slug))
-    .filter(m => (today - Date.parse(m.createdAt)) / 864e5 <= 60)
+  const seenEv = new Set();
+  const events = lists.flat().filter(e => e && e.slug && !seenEv.has(e.slug) && seenEv.add(e.slug))
+    .filter(e => (today - Date.parse(e.createdAt)) / 864e5 <= 90)
+    .filter(e => !(e.tags || []).some(t => TAG_EXCLUDE.test(t.label || "")))
+    .filter(e => (+e.liquidity || 0) >= 1000 || (+e.volume || 0) >= 5000)
     .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
   const added = [];
-  for (const m of fresh) {
-    let outcomes = [], prices = [];
-    try { outcomes = JSON.parse(m.outcomes); prices = JSON.parse(m.outcomePrices).map(Number); } catch (e) { continue; }
-    const binary = outcomes.length === 2 && /^yes$/i.test(outcomes[0]) && /^no$/i.test(outcomes[1]);
-    const liquid = (+m.liquidity || 0) >= 500 || (+m.volume24hr || 0) >= 500;
-    const informative = prices[0] > 0.03 && prices[0] < 0.97; // skip near-certain markets
-    const days = (Date.parse(m.endDate) - today) / 864e5;
-    if (!binary || !liquid || !informative || known.has(m.slug) || SPORTS.test(m.question + " " + m.slug) || LADDERS.test(m.question) || !(days > 1 && days < 180)) continue;
-    const fam = family(m.slug);
-    const famCount = ledger.questions.filter(q => family(q.slug) === fam).length + added.filter(q => family(q.slug) === fam).length;
-    if (famCount >= FAMILY_CAP) continue;
-    added.push({ slug: m.slug, id: m.id, question: m.question, topic: topicOf(m.question), createdAt: m.createdAt, endDate: m.endDate,
-      capturedAt: today.toISOString(), priceAtCapture: prices[0], price: prices[0], closed: false, resolved: null });
-    if (added.length >= 20) break;
+  for (const e of events) {
+    const tags = (e.tags || []).map(t => t.label).filter(Boolean).slice(0, 8);
+    let perEvent = ledger.questions.filter(q => q.event === e.slug).length;
+    for (const m of (e.markets || []).slice().sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))) {
+      if (perEvent >= EVENT_CAP) break;
+      let outcomes = [], prices = [];
+      try { outcomes = JSON.parse(m.outcomes); prices = JSON.parse(m.outcomePrices).map(Number); } catch (err) { continue; }
+      const binary = outcomes.length === 2 && /^yes$/i.test(outcomes[0]) && /^no$/i.test(outcomes[1]);
+      const informative = prices[0] > 0.03 && prices[0] < 0.97;
+      const days = (Date.parse(m.endDate) - today) / 864e5;
+      const age = (today - Date.parse(m.createdAt)) / 864e5;
+      if (!binary || !informative || m.closed || known.has(m.slug) || age > 60 || !(days > 1 && days < 180)) continue;
+      if (SPORTS.test(m.question + " " + m.slug) || LADDERS.test(m.question)) continue;
+      const fam = family(m.slug);
+      const famCount = ledger.questions.filter(q => family(q.slug) === fam).length + added.filter(q => family(q.slug) === fam).length;
+      if (famCount >= FAMILY_CAP) continue;
+      added.push({ slug: m.slug, id: m.id, question: m.question, topic: topicFromTags(tags) || topicOf(m.question), tags, event: e.slug,
+        createdAt: m.createdAt, endDate: m.endDate, capturedAt: today.toISOString(), priceAtCapture: prices[0], price: prices[0], closed: false, resolved: null });
+      known.add(m.slug); perEvent++;
+      if (added.length >= 25) break;
+    }
+    if (added.length >= 25) break;
   }
   /* 2. refresh open entries (price, closed, resolution) */
   const open = ledger.questions.filter(q => !q.closed);
@@ -207,7 +227,7 @@ async function questionLedger() {
     const f = family(q.slug); famSeen[f] = (famSeen[f] || 0) + 1;
     return famSeen[f] <= FAMILY_CAP;
   });
-  ledger.questions.forEach(q => { if (!q.topic) q.topic = topicOf(q.question); });
+  ledger.questions.forEach(q => { q.topic = (q.tags && topicFromTags(q.tags)) || q.topic || topicOf(q.question); });
   /* 4. bound the ledger: keep resolved entries ≤ 180 days, open entries ≤ 500 */
   const cutoff = Date.now() - 180 * 864e5;
   ledger.questions = ledger.questions.concat(added)

@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-09T17:07:55.426Z",
+ "updated": "2026-10-09T17:17:53.945Z",
  "questions": [
   {
    "slug": "us-x-iran-ceasefire-continues-through-october-31-20260917",
@@ -378,7 +378,7 @@
    "endDate": "2026-10-31T16:00:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.7185,
-   "price": 0.711,
+   "price": 0.7105,
    "closed": false,
    "resolved": null,
    "topic": "tech"
@@ -404,7 +404,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.0315,
-   "price": 0.0245,
+   "price": 0.025,
    "closed": false,
    "resolved": null,
    "topic": "crypto"
@@ -417,7 +417,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.92,
-   "price": 0.485,
+   "price": 0.475,
    "closed": false,
    "resolved": null,
    "topic": "crypto"
@@ -510,7 +510,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-03T11:41:25.132Z",
    "priceAtCapture": 0.135,
-   "price": 0.175,
+   "price": 0.185,
    "closed": false,
    "resolved": null,
    "topic": "crypto"
@@ -577,7 +577,7 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-10-05T14:42:27.771Z",
    "priceAtCapture": 0.885,
-   "price": 0.89,
+   "price": 0.895,
    "closed": false,
    "resolved": null,
    "topic": "geo"
@@ -643,7 +643,7 @@
    "endDate": "2026-10-13T03:59:00Z",
    "capturedAt": "2026-10-08T13:32:00.389Z",
    "priceAtCapture": 0.925,
-   "price": 0.9415,
+   "price": 0.9385,
    "closed": false,
    "resolved": null,
    "topic": "geo"
@@ -656,7 +656,7 @@
    "endDate": "2026-10-12T04:00:00Z",
    "capturedAt": "2026-10-09T13:20:39.337Z",
    "priceAtCapture": 0.052,
-   "price": 0.0215,
+   "price": 0.0245,
    "closed": false,
    "resolved": null,
    "topic": "crypto"
@@ -669,7 +669,7 @@
    "endDate": "2026-10-12T04:00:00Z",
    "capturedAt": "2026-10-09T13:20:39.337Z",
    "priceAtCapture": 0.145,
-   "price": 0.085,
+   "price": 0.09,
    "closed": false,
    "resolved": null,
    "topic": "crypto"
@@ -686,6 +686,369 @@
    "closed": false,
    "resolved": null,
    "topic": "other"
+  },
+  {
+   "slug": "will-another-person-win-the-second-round-of-the-2026-brazilian-presidential-election",
+   "id": "5340076",
+   "question": "Will another person win the second round of the 2026 Brazilian presidential election?",
+   "topic": "politics",
+   "tags": [
+    "World",
+    "Brazil",
+    "Politics",
+    "Elections",
+    "Global Elections",
+    "International Election Props"
+   ],
+   "event": "brazil-presidential-election-second-round-margin-of-victory",
+   "createdAt": "2026-10-05T19:31:35.227997Z",
+   "endDate": "2026-10-26T03:59:00Z",
+   "capturedAt": "2026-10-09T17:17:53.945Z",
+   "priceAtCapture": 0.5,
+   "price": 0.5,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-luiz-inacio-lula-da-silva-win-the-second-round-of-the-2026-brazilian-presidential-election-by-less-than-4",
+   "id": "5340072",
+   "question": "Will Luiz Inácio Lula da Silva win the second round of the 2026 Brazilian presidential election by less than 4%?",
+   "topic": "politics",
+   "tags": [
+    "World",
+    "Brazil",
+    "Politics",
+    "Elections",
+    "Global Elections",
+    "International Election Props"
+   ],
+   "event": "brazil-presidential-election-second-round-margin-of-victory",
+   "createdAt": "2026-10-05T19:31:33.239157Z",
+   "endDate": "2026-10-26T03:59:00Z",
+   "capturedAt": "2026-10-09T17:17:53.945Z",
+   "priceAtCapture": 0.115,
+   "price": 0.115,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-flavio-bolsonaro-win-the-second-round-of-the-2026-brazilian-presidential-election-by-less-than-4",
+   "id": "5340071",
+   "question": "Will Flávio Bolsonaro win the second round of the 2026 Brazilian presidential election by less than 4%?",
+   "topic": "politics",
+   "tags": [
+    "World",
+    "Brazil",
+    "Politics",
+    "Elections",
+    "Global Elections",
+    "International Election Props"
+   ],
+   "event": "brazil-presidential-election-second-round-margin-of-victory",
+   "createdAt": "2026-10-05T19:31:32.743007Z",
+   "endDate": "2026-10-26T03:59:00Z",
+   "capturedAt": "2026-10-09T17:17:53.945Z",
+   "priceAtCapture": 0.225,
+   "price": 0.225,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "saudi-arabia-military-action-against-yemen-on-october-31",
+   "id": "5167212",
+   "question": "Saudi Arabia military action against Yemen on October 31?",
+   "topic": "geo",
+   "tags": [
+    "Yemen",
+    "Houthis",
+    "Military",
+    "Geopolitics",
+    "Middle East",
+    "Saudi Arabia",
+    "Military Actions",
+    "Military Strikes"
+   ],
+   "event": "saudi-arabia-military-action-against-yemen-on-october-2026",
+   "createdAt": "2026-10-01T00:13:39.920409Z",
+   "endDate": "2026-11-01T03:59:00Z",
+   "capturedAt": "2026-10-09T17:17:53.945Z",
+   "priceAtCapture": 0.275,
+   "price": 0.275,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "saudi-arabia-military-action-against-yemen-on-october-30",
+   "id": "5167211",
+   "question": "Saudi Arabia military action against Yemen on October 30?",
+   "topic": "geo",
+   "tags": [
+    "Yemen",
+    "Houthis",
+    "Military",
+    "Geopolitics",
+    "Middle East",
+    "Saudi Arabia",
+    "Military Actions",
+    "Military Strikes"
+   ],
+   "event": "saudi-arabia-military-action-against-yemen-on-october-2026",
+   "createdAt": "2026-10-01T00:13:39.357116Z",
+   "endDate": "2026-10-31T03:59:00Z",
+   "capturedAt": "2026-10-09T17:17:53.945Z",
+   "priceAtCapture": 0.67,
+   "price": 0.67,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-another-list-win-the-most-seats-in-the-2026-serbian-parliamentary-election",
+   "id": "4824638",
+   "question": "Will another list win the most seats in the 2026 Serbian parliamentary election?",
+   "topic": "politics",
+   "tags": [
+    "Serbia",
+    "Politics",
+    "Elections",
+    "Main Election",
+    "Global Elections",
+    "Serbia Elections"
+   ],
+   "event": "serbia-parliamentary-election-winner-2026",
+   "createdAt": "2026-09-21T22:56:15.754026Z",
+   "endDate": "2026-10-25T23:59:00Z",
+   "capturedAt": "2026-10-09T17:17:53.945Z",
+   "priceAtCapture": 0.5,
+   "price": 0.5,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-list-z-win-the-most-seats-in-the-2026-serbian-parliamentary-election",
+   "id": "4824637",
+   "question": "Will List Z win the most seats in the 2026 Serbian parliamentary election?",
+   "topic": "politics",
+   "tags": [
+    "Serbia",
+    "Politics",
+    "Elections",
+    "Main Election",
+    "Global Elections",
+    "Serbia Elections"
+   ],
+   "event": "serbia-parliamentary-election-winner-2026",
+   "createdAt": "2026-09-21T22:56:15.442426Z",
+   "endDate": "2026-10-25T23:59:00Z",
+   "capturedAt": "2026-10-09T17:17:53.945Z",
+   "priceAtCapture": 0.5,
+   "price": 0.5,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-list-y-win-the-most-seats-in-the-2026-serbian-parliamentary-election",
+   "id": "4824636",
+   "question": "Will List Y win the most seats in the 2026 Serbian parliamentary election?",
+   "topic": "politics",
+   "tags": [
+    "Serbia",
+    "Politics",
+    "Elections",
+    "Main Election",
+    "Global Elections",
+    "Serbia Elections"
+   ],
+   "event": "serbia-parliamentary-election-winner-2026",
+   "createdAt": "2026-09-21T22:56:15.109269Z",
+   "endDate": "2026-10-25T23:59:00Z",
+   "capturedAt": "2026-10-09T17:17:53.945Z",
+   "priceAtCapture": 0.5,
+   "price": 0.5,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "us-x-iran-ceasefire-continues-through-november-15",
+   "id": "5190747",
+   "question": "US x Iran ceasefire continues through November 15?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Trump",
+    "Israel",
+    "Military",
+    "Politics",
+    "Geopolitics",
+    "Middle East",
+    "Israel x Iran"
+   ],
+   "event": "us-iran-ceasefire-continues-throughptptpt",
+   "createdAt": "2026-10-01T19:09:35.643774Z",
+   "endDate": "2026-11-16T04:59:00Z",
+   "capturedAt": "2026-10-09T17:17:53.945Z",
+   "priceAtCapture": 0.555,
+   "price": 0.555,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "us-x-iran-ceasefire-continues-through-december-31-20260918",
+   "id": "4713484",
+   "question": "US x Iran ceasefire continues through December 31?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Trump",
+    "Israel",
+    "Military",
+    "Politics",
+    "Geopolitics",
+    "Middle East",
+    "Israel x Iran"
+   ],
+   "event": "us-iran-ceasefire-continues-throughptptpt",
+   "createdAt": "2026-09-19T00:06:05.436253Z",
+   "endDate": "2026-12-31T23:59:00Z",
+   "capturedAt": "2026-10-09T17:17:53.945Z",
+   "priceAtCapture": 0.335,
+   "price": 0.335,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "us-x-iran-ceasefire-continues-through-november-30-20260918",
+   "id": "4713483",
+   "question": "US x Iran ceasefire continues through November 30?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Trump",
+    "Israel",
+    "Military",
+    "Politics",
+    "Geopolitics",
+    "Middle East",
+    "Israel x Iran"
+   ],
+   "event": "us-iran-ceasefire-continues-throughptptpt",
+   "createdAt": "2026-09-19T00:06:05.288065Z",
+   "endDate": "2026-11-30T23:59:00Z",
+   "capturedAt": "2026-10-09T17:17:53.945Z",
+   "priceAtCapture": 0.405,
+   "price": 0.405,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "israel-x-iran-ceasefire-continues-through-october-15",
+   "id": "5339988",
+   "question": "Israel x Iran ceasefire continues through October 15?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Israel",
+    "Geopolitics",
+    "Israel x Iran",
+    "Israel Election"
+   ],
+   "event": "israel-x-iran-ceasefire-continues-throughptptpt-20260716224448963",
+   "createdAt": "2026-10-05T19:30:39.406394Z",
+   "endDate": "2026-10-16T03:59:00Z",
+   "capturedAt": "2026-10-09T17:17:53.945Z",
+   "priceAtCapture": 0.955,
+   "price": 0.955,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "israel-x-iran-ceasefire-continues-through-november-15",
+   "id": "5339986",
+   "question": "Israel x Iran ceasefire continues through November 15?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Israel",
+    "Geopolitics",
+    "Israel x Iran",
+    "Israel Election"
+   ],
+   "event": "israel-x-iran-ceasefire-continues-throughptptpt-20260716224448963",
+   "createdAt": "2026-10-05T19:30:39.294709Z",
+   "endDate": "2026-11-16T04:59:00Z",
+   "capturedAt": "2026-10-09T17:17:53.945Z",
+   "priceAtCapture": 0.715,
+   "price": 0.715,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "israel-x-iran-ceasefire-continues-through-november-30",
+   "id": "3902370",
+   "question": "Israel x Iran ceasefire continues through November 30?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Israel",
+    "Geopolitics",
+    "Israel x Iran",
+    "Israel Election"
+   ],
+   "event": "israel-x-iran-ceasefire-continues-throughptptpt-20260716224448963",
+   "createdAt": "2026-08-26T14:05:23.76548Z",
+   "endDate": "2026-11-30T20:29:00Z",
+   "capturedAt": "2026-10-09T17:17:53.945Z",
+   "priceAtCapture": 0.635,
+   "price": 0.635,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "us-announces-end-of-iranian-blockade-by-march-31-2027",
+   "id": "4906129",
+   "question": "US announces end of Iranian blockade by March 31, 2027?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Trump",
+    "Blockade",
+    "Politics",
+    "shipping",
+    "Peace Deal",
+    "Geopolitics",
+    "U.S. x Iran"
+   ],
+   "event": "us-announces-end-of-iranian-blockade-byptptpt-20260713152715080",
+   "createdAt": "2026-09-24T12:40:37.451452Z",
+   "endDate": "2027-04-01T03:59:00Z",
+   "capturedAt": "2026-10-09T17:17:53.945Z",
+   "priceAtCapture": 0.68,
+   "price": 0.68,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "us-announces-end-of-iranian-blockade-by-november-30-2026",
+   "id": "4906128",
+   "question": "US announces end of Iranian blockade by November 30, 2026?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Trump",
+    "Blockade",
+    "Politics",
+    "shipping",
+    "Peace Deal",
+    "Geopolitics",
+    "U.S. x Iran"
+   ],
+   "event": "us-announces-end-of-iranian-blockade-byptptpt-20260713152715080",
+   "createdAt": "2026-09-24T12:40:37.358061Z",
+   "endDate": "2026-12-01T04:59:00Z",
+   "capturedAt": "2026-10-09T17:17:53.945Z",
+   "priceAtCapture": 0.34,
+   "price": 0.34,
+   "closed": false,
+   "resolved": null
   }
  ]
 }
