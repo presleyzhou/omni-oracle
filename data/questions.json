@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-09T13:20:39.337Z",
+ "updated": "2026-10-09T17:07:55.426Z",
  "questions": [
   {
    "slug": "us-x-iran-ceasefire-continues-through-october-31-20260917",
@@ -9,9 +9,10 @@
    "endDate": "2026-10-31T23:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.565,
-   "price": 0.765,
+   "price": 0.745,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "geo"
   },
   {
    "slug": "us-x-iran-ceasefire-continues-through-september-30-20260917",
@@ -24,7 +25,8 @@
    "price": 1,
    "closed": true,
    "resolved": 1,
-   "resolvedAt": "2026-09-30 22:47:27+00"
+   "resolvedAt": "2026-09-30 22:47:27+00",
+   "topic": "geo"
   },
   {
    "slug": "strait-of-hormuz-traffic-returns-to-normal-by-october-31-20260810151043583",
@@ -34,9 +36,10 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.075,
-   "price": 0.0155,
+   "price": 0.0145,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "geo"
   },
   {
    "slug": "kharg-island-no-longer-under-iranian-control-by-december-31-20260730004337418",
@@ -46,9 +49,10 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.065,
-   "price": 0.055,
+   "price": 0.065,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "other"
   },
   {
    "slug": "will-bitcoin-dip-to-82pt5k-in-september-2026",
@@ -61,7 +65,8 @@
    "price": 0,
    "closed": true,
    "resolved": 0,
-   "resolvedAt": "2026-10-01 04:21:17+00"
+   "resolvedAt": "2026-10-01 04:21:17+00",
+   "topic": "crypto"
   },
   {
    "slug": "trump-renames-ai-by-september-30",
@@ -74,7 +79,8 @@
    "price": 1,
    "closed": true,
    "resolved": 1,
-   "resolvedAt": "2026-09-29 23:22:35+00"
+   "resolvedAt": "2026-09-29 23:22:35+00",
+   "topic": "politics"
   },
   {
    "slug": "will-ethereum-dip-to-2500-in-september-2026-from-september-18",
@@ -87,7 +93,8 @@
    "price": 0,
    "closed": true,
    "resolved": 0,
-   "resolvedAt": "2026-10-01 04:23:32+00"
+   "resolvedAt": "2026-10-01 04:23:32+00",
+   "topic": "crypto"
   },
   {
    "slug": "will-bitcoin-dip-to-77pt5k-in-september-2026-from-september-18",
@@ -100,7 +107,8 @@
    "price": 0,
    "closed": true,
    "resolved": 0,
-   "resolvedAt": "2026-10-01 04:21:15+00"
+   "resolvedAt": "2026-10-01 04:21:15+00",
+   "topic": "crypto"
   },
   {
    "slug": "will-bitcoin-dip-to-80k-in-september-2026-from-september-18",
@@ -113,7 +121,8 @@
    "price": 0,
    "closed": true,
    "resolved": 0,
-   "resolvedAt": "2026-10-01 04:23:39+00"
+   "resolvedAt": "2026-10-01 04:23:39+00",
+   "topic": "crypto"
   },
   {
    "slug": "saudi-oil-pipeline-east-west-restarts-by-october-31",
@@ -126,7 +135,8 @@
    "price": 1,
    "closed": true,
    "resolved": 1,
-   "resolvedAt": "2026-10-06 12:33:28+00"
+   "resolvedAt": "2026-10-06 12:33:28+00",
+   "topic": "economy"
   },
   {
    "slug": "saudi-oil-pipeline-east-west-restarts-by-september-30",
@@ -139,7 +149,8 @@
    "price": 0,
    "closed": true,
    "resolved": 0,
-   "resolvedAt": "2026-10-01 06:03:44+00"
+   "resolvedAt": "2026-10-01 06:03:44+00",
+   "topic": "economy"
   },
   {
    "slug": "will-bitcoin-reach-87pt5k-in-september-2026",
@@ -152,7 +163,8 @@
    "price": 0,
    "closed": true,
    "resolved": 0,
-   "resolvedAt": "2026-10-01 04:21:17+00"
+   "resolvedAt": "2026-10-01 04:21:17+00",
+   "topic": "crypto"
   },
   {
    "slug": "will-ethereum-dip-to-2250-by-december-31-2026",
@@ -162,9 +174,10 @@
    "endDate": "2027-01-01T05:00:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.305,
-   "price": 0.505,
+   "price": 0.525,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "crypto"
   },
   {
    "slug": "us-announces-end-of-iranian-blockade-by-october-15-2026",
@@ -174,9 +187,10 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.17,
-   "price": 0.095,
+   "price": 0.085,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "other"
   },
   {
    "slug": "us-x-iran-diplomatic-meeting-by-march-31-2027-20260922",
@@ -189,7 +203,8 @@
    "price": 0,
    "closed": true,
    "resolved": 0,
-   "resolvedAt": "2026-10-01 06:04:20+00"
+   "resolvedAt": "2026-10-01 06:04:20+00",
+   "topic": "geo"
   },
   {
    "slug": "will-ethereum-reach-2800-in-september-2026-from-september-22",
@@ -202,7 +217,8 @@
    "price": 0,
    "closed": true,
    "resolved": 0,
-   "resolvedAt": "2026-10-01 04:23:32+00"
+   "resolvedAt": "2026-10-01 04:23:32+00",
+   "topic": "crypto"
   },
   {
    "slug": "will-ethereum-reach-2900-in-september-2026",
@@ -215,7 +231,8 @@
    "price": 0,
    "closed": true,
    "resolved": 0,
-   "resolvedAt": "2026-10-01 04:23:32+00"
+   "resolvedAt": "2026-10-01 04:23:32+00",
+   "topic": "crypto"
   },
   {
    "slug": "us-iran-final-nuclear-deal-by-october-31-2026",
@@ -225,9 +242,10 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.04,
-   "price": 0.0265,
+   "price": 0.023,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "geo"
   },
   {
    "slug": "another-fed-rate-hike-in-2026",
@@ -239,7 +257,8 @@
    "priceAtCapture": 0.825,
    "price": 0.775,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "economy"
   },
   {
    "slug": "israel-x-iran-ceasefire-continues-through-october-31",
@@ -249,9 +268,10 @@
    "endDate": "2026-10-31T20:29:00Z",
    "capturedAt": "2026-09-30T12:37:09.469Z",
    "priceAtCapture": 0.775,
-   "price": 0.805,
+   "price": 0.825,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "geo"
   },
   {
    "slug": "us-x-iran-ceasefire-continues-through-october-7",
@@ -264,7 +284,8 @@
    "price": 1,
    "closed": true,
    "resolved": 1,
-   "resolvedAt": "2026-10-08 23:24:56+00"
+   "resolvedAt": "2026-10-08 23:24:56+00",
+   "topic": "geo"
   },
   {
    "slug": "bitcoin-above-86k-on-october-2-2026",
@@ -277,7 +298,8 @@
    "price": 0,
    "closed": true,
    "resolved": 0,
-   "resolvedAt": "2026-10-02 16:13:44+00"
+   "resolvedAt": "2026-10-02 16:13:44+00",
+   "topic": "crypto"
   },
   {
    "slug": "bitcoin-above-82k-on-october-2-2026",
@@ -290,7 +312,8 @@
    "price": 1,
    "closed": true,
    "resolved": 1,
-   "resolvedAt": "2026-10-02 16:12:33+00"
+   "resolvedAt": "2026-10-02 16:12:33+00",
+   "topic": "crypto"
   },
   {
    "slug": "saudi-oil-pipeline-east-west-restarts-by-october-15",
@@ -303,20 +326,8 @@
    "price": 1,
    "closed": true,
    "resolved": 1,
-   "resolvedAt": "2026-10-06 11:41:25+00"
-  },
-  {
-   "slug": "elon-musk-of-tweets-september-25-october-2-2026-180-199",
-   "id": "4828203",
-   "question": "Will Elon Musk post 180-199 tweets from September 25 to October 2, 2026?",
-   "createdAt": "2026-09-22T04:00:03.752157Z",
-   "endDate": "2026-10-02T16:00:00Z",
-   "capturedAt": "2026-10-01T13:19:30.824Z",
-   "priceAtCapture": 0.315,
-   "price": 0,
-   "closed": true,
-   "resolved": 0,
-   "resolvedAt": "2026-10-01 22:12:09+00"
+   "resolvedAt": "2026-10-06 11:41:25+00",
+   "topic": "economy"
   },
   {
    "slug": "will-flavio-bolsonaro-win-the-most-votes-in-the-first-round-of-the-2026-brazil-presidential-election",
@@ -329,7 +340,8 @@
    "price": 1,
    "closed": true,
    "resolved": 1,
-   "resolvedAt": "2026-10-05 03:40:14+00"
+   "resolvedAt": "2026-10-05 03:40:14+00",
+   "topic": "politics"
   },
   {
    "slug": "will-lula-win-the-most-votes-in-the-first-round-of-the-2026-brazil-presidential-election",
@@ -342,7 +354,8 @@
    "price": 0,
    "closed": true,
    "resolved": 0,
-   "resolvedAt": "2026-10-05 03:40:14+00"
+   "resolvedAt": "2026-10-05 03:40:14+00",
+   "topic": "politics"
   },
   {
    "slug": "bab-el-mandeb-strait-effectively-closed-by-october-31",
@@ -352,9 +365,10 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.065,
-   "price": 0.055,
+   "price": 0.075,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "other"
   },
   {
    "slug": "will-google-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841120",
@@ -364,9 +378,10 @@
    "endDate": "2026-10-31T16:00:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.7185,
-   "price": 0.6995,
+   "price": 0.711,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "tech"
   },
   {
    "slug": "will-anthropic-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841118",
@@ -378,7 +393,8 @@
    "priceAtCapture": 0.275,
    "price": 0.255,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "tech"
   },
   {
    "slug": "will-bitcoin-dip-to-65k-in-october-2026",
@@ -388,9 +404,10 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.0315,
-   "price": 0.0255,
+   "price": 0.0245,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "crypto"
   },
   {
    "slug": "will-bitcoin-reach-87pt5k-in-october-2026",
@@ -400,9 +417,10 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.92,
-   "price": 0.525,
+   "price": 0.485,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "crypto"
   },
   {
    "slug": "will-bitcoin-reach-92pt5k-in-october-2026",
@@ -412,45 +430,10 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.515,
-   "price": 0.225,
+   "price": 0.205,
    "closed": false,
-   "resolved": null
-  },
-  {
-   "slug": "will-bitcoin-reach-97pt5k-in-october-2026",
-   "id": "5170731",
-   "question": "Will Bitcoin reach $97,500 in October?",
-   "createdAt": "2026-10-01T05:07:01.453112Z",
-   "endDate": "2026-11-01T04:00:00Z",
-   "capturedAt": "2026-10-02T12:37:34.916Z",
-   "priceAtCapture": 0.225,
-   "price": 0.075,
-   "closed": false,
-   "resolved": null
-  },
-  {
-   "slug": "will-bitcoin-reach-100k-in-october-2026",
-   "id": "5170730",
-   "question": "Will Bitcoin reach $100,000 in October?",
-   "createdAt": "2026-10-01T05:07:01.300636Z",
-   "endDate": "2026-11-01T04:00:00Z",
-   "capturedAt": "2026-10-02T12:37:34.916Z",
-   "priceAtCapture": 0.155,
-   "price": 0.043,
-   "closed": false,
-   "resolved": null
-  },
-  {
-   "slug": "will-bitcoin-reach-102pt5k-in-october-2026",
-   "id": "5170729",
-   "question": "Will Bitcoin reach $102,500 in October?",
-   "createdAt": "2026-10-01T05:07:01.155443Z",
-   "endDate": "2026-11-01T04:00:00Z",
-   "capturedAt": "2026-10-02T12:37:34.916Z",
-   "priceAtCapture": 0.095,
-   "price": 0.0225,
-   "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "crypto"
   },
   {
    "slug": "any-of-the-cornell-7-charged-with-a-felony-sex-crime",
@@ -462,7 +445,8 @@
    "priceAtCapture": 0.355,
    "price": 0.285,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "other"
   },
   {
    "slug": "israel-accuses-iranproxies-of-plane-stabbing-incident-by-oct-31",
@@ -472,9 +456,10 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.155,
-   "price": 0.075,
+   "price": 0.055,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "geo"
   },
   {
    "slug": "will-bitcoin-reach-90k-september-28-october-4-2026",
@@ -487,7 +472,8 @@
    "price": 0,
    "closed": true,
    "resolved": 0,
-   "resolvedAt": "2026-10-05 04:13:58+00"
+   "resolvedAt": "2026-10-05 04:13:58+00",
+   "topic": "crypto"
   },
   {
    "slug": "will-bitcoin-reach-92k-september-28-october-4-2026",
@@ -500,7 +486,8 @@
    "price": 0,
    "closed": true,
    "resolved": 0,
-   "resolvedAt": "2026-10-05 04:13:58+00"
+   "resolvedAt": "2026-10-05 04:13:58+00",
+   "topic": "crypto"
   },
   {
    "slug": "will-bitcoin-dip-to-70000-by-december-31-2026-from-august-24",
@@ -512,7 +499,8 @@
    "priceAtCapture": 0.285,
    "price": 0.365,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "crypto"
   },
   {
    "slug": "will-ethereum-dip-to-2100-in-october-2026",
@@ -522,9 +510,10 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-03T11:41:25.132Z",
    "priceAtCapture": 0.135,
-   "price": 0.18,
+   "price": 0.175,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "crypto"
   },
   {
    "slug": "will-bitcoin-dip-to-82k-september-28-october-4-2026",
@@ -537,7 +526,8 @@
    "price": 0,
    "closed": true,
    "resolved": 0,
-   "resolvedAt": "2026-10-05 04:13:49+00"
+   "resolvedAt": "2026-10-05 04:13:49+00",
+   "topic": "crypto"
   },
   {
    "slug": "will-bitcoin-reach-88k-september-28-october-4-2026",
@@ -550,7 +540,8 @@
    "price": 0,
    "closed": true,
    "resolved": 0,
-   "resolvedAt": "2026-10-05 04:13:10+00"
+   "resolvedAt": "2026-10-05 04:13:10+00",
+   "topic": "crypto"
   },
   {
    "slug": "will-bitcoin-reach-92k-october-5-11-2026",
@@ -560,9 +551,10 @@
    "endDate": "2026-10-12T04:00:00Z",
    "capturedAt": "2026-10-05T14:42:27.771Z",
    "priceAtCapture": 0.125,
-   "price": 0.0055,
+   "price": 0.0025,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "crypto"
   },
   {
    "slug": "israel-military-action-against-lebanon-on-october-15",
@@ -572,21 +564,10 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-10-05T14:42:27.771Z",
    "priceAtCapture": 0.605,
-   "price": 0.885,
+   "price": 0.88,
    "closed": false,
-   "resolved": null
-  },
-  {
-   "slug": "will-bitcoin-reach-105k-in-october-2026",
-   "id": "5170728",
-   "question": "Will Bitcoin reach $105,000 in October?",
-   "createdAt": "2026-10-01T05:07:00.991436Z",
-   "endDate": "2026-11-01T04:00:00Z",
-   "capturedAt": "2026-10-05T14:42:27.771Z",
-   "priceAtCapture": 0.0495,
-   "price": 0.019,
-   "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "geo"
   },
   {
    "slug": "us-x-iran-ceasefire-continues-through-october-15",
@@ -596,178 +577,10 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-10-05T14:42:27.771Z",
    "priceAtCapture": 0.885,
-   "price": 0.905,
+   "price": 0.89,
    "closed": false,
-   "resolved": null
-  },
-  {
-   "slug": "highest-temperature-in-panama-city-on-october-8-2026-33c",
-   "id": "5373970",
-   "question": "Will the highest temperature in Panama City be 33°C on October 8?",
-   "createdAt": "2026-10-06T12:56:43.106063Z",
-   "endDate": "2026-10-08T12:00:00Z",
-   "capturedAt": "2026-10-06T13:20:18.616Z",
-   "priceAtCapture": 0.245,
-   "price": 0,
-   "closed": true,
-   "resolved": 0,
-   "resolvedAt": "2026-10-09 06:49:40+00"
-  },
-  {
-   "slug": "highest-temperature-in-panama-city-on-october-8-2026-32c",
-   "id": "5373969",
-   "question": "Will the highest temperature in Panama City be 32°C on October 8?",
-   "createdAt": "2026-10-06T12:56:42.919452Z",
-   "endDate": "2026-10-08T12:00:00Z",
-   "capturedAt": "2026-10-06T13:20:18.616Z",
-   "priceAtCapture": 0.25,
-   "price": 1,
-   "closed": true,
-   "resolved": 1,
-   "resolvedAt": "2026-10-09 07:08:10+00"
-  },
-  {
-   "slug": "highest-temperature-in-panama-city-on-october-8-2026-31c",
-   "id": "5373968",
-   "question": "Will the highest temperature in Panama City be 31°C on October 8?",
-   "createdAt": "2026-10-06T12:56:42.747451Z",
-   "endDate": "2026-10-08T12:00:00Z",
-   "capturedAt": "2026-10-06T13:20:18.616Z",
-   "priceAtCapture": 0.245,
-   "price": 0,
-   "closed": true,
-   "resolved": 0,
-   "resolvedAt": "2026-10-09 05:25:11+00"
-  },
-  {
-   "slug": "highest-temperature-in-panama-city-on-october-8-2026-30c",
-   "id": "5373967",
-   "question": "Will the highest temperature in Panama City be 30°C on October 8?",
-   "createdAt": "2026-10-06T12:56:42.562816Z",
-   "endDate": "2026-10-08T12:00:00Z",
-   "capturedAt": "2026-10-06T13:20:18.616Z",
-   "priceAtCapture": 0.245,
-   "price": 0,
-   "closed": true,
-   "resolved": 0,
-   "resolvedAt": "2026-10-09 05:30:11+00"
-  },
-  {
-   "slug": "highest-temperature-in-panama-city-on-october-8-2026-29c",
-   "id": "5373966",
-   "question": "Will the highest temperature in Panama City be 29°C on October 8?",
-   "createdAt": "2026-10-06T12:56:42.389124Z",
-   "endDate": "2026-10-08T12:00:00Z",
-   "capturedAt": "2026-10-06T13:20:18.616Z",
-   "priceAtCapture": 0.245,
-   "price": 0,
-   "closed": true,
-   "resolved": 0,
-   "resolvedAt": "2026-10-09 05:25:11+00"
-  },
-  {
-   "slug": "highest-temperature-in-panama-city-on-october-8-2026-28c",
-   "id": "5373965",
-   "question": "Will the highest temperature in Panama City be 28°C on October 8?",
-   "createdAt": "2026-10-06T12:56:42.219349Z",
-   "endDate": "2026-10-08T12:00:00Z",
-   "capturedAt": "2026-10-06T13:20:18.616Z",
-   "priceAtCapture": 0.245,
-   "price": 0,
-   "closed": true,
-   "resolved": 0,
-   "resolvedAt": "2026-10-09 05:25:11+00"
-  },
-  {
-   "slug": "highest-temperature-in-mexico-city-on-october-8-2026-23c",
-   "id": "5373959",
-   "question": "Will the highest temperature in Mexico City be 23°C on October 8?",
-   "createdAt": "2026-10-06T12:56:34.7758Z",
-   "endDate": "2026-10-08T12:00:00Z",
-   "capturedAt": "2026-10-06T13:20:18.616Z",
-   "priceAtCapture": 0.3,
-   "price": 0,
-   "closed": true,
-   "resolved": 0,
-   "resolvedAt": "2026-10-09 07:01:12+00"
-  },
-  {
-   "slug": "highest-temperature-in-mexico-city-on-october-8-2026-22c",
-   "id": "5373958",
-   "question": "Will the highest temperature in Mexico City be 22°C on October 8?",
-   "createdAt": "2026-10-06T12:56:34.596274Z",
-   "endDate": "2026-10-08T12:00:00Z",
-   "capturedAt": "2026-10-06T13:20:18.616Z",
-   "priceAtCapture": 0.28,
-   "price": 0,
-   "closed": true,
-   "resolved": 0,
-   "resolvedAt": "2026-10-09 07:01:12+00"
-  },
-  {
-   "slug": "highest-temperature-in-mexico-city-on-october-8-2026-21c",
-   "id": "5373957",
-   "question": "Will the highest temperature in Mexico City be 21°C on October 8?",
-   "createdAt": "2026-10-06T12:56:34.408069Z",
-   "endDate": "2026-10-08T12:00:00Z",
-   "capturedAt": "2026-10-06T13:20:18.616Z",
-   "priceAtCapture": 0.28,
-   "price": 0,
-   "closed": true,
-   "resolved": 0,
-   "resolvedAt": "2026-10-09 07:13:10+00"
-  },
-  {
-   "slug": "highest-temperature-in-mexico-city-on-october-8-2026-20c",
-   "id": "5373956",
-   "question": "Will the highest temperature in Mexico City be 20°C on October 8?",
-   "createdAt": "2026-10-06T12:56:34.224494Z",
-   "endDate": "2026-10-08T12:00:00Z",
-   "capturedAt": "2026-10-06T13:20:18.616Z",
-   "priceAtCapture": 0.16,
-   "price": 1,
-   "closed": true,
-   "resolved": 1,
-   "resolvedAt": "2026-10-09 07:24:39+00"
-  },
-  {
-   "slug": "highest-temperature-in-mexico-city-on-october-8-2026-19c",
-   "id": "5373955",
-   "question": "Will the highest temperature in Mexico City be 19°C on October 8?",
-   "createdAt": "2026-10-06T12:56:34.033011Z",
-   "endDate": "2026-10-08T12:00:00Z",
-   "capturedAt": "2026-10-06T13:20:18.616Z",
-   "priceAtCapture": 0.155,
-   "price": 0,
-   "closed": true,
-   "resolved": 0,
-   "resolvedAt": "2026-10-09 07:01:13+00"
-  },
-  {
-   "slug": "highest-temperature-in-toronto-on-october-8-2026-21c",
-   "id": "5373948",
-   "question": "Will the highest temperature in Toronto be 21°C on October 8?",
-   "createdAt": "2026-10-06T12:55:57.409376Z",
-   "endDate": "2026-10-08T12:00:00Z",
-   "capturedAt": "2026-10-06T13:20:18.616Z",
-   "priceAtCapture": 0.18,
-   "price": 0,
-   "closed": true,
-   "resolved": 0,
-   "resolvedAt": "2026-10-09 04:26:12+00"
-  },
-  {
-   "slug": "highest-temperature-in-toronto-on-october-8-2026-20c",
-   "id": "5373947",
-   "question": "Will the highest temperature in Toronto be 20°C on October 8?",
-   "createdAt": "2026-10-06T12:55:57.254671Z",
-   "endDate": "2026-10-08T12:00:00Z",
-   "capturedAt": "2026-10-06T13:20:18.616Z",
-   "priceAtCapture": 0.22,
-   "price": 0,
-   "closed": true,
-   "resolved": 0,
-   "resolvedAt": "2026-10-09 04:26:12+00"
+   "resolved": null,
+   "topic": "geo"
   },
   {
    "slug": "plague-pandemic-in-2026",
@@ -777,9 +590,10 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-07T13:26:35.094Z",
    "priceAtCapture": 0.0465,
-   "price": 0.027,
+   "price": 0.0275,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "other"
   },
   {
    "slug": "will-ethereum-dip-to-2500-october-5-11-2026",
@@ -792,33 +606,8 @@
    "price": 1,
    "closed": true,
    "resolved": 1,
-   "resolvedAt": "2026-10-08 15:29:59+00"
-  },
-  {
-   "slug": "elon-musk-of-tweets-october-2-october-9-2026-180-199",
-   "id": "5114458",
-   "question": "Will Elon Musk post 180-199 tweets from October 2 to October 9, 2026?",
-   "createdAt": "2026-09-29T04:00:02.897359Z",
-   "endDate": "2026-10-09T16:00:00Z",
-   "capturedAt": "2026-10-07T13:26:35.094Z",
-   "priceAtCapture": 0.285,
-   "price": 0,
-   "closed": true,
-   "resolved": 0,
-   "resolvedAt": "2026-10-08 20:23:14+00"
-  },
-  {
-   "slug": "elon-musk-of-tweets-october-2-october-9-2026-160-179",
-   "id": "5114452",
-   "question": "Will Elon Musk post 160-179 tweets from October 2 to October 9, 2026?",
-   "createdAt": "2026-09-29T04:00:02.759444Z",
-   "endDate": "2026-10-09T16:00:00Z",
-   "capturedAt": "2026-10-07T13:26:35.094Z",
-   "priceAtCapture": 0.054,
-   "price": 0,
-   "closed": true,
-   "resolved": 0,
-   "resolvedAt": "2026-10-08 20:23:42+00"
+   "resolvedAt": "2026-10-08 15:29:59+00",
+   "topic": "crypto"
   },
   {
    "slug": "will-aleksandar-vucic-united-serbia-win-the-most-seats-in-the-2026-serbian-parliamentary-election",
@@ -828,9 +617,10 @@
    "endDate": "2026-10-25T23:59:00Z",
    "capturedAt": "2026-10-07T13:26:35.094Z",
    "priceAtCapture": 0.615,
-   "price": 0.605,
+   "price": 0.61,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "politics"
   },
   {
    "slug": "will-openai-announce-another-millennium-prize-solution-by-december-31-2026",
@@ -842,7 +632,8 @@
    "priceAtCapture": 0.205,
    "price": 0.135,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "tech"
   },
   {
    "slug": "us-x-iran-ceasefire-continues-through-october-12",
@@ -852,84 +643,10 @@
    "endDate": "2026-10-13T03:59:00Z",
    "capturedAt": "2026-10-08T13:32:00.389Z",
    "priceAtCapture": 0.925,
-   "price": 0.932,
+   "price": 0.9415,
    "closed": false,
-   "resolved": null
-  },
-  {
-   "slug": "elon-musk-of-tweets-october-2-october-9-2026-360-379",
-   "id": "5114501",
-   "question": "Will Elon Musk post 360-379 tweets from October 2 to October 9, 2026?",
-   "createdAt": "2026-09-29T04:00:04.584954Z",
-   "endDate": "2026-10-09T16:00:00Z",
-   "capturedAt": "2026-10-08T13:32:00.389Z",
-   "priceAtCapture": 0.036,
-   "price": 0.0155,
-   "closed": false,
-   "resolved": null
-  },
-  {
-   "slug": "elon-musk-of-tweets-october-2-october-9-2026-340-359",
-   "id": "5114496",
-   "question": "Will Elon Musk post 340-359 tweets from October 2 to October 9, 2026?",
-   "createdAt": "2026-09-29T04:00:04.383947Z",
-   "endDate": "2026-10-09T16:00:00Z",
-   "capturedAt": "2026-10-08T13:32:00.389Z",
-   "priceAtCapture": 0.089,
-   "price": 0.2925,
-   "closed": false,
-   "resolved": null
-  },
-  {
-   "slug": "elon-musk-of-tweets-october-2-october-9-2026-320-339",
-   "id": "5114492",
-   "question": "Will Elon Musk post 320-339 tweets from October 2 to October 9, 2026?",
-   "createdAt": "2026-09-29T04:00:04.200396Z",
-   "endDate": "2026-10-09T16:00:00Z",
-   "capturedAt": "2026-10-08T13:32:00.389Z",
-   "priceAtCapture": 0.1485,
-   "price": 0.635,
-   "closed": false,
-   "resolved": null
-  },
-  {
-   "slug": "elon-musk-of-tweets-october-2-october-9-2026-300-319",
-   "id": "5114486",
-   "question": "Will Elon Musk post 300-319 tweets from October 2 to October 9, 2026?",
-   "createdAt": "2026-09-29T04:00:04.003193Z",
-   "endDate": "2026-10-09T16:00:00Z",
-   "capturedAt": "2026-10-08T13:32:00.389Z",
-   "priceAtCapture": 0.299,
-   "price": 0,
-   "closed": true,
-   "resolved": 0,
-   "resolvedAt": "2026-10-09 02:37:09+00"
-  },
-  {
-   "slug": "elon-musk-of-tweets-october-2-october-9-2026-280-299",
-   "id": "5114482",
-   "question": "Will Elon Musk post 280-299 tweets from October 2 to October 9, 2026?",
-   "createdAt": "2026-09-29T04:00:03.831858Z",
-   "endDate": "2026-10-09T16:00:00Z",
-   "capturedAt": "2026-10-08T13:32:00.389Z",
-   "priceAtCapture": 0.306,
-   "price": 0,
-   "closed": true,
-   "resolved": 0,
-   "resolvedAt": "2026-10-08 23:02:11+00"
-  },
-  {
-   "slug": "elon-musk-of-tweets-october-2-october-9-2026-260-279",
-   "id": "5114479",
-   "question": "Will Elon Musk post 260-279 tweets from October 2 to October 9, 2026?",
-   "createdAt": "2026-09-29T04:00:03.659128Z",
-   "endDate": "2026-10-09T16:00:00Z",
-   "capturedAt": "2026-10-08T13:32:00.389Z",
-   "priceAtCapture": 0.093,
-   "price": 0,
-   "closed": true,
-   "resolved": 0,
-   "resolvedAt": "2026-10-08 20:47:39+00"
+   "resolved": null,
+   "topic": "geo"
   },
   {
    "slug": "will-bitcoin-dip-to-78k-october-5-11-2026",
@@ -939,9 +656,10 @@
    "endDate": "2026-10-12T04:00:00Z",
    "capturedAt": "2026-10-09T13:20:39.337Z",
    "priceAtCapture": 0.052,
-   "price": 0.052,
+   "price": 0.0215,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "crypto"
   },
   {
    "slug": "will-bitcoin-dip-to-80k-october-5-11-2026",
@@ -951,9 +669,10 @@
    "endDate": "2026-10-12T04:00:00Z",
    "capturedAt": "2026-10-09T13:20:39.337Z",
    "priceAtCapture": 0.145,
-   "price": 0.145,
+   "price": 0.085,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "crypto"
   },
   {
    "slug": "will-vitality-win-the-esl-pro-league-season-24-1788882991655",
@@ -963,9 +682,10 @@
    "endDate": "2026-10-26T03:59:00Z",
    "capturedAt": "2026-10-09T13:20:39.337Z",
    "priceAtCapture": 0.515,
-   "price": 0.515,
+   "price": 0.505,
    "closed": false,
-   "resolved": null
+   "resolved": null,
+   "topic": "other"
   }
  ]
 }

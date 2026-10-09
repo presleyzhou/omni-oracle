@@ -569,5 +569,12 @@
   "lb.sort.close": "最接近 50¢",
   "lb.capture": "入账价",
   "lb.now": "现价 / 结果",
-  "lb.note": "问题在 Polymarket 创建当天追加，每日刷新直至结算；台账是本站所有真实评分的原料。"
+  "lb.note": "问题在 Polymarket 创建当天追加，每日刷新直至结算；台账是本站所有真实评分的原料。",
+  "lb.topic.crypto": "加密",
+  "lb.topic.geo": "地缘",
+  "lb.topic.politics": "政治",
+  "lb.topic.economy": "经济",
+  "lb.topic.tech": "科技",
+  "lb.topic.other": "其他",
+  "tour.real.bytopic": "分主题市场基准"
 }

@@ -130,6 +130,21 @@ async function baaSpread() {
    evaluation discipline of ForecastBench / Agentic Time Machine (arXiv 2606.21013). */
 const LEDGER = path.join(ROOT, "data", "questions.json");
 /* sports lines dominate Polymarket's new-market feed; "vs." needs no trailing word boundary */
+/* low-information ladders (daily temperature, tweet counts) are excluded outright; price
+   ladders ("Bitcoin reach $X in October") are capped per family so one asset's strike
+   grid cannot dominate the market baseline */
+const LADDERS = /\b(highest|lowest) temperature\b|\btweets?\b|\bof tweets\b/i;
+const family = (slug) => slug.replace(/\d+(pt\d+)?k?/g, "#");
+const FAMILY_CAP = 2;
+/* coarse topic tags used by the tournament page's per-topic baselines */
+const TOPICS = [
+  ["crypto", /\b(bitcoin|btc|ethereum|eth|solana|sol|xrp|dogecoin|crypto|token|etf)\b/i],
+  ["geo", /\b(ceasefire|war|iran|israel|russia|ukraine|china|taiwan|nato|hormuz|strike|missile|troops|military|gaza|sanction)\b/i],
+  ["politics", /\b(trump|president|congress|senate|house|election|governor|vote|bill|executive order|supreme court|cabinet|attorney general|impeach|shutdown)\b/i],
+  ["economy", /\b(fed|fomc|rate (hike|cut)|inflation|cpi|gdp|unemployment|recession|tariff|oil|opec|treasury|dollar|yield)\b/i],
+  ["tech", /\b(ai|openai|anthropic|google|apple|nvidia|tesla|spacex|launch|model|gpt|chip|iphone)\b/i],
+];
+const topicOf = (q) => (TOPICS.find(([, re]) => re.test(q)) || ["other"])[0];
 const SPORTS = /\b(nhl|nba|mlb|nfl|ncaa|ufc|mls|epl|la liga|serie a|bundesliga|premier league|champions league|atp|wta|f1|grand prix|o\/u|spread|moneyline|end in a draw|win on \d{4}-\d{2}-\d{2}|match|game \d)\b|\bvs\.?\s/i;
 async function questionLedger() {
   let ledger = { updated: null, questions: [] };
@@ -157,8 +172,11 @@ async function questionLedger() {
     const liquid = (+m.liquidity || 0) >= 500 || (+m.volume24hr || 0) >= 500;
     const informative = prices[0] > 0.03 && prices[0] < 0.97; // skip near-certain markets
     const days = (Date.parse(m.endDate) - today) / 864e5;
-    if (!binary || !liquid || !informative || known.has(m.slug) || SPORTS.test(m.question + " " + m.slug) || !(days > 1 && days < 180)) continue;
-    added.push({ slug: m.slug, id: m.id, question: m.question, createdAt: m.createdAt, endDate: m.endDate,
+    if (!binary || !liquid || !informative || known.has(m.slug) || SPORTS.test(m.question + " " + m.slug) || LADDERS.test(m.question) || !(days > 1 && days < 180)) continue;
+    const fam = family(m.slug);
+    const famCount = ledger.questions.filter(q => family(q.slug) === fam).length + added.filter(q => family(q.slug) === fam).length;
+    if (famCount >= FAMILY_CAP) continue;
+    added.push({ slug: m.slug, id: m.id, question: m.question, topic: topicOf(m.question), createdAt: m.createdAt, endDate: m.endDate,
       capturedAt: today.toISOString(), priceAtCapture: prices[0], price: prices[0], closed: false, resolved: null });
     if (added.length >= 20) break;
   }
@@ -180,8 +198,16 @@ async function questionLedger() {
       } catch (e) { /* keep previous state */ }
     }));
   }
-  /* 3. prune sports entries captured before the filter was tightened */
-  ledger.questions = ledger.questions.filter(q => !SPORTS.test(q.question + " " + q.slug));
+  /* 3. prune sports and ladder entries captured before the filters were tightened; cap
+     open members of each family; tag topics on older entries */
+  ledger.questions = ledger.questions.filter(q => !SPORTS.test(q.question + " " + q.slug) && !LADDERS.test(q.question));
+  const famSeen = {};
+  ledger.questions = ledger.questions.filter(q => {
+    if (q.resolved != null) return true;
+    const f = family(q.slug); famSeen[f] = (famSeen[f] || 0) + 1;
+    return famSeen[f] <= FAMILY_CAP;
+  });
+  ledger.questions.forEach(q => { if (!q.topic) q.topic = topicOf(q.question); });
   /* 4. bound the ledger: keep resolved entries ≤ 180 days, open entries ≤ 500 */
   const cutoff = Date.now() - 180 * 864e5;
   ledger.questions = ledger.questions.concat(added)

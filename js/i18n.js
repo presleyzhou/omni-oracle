@@ -584,7 +584,14 @@ en: {
   "lb.sort.close": "Closest to 50¢",
   "lb.capture": "At capture",
   "lb.now": "Now / result",
-  "lb.note": "Questions are appended on the day Polymarket creates them and refreshed daily until they resolve; the ledger is the raw material for every real score on this site."
+  "lb.note": "Questions are appended on the day Polymarket creates them and refreshed daily until they resolve; the ledger is the raw material for every real score on this site.",
+  "lb.topic.crypto": "Crypto",
+  "lb.topic.geo": "Geopolitics",
+  "lb.topic.politics": "Politics",
+  "lb.topic.economy": "Economy",
+  "lb.topic.tech": "Tech",
+  "lb.topic.other": "Other",
+  "tour.real.bytopic": "Market baseline by topic"
 },
 };
 

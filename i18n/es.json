@@ -569,5 +569,12 @@
   "lb.sort.close": "Más cerca de 50¢",
   "lb.capture": "Al capturar",
   "lb.now": "Ahora / resultado",
-  "lb.note": "Las preguntas se añaden el día en que Polymarket las crea y se actualizan a diario hasta resolverse; el registro es la materia prima de cada puntuación real de este sitio."
+  "lb.note": "Las preguntas se añaden el día en que Polymarket las crea y se actualizan a diario hasta resolverse; el registro es la materia prima de cada puntuación real de este sitio.",
+  "lb.topic.crypto": "Cripto",
+  "lb.topic.geo": "Geopolítica",
+  "lb.topic.politics": "Política",
+  "lb.topic.economy": "Economía",
+  "lb.topic.tech": "Tecnología",
+  "lb.topic.other": "Otros",
+  "tour.real.bytopic": "Referencia de mercado por tema"
 }

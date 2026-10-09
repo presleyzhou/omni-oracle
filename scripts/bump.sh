@@ -11,4 +11,7 @@ for f in *.html; do
   sed -i '' -E "s/(\.(css|js))\?v=[0-9]+/\1?v=${new}/g" "$f"
 done
 sed -i '' -E "s/const CACHE = \"omni-oracle-v[0-9]+\"/const CACHE = \"omni-oracle-v${new}\"/" sw.js
-echo "assets bumped: v=${cur} -> v=${new} (html + sw.js)"
+# sitemap: stamp every URL with today's date
+today=$(date +%F)
+sed -i '' -E "s#<lastmod>[0-9-]+</lastmod>##g; s#</loc>#</loc><lastmod>${today}</lastmod>#g" sitemap.xml
+echo "assets bumped: v=${cur} -> v=${new} (html + sw.js); sitemap lastmod=${today}"

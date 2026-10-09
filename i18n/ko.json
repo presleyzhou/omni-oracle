@@ -569,5 +569,12 @@
   "lb.sort.close": "50¢에 가까운 순",
   "lb.capture": "수집 시",
   "lb.now": "현재 / 결과",
-  "lb.note": "질문은 Polymarket이 생성한 당일 추가되고 결과 확정까지 매일 갱신됩니다. 원장은 이 사이트의 모든 실제 점수의 원재료입니다."
+  "lb.note": "질문은 Polymarket이 생성한 당일 추가되고 결과 확정까지 매일 갱신됩니다. 원장은 이 사이트의 모든 실제 점수의 원재료입니다.",
+  "lb.topic.crypto": "암호화폐",
+  "lb.topic.geo": "지정학",
+  "lb.topic.politics": "정치",
+  "lb.topic.economy": "경제",
+  "lb.topic.tech": "기술",
+  "lb.topic.other": "기타",
+  "tour.real.bytopic": "주제별 시장 기준선"
 }

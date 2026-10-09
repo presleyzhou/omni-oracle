@@ -71,7 +71,9 @@ Upstream sources: [DBnomics](https://db.nomics.world/) (BEA), [BLS](https://www.
 created, liquid, non-sports Polymarket markets and refreshed until they resolve. The tournament
 page's AI bench only asks a model about questions created after the knowledge cutoff you declare
 in the 🔑 dialog, stores each forecast with the market price at commit time, and grades it against
-the resolution — model Brier vs. market Brier at the same moment.
+the resolution — model Brier vs. market Brier at the same moment. Sports lines, temperature and
+tweet-count ladders are excluded; price ladders are capped at two markets per family; every
+question carries a coarse topic tag (crypto / geo / politics / economy / tech / other).
 
 ## Bring your own LLM key
 

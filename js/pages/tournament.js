@@ -21,6 +21,14 @@ let MYF = [];
 try { MYF = JSON.parse(localStorage.getItem("oo-myforecasts")) || []; } catch (e) { MYF = []; }
 MYF = MYF.filter(f => f.slug || OO.markets[f.i]);
 
+const TOPIC_RULES = [
+  ["crypto", /\b(bitcoin|btc|ethereum|eth|solana|sol|xrp|dogecoin|crypto|token|etf)\b/i],
+  ["geo", /\b(ceasefire|war|iran|israel|russia|ukraine|china|taiwan|nato|hormuz|strike|missile|troops|military|gaza|sanction)\b/i],
+  ["politics", /\b(trump|president|congress|senate|house|election|governor|vote|bill|executive order|supreme court|cabinet|attorney general|impeach|shutdown)\b/i],
+  ["economy", /\b(fed|fomc|rate (hike|cut)|inflation|cpi|gdp|unemployment|recession|tariff|oil|opec|treasury|dollar|yield)\b/i],
+  ["tech", /\b(ai|openai|anthropic|google|apple|nvidia|tesla|spacex|launch|model|gpt|chip|iphone)\b/i],
+];
+const topicOf = (q) => q.topic || (TOPIC_RULES.find(([, re]) => re.test(q.question)) || ["other"])[0];
 const C = OO.calibration;
 let charts = [];
 
@@ -109,6 +117,10 @@ function renderAiLedger() {
      all resolved questions and is the number any participant has to beat. */
   const resolved = LEDGER.questions.filter(q => q.resolved != null);
   if (resolved.length) {
+    const byTopic = {};
+    resolved.forEach(q => { const t = topicOf(q); (byTopic[t] = byTopic[t] || []).push(brier(q.priceAtCapture, q.resolved)); });
+    const topicLine = Object.entries(byTopic).sort((a, b) => b[1].length - a[1].length)
+      .map(([t, arr]) => `${OO_T("lb.topic." + t)} ${(arr.reduce((a, b) => a + b, 0) / arr.length).toFixed(3)} (${arr.length})`).join(" · ");
     const rows = [];
     const mean = (arr) => arr.reduce((a, b) => a + b, 0) / arr.length;
     rows.push({ name: OO_T("tour.real.market"), n: resolved.length, b: mean(resolved.map(q => brier(q.priceAtCapture, q.resolved))), real: true });
@@ -122,7 +134,7 @@ function renderAiLedger() {
     html += `<h4 class="real-h">${OO_T("tour.real.title")}</h4>
       <table style="margin-top:6px;"><thead><tr><th scope="col">${OO_T("tour.real.who")}</th><th scope="col">${OO_T("tour.ai.graded")}</th><th scope="col">${OO_T("tour.th.brier")}</th><th scope="col">${OO_T("tour.real.vsmkt")}</th></tr></thead><tbody>` +
       rows.map(r => `<tr><td>${r.real ? "" : "<strong>"}${r.name}${r.real ? "" : "</strong>"}</td><td class="num-cell">${r.n}</td><td class="num-cell">${r.b.toFixed(3)}</td><td class="num-cell ${r.mb == null ? "" : r.b <= r.mb ? "pos" : "neg"}">${r.mb == null ? "—" : (r.b - r.mb >= 0 ? "+" : "") + (r.b - r.mb).toFixed(3)}</td></tr>`).join("") +
-      `</tbody></table><p class="dim-note" style="margin-top:6px;">${OO_T("tour.real.note")}</p>`;
+      `</tbody></table><p class="dim-note" style="margin-top:6px;">${OO_T("tour.real.bytopic")}: ${topicLine}</p><p class="dim-note">${OO_T("tour.real.note")}</p>`;
   }
   if (pending.length) {
     html += `<p class="dim-note" style="margin-top:10px;">${T2("tour.ai.pending", { n: pending.length })}</p><ul class="pending-list">` +
@@ -277,22 +289,25 @@ renderMy();
 
 
 /* ----- ledger browser: every real question, filterable, linking to Polymarket ----- */
-const LB = { filter: "open", sort: "end" };
+const LB = { filter: "open", sort: "end", topic: "all" };
 function renderLedgerBrowser() {
   const box = document.getElementById("ledgerBrowser");
   if (!box || !LEDGER) return;
   let qs = LEDGER.questions.slice();
   if (LB.filter === "open") qs = qs.filter(q => !q.closed);
   else if (LB.filter === "resolved") qs = qs.filter(q => q.resolved != null);
+  if (LB.topic !== "all") qs = qs.filter(q => topicOf(q) === LB.topic);
   qs.sort((a, b) => LB.sort === "end" ? Date.parse(a.endDate) - Date.parse(b.endDate)
     : LB.sort === "new" ? Date.parse(b.createdAt) - Date.parse(a.createdAt)
     : Math.abs(0.5 - b.price) - Math.abs(0.5 - a.price));
   document.querySelectorAll("#lbFilter .chip").forEach(c => c.classList.toggle("active", c.dataset.f === LB.filter));
+  const tsel = document.getElementById("lbTopic");
+  tsel.innerHTML = ["all", "crypto", "geo", "politics", "economy", "tech", "other"].map(t => `<option value="${t}">${OO_T(t === "all" ? "lb.all" : "lb.topic." + t)}</option>`).join(""); tsel.value = LB.topic;
   const sel = document.getElementById("lbSort");
   sel.innerHTML = ["end", "new", "close"].map(k => `<option value="${k}">${OO_T("lb.sort." + k)}</option>`).join(""); sel.value = LB.sort;
   document.getElementById("lbCount").textContent = qs.length + " / " + LEDGER.questions.length;
   document.querySelector("#lbTable tbody").innerHTML = qs.slice(0, 60).map(q => `<tr>
-      <td style="max-width:360px;"><a href="https://polymarket.com/market/${q.slug}" target="_blank" rel="noopener" style="color:inherit;">${q.question}</a></td>
+      <td style="max-width:360px;"><a href="https://polymarket.com/market/${q.slug}" target="_blank" rel="noopener" style="color:inherit;">${q.question}</a> <span class="tag" style="font-size:0.66rem;">${OO_T("lb.topic." + topicOf(q))}</span></td>
       <td class="num-cell">${q.createdAt.slice(0, 10)}</td>
       <td class="num-cell">${q.endDate.slice(0, 10)}</td>
       <td class="num-cell">${Math.round(q.priceAtCapture * 100)}¢</td>
@@ -301,5 +316,6 @@ function renderLedgerBrowser() {
 }
 document.getElementById("lbFilter").addEventListener("click", (e) => { const c = e.target.closest(".chip"); if (!c) return; LB.filter = c.dataset.f; renderLedgerBrowser(); });
 document.getElementById("lbSort").addEventListener("change", (e) => { LB.sort = e.target.value; renderLedgerBrowser(); });
+document.getElementById("lbTopic").addEventListener("change", (e) => { LB.topic = e.target.value; renderLedgerBrowser(); });
 
 document.addEventListener("oo:lang", () => { buildCharts(); renderAiBench(); renderAiLedger(); renderMy(); renderLedgerBrowser(); });
