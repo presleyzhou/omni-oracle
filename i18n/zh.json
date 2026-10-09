@@ -260,7 +260,7 @@
   "me.infra.title": "市场基础设施（C5）— 设计选择",
   "me.infra.body": "<strong>撮合：</strong>混合 CLOB——链下订单撮合、可审计链上结算；二元互补代币满足恒等式 1 YES + 1 NO = $1；互补订单交叉时铸造/合并（Polymarket/Gnosis CTF 模式）。<strong>流动性：</strong>Hanson LMSR 为冷门市场提供种子流动性，最大损失有界（b·log n）；交易量增长后由 CLOB 接管。<strong>结算：</strong>三层——自动数据源；乐观预言机（保证金 → 争议窗口 → 投票），保证金递增、结算标准在开市时锁定；专家委员会受理申诉；AI 裁决仅用于争议分流。<strong>抗操纵：</strong>临近结算的持仓限制、订单流异常检测、公开事后复盘。",
   "me.data.title": "数据源",
-  "me.data.live": "<strong>实时（浏览器直连、免密钥）：</strong>Polymarket Gamma API（真实市场赔率）、stockanalysis.com（股票报价）、CoinGecko（加密资产价格与历史）、Frankfurter/ECB（参考汇率）、美国财政部 FiscalData（平均利率）。危机预警输入：美国财政部每日国债收益率曲线、美联储 H.15 利率（经 DBnomics）与 CBOE VIX 历史，由每日快照刷新。",
+  "me.data.live": "<strong>实时（浏览器直连、免密钥）：</strong>Polymarket Gamma API（真实市场赔率）、stockanalysis.com（股票报价）、CoinGecko（加密资产价格与历史）、Frankfurter/ECB（参考汇率）、美国财政部 FiscalData（平均利率）。危机预警输入：美国财政部每日国债收益率曲线、美联储 H.15 利率（经 DBnomics）与 CBOE VIX 历史，由每日快照刷新。评分输入：真实 Polymarket 问题的每日台账（data/questions.json，创建时入账、刷新至结算）与基于问题文本的 TF-IDF 相关市场（data/related.json）；配置 FRED_API_KEY 后另有 FRED vintage 与 Baa−10Y 利差。",
   "me.data.body": "<strong>宏观（M1）：</strong>FRED / FRED-MD、ALFRED 历史版本、BEA、BLS、人口普查局、ECB SDW、OECD、SPF、Blue Chip、CME FedWatch、TIPS 盈亏平衡通胀率、新闻/文本语料、另类数据（刷卡消费、招聘、出行）。<br /><br /><strong>股票与创新（M2）：</strong>USPTO PatentsView、Google Patents、SEC EDGAR 全文、财报电话会纪要、CRSP/Compustat 级市场数据、arXiv、PubMed、ClinicalTrials.gov、Crunchbase、GitHub 活跃度。<br /><br /><strong>市场（P1–P8）：</strong>官方结果源（选举、联赛、颁奖）、多交易所中位数价格源（加密货币）、BLS/BEA/美联储发布、措辞锁定的可查证事件标准。",
   "me.road.title": "路线图",
   "me.road.p1": "<strong>第一阶段（0–6 个月）：</strong>M1 nowcast 核心（FRED-MD 上的 DFM + 随机森林）、评分层（C3）、经济数据问题的虚拟资金锦标赛。",
@@ -558,5 +558,16 @@
   "tour.real.uniform": "恒为 50%（基准）",
   "tour.real.you": "你（本浏览器）",
   "tour.real.note": "基准由台账本身计算，无需任何密钥。每一行只在该参与者实际预测过的问题上计分，因此 n 各不相同；市场基准覆盖全部已结算问题，是所有人要击败的数字。",
-  "idx.stat.ledger": "已结算的真实问题 · 入账时市场 Brier {p}"
+  "idx.stat.ledger": "已结算的真实问题 · 入账时市场 Brier {p}",
+  "ch.realmkt": "入账时市场（真实，已结算台账）",
+  "lb.title": "浏览问题台账",
+  "lb.open": "开放",
+  "lb.resolved": "已结算",
+  "lb.all": "全部",
+  "lb.sort.end": "最早到期",
+  "lb.sort.new": "最新创建",
+  "lb.sort.close": "最接近 50¢",
+  "lb.capture": "入账价",
+  "lb.now": "现价 / 结果",
+  "lb.note": "问题在 Polymarket 创建当天追加，每日刷新直至结算；台账是本站所有真实评分的原料。"
 }

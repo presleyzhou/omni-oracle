@@ -36,6 +36,7 @@ function buildCharts() {
         { label: OO_T("ch.perfect"), data: C.bins, borderColor: "rgba(147,160,184,0.5)", borderDash: [5,5], pointRadius: 0 },
         { label: OO_T("ch.crowd"), data: C.crowd, borderColor: OO_COLORS.amber, backgroundColor: OO_COLORS.amber, tension: 0.2 },
         { label: OO_T("ch.supers"), data: C.supers, borderColor: OO_COLORS.green, backgroundColor: OO_COLORS.green, tension: 0.2 },
+        ...(typeof marketCalibration === "function" && marketCalibration() ? [{ label: OO_T("ch.realmkt"), data: marketCalibration(), borderColor: OO_COLORS.purple, backgroundColor: OO_COLORS.purple, pointRadius: 5, pointStyle: "circle", showLine: false, spanGaps: false }] : []),
         ...(typeof realCalibration === "function" && realCalibration() ? [{ label: OO_T("ch.real"), data: realCalibration(), borderColor: "#22d3ee", backgroundColor: "#22d3ee", pointRadius: 5, pointStyle: "rectRot", showLine: false, spanGaps: false }] : []),
       ],
     },
@@ -131,7 +132,7 @@ function renderAiLedger() {
 }
 function T2(key, params) { let s = OO_T(key); for (const k in params) s = s.replaceAll("{" + k + "}", params[k]); return s; }
 
-OO_FETCH("data/questions.json", { ttl: 900 }).then(d => { LEDGER = d && d.questions ? d : null; renderAiLedger(); if (typeof renderMy === "function") { renderMy(); buildCharts(); } });
+OO_FETCH("data/questions.json", { ttl: 900 }).then(d => { LEDGER = d && d.questions ? d : null; renderAiLedger(); if (typeof renderMy === "function") { renderMy(); buildCharts(); } renderLedgerBrowser(); });
 
 document.getElementById("aiRunBtn").addEventListener("click", async () => {
   const st = document.getElementById("aiRunStatus");
@@ -217,6 +218,13 @@ function humanSummary(bySlug) {
   const b = g.reduce((a, x) => a + brier(x.p, x.y), 0) / g.length, mb = g.reduce((a, x) => a + brier(x.mp, x.y), 0) / g.length;
   return `<p class="dim-note" style="margin-top:8px;">${T2("my.graded", { n: g.length, b: b.toFixed(3), mb: mb.toFixed(3) })}</p>`;
 }
+/* market's own calibration on resolved ledger questions: price at capture vs outcome, per bin */
+function marketCalibration() {
+  if (!LEDGER) return null;
+  const res = LEDGER.questions.filter(q => q.resolved != null);
+  if (res.length < 10) return null;
+  return C.bins.map(b => { const pts = res.filter(q => Math.abs(q.priceAtCapture - b) <= 0.05); return pts.length ? pts.reduce((a, q) => a + q.resolved, 0) / pts.length : null; });
+}
 function realCalibration() {
   const bySlug = {}; if (LEDGER) LEDGER.questions.forEach(q => { bySlug[q.slug] = q; });
   const g = gradedHuman(bySlug).concat(AIF.map(f => { const q = bySlug[f.slug]; return q && q.resolved != null ? { p: f.p, y: q.resolved } : null; }).filter(Boolean));
@@ -267,4 +275,31 @@ document.getElementById("fcImport").addEventListener("change", (e) => {
 });
 renderMy();
 
-document.addEventListener("oo:lang", () => { buildCharts(); renderAiBench(); renderAiLedger(); renderMy(); });
+
+/* ----- ledger browser: every real question, filterable, linking to Polymarket ----- */
+const LB = { filter: "open", sort: "end" };
+function renderLedgerBrowser() {
+  const box = document.getElementById("ledgerBrowser");
+  if (!box || !LEDGER) return;
+  let qs = LEDGER.questions.slice();
+  if (LB.filter === "open") qs = qs.filter(q => !q.closed);
+  else if (LB.filter === "resolved") qs = qs.filter(q => q.resolved != null);
+  qs.sort((a, b) => LB.sort === "end" ? Date.parse(a.endDate) - Date.parse(b.endDate)
+    : LB.sort === "new" ? Date.parse(b.createdAt) - Date.parse(a.createdAt)
+    : Math.abs(0.5 - b.price) - Math.abs(0.5 - a.price));
+  document.querySelectorAll("#lbFilter .chip").forEach(c => c.classList.toggle("active", c.dataset.f === LB.filter));
+  const sel = document.getElementById("lbSort");
+  sel.innerHTML = ["end", "new", "close"].map(k => `<option value="${k}">${OO_T("lb.sort." + k)}</option>`).join(""); sel.value = LB.sort;
+  document.getElementById("lbCount").textContent = qs.length + " / " + LEDGER.questions.length;
+  document.querySelector("#lbTable tbody").innerHTML = qs.slice(0, 60).map(q => `<tr>
+      <td style="max-width:360px;"><a href="https://polymarket.com/market/${q.slug}" target="_blank" rel="noopener" style="color:inherit;">${q.question}</a></td>
+      <td class="num-cell">${q.createdAt.slice(0, 10)}</td>
+      <td class="num-cell">${q.endDate.slice(0, 10)}</td>
+      <td class="num-cell">${Math.round(q.priceAtCapture * 100)}¢</td>
+      <td class="num-cell">${q.resolved != null ? `<span class="tag ${q.resolved ? "green" : "red"}">${q.resolved ? "YES" : "NO"}</span>` : Math.round(q.price * 100) + "¢"}</td>
+    </tr>`).join("");
+}
+document.getElementById("lbFilter").addEventListener("click", (e) => { const c = e.target.closest(".chip"); if (!c) return; LB.filter = c.dataset.f; renderLedgerBrowser(); });
+document.getElementById("lbSort").addEventListener("change", (e) => { LB.sort = e.target.value; renderLedgerBrowser(); });
+
+document.addEventListener("oo:lang", () => { buildCharts(); renderAiBench(); renderAiLedger(); renderMy(); renderLedgerBrowser(); });

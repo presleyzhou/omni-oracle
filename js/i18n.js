@@ -275,7 +275,7 @@ en: {
   "me.infra.title": "Market infrastructure (C5) — design choices",
   "me.infra.body": "<strong>Matching:</strong> hybrid CLOB — off-chain order matching, auditable on-chain settlement; binary complementary tokens with the invariant 1 YES + 1 NO = $1; mint/merge on crossed complementary orders (Polymarket/Gnosis CTF pattern). <strong>Liquidity:</strong> Hanson LMSR seeds thin markets with bounded loss b·log n; CLOB takes over as volume grows. <strong>Resolution:</strong> three tiers — automated data feeds, optimistic oracle (bond → dispute window → vote) with escalating bonds and criteria locked at market creation, and an expert council for appeals; AI adjudication only as dispute triage. <strong>Manipulation resistance:</strong> position limits near resolution, order-flow anomaly detection, public post-mortems.",
   "me.data.title": "Data sources",
-  "me.data.live": "<strong>Live (browser-direct, keyless):</strong> Polymarket Gamma API (real market odds), stockanalysis.com (equity quotes), CoinGecko (crypto prices & history), Frankfurter/ECB (FX reference rates), US Treasury FiscalData (average interest rates). Crisis-warning inputs: US Treasury daily par yield curve, Federal Reserve H.15 yields (via DBnomics) and CBOE VIX history, refreshed by the daily snapshot.",
+  "me.data.live": "<strong>Live (browser-direct, keyless):</strong> Polymarket Gamma API (real market odds), stockanalysis.com (equity quotes), CoinGecko (crypto prices & history), Frankfurter/ECB (FX reference rates), US Treasury FiscalData (average interest rates). Crisis-warning inputs: US Treasury daily par yield curve, Federal Reserve H.15 yields (via DBnomics) and CBOE VIX history, refreshed by the daily snapshot. Scoring inputs: a daily ledger of real Polymarket questions (data/questions.json, captured on creation, refreshed until resolution) and TF-IDF neighbours over question text (data/related.json); optional FRED vintages and the Baa−10Y spread when a FRED_API_KEY is configured.",
   "me.data.body": "<strong>Macro (M1):</strong> FRED / FRED-MD, ALFRED vintages, BEA, BLS, Census, ECB SDW, OECD, SPF, Blue Chip, CME FedWatch, TIPS breakevens, news/text corpora, alt-data (card spend, job postings, mobility).<br /><br /><strong>Equities &amp; innovation (M2):</strong> USPTO PatentsView, Google Patents, SEC EDGAR full-text, earnings-call transcripts, CRSP/Compustat-class market data, arXiv, PubMed, ClinicalTrials.gov, Crunchbase, GitHub activity.<br /><br /><strong>Markets (P1–P8):</strong> official results feeds (elections, leagues, awards), medianized exchange price feeds (crypto), BLS/BEA/Fed releases, documented-event criteria with locked resolution wording.",
   "me.road.title": "Roadmap",
   "me.road.p1": "<strong>Phase 1 (0–6 mo):</strong> M1 nowcasting core (DFM + random forest on FRED-MD), scoring layer (C3), play-money tournament on econ-release questions.",
@@ -573,7 +573,18 @@ en: {
   "tour.real.uniform": "Always 50% (baseline)",
   "tour.real.you": "You (this browser)",
   "tour.real.note": "Baselines are computed from the ledger itself and need no key. Each row is scored only on the questions that participant actually forecast, so n differs; the market baseline covers every resolved question and is the number to beat.",
-  "idx.stat.ledger": "Real questions resolved · market Brier at capture {p}"
+  "idx.stat.ledger": "Real questions resolved · market Brier at capture {p}",
+  "ch.realmkt": "Market at capture (real, resolved ledger)",
+  "lb.title": "Browse the question ledger",
+  "lb.open": "Open",
+  "lb.resolved": "Resolved",
+  "lb.all": "All",
+  "lb.sort.end": "Closing soonest",
+  "lb.sort.new": "Newest created",
+  "lb.sort.close": "Closest to 50¢",
+  "lb.capture": "At capture",
+  "lb.now": "Now / result",
+  "lb.note": "Questions are appended on the day Polymarket creates them and refreshed daily until they resolve; the ledger is the raw material for every real score on this site."
 },
 };
 

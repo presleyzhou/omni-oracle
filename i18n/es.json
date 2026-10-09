@@ -260,7 +260,7 @@
   "me.infra.title": "Infraestructura de mercado (C5) — decisiones de diseño",
   "me.infra.body": "<strong>Emparejamiento:</strong> CLOB híbrido — emparejamiento fuera de cadena, liquidación auditable en cadena; tokens binarios complementarios con el invariante 1 SÍ + 1 NO = 1 $; mint/merge con órdenes complementarias cruzadas (patrón Polymarket/Gnosis CTF). <strong>Liquidez:</strong> el LMSR de Hanson siembra los mercados poco líquidos con pérdida acotada b·log n; el CLOB toma el relevo al crecer el volumen. <strong>Resolución:</strong> tres niveles — feeds de datos automatizados, oráculo optimista (fianza → ventana de disputa → voto) con fianzas crecientes y criterios bloqueados al crear el mercado, y un consejo de expertos para apelaciones; la adjudicación por IA solo como triaje de disputas. <strong>Resistencia a la manipulación:</strong> límites de posición cerca de la resolución, detección de anomalías en el flujo de órdenes, post-mortems públicos.",
   "me.data.title": "Fuentes de datos",
-  "me.data.live": "<strong>En vivo (navegador, sin claves):</strong> API Gamma de Polymarket (cuotas reales), stockanalysis.com (cotizaciones), CoinGecko (cripto), Frankfurter/BCE (tipos de cambio), FiscalData del Tesoro de EE. UU. (tasas medias). Entradas de la alerta de crisis: curva de rendimientos diaria del Tesoro de EE. UU., tipos H.15 de la Fed (vía DBnomics) e histórico del VIX de CBOE, actualizados por la instantánea diaria.",
+  "me.data.live": "<strong>En vivo (navegador, sin claves):</strong> API Gamma de Polymarket (cuotas reales), stockanalysis.com (cotizaciones), CoinGecko (cripto), Frankfurter/BCE (tipos de cambio), FiscalData del Tesoro de EE. UU. (tasas medias). Entradas de la alerta de crisis: curva de rendimientos diaria del Tesoro de EE. UU., tipos H.15 de la Fed (vía DBnomics) e histórico del VIX de CBOE, actualizados por la instantánea diaria. Entradas de puntuación: un registro diario de preguntas reales de Polymarket (data/questions.json, capturadas al crearse, actualizadas hasta resolverse) y vecinos TF-IDF sobre el texto de las preguntas (data/related.json); vintages de FRED y diferencial Baa−10 años opcionales con una FRED_API_KEY.",
   "me.data.body": "<strong>Macro (M1):</strong> FRED / FRED-MD, vintages de ALFRED, BEA, BLS, Census, BCE SDW, OCDE, SPF, Blue Chip, CME FedWatch, breakevens de TIPS, corpus de prensa/texto, datos alternativos (gasto con tarjeta, ofertas de empleo, movilidad).<br /><br /><strong>Acciones e innovación (M2):</strong> USPTO PatentsView, Google Patents, texto completo de SEC EDGAR, transcripciones de resultados, datos de mercado tipo CRSP/Compustat, arXiv, PubMed, ClinicalTrials.gov, Crunchbase, actividad en GitHub.<br /><br /><strong>Mercados (P1–P8):</strong> feeds de resultados oficiales (elecciones, ligas, premios), feeds de precios medianizados (cripto), publicaciones de BLS/BEA/Fed, criterios de eventos documentados con redacción bloqueada.",
   "me.road.title": "Hoja de ruta",
   "me.road.p1": "<strong>Fase 1 (0–6 meses):</strong> núcleo de nowcasting M1 (DFM + bosque aleatorio sobre FRED-MD), capa de puntuación (C3), torneo con dinero de juego sobre datos económicos.",
@@ -558,5 +558,16 @@
   "tour.real.uniform": "Siempre 50 % (referencia)",
   "tour.real.you": "Tú (este navegador)",
   "tour.real.note": "Las referencias se calculan a partir del propio registro y no necesitan clave. Cada fila se puntúa solo en las preguntas que ese participante realmente pronosticó, por eso n difiere; la referencia de mercado cubre todas las preguntas resueltas y es la cifra a batir.",
-  "idx.stat.ledger": "Preguntas reales resueltas · Brier del mercado al capturar {p}"
+  "idx.stat.ledger": "Preguntas reales resueltas · Brier del mercado al capturar {p}",
+  "ch.realmkt": "Mercado al capturar (real, registro resuelto)",
+  "lb.title": "Explorar el registro de preguntas",
+  "lb.open": "Abiertas",
+  "lb.resolved": "Resueltas",
+  "lb.all": "Todas",
+  "lb.sort.end": "Cierre más próximo",
+  "lb.sort.new": "Creación más reciente",
+  "lb.sort.close": "Más cerca de 50¢",
+  "lb.capture": "Al capturar",
+  "lb.now": "Ahora / resultado",
+  "lb.note": "Las preguntas se añaden el día en que Polymarket las crea y se actualizan a diario hasta resolverse; el registro es la materia prima de cada puntuación real de este sitio."
 }

@@ -260,7 +260,7 @@
   "me.infra.title": "시장 인프라 (C5) — 설계 선택",
   "me.infra.body": "<strong>매칭:</strong> 하이브리드 CLOB — 오프체인 주문 매칭, 감사 가능한 온체인 정산; 1 YES + 1 NO = $1 불변식을 만족하는 이진 상보 토큰; 상보 주문 교차 시 발행/병합 (Polymarket/Gnosis CTF 패턴). <strong>유동성:</strong> Hanson LMSR이 손실 상한 b·log n으로 얕은 마켓에 초기 유동성 공급; 거래량이 늘면 CLOB이 인수. <strong>정산:</strong> 3단계 — 자동 데이터 피드; 낙관적 오라클(보증금 → 이의제기 기간 → 투표), 보증금 단계적 상승·마켓 생성 시 기준 확정; 항소를 위한 전문가 위원회; AI 판정은 분쟁 분류에만 사용. <strong>조작 저항성:</strong> 정산 임박 시 포지션 한도, 주문 흐름 이상 탐지, 공개 사후 분석.",
   "me.data.title": "데이터 소스",
-  "me.data.live": "<strong>실시간 (브라우저 직결·무키):</strong> Polymarket Gamma API(실제 배당률), stockanalysis.com(주식 시세), CoinGecko(크립토), Frankfurter/ECB(환율), 미 재무부 FiscalData(평균 금리). 위기 경보 입력: 미 재무부 일별 국채 수익률 곡선, 연준 H.15 금리(DBnomics 경유), CBOE VIX 히스토리 — 일일 스냅샷으로 갱신.",
+  "me.data.live": "<strong>실시간 (브라우저 직결·무키):</strong> Polymarket Gamma API(실제 배당률), stockanalysis.com(주식 시세), CoinGecko(크립토), Frankfurter/ECB(환율), 미 재무부 FiscalData(평균 금리). 위기 경보 입력: 미 재무부 일별 국채 수익률 곡선, 연준 H.15 금리(DBnomics 경유), CBOE VIX 히스토리 — 일일 스냅샷으로 갱신. 채점 입력: 실제 Polymarket 질문의 일일 원장(data/questions.json, 생성 시 수집, 확정까지 갱신)과 질문 텍스트 기반 TF-IDF 이웃(data/related.json); FRED_API_KEY 설정 시 FRED 빈티지와 Baa−10Y 스프레드 추가.",
   "me.data.body": "<strong>거시 (M1):</strong> FRED / FRED-MD, ALFRED 빈티지, BEA, BLS, 센서스국, ECB SDW, OECD, SPF, Blue Chip, CME FedWatch, TIPS 손익분기, 뉴스/텍스트 코퍼스, 대체 데이터(카드 소비, 채용 공고, 이동성).<br /><br /><strong>주식·혁신 (M2):</strong> USPTO PatentsView, Google Patents, SEC EDGAR 전문, 실적발표 녹취록, CRSP/Compustat급 시장 데이터, arXiv, PubMed, ClinicalTrials.gov, Crunchbase, GitHub 활동.<br /><br /><strong>마켓 (P1–P8):</strong> 공식 결과 피드(선거, 리그, 시상식), 거래소 중앙값 가격 피드(암호화폐), BLS/BEA/연준 발표, 문구가 확정된 문서화된 이벤트 기준.",
   "me.road.title": "로드맵",
   "me.road.p1": "<strong>1단계 (0–6개월):</strong> M1 나우캐스팅 코어(FRED-MD 기반 DFM + 랜덤 포레스트), 채점 레이어(C3), 경제지표 질문 가상 화폐 토너먼트.",
@@ -558,5 +558,16 @@
   "tour.real.uniform": "항상 50%(기준선)",
   "tour.real.you": "나(이 브라우저)",
   "tour.real.note": "기준선은 원장 자체에서 계산되며 키가 필요 없습니다. 각 행은 해당 참가자가 실제로 예측한 질문에 대해서만 채점되므로 n이 다릅니다. 시장 기준선은 확정된 모든 질문을 포함하며 모두가 넘어야 할 숫자입니다.",
-  "idx.stat.ledger": "확정된 실제 질문 · 수집 시 시장 Brier {p}"
+  "idx.stat.ledger": "확정된 실제 질문 · 수집 시 시장 Brier {p}",
+  "ch.realmkt": "수집 시 시장(실제, 확정된 원장)",
+  "lb.title": "질문 원장 둘러보기",
+  "lb.open": "열림",
+  "lb.resolved": "확정",
+  "lb.all": "전체",
+  "lb.sort.end": "마감 임박순",
+  "lb.sort.new": "최신 생성순",
+  "lb.sort.close": "50¢에 가까운 순",
+  "lb.capture": "수집 시",
+  "lb.now": "현재 / 결과",
+  "lb.note": "질문은 Polymarket이 생성한 당일 추가되고 결과 확정까지 매일 갱신됩니다. 원장은 이 사이트의 모든 실제 점수의 원재료입니다."
 }

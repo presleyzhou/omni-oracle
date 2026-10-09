@@ -260,7 +260,7 @@
   "me.infra.title": "Infrastructure de marché (C5) — choix de conception",
   "me.infra.body": "<strong>Appariement :</strong> CLOB hybride — appariement hors chaîne, règlement auditable sur chaîne ; jetons binaires complémentaires avec l'invariant 1 OUI + 1 NON = 1 $ ; mint/merge sur ordres complémentaires croisés (schéma Polymarket/Gnosis CTF). <strong>Liquidité :</strong> le LMSR de Hanson amorce les marchés peu liquides avec une perte bornée b·log n ; le CLOB prend le relais quand le volume croît. <strong>Résolution :</strong> trois niveaux — flux de données automatisés, oracle optimiste (caution → fenêtre de contestation → vote) avec cautions croissantes et critères verrouillés à la création du marché, et conseil d'experts pour les appels ; l'arbitrage par IA sert uniquement au tri des litiges. <strong>Résistance à la manipulation :</strong> limites de position près de la résolution, détection d'anomalies dans le flux d'ordres, post-mortems publics.",
   "me.data.title": "Sources de données",
-  "me.data.live": "<strong>En direct (navigateur, sans clé) :</strong> API Gamma de Polymarket (cotes réelles), stockanalysis.com (cours d'actions), CoinGecko (crypto), Frankfurter/BCE (taux de change), FiscalData du Trésor US (taux moyens). Entrées de l'alerte de crise : courbe des taux quotidienne du Trésor américain, taux H.15 de la Fed (via DBnomics) et historique du VIX CBOE, rafraîchis par l'instantané quotidien.",
+  "me.data.live": "<strong>En direct (navigateur, sans clé) :</strong> API Gamma de Polymarket (cotes réelles), stockanalysis.com (cours d'actions), CoinGecko (crypto), Frankfurter/BCE (taux de change), FiscalData du Trésor US (taux moyens). Entrées de l'alerte de crise : courbe des taux quotidienne du Trésor américain, taux H.15 de la Fed (via DBnomics) et historique du VIX CBOE, rafraîchis par l'instantané quotidien. Entrées de notation : un registre quotidien de vraies questions Polymarket (data/questions.json, capturées à la création, rafraîchies jusqu'à résolution) et des voisins TF-IDF sur le texte des questions (data/related.json) ; millésimes FRED et écart Baa−10 ans en option avec une FRED_API_KEY.",
   "me.data.body": "<strong>Macro (M1) :</strong> FRED / FRED-MD, millésimes ALFRED, BEA, BLS, Census, BCE SDW, OCDE, SPF, Blue Chip, CME FedWatch, points morts TIPS, corpus de presse/texte, données alternatives (dépenses carte, offres d'emploi, mobilité).<br /><br /><strong>Actions &amp; innovation (M2) :</strong> USPTO PatentsView, Google Patents, textes intégraux SEC EDGAR, transcriptions de résultats, données de marché type CRSP/Compustat, arXiv, PubMed, ClinicalTrials.gov, Crunchbase, activité GitHub.<br /><br /><strong>Marchés (P1–P8) :</strong> flux de résultats officiels (élections, ligues, prix), flux de prix médianisés (crypto), publications BLS/BEA/Fed, critères d'événements documentés à rédaction verrouillée.",
   "me.road.title": "Feuille de route",
   "me.road.p1": "<strong>Phase 1 (0–6 mois) :</strong> cœur de nowcasting M1 (DFM + forêt aléatoire sur FRED-MD), couche de notation (C3), tournoi en argent fictif sur les publications économiques.",
@@ -558,5 +558,16 @@
   "tour.real.uniform": "Toujours 50 % (référence)",
   "tour.real.you": "Vous (ce navigateur)",
   "tour.real.note": "Les références sont calculées à partir du registre lui-même, sans clé. Chaque ligne n'est notée que sur les questions réellement prévues par ce participant, d'où des n différents ; la référence marché couvre toutes les questions résolues et constitue le chiffre à battre.",
-  "idx.stat.ledger": "Vraies questions résolues · Brier du marché à la capture {p}"
+  "idx.stat.ledger": "Vraies questions résolues · Brier du marché à la capture {p}",
+  "ch.realmkt": "Marché à la capture (réel, registre résolu)",
+  "lb.title": "Parcourir le registre des questions",
+  "lb.open": "Ouvertes",
+  "lb.resolved": "Résolues",
+  "lb.all": "Toutes",
+  "lb.sort.end": "Clôture la plus proche",
+  "lb.sort.new": "Création la plus récente",
+  "lb.sort.close": "Au plus près de 50¢",
+  "lb.capture": "À la capture",
+  "lb.now": "Maintenant / résultat",
+  "lb.note": "Les questions sont ajoutées le jour de leur création sur Polymarket et rafraîchies chaque jour jusqu'à résolution ; le registre est la matière première de chaque score réel du site."
 }
