@@ -303,6 +303,29 @@ try {
   const n = relatedMarkets(OO.markets.map(m => m.q));
   log.push(`✓ related markets: ${n} documents with neighbours`);
 } catch (e) { log.push(`✗ related markets (${e.message})`); }
+/* --- scoreboard history (data/scoreboard.json) --------------------------------------
+   One row per day: resolved count, market-baseline Brier overall and by topic. The
+   ledger itself is bounded (resolved entries ≤ 180 days), so this file is the
+   long-run track record — the "credibility flywheel" chart on the tournament page. */
+try {
+  const HIST = path.join(ROOT, "data", "scoreboard.json");
+  let hist = { rows: [] };
+  try { hist = JSON.parse(fs.readFileSync(HIST, "utf8")); } catch (e) {}
+  const ledger = JSON.parse(fs.readFileSync(LEDGER, "utf8"));
+  const res = ledger.questions.filter(q => q.resolved != null);
+  if (res.length) {
+    const brier = (p, y) => (p - y) * (p - y);
+    const mean = (a) => a.reduce((x, y) => x + y, 0) / a.length;
+    const byTopic = {};
+    res.forEach(q => { (byTopic[q.topic || "other"] = byTopic[q.topic || "other"] || []).push(brier(q.priceAtCapture, q.resolved)); });
+    const row = { d: new Date().toISOString().slice(0, 10), n: res.length, open: ledger.questions.filter(q => !q.closed).length,
+      market: +mean(res.map(q => brier(q.priceAtCapture, q.resolved))).toFixed(4),
+      topics: Object.fromEntries(Object.entries(byTopic).map(([t, a]) => [t, { n: a.length, b: +mean(a).toFixed(4) }])) };
+    hist.rows = hist.rows.filter(r => r.d !== row.d).concat(row).slice(-730);
+    fs.writeFileSync(HIST, JSON.stringify(hist, null, 1) + "\n");
+    log.push(`✓ scoreboard history: ${hist.rows.length} day(s), market Brier ${row.market} on ${row.n}`);
+  }
+} catch (e) { log.push(`✗ scoreboard history (${e.message})`); }
 
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
 if (!LEDGER_ONLY) fs.writeFileSync(OUT, JSON.stringify(out, null, 1) + "\n");

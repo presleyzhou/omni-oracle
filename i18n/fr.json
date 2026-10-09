@@ -583,5 +583,8 @@
   "me.score.2": "<strong>Registre de questions.</strong> L'instantané quotidien ajoute les marchés binaires Polymarket le jour de leur création (via des événements étiquetés ; sports, hausse/baisse récurrents, météo et marchés de tweets exclus ; au plus trois marchés par événement et deux par famille d'échelle de prix) et les rafraîchit jusqu'à résolution. Chaque entrée conserve le prix de marché à la capture.",
   "me.score.3": "<strong>Référence marché</strong> = Brier du prix de capture sur chaque question résolue. Calculée à partir du seul registre, sans clé, c'est le chiffre que tout participant doit battre. Les lignes par thème et par horizon utilisent les étiquettes Polymarket et les jours jusqu'à résolution à la capture.",
   "me.score.4": "<strong>Participants.</strong> Humains et modèles ne prévoient que des questions du registre encore ouvertes ; un modèle est de plus limité aux questions créées après sa date de coupure déclarée. Chaque prévision conserve le prix de marché à l'engagement ; Δ vs marché compare les deux Briers sur les mêmes questions au même instant (style Alpha Score).",
-  "me.score.5": "<strong>Ce qui reste démo.</strong> Le classement, les courbes de calibration hors points réels, les prix des marchés démo et le tableau du banc IA sont illustratifs. Tout ce qui est marqué <em>En direct</em>, <em>Instantané</em> ou lié au registre est réel."
+  "me.score.5": "<strong>Ce qui reste démo.</strong> Le classement, les courbes de calibration hors points réels, les prix des marchés démo et le tableau du banc IA sont illustratifs. Tout ce qui est marqué <em>En direct</em>, <em>Instantané</em> ou lié au registre est réel.",
+  "lb.csv": "⬇ Registre en CSV",
+  "tour.hist.title": "Historique quotidien de la référence marché",
+  "tour.hist.sub": "Brier du prix de capture sur toutes les questions résolues du registre, enregistré chaque jour par l'instantané ; la ligne pointillée est le nombre de questions résolues."
 }

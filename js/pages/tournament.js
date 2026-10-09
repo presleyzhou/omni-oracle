@@ -322,4 +322,32 @@ document.getElementById("lbFilter").addEventListener("click", (e) => { const c =
 document.getElementById("lbSort").addEventListener("change", (e) => { LB.sort = e.target.value; renderLedgerBrowser(); });
 document.getElementById("lbTopic").addEventListener("change", (e) => { LB.topic = e.target.value; renderLedgerBrowser(); });
 
-document.addEventListener("oo:lang", () => { buildCharts(); renderAiBench(); renderAiLedger(); renderMy(); renderLedgerBrowser(); });
+
+/* ----- market-baseline track record (data/scoreboard.json, one row per day) ----- */
+let histChart = null;
+function renderHistory(h) {
+  const card = document.getElementById("histCard");
+  if (!h || !h.rows || h.rows.length < 2) { if (card) card.classList.add("hide"); return; }
+  card.classList.remove("hide");
+  if (histChart) histChart.destroy();
+  histChart = new Chart(document.getElementById("histChart"), {
+    type: "line",
+    data: { labels: h.rows.map(r => r.d), datasets: [
+      { label: OO_T("tour.real.market"), data: h.rows.map(r => r.market), borderColor: OO_COLORS.purple, backgroundColor: OO_COLORS.purple, tension: 0.2, pointRadius: 2, yAxisID: "y" },
+      { label: OO_T("tour.ai.graded"), data: h.rows.map(r => r.n), borderColor: OO_COLORS.dim, borderDash: [4, 4], pointRadius: 0, tension: 0.2, yAxisID: "y2" },
+    ] },
+    options: { maintainAspectRatio: false, scales: { y: { min: 0, max: 0.3, title: { display: true, text: "Brier" } }, y2: { position: "right", grid: { drawOnChartArea: false }, title: { display: true, text: "n" } }, x: { ticks: { maxTicksLimit: 8 } } } },
+  });
+}
+let HIST = null;
+OO_FETCH("data/scoreboard.json", { ttl: 900 }).then(h => { HIST = h; renderHistory(h); });
+/* CSV export of the ledger for researchers */
+document.getElementById("lbCsv").addEventListener("click", () => {
+  if (!LEDGER) return;
+  const esc = v => '"' + String(v == null ? "" : v).replace(/"/g, '""') + '"';
+  const cols = ["slug", "question", "topic", "createdAt", "capturedAt", "endDate", "priceAtCapture", "price", "closed", "resolved", "resolvedAt"];
+  const csv = [cols.join(",")].concat(LEDGER.questions.map(q => cols.map(c => esc(q[c])).join(","))).join("\n");
+  const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" })); a.download = "omni-oracle-question-ledger.csv"; a.click(); URL.revokeObjectURL(a.href);
+});
+
+document.addEventListener("oo:lang", () => { buildCharts(); renderAiBench(); renderAiLedger(); renderMy(); renderLedgerBrowser(); renderHistory(HIST); });

@@ -103,6 +103,7 @@ js/pages/<page>.js     page logic (one file per page)
 data/live.json         daily API snapshot (committed by GitHub Actions)
 data/questions.json    ledger of real Polymarket questions for contamination-safe scoring
 data/related.json      TF-IDF neighbours (demo markets + ledger) for related-market links
+data/scoreboard.json   daily market-baseline Brier (overall + by topic) — the long-run track record
 scripts/snapshot.mjs   builds data/live.json
 scripts/check-i18n.mjs CI: dictionaries complete & every referenced key exists
 scripts/bump.sh        bumps ?v= cache-busters and the service-worker cache name
