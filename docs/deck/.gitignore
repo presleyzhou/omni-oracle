@@ -1,0 +1,9 @@
+node_modules/
+package.json
+package-lock.json
+slide-*.jpg
+page-*.jpg
+shots/
+ql/
+hq/
+keyqa/

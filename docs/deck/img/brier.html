@@ -1,0 +1,6 @@
+<!doctype html><html><head><meta charset="utf-8"><script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>html,body{margin:0;background:#151D2C}#c{width:1000px;height:900px}</style></head><body><canvas id="c" width="1000" height="900"></canvas>
+<script>Chart.defaults.color="#E5EAF3";Chart.defaults.font.family="Arial, 'PingFang SC', sans-serif";Chart.defaults.font.size=22;Chart.defaults.borderColor="rgba(36,48,74,0.9)";new Chart(document.getElementById("c"),{type:"bar",data:{labels:["超级预测者","Claude 3.5 Sonnet","GPT-4o"],datasets:[{data:[0.096,0.122,0.133],backgroundColor:["#22C55E","#8B5CF6","#4F8CFF"],borderRadius:8,barPercentage:0.6}]},
+options:{indexAxis:"y",animation:false,responsive:false,plugins:{legend:{display:false},title:{display:true,text:"ForecastBench Brier 分（越低越好）",font:{size:26,weight:"bold"},color:"#fff",padding:{bottom:24}},
+tooltip:{enabled:false}},scales:{x:{min:0,max:0.16,ticks:{color:"#93A0B8"},grid:{color:"rgba(36,48,74,0.9)"}},y:{ticks:{color:"#E5EAF3",font:{size:24}},grid:{display:false}}}},
+plugins:[{id:"lbl",afterDatasetsDraw(c){const {ctx}=c;ctx.save();ctx.fillStyle="#fff";ctx.font="bold 24px Arial";ctx.textBaseline="middle";c.getDatasetMeta(0).data.forEach((b,i)=>ctx.fillText(c.data.datasets[0].data[i].toFixed(3),b.x+14,b.y));ctx.restore();}}]});</script></body></html>
