@@ -14,14 +14,51 @@ if ("serviceWorker" in navigator &&
   });
 })();
 
-/* Chart.js global defaults (only if Chart is loaded on this page) */
-if (typeof Chart !== "undefined") {
+/* ---------- Chart.js on demand ----------
+   The ~200 KB library is fetched only when the first .chart-box scrolls into view
+   (or is already visible at load). Page code wraps chart building in ooChart(fn):
+   it runs immediately once the library is present, otherwise it is queued (deduped
+   by function) and replayed after load. */
+const OO_CHART = { loading: null, queue: new Map() }; // key → fn, so repeated data arrivals queue one replay
+function ooChartDefaults() {
   Chart.defaults.color = "#93a0b8";
   Chart.defaults.borderColor = "rgba(36,48,74,0.6)";
   Chart.defaults.font.family = "'Inter', -apple-system, sans-serif";
   Chart.defaults.plugins.legend.labels.boxWidth = 12;
   Chart.defaults.plugins.legend.labels.boxHeight = 12;
 }
+function ooLoadChart() {
+  if (window.Chart) return Promise.resolve();
+  if (OO_CHART.loading) return OO_CHART.loading;
+  OO_CHART.loading = new Promise((resolve, reject) => {
+    const el = document.createElement("script");
+    el.src = "https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js";
+    el.onload = () => { ooChartDefaults(); const q = [...OO_CHART.queue.values()]; OO_CHART.queue.clear(); q.forEach(fn => fn()); resolve(); };
+    el.onerror = () => reject(new Error("Chart.js failed to load"));
+    document.head.appendChild(el);
+  });
+  return OO_CHART.loading;
+}
+function ooChart(fn, key = fn.name || String(fn)) {
+  if (window.Chart) { fn(); return true; }
+  OO_CHART.queue.set(key, fn);
+  return false;
+}
+(function () {
+  const boxes = document.querySelectorAll(".chart-box");
+  if (!boxes.length) return;
+  /* trigger 1: a chart scrolls near the viewport */
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some(e => e.isIntersecting)) { io.disconnect(); ooLoadChart(); }
+    }, { rootMargin: "200px" });
+    boxes.forEach(b => io.observe(b));
+  }
+  /* trigger 2: the page has painted and the browser is idle — charts below the fold
+     still appear without a scroll, and a zero-height/hidden viewport cannot stall them */
+  const idle = window.requestIdleCallback || ((fn) => setTimeout(fn, 1500));
+  window.addEventListener("load", () => idle(() => ooLoadChart(), { timeout: 2500 }), { once: true });
+})();
 
 const OO_COLORS = {
   accent: "#4f8cff",

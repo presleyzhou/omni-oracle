@@ -4,8 +4,9 @@ const M = OO.macro;
 let fedChart = null;
 
 function buildCharts() {
-  if (fedChart) fedChart.destroy();
   document.getElementById("fedTitle").textContent = OO_T("mac.fed.prefix") + M.fedMeeting;
+  if (!window.Chart) { ooChart(buildCharts, "buildCharts"); return; }
+  if (fedChart) fedChart.destroy();
   fedChart = new Chart(document.getElementById("fedChart"), {
     type: "bar",
     data: {

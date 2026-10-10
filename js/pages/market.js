@@ -55,6 +55,9 @@ function render() {
      <span>${OO_T("mk.res")}: ${m.res}</span>` +
     (liveSpot != null ? `<span class="tag green">● ${m.sym} $${liveSpot.toLocaleString("en-US")} · LIVE</span>` : "");
 
+  const { bids, asks } = depthLevels();
+  if (!window.Chart) ooChart(render, "render"); // charts fill in once the library arrives; the rest renders now
+  else {
   /* price history */
   if (histChart) histChart.destroy();
   const pts = priceSeries(90);
@@ -86,7 +89,6 @@ function render() {
   }
 
   /* depth */
-  const { bids, asks } = depthLevels();
   if (depthChart) depthChart.destroy();
   const labels = [...bids.map(l => l.price).reverse(), ...asks.map(l => l.price)].map(v => Math.round(v * 100) + "¢");
   depthChart = new Chart(document.getElementById("depthChart"), {
@@ -105,6 +107,8 @@ function render() {
       scales: { y: { title: { display: true, text: OO_T("mkd.cum") } } },
     },
   });
+
+  }
 
   /* top of book */
   document.querySelector("#bookTable tbody").innerHTML = Array.from({ length: 8 }, (_, k) => `

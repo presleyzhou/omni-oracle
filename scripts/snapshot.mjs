@@ -151,7 +151,13 @@ async function questionLedger() {
     .filter(e => !(e.tags || []).some(t => TAG_EXCLUDE.test(t.label || "")))
     .filter(e => (+e.liquidity || 0) >= 1000 || (+e.volume || 0) >= 5000)
     .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
+  /* horizon stratification: the ledger otherwise fills with questions that resolve within
+     a week (easy for markets). Reserve at least 40% of each day's intake for questions
+     with 30+ days to resolution; short-horizon questions can only take the remainder. */
+  const DAILY = 25, LONG_SHARE = 0.4;
+  const horizonOf = (m) => (Date.parse(m.endDate) - today) / 864e5;
   const added = [];
+  const countShort = () => added.filter(q => q.horizon === "short").length;
   for (const e of events) {
     const tags = (e.tags || []).map(t => t.label).filter(Boolean).slice(0, 8);
     let perEvent = ledger.questions.filter(q => q.event === e.slug).length;
@@ -168,12 +174,36 @@ async function questionLedger() {
       const fam = family(m.slug);
       const famCount = ledger.questions.filter(q => family(q.slug) === fam).length + added.filter(q => family(q.slug) === fam).length;
       if (famCount >= FAMILY_CAP) continue;
-      added.push({ slug: m.slug, id: m.id, question: m.question, topic: topicFromTags(tags) || topicOf(m.question), tags, event: e.slug,
+      const horizon = horizonOf(m) >= 30 ? "long" : "short";
+      if (horizon === "short" && countShort() >= Math.round(DAILY * (1 - LONG_SHARE))) continue;
+      added.push({ slug: m.slug, id: m.id, question: m.question, topic: topicFromTags(tags) || topicOf(m.question), tags, event: e.slug, horizon,
         createdAt: m.createdAt, endDate: m.endDate, capturedAt: today.toISOString(), priceAtCapture: prices[0], price: prices[0], closed: false, resolved: null });
       known.add(m.slug); perEvent++;
-      if (added.length >= 25) break;
+      if (added.length >= DAILY) break;
     }
-    if (added.length >= 25) break;
+    if (added.length >= DAILY) break;
+  }
+  /* second pass for long-horizon questions only, relaxing the event cap to 5, so the
+     reserved share is actually filled when few events qualify */
+  for (const e of events) {
+    if (added.length >= DAILY || added.filter(q => q.horizon === "long").length >= Math.round(DAILY * LONG_SHARE)) break;
+    const tags = (e.tags || []).map(t => t.label).filter(Boolean).slice(0, 8);
+    let perEvent = ledger.questions.filter(q => q.event === e.slug).length + added.filter(q => q.event === e.slug).length;
+    for (const m of e.markets || []) {
+      if (perEvent >= 5 || added.length >= DAILY) break;
+      let outcomes = [], prices = [];
+      try { outcomes = JSON.parse(m.outcomes); prices = JSON.parse(m.outcomePrices).map(Number); } catch (err) { continue; }
+      const binary = outcomes.length === 2 && /^yes$/i.test(outcomes[0]) && /^no$/i.test(outcomes[1]);
+      const informative = prices[0] > 0.03 && prices[0] < 0.97;
+      const days = horizonOf(m), age = (today - Date.parse(m.createdAt)) / 864e5;
+      if (!binary || !informative || m.closed || known.has(m.slug) || age > 60 || !(days >= 30 && days < 180)) continue;
+      if (SPORTS.test(m.question + " " + m.slug) || LADDERS.test(m.question)) continue;
+      const fam = family(m.slug);
+      if (ledger.questions.filter(q => family(q.slug) === fam).length + added.filter(q => family(q.slug) === fam).length >= FAMILY_CAP) continue;
+      added.push({ slug: m.slug, id: m.id, question: m.question, topic: topicFromTags(tags) || topicOf(m.question), tags, event: e.slug, horizon: "long",
+        createdAt: m.createdAt, endDate: m.endDate, capturedAt: today.toISOString(), priceAtCapture: prices[0], price: prices[0], closed: false, resolved: null });
+      known.add(m.slug); perEvent++;
+    }
   }
   /* 2. refresh open entries (price, closed, resolution) */
   const open = ledger.questions.filter(q => !q.closed);
@@ -209,7 +239,7 @@ async function questionLedger() {
     .filter(q => !q.resolvedAt || Date.parse(q.resolvedAt) > cutoff).slice(-500);
   ledger.updated = today.toISOString();
   fs.writeFileSync(LEDGER, JSON.stringify(ledger, null, 1) + "\n");
-  log.push(`✓ questions ledger: +${added.length} new, ${ledger.questions.filter(q => q.resolved != null).length} resolved, ${ledger.questions.length} total`);
+  log.push(`✓ questions ledger: +${added.length} new (${added.filter(q => q.horizon === "long").length} long-horizon), ${ledger.questions.filter(q => q.resolved != null).length} resolved, ${ledger.questions.length} total`);
 }
 
 /* FRED "initial release only" vintages (output_type=4) vs latest — shows how much the

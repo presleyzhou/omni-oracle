@@ -451,6 +451,7 @@ function renderFeed() {
 
 /* ----- indices chart ----- */
 function initChart() {
+  if (!window.Chart) { ooChart(initChart, "initChart"); return; }
   if (SIM.chart) SIM.chart.destroy();
   SIM.chart = new Chart(document.getElementById("idxChart"), {
     type: "line",
@@ -527,6 +528,10 @@ function runMC() {
 function renderMC() {
   if (!SIM.mc) return;
   const { bins, wins, runs } = SIM.mc;
+  const leadIdx0 = wins.indexOf(Math.max(...wins));
+  document.getElementById("mcResult").textContent =
+    T("sw.mc.result", { runs, lead: OO_T("sw.sc" + (leadIdx0 + 1)), p: wins[leadIdx0] });
+  if (!window.Chart) { ooChart(renderMC, "renderMC"); return; }
   if (SIM.mcChart) SIM.mcChart.destroy();
   SIM.mcChart = new Chart(document.getElementById("mcChart"), {
     type: "bar",

@@ -33,6 +33,7 @@ const C = OO.calibration;
 let charts = [];
 
 function buildCharts() {
+  if (!window.Chart) { ooChart(buildCharts, "buildCharts"); return; }
   charts.forEach(c => c.destroy());
   charts = [];
 
@@ -326,6 +327,7 @@ document.getElementById("lbTopic").addEventListener("change", (e) => { LB.topic 
 /* ----- market-baseline track record (data/scoreboard.json, one row per day) ----- */
 let histChart = null;
 function renderHistory(h) {
+  if (!window.Chart) { if (h && h.rows && h.rows.length >= 2) ooChart(() => renderHistory(h), "renderHistory"); return; }
   const card = document.getElementById("histCard");
   if (!h || !h.rows || h.rows.length < 2) { if (card) card.classList.add("hide"); return; }
   card.classList.remove("hide");

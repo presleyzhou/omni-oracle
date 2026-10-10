@@ -75,10 +75,11 @@ function renderStats() {
 }
 
 function buildCharts() {
-  charts.forEach(c => c.destroy());
-  charts = [];
   renderStats();
   if (typeof renderCrisis === "function") renderCrisis();
+  if (!window.Chart) { ooChart(buildCharts, "buildCharts"); return; } // stats/table above never wait for the library
+  charts.forEach(c => c.destroy());
+  charts = [];
 
   if (R.gdp && R.gdp.length) {
     const vals = R.gdp.map(d => d.v);
@@ -174,6 +175,7 @@ document.addEventListener("oo:lang", buildCharts);
 const WB = { countries: { USA: "US", CHN: "CN", EUU: "EU", JPN: "JP" }, gdp: {}, cpi: {}, years: [] };
 let wbCharts = [];
 function renderWb() {
+  if (!window.Chart) { ooChart(renderWb, "renderWb"); return; }
   if (!Object.keys(WB.gdp).length) return;
   document.getElementById("wbCard").classList.remove("hide");
   wbCharts.forEach(c => c.destroy()); wbCharts = [];
@@ -348,6 +350,7 @@ function renderCrisis() {
 }
 
 function renderCrisisChart() {
+  if (!window.Chart) { ooChart(renderCrisisChart, "renderCrisisChart"); return; }
   if (!CW.curve) return;
   if (cwChart) cwChart.destroy();
   const from = new Date(); from.setMonth(from.getMonth() - 24);
