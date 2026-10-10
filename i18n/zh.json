@@ -599,5 +599,8 @@
   "tour.pub.sub": "任何人都可以通过 PR 把导出的记录放到 data/ai-forecasts/；每日快照用与市场基准相同的代码对照台账评分。只有在结算之前提交的预测才计入。",
   "tour.pub.file": "记录",
   "tour.pub.human": "人类",
-  "tour.pub.none": "尚无公开记录——从本页导出你的记录并提交 PR。"
+  "tour.pub.none": "尚无公开记录——从本页导出你的记录并提交 PR。",
+  "lb.forecast": "去预测",
+  "res.group.real": "等待结算的真实台账问题",
+  "res.group.demo": "演示市场"
 }

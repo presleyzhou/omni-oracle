@@ -21,6 +21,8 @@ jobs:
         run: node scripts/test-ledger-rules.mjs
       - name: i18n dictionaries are complete and consistent
         run: node scripts/check-i18n.mjs
+      - name: Public forecast records are well-formed
+        run: node scripts/check-records.mjs
       - name: Snapshot JSON parses and lists every field the pages read
         run: node scripts/check-snapshot.mjs
       - name: HTML validity

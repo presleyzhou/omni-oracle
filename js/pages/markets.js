@@ -363,6 +363,9 @@ document.getElementById("aiRun").addEventListener("click", async () => {
    high confidence (97.9% accuracy on the 47% of cases that qualify), route the rest to
    a human. Here it only *proposes* a resolution for demo markets that close within
    90 days; positions are never settled automatically. */
+/* real ledger questions that are past their end date or closed but not yet resolved —
+   exactly the cases an AI oracle panel would be asked to pre-settle */
+let RES_REAL = [];
 function renderResDesk() {
   const sel = document.getElementById("resMarket");
   const cur = sel.value;
@@ -370,14 +373,22 @@ function renderResDesk() {
     const t = Date.parse(m.close.replace(/^(\w{3}) (\d{4})$/, "$1 1 $2"));
     return isFinite(t) ? (t - Date.now()) / 864e5 < 120 : true;
   });
-  sel.innerHTML = soon.map(({ m, i }) => `<option value="${i}">${m.q}</option>`).join("");
-  if (cur) sel.value = cur;
+  sel.innerHTML = (RES_REAL.length ? `<optgroup label="${OO_T("res.group.real")}">` + RES_REAL.map(q => `<option value="pm:${q.slug}">${q.question}</option>`).join("") + `</optgroup>` : "") +
+    `<optgroup label="${OO_T("res.group.demo")}">` + soon.map(({ m, i }) => `<option value="${i}">${m.q}</option>`).join("") + `</optgroup>`;
+  if (cur && [...sel.options].some(o => o.value === cur)) sel.value = cur;
 }
 renderResDesk();
+OO_FETCH("data/questions.json", { ttl: 900 }).then(d => {
+  if (!d || !d.questions) return;
+  RES_REAL = d.questions.filter(q => q.resolved == null && (q.closed || Date.parse(q.endDate) < Date.now())).slice(0, 30);
+  renderResDesk();
+});
 document.getElementById("resRun").addEventListener("click", async () => {
   const st = document.getElementById("resStatus"), out = document.getElementById("resOut");
   if (!OO_LLM.key) { st.textContent = "⚪ " + OO_T("ai.nokey"); return; }
-  const m = OO.markets[+document.getElementById("resMarket").value];
+  const v = document.getElementById("resMarket").value;
+  const real = v.startsWith("pm:") ? RES_REAL.find(q => q.slug === v.slice(3)) : null;
+  const m = real ? { q: real.question, res: "Polymarket / UMA resolution per the market rules (polymarket.com/market/" + real.slug + ")", close: real.endDate.slice(0, 10) } : OO.markets[+v];
   st.textContent = "🤖 " + OO_T("res.running");
   try {
     const sys = `You are a prediction-market resolution oracle. Decide whether the market has resolved YES, resolved NO, or is UNRESOLVED as of today (${new Date().toISOString().slice(0, 10)}). Use only facts you are confident are true; if the event date has not passed or you are unsure, answer UNRESOLVED. Reply ONLY with JSON {"verdict":"YES"|"NO"|"UNRESOLVED","confidence":number in [0,1],"basis":"one sentence"}.`;

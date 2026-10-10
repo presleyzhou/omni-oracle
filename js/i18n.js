@@ -614,7 +614,10 @@ en: {
   "tour.pub.sub": "Anyone can publish their exported record by pull request to data/ai-forecasts/; the daily snapshot grades it against the ledger with the same code as the market baseline. Only forecasts committed before resolution count.",
   "tour.pub.file": "Record",
   "tour.pub.human": "Human",
-  "tour.pub.none": "No public records yet — export yours from this page and open a pull request."
+  "tour.pub.none": "No public records yet — export yours from this page and open a pull request.",
+  "lb.forecast": "Forecast",
+  "res.group.real": "Real ledger questions awaiting resolution",
+  "res.group.demo": "Demo markets"
 },
 };
 

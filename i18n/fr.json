@@ -599,5 +599,8 @@
   "tour.pub.sub": "Chacun peut publier son export par pull request dans data/ai-forecasts/ ; l'instantané quotidien le note contre le registre avec le même code que la référence marché. Seules les prévisions versées avant la résolution comptent.",
   "tour.pub.file": "Registre",
   "tour.pub.human": "Humain",
-  "tour.pub.none": "Aucun registre public pour l'instant — exportez le vôtre depuis cette page et ouvrez une pull request."
+  "tour.pub.none": "Aucun registre public pour l'instant — exportez le vôtre depuis cette page et ouvrez une pull request.",
+  "lb.forecast": "Prévoir",
+  "res.group.real": "Vraies questions du registre en attente de résolution",
+  "res.group.demo": "Marchés démo"
 }

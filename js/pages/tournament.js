@@ -317,11 +317,20 @@ function renderLedgerBrowser() {
       <td class="num-cell">${q.endDate.slice(0, 10)}</td>
       <td class="num-cell">${Math.round(q.priceAtCapture * 100)}¢</td>
       <td class="num-cell">${q.resolved != null ? `<span class="tag ${q.resolved ? "green" : "red"}">${q.resolved ? "YES" : "NO"}</span>` : Math.round(q.price * 100) + "¢"}</td>
+      <td>${q.closed ? "" : `<button class="btn btn-ghost lb-go" data-slug="${q.slug}" style="padding:3px 10px; font-size:0.74rem;">${OO_T("lb.forecast")}</button>`}</td>
     </tr>`).join("");
 }
 document.getElementById("lbFilter").addEventListener("click", (e) => { const c = e.target.closest(".chip"); if (!c) return; LB.filter = c.dataset.f; renderLedgerBrowser(); });
 document.getElementById("lbSort").addEventListener("change", (e) => { LB.sort = e.target.value; renderLedgerBrowser(); });
 document.getElementById("lbTopic").addEventListener("change", (e) => { LB.topic = e.target.value; renderLedgerBrowser(); });
+document.getElementById("lbTable").addEventListener("click", (e) => {
+  const b = e.target.closest(".lb-go"); if (!b) return;
+  MYSRC = "real"; renderMy();
+  const sel = document.getElementById("myMarket");
+  if ([...sel.options].some(o => o.value === b.dataset.slug)) sel.value = b.dataset.slug;
+  if (window.ooShowTab) window.ooShowTab("my");
+  document.getElementById("myMarket").scrollIntoView({ behavior: "smooth", block: "center" });
+});
 
 
 /* ----- market-baseline track record (data/scoreboard.json, one row per day) ----- */
@@ -376,6 +385,14 @@ document.getElementById("lbCsv").addEventListener("click", () => {
     if (window.Chart) requestAnimationFrame(() => { charts.forEach(c => c.resize()); if (histChart) histChart.resize(); });
   }
   bar.addEventListener("click", (e) => { const b = e.target.closest(".tab"); if (b) show(b.dataset.tab, true); });
+  bar.addEventListener("keydown", (e) => {
+    const tabs = [...bar.querySelectorAll(".tab")], i = tabs.indexOf(document.activeElement);
+    if (i < 0) return;
+    const j = e.key === "ArrowRight" ? (i + 1) % tabs.length : e.key === "ArrowLeft" ? (i - 1 + tabs.length) % tabs.length : e.key === "Home" ? 0 : e.key === "End" ? tabs.length - 1 : -1;
+    if (j < 0) return;
+    e.preventDefault(); tabs[j].focus(); show(tabs[j].dataset.tab, true);
+  });
+  window.ooShowTab = (name) => show(name, true);
   const want = new URLSearchParams(location.search).get("tab") || localStorage.getItem("oo-tour-tab") || "real";
   show(["real", "my", "demo"].includes(want) ? want : "real", false);
 })();
