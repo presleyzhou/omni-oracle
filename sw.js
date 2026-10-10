@@ -4,7 +4,7 @@
    The cache name carries the asset version (kept in sync by scripts/bump.sh) so
    a deploy never mixes old JS with new HTML; assets match exactly (?v= included),
    only navigations fall back loosely to the cached shell. */
-const CACHE = "omni-oracle-v40";
+const CACHE = "omni-oracle-v41";
 
 self.addEventListener("install", () => self.skipWaiting());
 

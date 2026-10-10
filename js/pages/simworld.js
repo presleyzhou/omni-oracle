@@ -163,14 +163,14 @@ function initAgents() {
       cy: (0.3 + 0.4 * Math.floor(f / 2)) * H + (Math.random() - 0.5) * 60,
     };
   });
-  /* Small-world topology (Watts–Strogatz flavor): ring neighbors within
-     the same faction + occasional cross-faction rewires. */
-  SIM.agents.forEach((a, idx) => {
-    a.nbrs = [];
-    for (let d = 1; d <= 3; d++) a.nbrs.push((idx + d * 4) % N_AGENTS);
-    if (Math.random() < 0.2) a.nbrs.push((Math.random() * N_AGENTS) | 0);
-  });
+  /* interaction topology from the god-view selector (small-world or scale-free) */
+  const nb = buildGraph(N_AGENTS, SIM.topology);
+  SIM.agents.forEach((a, idx) => { a.nbrs = nb[idx]; });
 }
+document.getElementById("topoKind").addEventListener("change", (e) => {
+  SIM.topology = e.target.value;
+  if (SIM.built) { const nb = buildGraph(N_AGENTS, SIM.topology); SIM.agents.forEach((a, i) => { a.nbrs = nb[i]; }); pushEvent({ key: "sw.evTopoKind", params: { k: OO_T("sw.topo." + SIM.topology) }, god: true }); }
+});
 function drawFrame() {
   if (!SIM.built) return;
   const W = cv.width, H = cv.height;
@@ -332,9 +332,24 @@ document.getElementById("densSlider").addEventListener("input", () => {
    itself (counts vs. percentages) manufacture a scale effect. The audit below answers
    them numerically for N = 80 … 5120 with the same topology rules as the live world. */
 SIM.reach = 3; SIM.lifetime = 3; SIM.informed = 1;
-function buildGraph(n) {
+/* Two topologies with the same mean degree (~6.4):
+   small-world — ring lattice within faction + 20% random rewires (Watts–Strogatz flavour);
+   scale-free  — preferential attachment, m = 3 (Barabási–Albert): a few hubs carry most
+   paths, which is what arXiv 2604.18011 argues real information networks look like. */
+SIM.topology = "sw";
+function buildGraph(n, kind = SIM.topology) {
   const nb = Array.from({ length: n }, () => []);
-  const link = (i, j) => { if (i !== j) { nb[i].push(j); nb[j].push(i); } };
+  const link = (i, j) => { if (i !== j && !nb[i].includes(j)) { nb[i].push(j); nb[j].push(i); } };
+  if (kind === "sf") {
+    const targets = [0, 1, 2]; link(0, 1); link(1, 2); link(0, 2);
+    for (let i = 3; i < n; i++) {
+      const picked = new Set();
+      while (picked.size < 3) picked.add(targets[(Math.random() * targets.length) | 0]);
+      picked.forEach(j => { link(i, j); targets.push(j); });
+      targets.push(i, i, i);
+    }
+    return nb;
+  }
   for (let i = 0; i < n; i++) {
     for (let d = 1; d <= 3; d++) link(i, (i + d * 4) % n);
     if (Math.random() < 0.2) link(i, (Math.random() * n) | 0);
@@ -373,20 +388,19 @@ function diffuseEvent() {
 function runScaleAudit() {
   const sizes = [80, 320, 1280, 5120], REPS = 20;
   const effReach = SIM.reach + Math.max(0, SIM.lifetime - 1);
+  const shareFor = (n, kind) => { const nb = buildGraph(n, kind); let sh = 0; for (let r = 0; r < REPS; r++) sh += informedShare(nb, (Math.random() * n) | 0, effReach); return sh / REPS; };
   const rows = sizes.map(n => {
-    const nb = buildGraph(n);
-    let share = 0;
-    for (let r = 0; r < REPS; r++) share += informedShare(nb, (Math.random() * n) | 0, effReach);
-    share /= REPS;
-    return { n, share, count: Math.round(share * n), ok: share >= 0.5 };
+    const share = shareFor(n, SIM.topology), other = shareFor(n, SIM.topology === "sf" ? "sw" : "sf");
+    return { n, share, other, count: Math.round(share * n), ok: share >= 0.5 };
   });
   const fail = rows.find(r => !r.ok);
+  const otherName = OO_T("sw.topo." + (SIM.topology === "sf" ? "sw" : "sf"));
   const freq = (0.25 + 0.2 * (SIM.density || 1)).toFixed(2);
   const out = document.getElementById("auditOut");
   out.classList.remove("hide");
   out.innerHTML = `<table style="margin-top:6px;"><thead><tr>
-      <th scope="col">N</th><th scope="col">${OO_T("sw.audit.share")}</th><th scope="col">${OO_T("sw.audit.count")}</th><th scope="col">${OO_T("sw.audit.verdict")}</th>
-    </tr></thead><tbody>${rows.map(r => `<tr><td class="num-cell">${r.n}</td><td class="num-cell">${Math.round(r.share * 100)}%</td><td class="num-cell">${r.count}</td><td>${OO_T(r.ok ? "sw.audit.ok" : "sw.audit.fail")}</td></tr>`).join("")}</tbody></table>
+      <th scope="col">N</th><th scope="col">${OO_T("sw.audit.share")} · ${OO_T("sw.topo." + SIM.topology)}</th><th scope="col">${OO_T("sw.audit.count")}</th><th scope="col">${OO_T("sw.audit.verdict")}</th><th scope="col">${OO_T("sw.audit.vs")} ${otherName}</th>
+    </tr></thead><tbody>${rows.map(r => `<tr><td class="num-cell">${r.n}</td><td class="num-cell">${Math.round(r.share * 100)}%</td><td class="num-cell">${r.count}</td><td>${OO_T(r.ok ? "sw.audit.ok" : "sw.audit.fail")}</td><td class="num-cell ${r.other > r.share ? "pos" : ""}">${Math.round(r.other * 100)}%</td></tr>`).join("")}</tbody></table>
     <ul class="dq-list" style="margin-top:10px;">
       <li><strong>Q1 · ${OO_T("sw.audit.q1")}</strong> ${T("sw.audit.a1", { f: freq })}</li>
       <li><strong>Q2 · ${OO_T("sw.audit.q2")}</strong> ${T("sw.audit.a2", { s: Math.round(rows[1].share * 100) })}</li>

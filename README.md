@@ -75,6 +75,12 @@ the resolution — model Brier vs. market Brier at the same moment. Sports lines
 tweet-count ladders are excluded; price ladders are capped at two markets per family; every
 question carries a coarse topic tag (crypto / geo / politics / economy / tech / other).
 
+### Publish your record
+
+Export your forecasts from the tournament page and open a pull request adding the file to
+[`data/ai-forecasts/`](data/ai-forecasts/) — the daily snapshot grades it against the ledger and the
+tournament page lists it under **Public records**. See the folder's README for the rules.
+
 ## Bring your own LLM key
 
 The 🔑 button in the nav opens one shared settings dialog for every AI feature (macro/equity

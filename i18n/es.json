@@ -586,5 +586,18 @@
   "me.score.5": "<strong>Lo que sigue siendo demo.</strong> La clasificación, las curvas de calibración salvo los puntos reales, los precios de los mercados demo y la tabla del banco de IA son ilustrativos. Todo lo marcado <em>En vivo</em>, <em>Instantánea</em> o ligado al registro es real.",
   "lb.csv": "⬇ Registro en CSV",
   "tour.hist.title": "Historial diario de la referencia de mercado",
-  "tour.hist.sub": "Brier del precio de captura en todas las preguntas resueltas del registro, registrado a diario por la instantánea; la línea discontinua es el número de preguntas resueltas."
+  "tour.hist.sub": "Brier del precio de captura en todas las preguntas resueltas del registro, registrado a diario por la instantánea; la línea discontinua es el número de preguntas resueltas.",
+  "tour.tab.real": "Marcador real",
+  "tour.tab.my": "Mis pronósticos",
+  "tour.tab.demo": "Clasificación demo",
+  "sw.topo.kind": "Topología de interacción",
+  "sw.topo.sw": "Mundo pequeño (anillo + 20 % de reconexiones)",
+  "sw.topo.sf": "Libre de escala (conexión preferencial, hubs)",
+  "sw.audit.vs": "vs",
+  "sw.evTopoKind": "Vista divina: topología de interacción cambiada a {k}",
+  "tour.pub.title": "Registros públicos (incorporados al repositorio)",
+  "tour.pub.sub": "Cualquiera puede publicar su exportación mediante pull request en data/ai-forecasts/; la instantánea diaria lo califica contra el registro con el mismo código que la referencia de mercado. Solo cuentan los pronósticos incorporados antes de la resolución.",
+  "tour.pub.file": "Registro",
+  "tour.pub.human": "Humano",
+  "tour.pub.none": "Aún no hay registros públicos: exporta el tuyo desde esta página y abre un pull request."
 }

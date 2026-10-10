@@ -164,7 +164,7 @@ document.getElementById("aiRunBtn").addEventListener("click", async () => {
     const now = new Date().toISOString();
     const rows = qs.map((q, k) => {
       const p = agg[k].p, gap = p - q.price;
-      AIF.push({ slug: q.slug, question: q.question, p, marketP: q.price, model: modelTag, at: now, spread: agg[k].spread });
+      AIF.push({ slug: q.slug, question: q.question, p, marketP: q.price, model: modelTag, at: now, spread: agg[k].spread, cutoff: OO_LLM.cutoff });
       return `<tr><td style="max-width:340px;">${q.question}<br><span class="dim-note">${OO_T("tour.ai.created")} ${q.createdAt.slice(0, 10)} · ${OO_T("mk.closes")} ${q.endDate.slice(0, 10)}</span></td>
         <td class="num-cell">${Math.round(p * 100)}%${agg[k].n > 1 ? ` <span class="tag ${agg[k].spread > 0.25 ? "dispute" : "consensus"}">±${Math.round(agg[k].spread * 50)}</span>` : ""}</td>
         <td class="num-cell">${Math.round(q.price * 100)}%</td>
@@ -343,6 +343,16 @@ function renderHistory(h) {
 }
 let HIST = null;
 OO_FETCH("data/scoreboard.json", { ttl: 900 }).then(h => { HIST = h; renderHistory(h); });
+/* public records graded by the snapshot from data/ai-forecasts/*.json */
+let PUB = null;
+function renderPublic() {
+  const box = document.getElementById("pubBox"); if (!box) return;
+  const rows = PUB && PUB.rows ? PUB.rows : [];
+  box.innerHTML = rows.length ? `<table style="margin-top:6px;"><thead><tr><th scope="col">${OO_T("tour.pub.file")}</th><th scope="col">${OO_T("tour.real.who")}</th><th scope="col">${OO_T("tour.ai.cutoff")}</th><th scope="col">${OO_T("tour.ai.graded")}</th><th scope="col">${OO_T("tour.th.brier")}</th><th scope="col">${OO_T("tour.real.vsmkt")}</th></tr></thead><tbody>` +
+    rows.map(r => `<tr><td><a href="https://github.com/presleyzhou/omni-oracle/blob/main/data/ai-forecasts/${r.file}.json" target="_blank" rel="noopener">${r.file}</a></td><td><strong>${r.who === "human" ? OO_T("tour.pub.human") : r.who}</strong></td><td>${r.cutoff ? `<span class="tag amber">${r.cutoff}</span>` : "—"}</td><td class="num-cell">${r.n}</td><td class="num-cell">${r.brier.toFixed(3)}</td><td class="num-cell ${r.brier <= r.market ? "pos" : "neg"}">${(r.brier - r.market >= 0 ? "+" : "") + (r.brier - r.market).toFixed(3)}</td></tr>`).join("") + `</tbody></table>`
+    : `<p class="dim-note">${OO_T("tour.pub.none")}</p>`;
+}
+OO_FETCH("data/ai-scoreboard.json", { ttl: 900 }).then(d => { PUB = d; renderPublic(); });
 /* CSV export of the ledger for researchers */
 document.getElementById("lbCsv").addEventListener("click", () => {
   if (!LEDGER) return;
@@ -352,4 +362,22 @@ document.getElementById("lbCsv").addEventListener("click", () => {
   const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" })); a.download = "omni-oracle-question-ledger.csv"; a.click(); URL.revokeObjectURL(a.href);
 });
 
-document.addEventListener("oo:lang", () => { buildCharts(); renderAiBench(); renderAiLedger(); renderMy(); renderLedgerBrowser(); renderHistory(HIST); });
+
+/* ----- page tabs: real scoreboard / my forecasts / demo leaderboard ----- */
+(function () {
+  const bar = document.getElementById("tourTabs"); if (!bar) return;
+  const panes = [...document.querySelectorAll(".tabpane")];
+  function show(name, push) {
+    bar.querySelectorAll(".tab").forEach(b => { const on = b.dataset.tab === name; b.classList.toggle("active", on); b.setAttribute("aria-selected", on); });
+    panes.forEach(p => p.classList.toggle("hide", p.dataset.pane !== name));
+    try { localStorage.setItem("oo-tour-tab", name); } catch (e) {}
+    if (push) history.replaceState(null, "", "tournament.html" + (name === "real" ? "" : "?tab=" + name));
+    /* charts drawn inside a hidden pane have zero size — resize once visible */
+    if (window.Chart) requestAnimationFrame(() => { charts.forEach(c => c.resize()); if (histChart) histChart.resize(); });
+  }
+  bar.addEventListener("click", (e) => { const b = e.target.closest(".tab"); if (b) show(b.dataset.tab, true); });
+  const want = new URLSearchParams(location.search).get("tab") || localStorage.getItem("oo-tour-tab") || "real";
+  show(["real", "my", "demo"].includes(want) ? want : "real", false);
+})();
+
+document.addEventListener("oo:lang", () => { buildCharts(); renderAiBench(); renderAiLedger(); renderMy(); renderLedgerBrowser(); renderHistory(HIST); renderPublic(); });

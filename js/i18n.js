@@ -601,7 +601,20 @@ en: {
   "me.score.5": "<strong>What is still demo.</strong> The leaderboard, calibration curves other than the real points, the demo markets' prices and the AI bench table are illustrative. Anything marked <em>Live</em>, <em>Snapshot</em> or tied to the ledger is real.",
   "lb.csv": "⬇ Ledger as CSV",
   "tour.hist.title": "Market-baseline track record (daily)",
-  "tour.hist.sub": "Brier of the capture price on all resolved ledger questions, recorded by the snapshot every day; the dashed line is the number of resolved questions."
+  "tour.hist.sub": "Brier of the capture price on all resolved ledger questions, recorded by the snapshot every day; the dashed line is the number of resolved questions.",
+  "tour.tab.real": "Real scoreboard",
+  "tour.tab.my": "My forecasts",
+  "tour.tab.demo": "Demo leaderboard",
+  "sw.topo.kind": "Interaction topology",
+  "sw.topo.sw": "Small-world (ring + 20% rewires)",
+  "sw.topo.sf": "Scale-free (preferential attachment, hubs)",
+  "sw.audit.vs": "vs",
+  "sw.evTopoKind": "God view: interaction topology switched to {k}",
+  "tour.pub.title": "Public records (committed to the repository)",
+  "tour.pub.sub": "Anyone can publish their exported record by pull request to data/ai-forecasts/; the daily snapshot grades it against the ledger with the same code as the market baseline. Only forecasts committed before resolution count.",
+  "tour.pub.file": "Record",
+  "tour.pub.human": "Human",
+  "tour.pub.none": "No public records yet — export yours from this page and open a pull request."
 },
 };
 

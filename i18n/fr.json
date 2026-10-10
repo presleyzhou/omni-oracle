@@ -586,5 +586,18 @@
   "me.score.5": "<strong>Ce qui reste démo.</strong> Le classement, les courbes de calibration hors points réels, les prix des marchés démo et le tableau du banc IA sont illustratifs. Tout ce qui est marqué <em>En direct</em>, <em>Instantané</em> ou lié au registre est réel.",
   "lb.csv": "⬇ Registre en CSV",
   "tour.hist.title": "Historique quotidien de la référence marché",
-  "tour.hist.sub": "Brier du prix de capture sur toutes les questions résolues du registre, enregistré chaque jour par l'instantané ; la ligne pointillée est le nombre de questions résolues."
+  "tour.hist.sub": "Brier du prix de capture sur toutes les questions résolues du registre, enregistré chaque jour par l'instantané ; la ligne pointillée est le nombre de questions résolues.",
+  "tour.tab.real": "Tableau réel",
+  "tour.tab.my": "Mes prévisions",
+  "tour.tab.demo": "Classement démo",
+  "sw.topo.kind": "Topologie d'interaction",
+  "sw.topo.sw": "Petit-monde (anneau + 20 % de recâblage)",
+  "sw.topo.sf": "Sans échelle (attachement préférentiel, hubs)",
+  "sw.audit.vs": "vs",
+  "sw.evTopoKind": "Vue divine : topologie d'interaction passée à {k}",
+  "tour.pub.title": "Registres publics (versés dans le dépôt)",
+  "tour.pub.sub": "Chacun peut publier son export par pull request dans data/ai-forecasts/ ; l'instantané quotidien le note contre le registre avec le même code que la référence marché. Seules les prévisions versées avant la résolution comptent.",
+  "tour.pub.file": "Registre",
+  "tour.pub.human": "Humain",
+  "tour.pub.none": "Aucun registre public pour l'instant — exportez le vôtre depuis cette page et ouvrez une pull request."
 }

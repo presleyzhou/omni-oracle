@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://presleyzhou.github.io/omni-oracle/tournament.html" />
 <meta name="twitter:card" content="summary" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔮</text></svg>" />
-<link rel="stylesheet" href="css/style.css?v=40" />
+<link rel="stylesheet" href="css/style.css?v=41" />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous" />
 </head>
 <body>
@@ -42,58 +42,13 @@
     <h1 class="section-title" data-i18n="tour.title">C1 · Forecaster Tournament</h1>
     <p class="section-sub" data-i18n="tour.sub">Good-Judgment-Project-style tournaments: training in base rates and scope sensitivity, team play, Brier-scored leaderboards, and a superforecaster identification track (Mellers et al. 2014). Top-forecaster aggregates become a premium institutional signal.</p>
 
-    <div class="stats-bar" style="margin-bottom:28px;">
-      <div class="stat"><div class="num">0.121</div><div class="lbl" data-i18n="tour.stat1">Superforecaster aggregate Brier</div></div>
-      <div class="stat"><div class="num">0.158</div><div class="lbl" data-i18n="tour.stat2">All-crowd average Brier</div></div>
-      <div class="stat"><div class="num up">-43%</div><div class="lbl" data-i18n="tour.stat3">Error vs. naive base-rate baseline</div></div>
-      <div class="stat"><div class="num">2,056</div><div class="lbl" data-i18n="tour.stat4">Resolved questions scored</div></div>
+    <div class="tabs" role="tablist" id="tourTabs">
+      <button class="tab active" role="tab" data-tab="real" aria-selected="true" data-i18n="tour.tab.real">Real scoreboard</button>
+      <button class="tab" role="tab" data-tab="my" aria-selected="false" data-i18n="tour.tab.my">My forecasts</button>
+      <button class="tab" role="tab" data-tab="demo" aria-selected="false" data-i18n="tour.tab.demo">Demo leaderboard</button>
     </div>
 
-    <div class="card" style="margin-bottom:18px; border-color:rgba(34,211,238,0.35);">
-      <h3 data-i18n="my.title">🎯 My forecasts (local)</h3>
-      <p style="margin:8px 0 12px; font-size:0.85rem;" data-i18n="my.sub">Pick any open market, set your probability, submit. Stored only in your browser; Δ shows how far you stand from the current market price.</p>
-      <div class="chips" id="mySrc" style="margin-bottom:10px;">
-        <button class="chip active" data-src="demo" data-i18n="my.src.demo">Demo markets</button>
-        <button class="chip" data-src="real" data-i18n="my.src.real">Real questions (ledger, graded on resolution)</button>
-      </div>
-      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
-        <select class="oo-input" id="myMarket" style="flex:1; min-width:260px;"></select>
-        <span style="font-size:0.85rem; color:var(--text-dim);" data-i18n="my.prob">My probability</span>
-        <input type="range" min="1" max="99" value="50" id="myProb" style="width:160px; accent-color:var(--accent);" />
-        <span class="num-cell" id="myProbVal" style="color:var(--cyan); font-weight:700;">50%</span>
-        <button class="btn btn-primary" id="mySubmit" style="padding:7px 18px; font-size:0.85rem;" data-i18n="my.submit">Submit</button>
-      </div>
-      <div id="myOut" class="hide" style="overflow-x:auto; margin-top:12px;"></div>
-      <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:12px;">
-        <button class="btn btn-ghost" id="fcExport" style="padding:6px 14px; font-size:0.8rem;" data-i18n="my.export">⬇ Export forecasts (JSON)</button>
-        <label class="btn btn-ghost" style="padding:6px 14px; font-size:0.8rem; cursor:pointer;"><span data-i18n="my.import">⬆ Import</span><input type="file" id="fcImport" accept="application/json" class="hide" /></label>
-        <span class="dim-note" data-i18n="my.export.hint">Everything is scored locally; export to move your record between browsers.</span>
-      </div>
-    </div>
-
-    <div class="grid grid-2">
-      <div class="card">
-        <h3 data-i18n="tour.lb.title">Leaderboard</h3>
-        <p style="margin-bottom:12px;" data-i18n="tour.lb.desc">Lower Brier = better. Calibration = 1 − mean |forecast − outcome frequency| across bins.</p>
-        <table id="lb">
-          <thead><tr><th scope="col">#</th><th scope="col" data-i18n="tour.th.forecaster">Forecaster</th><th scope="col" data-i18n="tour.th.forecasts">Forecasts</th><th scope="col" data-i18n="tour.th.brier">Brier ↓</th><th scope="col" data-i18n="tour.th.cal">Calibration</th><th scope="col" data-i18n="tour.th.tier">Tier</th></tr></thead>
-          <tbody></tbody>
-        </table>
-      </div>
-      <div>
-        <div class="card" style="margin-bottom:18px;">
-          <h3 data-i18n="tour.cal.title">Calibration curves</h3>
-          <p style="margin-bottom:12px;" data-i18n="tour.cal.desc">Perfect calibration is the diagonal — sharpness subject to calibration (Gneiting et al. 2007).</p>
-          <div class="chart-box short"><canvas id="calChart" role="img" aria-label="Line chart: calibration curve, crowd versus superforecasters"></canvas></div>
-        </div>
-        <div class="card">
-          <h3 data-i18n="tour.src.title">Who forecasts best? (Brier by source)</h3>
-          <p style="margin-bottom:12px;" data-i18n="tour.src.desc">The ensemble engine publishes which source wins — models, crowd, or markets.</p>
-          <div class="chart-box short"><canvas id="srcChart" role="img" aria-label="Bar chart: Brier score by forecast source"></canvas></div>
-        </div>
-      </div>
-    </div>
-
+    <div class="tabpane" data-pane="real">
     <div class="card" style="margin-top:18px;">
       <h3 data-i18n="tour.ai.title">AI forecaster bench</h3>
       <p style="margin-bottom:12px;" data-i18n="tour.ai.sub">LLM forecasters scored with the same Brier rules as humans. Literature (2025–26): the best single models still trail superforecasters (Brier ≈0.10 vs 0.08), but LLM crowds close most of the gap.</p>
@@ -108,6 +63,11 @@
       </div>
       <div id="aiLive" class="hide" style="margin-top:14px;"></div>
       <div id="aiLedger" style="margin-top:14px;"></div>
+      <div style="margin-top:14px;">
+        <h4 class="real-h" data-i18n="tour.pub.title">Public records (committed to the repository)</h4>
+        <p class="dim-note" data-i18n="tour.pub.sub">Anyone can publish their exported record by pull request to data/ai-forecasts/; the daily snapshot grades it against the ledger with the same code as the market baseline. Only forecasts committed before resolution count.</p>
+        <div id="pubBox"></div>
+      </div>
       <div class="hide" id="histCard" style="margin-top:14px;">
         <h4 class="real-h" data-i18n="tour.hist.title">Market-baseline track record (daily)</h4>
         <p class="dim-note" data-i18n="tour.hist.sub">Brier of the capture price on all resolved ledger questions, recorded by the snapshot every day; the dashed line is the number of resolved questions.</p>
@@ -134,6 +94,66 @@
       <p style="margin-top:12px; font-size:0.8rem; color:var(--text-dim);" data-i18n="tour.ai.note">Cutoff badges matter: a model is only scored on questions opened after its knowledge cutoff (contamination-safe scoring). Demo Brier values are illustrative, aligned with published benchmark ranges.</p>
     </div>
 
+    </div>
+
+    <div class="tabpane hide" data-pane="my">
+    <div class="card" style="margin-bottom:18px; border-color:rgba(34,211,238,0.35);">
+      <h3 data-i18n="my.title">🎯 My forecasts (local)</h3>
+      <p style="margin:8px 0 12px; font-size:0.85rem;" data-i18n="my.sub">Pick any open market, set your probability, submit. Stored only in your browser; Δ shows how far you stand from the current market price.</p>
+      <div class="chips" id="mySrc" style="margin-bottom:10px;">
+        <button class="chip active" data-src="demo" data-i18n="my.src.demo">Demo markets</button>
+        <button class="chip" data-src="real" data-i18n="my.src.real">Real questions (ledger, graded on resolution)</button>
+      </div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+        <select class="oo-input" id="myMarket" style="flex:1; min-width:260px;"></select>
+        <span style="font-size:0.85rem; color:var(--text-dim);" data-i18n="my.prob">My probability</span>
+        <input type="range" min="1" max="99" value="50" id="myProb" style="width:160px; accent-color:var(--accent);" />
+        <span class="num-cell" id="myProbVal" style="color:var(--cyan); font-weight:700;">50%</span>
+        <button class="btn btn-primary" id="mySubmit" style="padding:7px 18px; font-size:0.85rem;" data-i18n="my.submit">Submit</button>
+      </div>
+      <div id="myOut" class="hide" style="overflow-x:auto; margin-top:12px;"></div>
+      <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:12px;">
+        <button class="btn btn-ghost" id="fcExport" style="padding:6px 14px; font-size:0.8rem;" data-i18n="my.export">⬇ Export forecasts (JSON)</button>
+        <label class="btn btn-ghost" style="padding:6px 14px; font-size:0.8rem; cursor:pointer;"><span data-i18n="my.import">⬆ Import</span><input type="file" id="fcImport" accept="application/json" class="hide" /></label>
+        <span class="dim-note" data-i18n="my.export.hint">Everything is scored locally; export to move your record between browsers.</span>
+      </div>
+    </div>
+
+    </div>
+
+    <div class="tabpane hide" data-pane="demo">
+    <div class="stats-bar" style="margin-bottom:28px;">
+      <div class="stat"><div class="num">0.121</div><div class="lbl" data-i18n="tour.stat1">Superforecaster aggregate Brier</div></div>
+      <div class="stat"><div class="num">0.158</div><div class="lbl" data-i18n="tour.stat2">All-crowd average Brier</div></div>
+      <div class="stat"><div class="num up">-43%</div><div class="lbl" data-i18n="tour.stat3">Error vs. naive base-rate baseline</div></div>
+      <div class="stat"><div class="num">2,056</div><div class="lbl" data-i18n="tour.stat4">Resolved questions scored</div></div>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 data-i18n="tour.lb.title">Leaderboard</h3>
+        <p style="margin-bottom:12px;" data-i18n="tour.lb.desc">Lower Brier = better. Calibration = 1 − mean |forecast − outcome frequency| across bins.</p>
+        <table id="lb">
+          <thead><tr><th scope="col">#</th><th scope="col" data-i18n="tour.th.forecaster">Forecaster</th><th scope="col" data-i18n="tour.th.forecasts">Forecasts</th><th scope="col" data-i18n="tour.th.brier">Brier ↓</th><th scope="col" data-i18n="tour.th.cal">Calibration</th><th scope="col" data-i18n="tour.th.tier">Tier</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:18px;">
+          <h3 data-i18n="tour.cal.title">Calibration curves</h3>
+          <p style="margin-bottom:12px;" data-i18n="tour.cal.desc">Perfect calibration is the diagonal — sharpness subject to calibration (Gneiting et al. 2007).</p>
+          <div class="chart-box short"><canvas id="calChart" role="img" aria-label="Line chart: calibration curve, crowd versus superforecasters"></canvas></div>
+        </div>
+        <div class="card">
+          <h3 data-i18n="tour.src.title">Who forecasts best? (Brier by source)</h3>
+          <p style="margin-bottom:12px;" data-i18n="tour.src.desc">The ensemble engine publishes which source wins — models, crowd, or markets.</p>
+          <div class="chart-box short"><canvas id="srcChart" role="img" aria-label="Bar chart: Brier score by forecast source"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
     <div class="disclaimer" data-i18n="tour.disclaimer">Demo leaderboard with mock forecasters. Production scoring: proper scoring rules (Brier/log) on every resolved question, per-domain extremized aggregates (Satopää et al. 2014), and public platform-level calibration reports.</div>
   </div>
 </section>
@@ -145,9 +165,9 @@
   </div>
 </footer>
 
-<script src="js/data.js?v=40"></script>
-<script src="js/i18n.js?v=40"></script>
-<script src="js/app.js?v=40"></script>
-<script src="js/pages/tournament.js?v=40"></script>
+<script src="js/data.js?v=41"></script>
+<script src="js/i18n.js?v=41"></script>
+<script src="js/app.js?v=41"></script>
+<script src="js/pages/tournament.js?v=41"></script>
 </body>
 </html>

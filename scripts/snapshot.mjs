@@ -333,6 +333,35 @@ try {
   const n = relatedMarkets(OO.markets.map(m => m.q));
   log.push(`✓ related markets: ${n} documents with neighbours`);
 } catch (e) { log.push(`✗ related markets (${e.message})`); }
+/* --- public forecast records (data/ai-forecasts/*.json → data/ai-scoreboard.json) ---------
+   Contributors commit their tournament-page export; every forecast on a ledger question that
+   was committed before resolution is graded with the same Brier code as the market baseline. */
+try {
+  const DIR = path.join(ROOT, "data", "ai-forecasts");
+  const ledger = JSON.parse(fs.readFileSync(LEDGER, "utf8"));
+  const bySlug = {}; ledger.questions.forEach(q => { bySlug[q.slug] = q; });
+  const brier = (p, y) => (p - y) * (p - y);
+  const rows = [];
+  for (const f of fs.existsSync(DIR) ? fs.readdirSync(DIR).filter(x => x.endsWith(".json")) : []) {
+    let rec; try { rec = JSON.parse(fs.readFileSync(path.join(DIR, f), "utf8")); } catch (e) { continue; }
+    const groups = {};
+    const take = (list, kind) => (list || []).forEach(x => {
+      const q = x.slug && bySlug[x.slug]; if (!q || q.resolved == null || !x.at || !q.resolvedAt || Date.parse(x.at) >= Date.parse(q.resolvedAt)) return;
+      const p = kind === "human" ? x.p / 100 : x.p; if (!(p >= 0 && p <= 1)) return;
+      const key = kind === "human" ? "human" : (x.model || "model");
+      (groups[key] = groups[key] || { b: [], mb: [], cutoff: x.cutoff || null }).b.push(brier(p, q.resolved));
+      groups[key].mb.push(brier(+x.marketP, q.resolved));
+    });
+    take(rec.my, "human"); take(rec.ai, "ai");
+    for (const [who, g] of Object.entries(groups)) if (g.b.length)
+      rows.push({ file: f.replace(/\.json$/, ""), who, n: g.b.length, brier: +(g.b.reduce((a, b) => a + b, 0) / g.b.length).toFixed(4),
+        market: +(g.mb.reduce((a, b) => a + b, 0) / g.mb.length).toFixed(4), cutoff: g.cutoff });
+  }
+  rows.sort((a, b) => a.brier - b.brier);
+  fs.writeFileSync(path.join(ROOT, "data", "ai-scoreboard.json"), JSON.stringify({ generated: new Date().toISOString(), rows }, null, 1) + "\n");
+  log.push(`✓ public records: ${rows.length} graded row(s)`);
+} catch (e) { log.push(`✗ public records (${e.message})`); }
+
 /* --- scoreboard history (data/scoreboard.json) --------------------------------------
    One row per day: resolved count, market-baseline Brier overall and by topic. The
    ledger itself is bounded (resolved entries ≤ 180 days), so this file is the

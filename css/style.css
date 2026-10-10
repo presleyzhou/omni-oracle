@@ -538,3 +538,10 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
 .dq-list { list-style: none; font-size: 0.82rem; color: var(--text-dim); } .dq-list li { padding: 5px 0; border-bottom: 1px dashed var(--border); }
 .rel-link.real { color: var(--cyan); }
 .real-h { margin-top: 14px; font-size: 0.95rem; color: var(--cyan); }
+
+/* ---------- Page tabs (tournament) ---------- */
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; margin: 4px 0 20px; border-bottom: 1px solid var(--border); }
+.tab { background: none; border: none; color: var(--text-dim); font: inherit; font-size: 0.92rem; font-weight: 600; padding: 10px 14px; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.tab:hover { color: var(--text); }
+.tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+.tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
