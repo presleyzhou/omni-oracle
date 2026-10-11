@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-10T12:33:31.830Z",
+ "generated": "2026-10-11T12:51:50.900Z",
  "bls": {
   "CUUR0000SA0": [
    {
@@ -1569,18 +1569,6 @@
   ]
  },
  "quotes": {
-  "GOOGL": {
-   "data": {
-    "p": 351.66,
-    "cp": 0.97
-   }
-  },
-  "AAPL": {
-   "data": {
-    "p": 336.64,
-    "cp": -1.11
-   }
-  },
   "NVDA": {
    "data": {
     "p": 229.28,
@@ -1593,16 +1581,16 @@
     "cp": 2.38
    }
   },
-  "META": {
+  "AAPL": {
    "data": {
-    "p": 718.67,
-    "cp": -0.31
+    "p": 336.64,
+    "cp": -1.11
    }
   },
-  "AVGO": {
+  "GOOGL": {
    "data": {
-    "p": 361.54,
-    "cp": 0.39
+    "p": 351.66,
+    "cp": 0.97
    }
   },
   "VRT": {
@@ -1617,10 +1605,16 @@
     "cp": -0.66
    }
   },
-  "TSLA": {
+  "META": {
    "data": {
-    "p": 382.7,
-    "cp": 2.05
+    "p": 718.67,
+    "cp": -0.31
+   }
+  },
+  "AVGO": {
+   "data": {
+    "p": 361.54,
+    "cp": 0.39
    }
   },
   "LLY": {
@@ -1629,10 +1623,10 @@
     "cp": 0.83
    }
   },
-  "ISRG": {
+  "TSLA": {
    "data": {
-    "p": 423.96,
-    "cp": 2.06
+    "p": 382.7,
+    "cp": 2.05
    }
   },
   "NVO": {
@@ -1641,16 +1635,22 @@
     "cp": 1.2
    }
   },
+  "ISRG": {
+   "data": {
+    "p": 423.96,
+    "cp": 2.06
+   }
+  },
+  "CEG": {
+   "data": {
+    "p": 298.07,
+    "cp": 4.56
+   }
+  },
   "IONQ": {
    "data": {
     "p": 39.89,
     "cp": 1.12
-   }
-  },
-  "GEV": {
-   "data": {
-    "p": 1004.73,
-    "cp": 0.54
    }
   },
   "RKLB": {
@@ -1659,10 +1659,10 @@
     "cp": -0.28
    }
   },
-  "CEG": {
+  "GEV": {
    "data": {
-    "p": 298.07,
-    "cp": 4.56
+    "p": 1004.73,
+    "cp": 0.54
    }
   }
  },
@@ -6416,60 +6416,60 @@
  ],
  "coingecko": {
   "bitcoin": {
-   "usd": 82786,
-   "usd_24h_change": -0.3834583654428893
+   "usd": 83057,
+   "usd_24h_change": 0.37122175632614635
   },
   "ethereum": {
-   "usd": 2495.07,
-   "usd_24h_change": -0.20854832960811379
+   "usd": 2503.02,
+   "usd_24h_change": 0.33906606916874044
   },
   "solana": {
-   "usd": 109.67,
-   "usd_24h_change": -0.8377092172758182
+   "usd": 109.42,
+   "usd_24h_change": -0.19629841392096087
   }
  },
  "polymarket": [
   {
-   "question": "Will Luiz Inácio Lula da Silva win the 2026 Brazilian presidential election?",
-   "slug": "will-luiz-incio-lula-da-silva-win-the-2026-brazilian-presidential-election",
-   "volume24hr": 894003.2104349997,
-   "outcomePrices": "[\"0.115\", \"0.885\"]",
+   "question": "Dota 2: Team Spirit vs PARIVISION (BO3) - BLAST Slam Playoffs",
+   "slug": "dota2-ts8-pari-2026-10-11",
+   "volume24hr": 1828127.439026,
+   "outcomePrices": "[\"0.805\", \"0.195\"]",
+   "outcomes": "[\"Team Spirit\", \"PARIVISION\"]"
+  },
+  {
+   "question": "Eagles vs. Jaguars",
+   "slug": "nfl-phi-jax-2026-10-11",
+   "volume24hr": 820828.7224290002,
+   "outcomePrices": "[\"0.235\", \"0.765\"]",
+   "outcomes": "[\"Eagles\", \"Jaguars\"]"
+  },
+  {
+   "question": "Shanghai Rolex Masters: Alexander Bublik vs Brandon Nakashima",
+   "slug": "atp-bublik-nakashi-2026-10-11",
+   "volume24hr": 796182.6302910006,
+   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
+   "outcomes": "[\"Alexander Bublik\", \"Brandon Nakashima\"]"
+  },
+  {
+   "question": "Will Everton FC win on 2026-10-11?",
+   "slug": "epl-hul-eve-2026-10-11-eve",
+   "volume24hr": 711807.6030239997,
+   "outcomePrices": "[\"0.485\", \"0.515\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Dota 2: Team Yandex vs Team Spirit - Game 2 Winner",
-   "slug": "dota2-ty-ts8-2026-10-10-game2",
-   "volume24hr": 886394.7276029997,
-   "outcomePrices": "[\"0.875\", \"0.125\"]",
-   "outcomes": "[\"Team Yandex\", \"Team Spirit\"]"
+   "question": "Olbia: Matyas Cerny vs Vadym Ursu",
+   "slug": "atp-cerny-ursu-2026-10-11",
+   "volume24hr": 650808.3713410002,
+   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
+   "outcomes": "[\"Matyas Cerny\", \"Vadym Ursu\"]"
   },
   {
-   "question": "Dota 2: Team Yandex vs Team Spirit (BO3) - BLAST Slam Playoffs",
-   "slug": "dota2-ty-ts8-2026-10-10",
-   "volume24hr": 738528.0978420007,
-   "outcomePrices": "[\"0.945\", \"0.055\"]",
-   "outcomes": "[\"Team Yandex\", \"Team Spirit\"]"
-  },
-  {
-   "question": "Valorant: G2 Esports vs Team Vitality (BO3) - VCT Champions Playoffs",
-   "slug": "val-g21-vit-2026-10-10",
-   "volume24hr": 706536.9364829998,
-   "outcomePrices": "[\"0.345\", \"0.655\"]",
-   "outcomes": "[\"G2 Esports\", \"Team Vitality\"]"
-  },
-  {
-   "question": "Will Athletic Club win on 2026-10-10?",
-   "slug": "lal-ray-bil-2026-10-10-bil",
-   "volume24hr": 650933.5576720001,
-   "outcomePrices": "[\"0.355\", \"0.645\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  },
-  {
-   "question": "US x Iran ceasefire continues through October 12?",
-   "slug": "us-x-iran-ceasefire-continues-through-october-12",
-   "volume24hr": 635824.9322350001,
-   "outcomePrices": "[\"0.9555\", \"0.0445\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
+   "question": "Counter-Strike: Aurora Gaming vs Spirit (BO3) - ESL Pro League Playoffs",
+   "slug": "cs2-aur1-ts7-2026-10-11",
+   "volume24hr": 571586.886666,
+   "outcomePrices": "[\"0.745\", \"0.255\"]",
+   "outcomes": "[\"Aurora Gaming\", \"Spirit\"]"
   }
  ]
 }
