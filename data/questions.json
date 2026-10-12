@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-11T12:53:10.900Z",
+ "updated": "2026-10-12T15:28:23.121Z",
  "questions": [
   {
    "slug": "us-x-iran-ceasefire-continues-through-october-31-20260917",
@@ -36,7 +36,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.075,
-   "price": 0.0095,
+   "price": 0.0085,
    "closed": false,
    "resolved": null,
    "topic": "geo"
@@ -174,7 +174,7 @@
    "endDate": "2027-01-01T05:00:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.305,
-   "price": 0.505,
+   "price": 0.47,
    "closed": false,
    "resolved": null,
    "topic": "crypto"
@@ -187,7 +187,7 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.17,
-   "price": 0.036,
+   "price": 0.0425,
    "closed": false,
    "resolved": null,
    "topic": "other"
@@ -242,7 +242,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.04,
-   "price": 0.0165,
+   "price": 0.0155,
    "closed": false,
    "resolved": null,
    "topic": "geo"
@@ -255,7 +255,7 @@
    "endDate": "2026-12-09T00:00:00Z",
    "capturedAt": "2026-09-30T12:37:09.469Z",
    "priceAtCapture": 0.825,
-   "price": 0.765,
+   "price": 0.775,
    "closed": false,
    "resolved": null,
    "topic": "economy"
@@ -378,7 +378,7 @@
    "endDate": "2026-10-31T16:00:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.7185,
-   "price": 0.6905,
+   "price": 0.7145,
    "closed": false,
    "resolved": null,
    "topic": "tech"
@@ -391,7 +391,7 @@
    "endDate": "2026-10-31T16:00:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.275,
-   "price": 0.305,
+   "price": 0.265,
    "closed": false,
    "resolved": null,
    "topic": "tech"
@@ -404,7 +404,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.0315,
-   "price": 0.0215,
+   "price": 0.0255,
    "closed": false,
    "resolved": null,
    "topic": "crypto"
@@ -417,7 +417,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.92,
-   "price": 0.505,
+   "price": 0.465,
    "closed": false,
    "resolved": null,
    "topic": "crypto"
@@ -430,7 +430,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.515,
-   "price": 0.195,
+   "price": 0.155,
    "closed": false,
    "resolved": null,
    "topic": "crypto"
@@ -456,7 +456,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.155,
-   "price": 0.065,
+   "price": 0.07,
    "closed": false,
    "resolved": null,
    "topic": "geo"
@@ -497,7 +497,7 @@
    "endDate": "2027-01-01T05:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.285,
-   "price": 0.345,
+   "price": 0.335,
    "closed": false,
    "resolved": null,
    "topic": "crypto"
@@ -510,7 +510,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-03T11:41:25.132Z",
    "priceAtCapture": 0.135,
-   "price": 0.16,
+   "price": 0.135,
    "closed": false,
    "resolved": null,
    "topic": "crypto"
@@ -551,10 +551,11 @@
    "endDate": "2026-10-12T04:00:00Z",
    "capturedAt": "2026-10-05T14:42:27.771Z",
    "priceAtCapture": 0.125,
-   "price": 0.001,
-   "closed": false,
-   "resolved": null,
-   "topic": "crypto"
+   "price": 0,
+   "closed": true,
+   "resolved": 0,
+   "topic": "crypto",
+   "resolvedAt": "2026-10-12 04:11:47+00"
   },
   {
    "slug": "israel-military-action-against-lebanon-on-october-15",
@@ -564,7 +565,7 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-10-05T14:42:27.771Z",
    "priceAtCapture": 0.605,
-   "price": 0.86,
+   "price": 0.875,
    "closed": false,
    "resolved": null,
    "topic": "geo"
@@ -577,7 +578,7 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-10-05T14:42:27.771Z",
    "priceAtCapture": 0.885,
-   "price": 0.925,
+   "price": 0.945,
    "closed": false,
    "resolved": null,
    "topic": "geo"
@@ -590,7 +591,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-07T13:26:35.094Z",
    "priceAtCapture": 0.0465,
-   "price": 0.0215,
+   "price": 0.0205,
    "closed": false,
    "resolved": null,
    "topic": "other"
@@ -617,7 +618,7 @@
    "endDate": "2026-10-25T23:59:00Z",
    "capturedAt": "2026-10-07T13:26:35.094Z",
    "priceAtCapture": 0.615,
-   "price": 0.605,
+   "price": 0.615,
    "closed": false,
    "resolved": null,
    "topic": "politics"
@@ -643,7 +644,7 @@
    "endDate": "2026-10-13T03:59:00Z",
    "capturedAt": "2026-10-08T13:32:00.389Z",
    "priceAtCapture": 0.925,
-   "price": 0.965,
+   "price": 0.992,
    "closed": false,
    "resolved": null,
    "topic": "geo"
@@ -656,10 +657,11 @@
    "endDate": "2026-10-12T04:00:00Z",
    "capturedAt": "2026-10-09T13:20:39.337Z",
    "priceAtCapture": 0.052,
-   "price": 0.0045,
-   "closed": false,
-   "resolved": null,
-   "topic": "crypto"
+   "price": 0,
+   "closed": true,
+   "resolved": 0,
+   "topic": "crypto",
+   "resolvedAt": "2026-10-12 04:11:59+00"
   },
   {
    "slug": "will-bitcoin-dip-to-80k-october-5-11-2026",
@@ -669,10 +671,11 @@
    "endDate": "2026-10-12T04:00:00Z",
    "capturedAt": "2026-10-09T13:20:39.337Z",
    "priceAtCapture": 0.145,
-   "price": 0.0145,
-   "closed": false,
-   "resolved": null,
-   "topic": "crypto"
+   "price": 0,
+   "closed": true,
+   "resolved": 0,
+   "topic": "crypto",
+   "resolvedAt": "2026-10-12 04:12:02+00"
   },
   {
    "slug": "will-vitality-win-the-esl-pro-league-season-24-1788882991655",
@@ -682,10 +685,11 @@
    "endDate": "2026-10-26T03:59:00Z",
    "capturedAt": "2026-10-09T13:20:39.337Z",
    "priceAtCapture": 0.515,
-   "price": 0.655,
-   "closed": false,
-   "resolved": null,
-   "topic": "other"
+   "price": 1,
+   "closed": true,
+   "resolved": 1,
+   "topic": "other",
+   "resolvedAt": "2026-10-11 20:17:45+00"
   },
   {
    "slug": "will-another-person-win-the-second-round-of-the-2026-brazilian-presidential-election",
@@ -727,7 +731,7 @@
    "endDate": "2026-10-26T03:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.115,
-   "price": 0.095,
+   "price": 0.125,
    "closed": false,
    "resolved": null
   },
@@ -749,7 +753,7 @@
    "endDate": "2026-10-26T03:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.225,
-   "price": 0.265,
+   "price": 0.215,
    "closed": false,
    "resolved": null
   },
@@ -797,7 +801,7 @@
    "endDate": "2026-10-31T03:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.67,
-   "price": 0.72,
+   "price": 0.665,
    "closed": false,
    "resolved": null
   },
@@ -911,7 +915,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.335,
-   "price": 0.335,
+   "price": 0.345,
    "closed": false,
    "resolved": null
   },
@@ -935,7 +939,7 @@
    "endDate": "2026-11-30T23:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.405,
-   "price": 0.425,
+   "price": 0.435,
    "closed": false,
    "resolved": null
   },
@@ -956,7 +960,7 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.955,
-   "price": 0.949,
+   "price": 0.9725,
    "closed": false,
    "resolved": null
   },
@@ -977,7 +981,7 @@
    "endDate": "2026-11-16T04:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.715,
-   "price": 0.75,
+   "price": 0.74,
    "closed": false,
    "resolved": null
   },
@@ -998,7 +1002,7 @@
    "endDate": "2026-11-30T20:29:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.635,
-   "price": 0.64,
+   "price": 0.61,
    "closed": false,
    "resolved": null
   },
@@ -1022,7 +1026,7 @@
    "endDate": "2027-04-01T03:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.68,
-   "price": 0.65,
+   "price": 0.665,
    "closed": false,
    "resolved": null
   },
@@ -1046,7 +1050,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.34,
-   "price": 0.26,
+   "price": 0.28,
    "closed": false,
    "resolved": null
   },
@@ -1163,7 +1167,7 @@
    "endDate": "2026-11-29T04:59:00Z",
    "capturedAt": "2026-10-10T12:34:42.209Z",
    "priceAtCapture": 0.645,
-   "price": 0.67,
+   "price": 0.645,
    "closed": false,
    "resolved": null
   },
@@ -1186,7 +1190,256 @@
    "endDate": "2026-11-29T04:59:00Z",
    "capturedAt": "2026-10-10T12:34:42.209Z",
    "priceAtCapture": 0.354,
-   "price": 0.3385,
+   "price": 0.3495,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "no-hormuz-agreement-by-nov-2",
+   "id": "5572739",
+   "question": "Will there be no Hormuz agreement?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Senate",
+    "Midterms",
+    "Politics",
+    "Elections",
+    "Geopolitics",
+    "United States",
+    "Strait of Hormuz"
+   ],
+   "event": "who-wins-the-senate-pending-hormuz-agreement-before-the-midterms",
+   "horizon": "short",
+   "createdAt": "2026-10-11T18:01:35.789141Z",
+   "endDate": "2026-11-04T04:59:00Z",
+   "capturedAt": "2026-10-12T15:28:23.121Z",
+   "priceAtCapture": 0.8315,
+   "price": 0.8315,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "hormuz-agreement-by-nov-2-and-the-democrats-win-the-senate",
+   "id": "5572738",
+   "question": "Will there be a Hormuz agreement and the Democrats win the Senate?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Senate",
+    "Midterms",
+    "Politics",
+    "Elections",
+    "Geopolitics",
+    "United States",
+    "Strait of Hormuz"
+   ],
+   "event": "who-wins-the-senate-pending-hormuz-agreement-before-the-midterms",
+   "horizon": "short",
+   "createdAt": "2026-10-11T18:01:35.23693Z",
+   "endDate": "2026-11-04T04:59:00Z",
+   "capturedAt": "2026-10-12T15:28:23.121Z",
+   "priceAtCapture": 0.097,
+   "price": 0.097,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "hormuz-agreement-by-nov-2-and-the-republicans-win-the-senate",
+   "id": "5572737",
+   "question": "Will there be a Hormuz agreement and the Republicans win the Senate?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Senate",
+    "Midterms",
+    "Politics",
+    "Elections",
+    "Geopolitics",
+    "United States",
+    "Strait of Hormuz"
+   ],
+   "event": "who-wins-the-senate-pending-hormuz-agreement-before-the-midterms",
+   "horizon": "short",
+   "createdAt": "2026-10-11T18:01:34.472483Z",
+   "endDate": "2026-11-04T04:59:00Z",
+   "capturedAt": "2026-10-12T15:28:23.121Z",
+   "priceAtCapture": 0.072,
+   "price": 0.072,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-there-be-no-hormuz-agreement",
+   "id": "5568259",
+   "question": "Will there be no Hormuz agreement?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Senate",
+    "Midterms",
+    "Politics",
+    "Elections",
+    "Geopolitics",
+    "United States",
+    "Strait of Hormuz"
+   ],
+   "event": "who-wins-the-senate-pending-hormuz-agreement",
+   "horizon": "short",
+   "createdAt": "2026-10-11T16:50:53.097254Z",
+   "endDate": "2026-11-04T04:59:00Z",
+   "capturedAt": "2026-10-12T15:28:23.121Z",
+   "priceAtCapture": 0.8835,
+   "price": 0.8835,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-there-be-a-hormuz-agreement-and-the-democrats-win-the-senate",
+   "id": "5568258",
+   "question": "Will there be a Hormuz agreement and the Democrats win the Senate?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Senate",
+    "Midterms",
+    "Politics",
+    "Elections",
+    "Geopolitics",
+    "United States",
+    "Strait of Hormuz"
+   ],
+   "event": "who-wins-the-senate-pending-hormuz-agreement",
+   "horizon": "short",
+   "createdAt": "2026-10-11T16:50:52.608599Z",
+   "endDate": "2026-11-04T04:59:00Z",
+   "capturedAt": "2026-10-12T15:28:23.121Z",
+   "priceAtCapture": 0.065,
+   "price": 0.065,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-there-be-a-hormuz-agreement-and-the-republicans-win-the-senate",
+   "id": "5568257",
+   "question": "Will there be a Hormuz agreement and the Republicans win the Senate?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Senate",
+    "Midterms",
+    "Politics",
+    "Elections",
+    "Geopolitics",
+    "United States",
+    "Strait of Hormuz"
+   ],
+   "event": "who-wins-the-senate-pending-hormuz-agreement",
+   "horizon": "short",
+   "createdAt": "2026-10-11T16:50:52.078108Z",
+   "endDate": "2026-11-04T04:59:00Z",
+   "capturedAt": "2026-10-12T15:28:23.121Z",
+   "priceAtCapture": 0.0515,
+   "price": 0.0515,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-texas-enact-a-data-center-moratorium-by-december-31-2026",
+   "id": "5123855",
+   "question": "Will Texas enact a data center moratorium by December 31, 2026?",
+   "topic": "politics",
+   "tags": [
+    "AI",
+    "Tech",
+    "texas",
+    "Compute",
+    "Politics",
+    "AI Regulation",
+    "Earn 3.25%"
+   ],
+   "event": "texas-enacts-data-center-moratorium-by-20260928",
+   "horizon": "long",
+   "createdAt": "2026-09-29T14:16:07.263711Z",
+   "endDate": "2027-01-01T04:59:00Z",
+   "capturedAt": "2026-10-12T15:28:23.121Z",
+   "priceAtCapture": 0.0305,
+   "price": 0.0305,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-ohio-enact-a-data-center-moratorium-by-december-31-2026",
+   "id": "5123848",
+   "question": "Will Ohio enact a data center moratorium by December 31, 2026?",
+   "topic": "politics",
+   "tags": [
+    "AI",
+    "Tech",
+    "ohio",
+    "Compute",
+    "Congress",
+    "Politics",
+    "AI Regulation",
+    "Earn 3.25%"
+   ],
+   "event": "ohio-enacts-data-center-moratorium-by-20260928",
+   "horizon": "long",
+   "createdAt": "2026-09-29T14:15:19.827277Z",
+   "endDate": "2027-01-01T04:59:00Z",
+   "capturedAt": "2026-10-12T15:28:23.121Z",
+   "priceAtCapture": 0.031,
+   "price": 0.031,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "us-x-yemen-ceasefire-continues-through-october-15",
+   "id": "5523557",
+   "question": "US x Yemen ceasefire continues through October 15?",
+   "topic": "geo",
+   "tags": [
+    "Trump",
+    "Yemen",
+    "Military",
+    "Politics",
+    "Geopolitics",
+    "Middle East",
+    "Military Actions",
+    "Military Strikes"
+   ],
+   "event": "us-yemen-ceasefire-continues-throughptptpt",
+   "horizon": "short",
+   "createdAt": "2026-10-10T22:02:50.468505Z",
+   "endDate": "2026-10-15T23:59:00Z",
+   "capturedAt": "2026-10-12T15:28:23.121Z",
+   "priceAtCapture": 0.935,
+   "price": 0.935,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "us-x-yemen-ceasefire-continues-through-october-31-20260920",
+   "id": "4761462",
+   "question": "US x Yemen ceasefire continues through October 31?",
+   "topic": "geo",
+   "tags": [
+    "Trump",
+    "Yemen",
+    "Military",
+    "Politics",
+    "Geopolitics",
+    "Middle East",
+    "Military Actions",
+    "Military Strikes"
+   ],
+   "event": "us-yemen-ceasefire-continues-throughptptpt",
+   "horizon": "short",
+   "createdAt": "2026-09-20T15:34:35.71575Z",
+   "endDate": "2026-10-31T23:59:00Z",
+   "capturedAt": "2026-10-12T15:28:23.121Z",
+   "priceAtCapture": 0.795,
+   "price": 0.795,
    "closed": false,
    "resolved": null
   }

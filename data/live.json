@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-11T12:51:50.900Z",
+ "generated": "2026-10-12T15:27:33.164Z",
  "bls": {
   "CUUR0000SA0": [
    {
@@ -1250,38 +1250,6 @@
  },
  "worldbank": {
   "USA": {
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": null
-     },
-     {
-      "date": "2024",
-      "value": 2.94952520485207
-     },
-     {
-      "date": "2023",
-      "value": 4.11633838374487
-     },
-     {
-      "date": "2022",
-      "value": 8.00279982052121
-     },
-     {
-      "date": "2021",
-      "value": 4.69785886363742
-     }
-    ]
-   ],
    "gdp": [
     {
      "page": 1,
@@ -1313,9 +1281,7 @@
       "value": 6.15202247867526
      }
     ]
-   ]
-  },
-  "CHN": {
+   ],
    "cpi": [
     {
      "page": 1,
@@ -1328,55 +1294,23 @@
     [
      {
       "date": "2025",
-      "value": 0.0595646916565402
+      "value": null
      },
      {
       "date": "2024",
-      "value": 0.218128938439177
+      "value": 2.94952520485207
      },
      {
       "date": "2023",
-      "value": 0.23483682889305
+      "value": 4.11633838374487
      },
      {
       "date": "2022",
-      "value": 1.9735755573905
+      "value": 8.00279982052121
      },
      {
       "date": "2021",
-      "value": 0.981015135544881
-     }
-    ]
-   ],
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 4.95994886240992
-     },
-     {
-      "date": "2024",
-      "value": 4.95830378788091
-     },
-     {
-      "date": "2023",
-      "value": 5.41600334492955
-     },
-     {
-      "date": "2022",
-      "value": 3.13385438394069
-     },
-     {
-      "date": "2021",
-      "value": 8.57038414981781
+      "value": 4.69785886363742
      }
     ]
    ]
@@ -1447,7 +1381,7 @@
     ]
    ]
   },
-  "JPN": {
+  "CHN": {
    "gdp": [
     {
      "page": 1,
@@ -1460,26 +1394,60 @@
     [
      {
       "date": "2025",
-      "value": 1.19311288444599
+      "value": 4.95994886240992
      },
      {
       "date": "2024",
-      "value": -0.240084236041696
+      "value": 4.95830378788091
      },
      {
       "date": "2023",
-      "value": 0.720785304749811
+      "value": 5.41600334492955
      },
      {
       "date": "2022",
-      "value": 1.33164750653741
+      "value": 3.13385438394069
      },
      {
       "date": "2021",
-      "value": 3.56419531474475
+      "value": 8.57038414981781
      }
     ]
    ],
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 0.0595646916565402
+     },
+     {
+      "date": "2024",
+      "value": 0.218128938439177
+     },
+     {
+      "date": "2023",
+      "value": 0.23483682889305
+     },
+     {
+      "date": "2022",
+      "value": 1.9735755573905
+     },
+     {
+      "date": "2021",
+      "value": 0.981015135544881
+     }
+    ]
+   ]
+  },
+  "JPN": {
    "cpi": [
     {
      "page": 1,
@@ -1511,18 +1479,50 @@
       "value": -0.233352779398263
      }
     ]
+   ],
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 1.19311288444599
+     },
+     {
+      "date": "2024",
+      "value": -0.240084236041696
+     },
+     {
+      "date": "2023",
+      "value": 0.720785304749811
+     },
+     {
+      "date": "2022",
+      "value": 1.33164750653741
+     },
+     {
+      "date": "2021",
+      "value": 3.56419531474475
+     }
+    ]
    ]
   }
  },
  "fx": {
   "amount": 1,
   "base": "USD",
-  "date": "2026-10-09",
+  "date": "2026-10-12",
   "rates": {
-   "CNY": 6.6921,
-   "EUR": 0.89238,
-   "GBP": 0.75641,
-   "JPY": 158.25
+   "CNY": 6.6928,
+   "EUR": 0.89437,
+   "GBP": 0.75555,
+   "JPY": 158.6
   }
  },
  "treasury": {
@@ -1571,98 +1571,98 @@
  "quotes": {
   "NVDA": {
    "data": {
-    "p": 229.28,
-    "cp": -0.52
+    "p": 225.81,
+    "cp": -1.51
    }
   },
   "MSFT": {
    "data": {
-    "p": 535.07,
-    "cp": 2.38
+    "p": 542.69,
+    "cp": 1.42
    }
   },
   "AAPL": {
    "data": {
-    "p": 336.64,
-    "cp": -1.11
+    "p": 339.87,
+    "cp": 0.96
    }
   },
   "GOOGL": {
    "data": {
-    "p": 351.66,
-    "cp": 0.97
-   }
-  },
-  "VRT": {
-   "data": {
-    "p": 242.78,
-    "cp": -0.39
-   }
-  },
-  "MU": {
-   "data": {
-    "p": 1029,
-    "cp": -0.66
+    "p": 354.96,
+    "cp": 0.94
    }
   },
   "META": {
    "data": {
-    "p": 718.67,
-    "cp": -0.31
+    "p": 746.7,
+    "cp": 3.9
+   }
+  },
+  "VRT": {
+   "data": {
+    "p": 240.24,
+    "cp": -1.05
+   }
+  },
+  "MU": {
+   "data": {
+    "p": 989.58,
+    "cp": -3.83
    }
   },
   "AVGO": {
    "data": {
-    "p": 361.54,
-    "cp": 0.39
-   }
-  },
-  "LLY": {
-   "data": {
-    "p": 1179.27,
-    "cp": 0.83
+    "p": 356.44,
+    "cp": -1.41
    }
   },
   "TSLA": {
    "data": {
-    "p": 382.7,
-    "cp": 2.05
+    "p": 378.795,
+    "cp": -1.02
+   }
+  },
+  "LLY": {
+   "data": {
+    "p": 1179.16,
+    "cp": -0.01
    }
   },
   "NVO": {
    "data": {
-    "p": 38.64,
-    "cp": 1.2
+    "p": 38.5,
+    "cp": -0.36
    }
   },
   "ISRG": {
    "data": {
-    "p": 423.96,
-    "cp": 2.06
-   }
-  },
-  "CEG": {
-   "data": {
-    "p": 298.07,
-    "cp": 4.56
+    "p": 426.36,
+    "cp": 0.57
    }
   },
   "IONQ": {
    "data": {
-    "p": 39.89,
-    "cp": 1.12
+    "p": 36.26,
+    "cp": -9.1
    }
   },
   "RKLB": {
    "data": {
-    "p": 68.21,
-    "cp": -0.28
+    "p": 65.98,
+    "cp": -3.27
+   }
+  },
+  "CEG": {
+   "data": {
+    "p": 294.07,
+    "cp": -1.34
    }
   },
   "GEV": {
    "data": {
-    "p": 1004.73,
-    "cp": 0.54
+    "p": 999,
+    "cp": -0.57
    }
   }
  },
@@ -6416,60 +6416,60 @@
  ],
  "coingecko": {
   "bitcoin": {
-   "usd": 83057,
-   "usd_24h_change": 0.37122175632614635
+   "usd": 82648,
+   "usd_24h_change": -0.5143236207720687
   },
   "ethereum": {
-   "usd": 2503.02,
-   "usd_24h_change": 0.33906606916874044
+   "usd": 2528.32,
+   "usd_24h_change": 0.8674168886004958
   },
   "solana": {
-   "usd": 109.42,
-   "usd_24h_change": -0.19629841392096087
+   "usd": 109,
+   "usd_24h_change": -0.6892704112236598
   }
  },
  "polymarket": [
   {
-   "question": "Dota 2: Team Spirit vs PARIVISION (BO3) - BLAST Slam Playoffs",
-   "slug": "dota2-ts8-pari-2026-10-11",
-   "volume24hr": 1828127.439026,
-   "outcomePrices": "[\"0.805\", \"0.195\"]",
-   "outcomes": "[\"Team Spirit\", \"PARIVISION\"]"
+   "question": "LoL: BNK FEARX vs JD Gaming (BO5) - Demacia Cup Global Invitational Playoffs",
+   "slug": "lol-fox1-jdg-2026-10-12",
+   "volume24hr": 3218529.665119,
+   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
+   "outcomes": "[\"BNK FEARX\", \"JD Gaming\"]"
   },
   {
-   "question": "Eagles vs. Jaguars",
-   "slug": "nfl-phi-jax-2026-10-11",
-   "volume24hr": 820828.7224290002,
+   "question": "LoL: BNK FEARX vs JD Gaming - Game 3 Winner",
+   "slug": "lol-fox1-jdg-2026-10-12-game3",
+   "volume24hr": 1239154.0666010005,
+   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
+   "outcomes": "[\"BNK FEARX\", \"JD Gaming\"]"
+  },
+  {
+   "question": "LoL: BNK FEARX vs JD Gaming - Game 4 Winner",
+   "slug": "lol-fox1-jdg-2026-10-12-game4",
+   "volume24hr": 1010980.7188530003,
+   "outcomePrices": "[\"0.0005\", \"0.9995\"]",
+   "outcomes": "[\"BNK FEARX\", \"JD Gaming\"]"
+  },
+  {
+   "question": "Olbia: Lorenzo Carboni vs Mackenzie McDonald",
+   "slug": "atp-carboni-mcdonal-2026-10-12",
+   "volume24hr": 908862.2771050001,
+   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
+   "outcomes": "[\"Lorenzo Carboni\", \"Mackenzie McDonald\"]"
+  },
+  {
+   "question": "Spread: Rams (-3.5)",
+   "slug": "nfl-buf-la-2026-10-13-spread-home-3pt5",
+   "volume24hr": 640506.829535,
+   "outcomePrices": "[\"0.465\", \"0.535\"]",
+   "outcomes": "[\"Rams\", \"Bills\"]"
+  },
+  {
+   "question": "Wuhan Tennis Open: Alexandra Eala vs Han Shi",
+   "slug": "wta-eala-shi-2026-10-12",
+   "volume24hr": 587686.554926,
    "outcomePrices": "[\"0.235\", \"0.765\"]",
-   "outcomes": "[\"Eagles\", \"Jaguars\"]"
-  },
-  {
-   "question": "Shanghai Rolex Masters: Alexander Bublik vs Brandon Nakashima",
-   "slug": "atp-bublik-nakashi-2026-10-11",
-   "volume24hr": 796182.6302910006,
-   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
-   "outcomes": "[\"Alexander Bublik\", \"Brandon Nakashima\"]"
-  },
-  {
-   "question": "Will Everton FC win on 2026-10-11?",
-   "slug": "epl-hul-eve-2026-10-11-eve",
-   "volume24hr": 711807.6030239997,
-   "outcomePrices": "[\"0.485\", \"0.515\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  },
-  {
-   "question": "Olbia: Matyas Cerny vs Vadym Ursu",
-   "slug": "atp-cerny-ursu-2026-10-11",
-   "volume24hr": 650808.3713410002,
-   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
-   "outcomes": "[\"Matyas Cerny\", \"Vadym Ursu\"]"
-  },
-  {
-   "question": "Counter-Strike: Aurora Gaming vs Spirit (BO3) - ESL Pro League Playoffs",
-   "slug": "cs2-aur1-ts7-2026-10-11",
-   "volume24hr": 571586.886666,
-   "outcomePrices": "[\"0.745\", \"0.255\"]",
-   "outcomes": "[\"Aurora Gaming\", \"Spirit\"]"
+   "outcomes": "[\"Alexandra Eala\", \"Han Shi\"]"
   }
  ]
 }
