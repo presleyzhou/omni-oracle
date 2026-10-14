@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-13T14:15:17.692Z",
+ "updated": "2026-10-14T11:54:50.659Z",
  "questions": [
   {
    "slug": "us-x-iran-ceasefire-continues-through-october-31-20260917",
@@ -9,7 +9,7 @@
    "endDate": "2026-10-31T23:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.565,
-   "price": 0.815,
+   "price": 0.805,
    "closed": false,
    "resolved": null,
    "topic": "geo"
@@ -36,7 +36,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.075,
-   "price": 0.011,
+   "price": 0.0115,
    "closed": false,
    "resolved": null,
    "topic": "geo"
@@ -174,7 +174,7 @@
    "endDate": "2027-01-01T05:00:00Z",
    "capturedAt": "2026-09-28T13:58:20.963Z",
    "priceAtCapture": 0.305,
-   "price": 0.475,
+   "price": 0.495,
    "closed": false,
    "resolved": null,
    "topic": "crypto"
@@ -187,7 +187,7 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.17,
-   "price": 0.0235,
+   "price": 0.012,
    "closed": false,
    "resolved": null,
    "topic": "other"
@@ -242,7 +242,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-09-29T12:55:47.980Z",
    "priceAtCapture": 0.04,
-   "price": 0.0105,
+   "price": 0.0085,
    "closed": false,
    "resolved": null,
    "topic": "geo"
@@ -255,7 +255,7 @@
    "endDate": "2026-12-09T00:00:00Z",
    "capturedAt": "2026-09-30T12:37:09.469Z",
    "priceAtCapture": 0.825,
-   "price": 0.8,
+   "price": 0.795,
    "closed": false,
    "resolved": null,
    "topic": "economy"
@@ -365,7 +365,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.065,
-   "price": 0.055,
+   "price": 0.045,
    "closed": false,
    "resolved": null,
    "topic": "other"
@@ -378,7 +378,7 @@
    "endDate": "2026-10-31T16:00:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.7185,
-   "price": 0.699,
+   "price": 0.6985,
    "closed": false,
    "resolved": null,
    "topic": "tech"
@@ -391,7 +391,7 @@
    "endDate": "2026-10-31T16:00:00Z",
    "capturedAt": "2026-10-01T13:19:30.824Z",
    "priceAtCapture": 0.275,
-   "price": 0.265,
+   "price": 0.29,
    "closed": false,
    "resolved": null,
    "topic": "tech"
@@ -404,7 +404,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.0315,
-   "price": 0.0255,
+   "price": 0.0265,
    "closed": false,
    "resolved": null,
    "topic": "crypto"
@@ -417,7 +417,7 @@
    "endDate": "2026-11-01T04:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.92,
-   "price": 0.535,
+   "price": 0.515,
    "closed": false,
    "resolved": null,
    "topic": "crypto"
@@ -497,7 +497,7 @@
    "endDate": "2027-01-01T05:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.285,
-   "price": 0.355,
+   "price": 0.365,
    "closed": false,
    "resolved": null,
    "topic": "crypto"
@@ -565,7 +565,7 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-10-05T14:42:27.771Z",
    "priceAtCapture": 0.605,
-   "price": 0.86,
+   "price": 0.885,
    "closed": false,
    "resolved": null,
    "topic": "geo"
@@ -578,7 +578,7 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-10-05T14:42:27.771Z",
    "priceAtCapture": 0.885,
-   "price": 0.975,
+   "price": 0.9835,
    "closed": false,
    "resolved": null,
    "topic": "geo"
@@ -591,7 +591,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-07T13:26:35.094Z",
    "priceAtCapture": 0.0465,
-   "price": 0.0215,
+   "price": 0.0235,
    "closed": false,
    "resolved": null,
    "topic": "other"
@@ -754,7 +754,7 @@
    "endDate": "2026-10-26T03:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.225,
-   "price": 0.305,
+   "price": 0.335,
    "closed": false,
    "resolved": null
   },
@@ -778,7 +778,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.275,
-   "price": 0.295,
+   "price": 0.415,
    "closed": false,
    "resolved": null
   },
@@ -892,7 +892,7 @@
    "endDate": "2026-11-16T04:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.555,
-   "price": 0.615,
+   "price": 0.595,
    "closed": false,
    "resolved": null
   },
@@ -916,7 +916,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.335,
-   "price": 0.355,
+   "price": 0.345,
    "closed": false,
    "resolved": null
   },
@@ -940,7 +940,7 @@
    "endDate": "2026-11-30T23:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.405,
-   "price": 0.465,
+   "price": 0.43,
    "closed": false,
    "resolved": null
   },
@@ -961,7 +961,7 @@
    "endDate": "2026-10-16T03:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.955,
-   "price": 0.981,
+   "price": 0.9885,
    "closed": false,
    "resolved": null
   },
@@ -1003,7 +1003,7 @@
    "endDate": "2026-11-30T20:29:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.635,
-   "price": 0.645,
+   "price": 0.64,
    "closed": false,
    "resolved": null
   },
@@ -1027,7 +1027,7 @@
    "endDate": "2027-04-01T03:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.68,
-   "price": 0.665,
+   "price": 0.645,
    "closed": false,
    "resolved": null
   },
@@ -1051,7 +1051,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.34,
-   "price": 0.295,
+   "price": 0.25,
    "closed": false,
    "resolved": null
   },
@@ -1191,7 +1191,7 @@
    "endDate": "2026-11-29T04:59:00Z",
    "capturedAt": "2026-10-10T12:34:42.209Z",
    "priceAtCapture": 0.354,
-   "price": 0.3335,
+   "price": 0.3455,
    "closed": false,
    "resolved": null
   },
@@ -1216,7 +1216,7 @@
    "endDate": "2026-11-04T04:59:00Z",
    "capturedAt": "2026-10-12T15:28:23.121Z",
    "priceAtCapture": 0.8315,
-   "price": 0.8345,
+   "price": 0.843,
    "closed": false,
    "resolved": null
   },
@@ -1241,7 +1241,7 @@
    "endDate": "2026-11-04T04:59:00Z",
    "capturedAt": "2026-10-12T15:28:23.121Z",
    "priceAtCapture": 0.097,
-   "price": 0.0945,
+   "price": 0.0865,
    "closed": false,
    "resolved": null
   },
@@ -1266,7 +1266,7 @@
    "endDate": "2026-11-04T04:59:00Z",
    "capturedAt": "2026-10-12T15:28:23.121Z",
    "priceAtCapture": 0.072,
-   "price": 0.071,
+   "price": 0.068,
    "closed": false,
    "resolved": null
   },
@@ -1291,7 +1291,7 @@
    "endDate": "2026-11-04T04:59:00Z",
    "capturedAt": "2026-10-12T15:28:23.121Z",
    "priceAtCapture": 0.8835,
-   "price": 0.885,
+   "price": 0.9075,
    "closed": false,
    "resolved": null
   },
@@ -1316,7 +1316,7 @@
    "endDate": "2026-11-04T04:59:00Z",
    "capturedAt": "2026-10-12T15:28:23.121Z",
    "priceAtCapture": 0.065,
-   "price": 0.0625,
+   "price": 0.0505,
    "closed": false,
    "resolved": null
   },
@@ -1341,7 +1341,7 @@
    "endDate": "2026-11-04T04:59:00Z",
    "capturedAt": "2026-10-12T15:28:23.121Z",
    "priceAtCapture": 0.0515,
-   "price": 0.053,
+   "price": 0.0445,
    "closed": false,
    "resolved": null
   },
@@ -1365,7 +1365,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-12T15:28:23.121Z",
    "priceAtCapture": 0.0305,
-   "price": 0.0275,
+   "price": 0.027,
    "closed": false,
    "resolved": null
   },
@@ -1415,7 +1415,7 @@
    "endDate": "2026-10-15T23:59:00Z",
    "capturedAt": "2026-10-12T15:28:23.121Z",
    "priceAtCapture": 0.935,
-   "price": 0.9905,
+   "price": 0.997,
    "closed": false,
    "resolved": null
   },
@@ -1440,7 +1440,7 @@
    "endDate": "2026-10-31T23:59:00Z",
    "capturedAt": "2026-10-12T15:28:23.121Z",
    "priceAtCapture": 0.795,
-   "price": 0.855,
+   "price": 0.885,
    "closed": false,
    "resolved": null
   },
@@ -1465,7 +1465,7 @@
    "endDate": "2026-11-04T04:59:00Z",
    "capturedAt": "2026-10-13T14:15:17.692Z",
    "priceAtCapture": 0.6165,
-   "price": 0.6165,
+   "price": 0.6185,
    "closed": false,
    "resolved": null
   },
@@ -1490,7 +1490,7 @@
    "endDate": "2026-11-04T04:59:00Z",
    "capturedAt": "2026-10-13T14:15:17.692Z",
    "priceAtCapture": 0.319,
-   "price": 0.319,
+   "price": 0.3195,
    "closed": false,
    "resolved": null
   },
@@ -1515,7 +1515,7 @@
    "endDate": "2026-11-04T04:59:00Z",
    "capturedAt": "2026-10-13T14:15:17.692Z",
    "priceAtCapture": 0.0355,
-   "price": 0.0355,
+   "price": 0.036,
    "closed": false,
    "resolved": null
   },
@@ -1539,7 +1539,7 @@
    "endDate": "2026-11-04T04:59:00Z",
    "capturedAt": "2026-10-13T14:15:17.692Z",
    "priceAtCapture": 0.5205,
-   "price": 0.5205,
+   "price": 0.5135,
    "closed": false,
    "resolved": null
   },
@@ -1563,7 +1563,7 @@
    "endDate": "2026-11-04T04:59:00Z",
    "capturedAt": "2026-10-13T14:15:17.692Z",
    "priceAtCapture": 0.262,
-   "price": 0.262,
+   "price": 0.2605,
    "closed": false,
    "resolved": null
   },
@@ -1587,7 +1587,7 @@
    "endDate": "2026-11-04T04:59:00Z",
    "capturedAt": "2026-10-13T14:15:17.692Z",
    "priceAtCapture": 0.1335,
-   "price": 0.1335,
+   "price": 0.131,
    "closed": false,
    "resolved": null
   },
@@ -1611,7 +1611,7 @@
    "endDate": "2026-11-04T04:59:00Z",
    "capturedAt": "2026-10-13T14:15:17.692Z",
    "priceAtCapture": 0.5475,
-   "price": 0.5475,
+   "price": 0.5435,
    "closed": false,
    "resolved": null
   },
@@ -1659,7 +1659,7 @@
    "endDate": "2026-11-04T04:59:00Z",
    "capturedAt": "2026-10-13T14:15:17.692Z",
    "priceAtCapture": 0.0835,
-   "price": 0.0835,
+   "price": 0.079,
    "closed": false,
    "resolved": null
   },
@@ -1683,7 +1683,7 @@
    "endDate": "2026-11-01T03:59:00Z",
    "capturedAt": "2026-10-13T14:15:17.692Z",
    "priceAtCapture": 0.645,
-   "price": 0.645,
+   "price": 0.68,
    "closed": false,
    "resolved": null
   },
@@ -1707,7 +1707,272 @@
    "endDate": "2026-10-31T03:59:00Z",
    "capturedAt": "2026-10-13T14:15:17.692Z",
    "priceAtCapture": 0.745,
-   "price": 0.745,
+   "price": 0.775,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "katie-zacharia-out-as-press-secretary-by-december-31",
+   "id": "5650403",
+   "question": "Katie Zacharia out as Press Secretary by December 31?",
+   "topic": "politics",
+   "tags": [
+    "Trump",
+    "resign",
+    "Politics",
+    "Trump Presidency"
+   ],
+   "event": "katie-zacharia-out-as-press-secretary-by",
+   "horizon": "long",
+   "createdAt": "2026-10-13T15:03:35.664449Z",
+   "endDate": "2027-01-01T04:59:00Z",
+   "capturedAt": "2026-10-14T11:54:50.659Z",
+   "priceAtCapture": 0.285,
+   "price": 0.285,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "katie-zacharia-out-as-press-secretary-by-october-31",
+   "id": "5650402",
+   "question": "Katie Zacharia out as Press Secretary by October 31?",
+   "topic": "politics",
+   "tags": [
+    "Trump",
+    "resign",
+    "Politics",
+    "Trump Presidency"
+   ],
+   "event": "katie-zacharia-out-as-press-secretary-by",
+   "horizon": "short",
+   "createdAt": "2026-10-13T15:03:34.83861Z",
+   "endDate": "2026-11-01T03:59:00Z",
+   "capturedAt": "2026-10-14T11:54:50.659Z",
+   "priceAtCapture": 0.0935,
+   "price": 0.0935,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "us-x-yemen-ceasefire-continues-through-october-18",
+   "id": "5652834",
+   "question": "US x Yemen ceasefire continues through October 18?",
+   "topic": "geo",
+   "tags": [
+    "Trump",
+    "Yemen",
+    "Military",
+    "Politics",
+    "Geopolitics",
+    "Middle East",
+    "Military Actions",
+    "Military Strikes"
+   ],
+   "event": "us-yemen-ceasefire-continues-throughptptpt",
+   "horizon": "short",
+   "createdAt": "2026-10-13T15:51:44.03224Z",
+   "endDate": "2026-10-18T23:59:00Z",
+   "capturedAt": "2026-10-14T11:54:50.659Z",
+   "priceAtCapture": 0.957,
+   "price": 0.957,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "next-fable-model-5pt2-released-by-october-16-2026",
+   "id": "5663664",
+   "question": "Next Fable Model (5.2+) released by October 16, 2026?",
+   "topic": "tech",
+   "tags": [
+    "AI",
+    "Tech",
+    "Fable",
+    "Claude",
+    "Anthropic",
+    "AI Releases",
+    "Claude Mythos"
+   ],
+   "event": "next-fable-model-5pt2-released-byptptpt",
+   "horizon": "short",
+   "createdAt": "2026-10-13T17:58:06.475621Z",
+   "endDate": "2026-10-17T03:59:00Z",
+   "capturedAt": "2026-10-14T11:54:50.659Z",
+   "priceAtCapture": 0.42,
+   "price": 0.42,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "next-fable-model-5pt2-released-by-october-15-2026",
+   "id": "5663663",
+   "question": "Next Fable Model (5.2+) released by October 15, 2026?",
+   "topic": "tech",
+   "tags": [
+    "AI",
+    "Tech",
+    "Fable",
+    "Claude",
+    "Anthropic",
+    "AI Releases",
+    "Claude Mythos"
+   ],
+   "event": "next-fable-model-5pt2-released-byptptpt",
+   "horizon": "short",
+   "createdAt": "2026-10-13T17:58:06.464178Z",
+   "endDate": "2026-10-16T03:59:00Z",
+   "capturedAt": "2026-10-14T11:54:50.659Z",
+   "priceAtCapture": 0.25,
+   "price": 0.25,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-mohammed-bin-abdulrahman-al-thani-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
+   "id": "5191221",
+   "question": "Will Mohammed bin Abdulrahman Al Thani attend a US x Iran diplomatic meeting by December 31, 2026?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Trump",
+    "US-Iran",
+    "Politics",
+    "Peace Deal",
+    "Geopolitics",
+    "Israel x Iran",
+    "Iran Ceasefire"
+   ],
+   "event": "who-will-attend-a-round-of-us-iran-peace-talks-by-december-31-20260812153824803",
+   "horizon": "long",
+   "createdAt": "2026-10-01T19:33:24.603397Z",
+   "endDate": "2026-12-31T23:59:00Z",
+   "capturedAt": "2026-10-14T11:54:50.659Z",
+   "priceAtCapture": 0.295,
+   "price": 0.295,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-jared-kushner-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
+   "id": "5191218",
+   "question": "Will Jared Kushner attend a US x Iran diplomatic meeting by December 31, 2026?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Trump",
+    "US-Iran",
+    "Politics",
+    "Peace Deal",
+    "Geopolitics",
+    "Israel x Iran",
+    "Iran Ceasefire"
+   ],
+   "event": "who-will-attend-a-round-of-us-iran-peace-talks-by-december-31-20260812153824803",
+   "horizon": "long",
+   "createdAt": "2026-10-01T19:33:24.077993Z",
+   "endDate": "2026-12-31T23:59:00Z",
+   "capturedAt": "2026-10-14T11:54:50.659Z",
+   "priceAtCapture": 0.405,
+   "price": 0.405,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-abbas-araghchi-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
+   "id": "5191217",
+   "question": "Will Abbas Araghchi attend a US x Iran diplomatic meeting by December 31, 2026?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Trump",
+    "US-Iran",
+    "Politics",
+    "Peace Deal",
+    "Geopolitics",
+    "Israel x Iran",
+    "Iran Ceasefire"
+   ],
+   "event": "who-will-attend-a-round-of-us-iran-peace-talks-by-december-31-20260812153824803",
+   "horizon": "long",
+   "createdAt": "2026-10-01T19:33:24.029647Z",
+   "endDate": "2026-12-31T23:59:00Z",
+   "capturedAt": "2026-10-14T11:54:50.659Z",
+   "priceAtCapture": 0.415,
+   "price": 0.415,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "us-x-yemen-ceasefire-continues-through-november-30",
+   "id": "5652832",
+   "question": "US x Yemen ceasefire continues through November 30?",
+   "topic": "geo",
+   "tags": [
+    "Trump",
+    "Yemen",
+    "Military",
+    "Politics",
+    "Geopolitics",
+    "Middle East",
+    "Military Actions",
+    "Military Strikes"
+   ],
+   "event": "us-yemen-ceasefire-continues-throughptptpt",
+   "horizon": "long",
+   "createdAt": "2026-10-13T15:51:43.283406Z",
+   "endDate": "2026-11-30T23:59:00Z",
+   "capturedAt": "2026-10-14T11:54:50.659Z",
+   "priceAtCapture": 0.675,
+   "price": 0.675,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-mohammed-bin-salman-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026",
+   "id": "3902310",
+   "question": "Will Mohammed bin Salman attend a US x Iran diplomatic meeting by December 31, 2026?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Trump",
+    "US-Iran",
+    "Politics",
+    "Peace Deal",
+    "Geopolitics",
+    "Israel x Iran",
+    "Iran Ceasefire"
+   ],
+   "event": "who-will-attend-a-round-of-us-iran-peace-talks-by-december-31-20260812153824803",
+   "horizon": "long",
+   "createdAt": "2026-08-26T13:57:02.611699Z",
+   "endDate": "2026-12-31T23:59:00Z",
+   "capturedAt": "2026-10-14T11:54:50.659Z",
+   "priceAtCapture": 0.0455,
+   "price": 0.0455,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-steve-witkoff-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
+   "id": "5191216",
+   "question": "Will Steve Witkoff attend a US x Iran diplomatic meeting by December 31, 2026?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Trump",
+    "US-Iran",
+    "Politics",
+    "Peace Deal",
+    "Geopolitics",
+    "Israel x Iran",
+    "Iran Ceasefire"
+   ],
+   "event": "who-will-attend-a-round-of-us-iran-peace-talks-by-december-31-20260812153824803",
+   "horizon": "long",
+   "createdAt": "2026-10-01T19:33:24.027375Z",
+   "endDate": "2026-12-31T23:59:00Z",
+   "capturedAt": "2026-10-14T11:54:50.659Z",
+   "priceAtCapture": 0.4,
+   "price": 0.4,
    "closed": false,
    "resolved": null
   }
