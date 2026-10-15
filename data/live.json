@@ -1,7 +1,13 @@
 {
- "generated": "2026-10-14T11:54:10.046Z",
+ "generated": "2026-10-15T11:31:08.021Z",
  "bls": {
   "CUUR0000SA0": [
+   {
+    "year": "2026",
+    "period": "M09",
+    "periodName": "September",
+    "value": "336.940"
+   },
    {
     "year": "2026",
     "period": "M08",
@@ -199,6 +205,12 @@
    }
   ],
   "CUUR0000SA0L1E": [
+   {
+    "year": "2026",
+    "period": "M09",
+    "periodName": "September",
+    "value": "339.287"
+   },
    {
     "year": "2026",
     "period": "M08",
@@ -1315,6 +1327,72 @@
     ]
    ]
   },
+  "CHN": {
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 4.95994886240992
+     },
+     {
+      "date": "2024",
+      "value": 4.95830378788091
+     },
+     {
+      "date": "2023",
+      "value": 5.41600334492955
+     },
+     {
+      "date": "2022",
+      "value": 3.13385438394069
+     },
+     {
+      "date": "2021",
+      "value": 8.57038414981781
+     }
+    ]
+   ],
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 0.0595646916565402
+     },
+     {
+      "date": "2024",
+      "value": 0.218128938439177
+     },
+     {
+      "date": "2023",
+      "value": 0.23483682889305
+     },
+     {
+      "date": "2022",
+      "value": 1.9735755573905
+     },
+     {
+      "date": "2021",
+      "value": 0.981015135544881
+     }
+    ]
+   ]
+  },
   "EUU": {
    "cpi": [
     {
@@ -1381,105 +1459,7 @@
     ]
    ]
   },
-  "CHN": {
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 0.0595646916565402
-     },
-     {
-      "date": "2024",
-      "value": 0.218128938439177
-     },
-     {
-      "date": "2023",
-      "value": 0.23483682889305
-     },
-     {
-      "date": "2022",
-      "value": 1.9735755573905
-     },
-     {
-      "date": "2021",
-      "value": 0.981015135544881
-     }
-    ]
-   ],
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 4.95994886240992
-     },
-     {
-      "date": "2024",
-      "value": 4.95830378788091
-     },
-     {
-      "date": "2023",
-      "value": 5.41600334492955
-     },
-     {
-      "date": "2022",
-      "value": 3.13385438394069
-     },
-     {
-      "date": "2021",
-      "value": 8.57038414981781
-     }
-    ]
-   ]
-  },
   "JPN": {
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 3.17253034260247
-     },
-     {
-      "date": "2024",
-      "value": 2.7385368163524
-     },
-     {
-      "date": "2023",
-      "value": 3.26813365933163
-     },
-     {
-      "date": "2022",
-      "value": 2.49770278172254
-     },
-     {
-      "date": "2021",
-      "value": -0.233352779398263
-     }
-    ]
-   ],
    "gdp": [
     {
      "page": 1,
@@ -1511,18 +1491,39 @@
       "value": 3.56419531474475
      }
     ]
+   ],
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 3.17253034260247
+     },
+     {
+      "date": "2024",
+      "value": 2.7385368163524
+     },
+     {
+      "date": "2023",
+      "value": 3.26813365933163
+     },
+     {
+      "date": "2022",
+      "value": 2.49770278172254
+     },
+     {
+      "date": "2021",
+      "value": -0.233352779398263
+     }
+    ]
    ]
-  }
- },
- "fx": {
-  "amount": 1,
-  "base": "USD",
-  "date": "2026-10-13",
-  "rates": {
-   "CNY": 6.6938,
-   "EUR": 0.89381,
-   "GBP": 0.75492,
-   "JPY": 158.12
   }
  },
  "treasury": {
@@ -1568,109 +1569,116 @@
    }
   ]
  },
+ "fx": {
+  "amount": 1,
+  "base": "USD",
+  "date": "2026-10-14",
+  "rates": {
+   "CNY": 6.6927,
+   "EUR": 0.89326,
+   "GBP": 0.75377,
+   "JPY": 158.45
+  }
+ },
  "quotes": {
-  "GOOGL": {
-   "data": {
-    "p": 353.78,
-    "cp": 0.3
-   }
-  },
-  "AAPL": {
-   "data": {
-    "p": 341.27,
-    "cp": 0.09
-   }
-  },
   "NVDA": {
    "data": {
-    "p": 228.52,
-    "cp": 0.97
+    "p": 221.3,
+    "cp": -3.16
    }
   },
   "MSFT": {
    "data": {
-    "p": 543.45,
-    "cp": 0.43
+    "p": 533.69,
+    "cp": -1.8
+   }
+  },
+  "AAPL": {
+   "data": {
+    "p": 342.96,
+    "cp": 0.5
+   }
+  },
+  "GOOGL": {
+   "data": {
+    "p": 347.64,
+    "cp": -1.74
    }
   },
   "META": {
    "data": {
-    "p": 762.5,
-    "cp": 2.63
-   }
-  },
-  "AVGO": {
-   "data": {
-    "p": 357.31,
-    "cp": 0.73
+    "p": 737.54,
+    "cp": -3.27
    }
   },
   "VRT": {
    "data": {
-    "p": 237.29,
-    "cp": -0.86
+    "p": 222.83,
+    "cp": -6.09
    }
   },
   "MU": {
    "data": {
-    "p": 953.19,
-    "cp": -3.62
+    "p": 914.13,
+    "cp": -4.08
    }
   },
-  "TSLA": {
+  "AVGO": {
    "data": {
-    "p": 375.23,
-    "cp": -0.74
-   }
-  },
-  "ISRG": {
-   "data": {
-    "p": 422.06,
-    "cp": -1.3
+    "p": 346.25,
+    "cp": -3.1
    }
   },
   "LLY": {
    "data": {
-    "p": 1166.51,
-    "cp": -1.36
+    "p": 1208.74,
+    "cp": 3.62
+   }
+  },
+  "TSLA": {
+   "data": {
+    "p": 367.16,
+    "cp": -2.15
+   }
+  },
+  "ISRG": {
+   "data": {
+    "p": 420.24,
+    "cp": -0.43
    }
   },
   "NVO": {
    "data": {
-    "p": 38.06,
-    "cp": -1.35
-   }
-  },
-  "IONQ": {
-   "data": {
-    "p": 34.73,
-    "cp": -4.25
+    "p": 38.12,
+    "cp": 0.16
    }
   },
   "RKLB": {
    "data": {
-    "p": 64.22,
-    "cp": -2.27
+    "p": 59.18,
+    "cp": -7.85
    }
   },
-  "GEV": {
+  "IONQ": {
    "data": {
-    "p": 1004.04,
-    "cp": 0.73
+    "p": 31.42,
+    "cp": -9.53
    }
   },
   "CEG": {
    "data": {
-    "p": 295.79,
-    "cp": 0.65
+    "p": 279.54,
+    "cp": -5.49
+   }
+  },
+  "GEV": {
+   "data": {
+    "p": 941.78,
+    "cp": -6.2
    }
   }
  },
  "vix": [
-  {
-   "d": "2024-10-08",
-   "c": 21.42
-  },
   {
    "d": "2024-10-09",
    "c": 20.86
@@ -3746,6 +3754,10 @@
   {
    "d": "2026-10-13",
    "c": 15.27
+  },
+  {
+   "d": "2026-10-14",
+   "c": 16.87
   }
  ],
  "treasury_curve": [
@@ -6418,64 +6430,70 @@
    "m3": 4.26,
    "y2": 4.79,
    "y10": 5.21
+  },
+  {
+   "d": "2026-10-14",
+   "m3": 4.28,
+   "y2": 4.82,
+   "y10": 5.19
   }
  ],
  "coingecko": {
   "bitcoin": {
-   "usd": 83384,
-   "usd_24h_change": 0.06458357925679686
+   "usd": 80980,
+   "usd_24h_change": -2.811079200870691
   },
   "ethereum": {
-   "usd": 2500.87,
-   "usd_24h_change": 0.08474071849757835
+   "usd": 2363.07,
+   "usd_24h_change": -5.487558970732674
   },
   "solana": {
-   "usd": 107.09,
-   "usd_24h_change": 0.8358774383747504
+   "usd": 102.22,
+   "usd_24h_change": -4.39312374722847
   }
  },
  "polymarket": [
   {
-   "question": "LoL: BNK FEARX vs KT Rolster - Game 3 Winner",
-   "slug": "lol-fox1-kt-2026-10-14-game3",
-   "volume24hr": 1509273.8601479998,
-   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
-   "outcomes": "[\"BNK FEARX\", \"KT Rolster\"]"
-  },
-  {
-   "question": "LoL: BNK FEARX vs KT Rolster (BO5) - Demacia Cup Global Invitational Playoffs",
-   "slug": "lol-fox1-kt-2026-10-14",
-   "volume24hr": 1294819.9518739998,
-   "outcomePrices": "[\"0.665\", \"0.335\"]",
-   "outcomes": "[\"BNK FEARX\", \"KT Rolster\"]"
-  },
-  {
-   "question": "Shanghai Rolex Masters: Daniil Medvedev vs Stefanos Tsitsipas",
-   "slug": "atp-medvede-tsitsip-2026-10-13",
-   "volume24hr": 1288801.4279649996,
-   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
-   "outcomes": "[\"Daniil Medvedev\", \"Stefanos Tsitsipas\"]"
-  },
-  {
    "question": "Will there be no change in Fed interest rates after the October 2026 meeting?",
    "slug": "will-there-be-no-change-in-fed-interest-rates-after-the-october-2026-meeting-20260617190324031",
-   "volume24hr": 1171553.7501090001,
-   "outcomePrices": "[\"0.805\", \"0.195\"]",
+   "volume24hr": 2373133.122233001,
+   "outcomePrices": "[\"0.725\", \"0.275\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "LoL: BNK FEARX vs KT Rolster - Game 2 Winner",
-   "slug": "lol-fox1-kt-2026-10-14-game2",
-   "volume24hr": 1112350.2981909995,
-   "outcomePrices": "[\"0.0005\", \"0.9995\"]",
-   "outcomes": "[\"BNK FEARX\", \"KT Rolster\"]"
+   "question": "Will Indiana enact a data center moratorium by December 31, 2027?",
+   "slug": "will-indiana-enact-a-data-center-moratorium-by-december-31-2027",
+   "volume24hr": 2115125.125816,
+   "outcomePrices": "[\"0.125\", \"0.875\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "LoL: BNK FEARX vs KT Rolster - Game 1 Winner",
-   "slug": "lol-fox1-kt-2026-10-14-game1",
-   "volume24hr": 1101397.7233870013,
+   "question": "Will the Fed increase interest rates by 25 bps after the October 2026 meeting?",
+   "slug": "will-the-fed-increase-interest-rates-by-25-bps-after-the-october-2026-meeting-20260617190324032",
+   "volume24hr": 1564592.1586479994,
+   "outcomePrices": "[\"0.275\", \"0.725\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
+  },
+  {
+   "question": "LoL: Team WE vs HANJIN BRION (BO5) - Demacia Cup Global Invitational Playoffs",
+   "slug": "lol-we-bro2-2026-10-15",
+   "volume24hr": 1273934.8761890002,
+   "outcomePrices": "[\"0.765\", \"0.235\"]",
+   "outcomes": "[\"Team WE\", \"HANJIN BRION\"]"
+  },
+  {
+   "question": "LoL: Team WE vs HANJIN BRION - Game 1 Winner",
+   "slug": "lol-we-bro2-2026-10-15-game1",
+   "volume24hr": 1158377.2823210002,
    "outcomePrices": "[\"0.9995\", \"0.0005\"]",
-   "outcomes": "[\"BNK FEARX\", \"KT Rolster\"]"
+   "outcomes": "[\"Team WE\", \"HANJIN BRION\"]"
+  },
+  {
+   "question": "LoL: Team WE vs HANJIN BRION - Game 2 Winner",
+   "slug": "lol-we-bro2-2026-10-15-game2",
+   "volume24hr": 1049455.270247001,
+   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
+   "outcomes": "[\"Team WE\", \"HANJIN BRION\"]"
   }
  ]
 }
