@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-15T11:31:08.021Z",
+ "generated": "2026-10-16T11:25:57.308Z",
  "bls": {
   "CUUR0000SA0": [
    {
@@ -1460,38 +1460,6 @@
    ]
   },
   "JPN": {
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 1.19311288444599
-     },
-     {
-      "date": "2024",
-      "value": -0.240084236041696
-     },
-     {
-      "date": "2023",
-      "value": 0.720785304749811
-     },
-     {
-      "date": "2022",
-      "value": 1.33164750653741
-     },
-     {
-      "date": "2021",
-      "value": 3.56419531474475
-     }
-    ]
-   ],
    "cpi": [
     {
      "page": 1,
@@ -1523,7 +1491,50 @@
       "value": -0.233352779398263
      }
     ]
+   ],
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 1.19311288444599
+     },
+     {
+      "date": "2024",
+      "value": -0.240084236041696
+     },
+     {
+      "date": "2023",
+      "value": 0.720785304749811
+     },
+     {
+      "date": "2022",
+      "value": 1.33164750653741
+     },
+     {
+      "date": "2021",
+      "value": 3.56419531474475
+     }
+    ]
    ]
+  }
+ },
+ "fx": {
+  "amount": 1,
+  "base": "USD",
+  "date": "2026-10-15",
+  "rates": {
+   "CNY": 6.691,
+   "EUR": 0.89222,
+   "GBP": 0.75491,
+   "JPY": 157.98
   }
  },
  "treasury": {
@@ -1569,120 +1580,105 @@
    }
   ]
  },
- "fx": {
-  "amount": 1,
-  "base": "USD",
-  "date": "2026-10-14",
-  "rates": {
-   "CNY": 6.6927,
-   "EUR": 0.89326,
-   "GBP": 0.75377,
-   "JPY": 158.45
-  }
- },
  "quotes": {
-  "NVDA": {
+  "GOOGL": {
    "data": {
-    "p": 221.3,
-    "cp": -3.16
-   }
-  },
-  "MSFT": {
-   "data": {
-    "p": 533.69,
-    "cp": -1.8
+    "p": 349.22,
+    "cp": 0.45
    }
   },
   "AAPL": {
    "data": {
-    "p": 342.96,
-    "cp": 0.5
+    "p": 342,
+    "cp": -0.28
    }
   },
-  "GOOGL": {
+  "NVDA": {
    "data": {
-    "p": 347.64,
-    "cp": -1.74
+    "p": 217.23,
+    "cp": -1.84
    }
   },
-  "META": {
+  "MSFT": {
    "data": {
-    "p": 737.54,
-    "cp": -3.27
-   }
-  },
-  "VRT": {
-   "data": {
-    "p": 222.83,
-    "cp": -6.09
+    "p": 539.44,
+    "cp": 1.08
    }
   },
   "MU": {
    "data": {
-    "p": 914.13,
-    "cp": -4.08
+    "p": 931.24,
+    "cp": 1.87
+   }
+  },
+  "META": {
+   "data": {
+    "p": 736.72,
+    "cp": -0.11
+   }
+  },
+  "VRT": {
+   "data": {
+    "p": 214.75,
+    "cp": -3.63
    }
   },
   "AVGO": {
    "data": {
-    "p": 346.25,
-    "cp": -3.1
-   }
-  },
-  "LLY": {
-   "data": {
-    "p": 1208.74,
-    "cp": 3.62
+    "p": 344.33,
+    "cp": -0.55
    }
   },
   "TSLA": {
    "data": {
-    "p": 367.16,
-    "cp": -2.15
+    "p": 362.44,
+    "cp": -1.29
    }
   },
-  "ISRG": {
+  "LLY": {
    "data": {
-    "p": 420.24,
-    "cp": -0.43
+    "p": 1251.61,
+    "cp": 3.55
    }
   },
   "NVO": {
    "data": {
-    "p": 38.12,
-    "cp": 0.16
+    "p": 39.22,
+    "cp": 2.89
+   }
+  },
+  "ISRG": {
+   "data": {
+    "p": 427.86,
+    "cp": 1.81
    }
   },
   "RKLB": {
    "data": {
-    "p": 59.18,
-    "cp": -7.85
+    "p": 55.25,
+    "cp": -6.64
    }
   },
   "IONQ": {
    "data": {
-    "p": 31.42,
-    "cp": -9.53
-   }
-  },
-  "CEG": {
-   "data": {
-    "p": 279.54,
-    "cp": -5.49
+    "p": 34.35,
+    "cp": 9.33
    }
   },
   "GEV": {
    "data": {
-    "p": 941.78,
-    "cp": -6.2
+    "p": 926.44,
+    "cp": -1.63
+   }
+  },
+  "CEG": {
+   "data": {
+    "p": 275,
+    "cp": -1.62
    }
   }
  },
  "vix": [
-  {
-   "d": "2024-10-09",
-   "c": 20.86
-  },
   {
    "d": "2024-10-10",
    "c": 20.93
@@ -3758,6 +3754,10 @@
   {
    "d": "2026-10-14",
    "c": 16.87
+  },
+  {
+   "d": "2026-10-15",
+   "c": 16.46
   }
  ],
  "treasury_curve": [
@@ -6436,64 +6436,70 @@
    "m3": 4.28,
    "y2": 4.82,
    "y10": 5.19
+  },
+  {
+   "d": "2026-10-15",
+   "m3": 4.28,
+   "y2": 4.77,
+   "y10": 5.1
   }
  ],
  "coingecko": {
   "bitcoin": {
-   "usd": 80980,
-   "usd_24h_change": -2.811079200870691
+   "usd": 82786,
+   "usd_24h_change": 2.248526612545345
   },
   "ethereum": {
-   "usd": 2363.07,
-   "usd_24h_change": -5.487558970732674
+   "usd": 2485.19,
+   "usd_24h_change": 5.213478083999398
   },
   "solana": {
-   "usd": 102.22,
-   "usd_24h_change": -4.39312374722847
+   "usd": 106.99,
+   "usd_24h_change": 4.593825717400486
   }
  },
  "polymarket": [
   {
+   "question": "Will Luiz Inácio Lula da Silva win the 2026 Brazilian presidential election?",
+   "slug": "will-luiz-incio-lula-da-silva-win-the-2026-brazilian-presidential-election",
+   "volume24hr": 1308846.097463,
+   "outcomePrices": "[\"0.215\", \"0.785\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
+  },
+  {
+   "question": "Will the Fed decrease interest rates by 50+ bps after the October 2026 meeting?",
+   "slug": "will-the-fed-decrease-interest-rates-by-50-bps-after-the-october-2026-meeting-20260617190324029",
+   "volume24hr": 1081384.532,
+   "outcomePrices": "[\"0.0015\", \"0.9985\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
+  },
+  {
    "question": "Will there be no change in Fed interest rates after the October 2026 meeting?",
    "slug": "will-there-be-no-change-in-fed-interest-rates-after-the-october-2026-meeting-20260617190324031",
-   "volume24hr": 2373133.122233001,
-   "outcomePrices": "[\"0.725\", \"0.275\"]",
+   "volume24hr": 797285.4338510006,
+   "outcomePrices": "[\"0.865\", \"0.135\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Will Indiana enact a data center moratorium by December 31, 2027?",
-   "slug": "will-indiana-enact-a-data-center-moratorium-by-december-31-2027",
-   "volume24hr": 2115125.125816,
-   "outcomePrices": "[\"0.125\", \"0.875\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
+   "question": "Shanghai Rolex Masters: Daniil Medvedev vs Tommy Paul",
+   "slug": "atp-medvede-paul-2026-10-15",
+   "volume24hr": 779066.9799479999,
+   "outcomePrices": "[\"0.645\", \"0.355\"]",
+   "outcomes": "[\"Daniil Medvedev\", \"Tommy Paul\"]"
   },
   {
-   "question": "Will the Fed increase interest rates by 25 bps after the October 2026 meeting?",
-   "slug": "will-the-fed-increase-interest-rates-by-25-bps-after-the-october-2026-meeting-20260617190324032",
-   "volume24hr": 1564592.1586479994,
-   "outcomePrices": "[\"0.275\", \"0.725\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  },
-  {
-   "question": "LoL: Team WE vs HANJIN BRION (BO5) - Demacia Cup Global Invitational Playoffs",
-   "slug": "lol-we-bro2-2026-10-15",
-   "volume24hr": 1273934.8761890002,
-   "outcomePrices": "[\"0.765\", \"0.235\"]",
-   "outcomes": "[\"Team WE\", \"HANJIN BRION\"]"
-  },
-  {
-   "question": "LoL: Team WE vs HANJIN BRION - Game 1 Winner",
-   "slug": "lol-we-bro2-2026-10-15-game1",
-   "volume24hr": 1158377.2823210002,
+   "question": "Counter-Strike: NIP vs Liquid (BO3) - Stake Pulse Beat III Playoffs",
+   "slug": "cs2-nip-tl1-2026-10-16",
+   "volume24hr": 701663.1162770003,
    "outcomePrices": "[\"0.9995\", \"0.0005\"]",
-   "outcomes": "[\"Team WE\", \"HANJIN BRION\"]"
+   "outcomes": "[\"NIP\", \"Liquid\"]"
   },
   {
-   "question": "LoL: Team WE vs HANJIN BRION - Game 2 Winner",
-   "slug": "lol-we-bro2-2026-10-15-game2",
-   "volume24hr": 1049455.270247001,
-   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
-   "outcomes": "[\"Team WE\", \"HANJIN BRION\"]"
+   "question": "Will Flávio Bolsonaro win the 2026 Brazilian presidential election?",
+   "slug": "will-flvio-bolsonaro-win-the-2026-brazilian-presidential-election",
+   "volume24hr": 534244.2586380001,
+   "outcomePrices": "[\"0.784\", \"0.216\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
   }
  ]
 }
