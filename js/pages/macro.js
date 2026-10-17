@@ -12,13 +12,15 @@ const R = { gdp: null, cpi: null, core: null, unemp: null };
 let charts = [];
 /* crisis early-warning state (module further down; declared here because buildCharts() runs first) */
 const CW = { curve: null, vix: null, credit: null, src: [] };
+const RAW = { core: null, unemp: null }; // full BLS rows (3 years) for the composite history
+let cwHistChart = null;
 let cwChart = null;
 
 const BLS = "https://api.bls.gov/publicAPI/v1/timeseries/data/";
 const monthLabel = (y, p) => y + "-" + p.slice(1);
 
 /* BLS index series -> year-over-year % change */
-function toYoY(points) {
+function toYoY(points, keep = 18) {
   const byKey = {};
   points.forEach(d => { if (Number.isFinite(+d.value)) byKey[d.year + d.period] = +d.value; });
   const out = [];
@@ -26,7 +28,7 @@ function toYoY(points) {
     const prev = byKey[(+d.year - 1) + d.period];
     if (prev && Number.isFinite(+d.value) && d.period !== "M13") out.push({ t: monthLabel(d.year, d.period), v: +(100 * (+d.value / prev - 1)).toFixed(2) });
   });
-  return out.slice(-18);
+  return out.slice(-keep);
 }
 
 /* snapshot stores the bare row array; the live API wraps it */
@@ -156,11 +158,13 @@ fetchBls("CUUR0000SA0").then(({ rows, source }) => {
 });
 fetchBls("CUUR0000SA0L1E").then(({ rows, source }) => {
   loading--;
+  RAW.core = rows;
   if (rows) { R.core = toYoY(rows); cpiSrc.push(source); }
   cpiBadge(); buildCharts();
 });
 fetchBls("LNS14000000").then(({ rows, source }) => {
   loading--;
+  RAW.unemp = rows;
   collectBlsNotes("LNS14000000", "U-3", rows); renderNotes();
   /* BLS marks missing months (e.g. the Oct-2025 shutdown) with "-": drop them */
   if (rows) R.unemp = rows.slice().reverse().map(x => ({ t: monthLabel(x.year, x.period), v: +x.value }))
@@ -347,6 +351,45 @@ function renderCrisis() {
   reg.textContent = OO_T("cw.regime." + regime) + ` · ${scored.length}/${rows.length}`;
   document.getElementById("cwMarker").style.left = composite + "%";
   renderCrisisChart();
+  renderCrisisHistory();
+}
+
+
+/* ---- composite history: what the gauge would have read at each month-end over the last
+   24 months, rebuilt from the same six indicators (credit spread excluded) and thresholds.
+   Ex post: uses today's revised series and ignores publication lags, so it is a picture of
+   the indicator set's behaviour, not of what a forecaster could have seen in real time. */
+function renderCrisisHistory() {
+  if (!CW.curve || !CW.vix || !RAW.unemp || !RAW.core || !R.gdp) return;
+  const months = [];
+  const d = new Date(); d.setDate(1);
+  for (let i = 23; i >= 0; i--) { const m = new Date(d.getFullYear(), d.getMonth() - i, 1); months.push(m.toISOString().slice(0, 7)); }
+  const monthly = (rows, key) => { const by = {}; rows.forEach(r => { (by[r.d.slice(0, 7)] = by[r.d.slice(0, 7)] || []).push(r[key]); }); const out = {}; for (const k in by) out[k] = by[k].reduce((a, b) => a + b, 0) / by[k].length; return out; };
+  const spreadM = monthly(CW.curve.map(r => ({ d: r.d, v: (r.y10 - r.m3) * 100 })), "v");
+  const vixM = monthly(CW.vix.map(r => ({ d: r.d, v: r.c })), "v");
+  const unemp = RAW.unemp.slice().reverse().map(x => ({ t: monthLabel(x.year, x.period), v: +x.value })).filter(x => Number.isFinite(x.v) && !x.t.endsWith("-13"));
+  const sahm = {}; (sahmSeries(unemp) || []).forEach(x => { sahm[x.t] = x.v; });
+  const core = {}; toYoY(RAW.core, 40).forEach(x => { core[x.t] = x.v; });
+  const gdpAt = (ym) => { let last = null; for (const g of R.gdp) { const [y, q] = g.t.split("-Q"); const end = `${y}-${String(+q * 3).padStart(2, "0")}`; if (end <= ym) last = g.v; } return last; };
+  const series = months.map(ym => {
+    const sc = [];
+    if (spreadM[ym] != null) { sc.push(score3(spreadM[ym], 50, 0, -1)); sc.push(score3(normCdf(-0.5333 - 0.6330 * spreadM[ym] / 100), 0.15, 0.30, +1)); }
+    if (sahm[ym] != null) sc.push(score3(sahm[ym], 0.3, 0.5, +1));
+    if (vixM[ym] != null) sc.push(score3(vixM[ym], 20, 30, +1));
+    const g = gdpAt(ym); if (g != null) sc.push(score3(g, 1, 0, -1));
+    if (core[ym] != null) sc.push(score3(core[ym], 3, 4, +1));
+    return sc.length >= 3 ? Math.round(sc.reduce((a, b) => a + b, 0) / sc.length) : null;
+  });
+  if (!series.some(v => v != null)) return;
+  const card = document.getElementById("cwHistBox"); if (card) card.classList.remove("hide");
+  if (!window.Chart) { ooChart(renderCrisisHistory, "renderCrisisHistory"); return; }
+  if (cwHistChart) cwHistChart.destroy();
+  cwHistChart = new Chart(document.getElementById("cwHistChart"), {
+    type: "line",
+    data: { labels: months, datasets: [{ label: OO_T("cw.gauge"), data: series, borderColor: OO_COLORS.red, backgroundColor: "rgba(239,68,68,0.15)", fill: true, stepped: true, pointRadius: 2, spanGaps: true }] },
+    options: { maintainAspectRatio: false, plugins: { legend: { display: false } },
+      scales: { y: { min: 0, max: 100, ticks: { stepSize: 25, callback: v => v === 0 ? OO_T("cw.regime.calm") : v === 25 ? OO_T("cw.regime.watch") : v === 50 ? OO_T("cw.regime.elevated") : v === 75 ? OO_T("cw.regime.crisis") : "" }, grid: { color: "rgba(36,48,74,0.9)" } }, x: { ticks: { maxTicksLimit: 8 } } } },
+  });
 }
 
 function renderCrisisChart() {

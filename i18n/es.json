@@ -602,5 +602,7 @@
   "tour.pub.none": "Aún no hay registros públicos: exporta el tuyo desde esta página y abre un pull request.",
   "lb.forecast": "Pronosticar",
   "res.group.real": "Preguntas reales del registro pendientes de resolución",
-  "res.group.demo": "Mercados demo"
+  "res.group.demo": "Mercados demo",
+  "cw.hist.title": "Historial del compuesto — lo que habría marcado el indicador a cada fin de mes, últimos 24 meses",
+  "cw.hist.note": "Reconstrucción ex post con las series revisadas de hoy (seis de siete indicadores; el diferencial de crédito requiere una clave FRED) y los mismos umbrales. Ignora los retrasos de publicación: muestra cómo se comporta el conjunto de indicadores, no lo que un pronosticador habría visto en tiempo real."
 }

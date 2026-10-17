@@ -617,7 +617,9 @@ en: {
   "tour.pub.none": "No public records yet — export yours from this page and open a pull request.",
   "lb.forecast": "Forecast",
   "res.group.real": "Real ledger questions awaiting resolution",
-  "res.group.demo": "Demo markets"
+  "res.group.demo": "Demo markets",
+  "cw.hist.title": "Composite history — what the gauge would have read at each month-end, last 24 months",
+  "cw.hist.note": "Ex post reconstruction from today's revised series (six of seven indicators; the credit spread needs a FRED key) with the same thresholds. It ignores publication lags, so it shows how the indicator set behaves — not what a forecaster could have seen in real time."
 },
 };
 

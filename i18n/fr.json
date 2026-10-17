@@ -602,5 +602,7 @@
   "tour.pub.none": "Aucun registre public pour l'instant — exportez le vôtre depuis cette page et ouvrez une pull request.",
   "lb.forecast": "Prévoir",
   "res.group.real": "Vraies questions du registre en attente de résolution",
-  "res.group.demo": "Marchés démo"
+  "res.group.demo": "Marchés démo",
+  "cw.hist.title": "Historique du composite — ce que la jauge aurait indiqué à chaque fin de mois, 24 derniers mois",
+  "cw.hist.note": "Reconstruction ex post à partir des séries révisées d'aujourd'hui (six indicateurs sur sept ; l'écart de crédit requiert une clé FRED) avec les mêmes seuils. Elle ignore les délais de publication : elle montre le comportement de l'ensemble d'indicateurs, pas ce qu'un prévisionniste aurait vu en temps réel."
 }
