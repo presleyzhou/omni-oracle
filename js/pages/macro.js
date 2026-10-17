@@ -363,7 +363,7 @@ function renderCrisisHistory() {
   if (!CW.curve || !CW.vix || !RAW.unemp || !RAW.core || !R.gdp) return;
   const months = [];
   const d = new Date(); d.setDate(1);
-  for (let i = 23; i >= 0; i--) { const m = new Date(d.getFullYear(), d.getMonth() - i, 1); months.push(m.toISOString().slice(0, 7)); }
+  for (let i = 23; i >= 0; i--) { const m = new Date(d.getFullYear(), d.getMonth() - i, 1); months.push(`${m.getFullYear()}-${String(m.getMonth() + 1).padStart(2, "0")}`); } // local calendar month, not toISOString() (shifts a day east of UTC)
   const monthly = (rows, key) => { const by = {}; rows.forEach(r => { (by[r.d.slice(0, 7)] = by[r.d.slice(0, 7)] || []).push(r[key]); }); const out = {}; for (const k in by) out[k] = by[k].reduce((a, b) => a + b, 0) / by[k].length; return out; };
   const spreadM = monthly(CW.curve.map(r => ({ d: r.d, v: (r.y10 - r.m3) * 100 })), "v");
   const vixM = monthly(CW.vix.map(r => ({ d: r.d, v: r.c })), "v");

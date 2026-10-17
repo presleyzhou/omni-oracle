@@ -17,11 +17,7 @@ const SIM = {
   chatAgent: 0, timer: null, chart: null, mcChart: null,
 };
 
-function T(key, params) {
-  let s = OO_T(key);
-  if (params) for (const k in params) s = s.replaceAll("{" + k + "}", params[k]);
-  return s;
-}
+const T = ooT;
 const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
 
 /* ----- seed input ----- */

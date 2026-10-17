@@ -151,8 +151,11 @@ const OO_FETCH = Object.assign(async function (url, { ttl = 300, timeout = 8000,
 const OO_SNAPSHOT = {
   _p: null,
   load() {
-    return this._p || (this._p = fetch("data/live.json", { signal: AbortSignal.timeout(6000) })
-      .then(r => r.ok ? r.json() : null).catch(() => null));
+    if (this._p) return this._p;
+    this._p = fetch("data/live.json", { signal: AbortSignal.timeout(6000) })
+      .then(r => r.ok ? r.json() : null).catch(() => null)
+      .then(snap => { if (snap == null) this._p = null; return snap; }); // a transient failure must not poison the page
+    return this._p;
   },
   async get(path) {
     const snap = await this.load();
@@ -404,6 +407,13 @@ let ooOpenLlmSettings = () => {};
   btn.addEventListener("click", open);
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
 })();
+
+/* OO_T with {param} interpolation, shared by the pages */
+function ooT(key, params) {
+  let s = OO_T(key);
+  if (params) for (const k in params) s = s.replaceAll("{" + k + "}", params[k]);
+  return s;
+}
 
 function fmtUSD(x) {
   return "$" + x.toFixed(2);

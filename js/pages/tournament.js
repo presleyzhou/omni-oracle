@@ -21,14 +21,17 @@ let MYF = [];
 try { MYF = JSON.parse(localStorage.getItem("oo-myforecasts")) || []; } catch (e) { MYF = []; }
 MYF = MYF.filter(f => f.slug || OO.markets[f.i]);
 
-const TOPIC_RULES = [
-  ["crypto", /\b(bitcoin|btc|ethereum|eth|solana|sol|xrp|dogecoin|crypto|token|etf)\b/i],
-  ["geo", /\b(ceasefire|war|iran|israel|russia|ukraine|china|taiwan|nato|hormuz|strike|missile|troops|military|gaza|sanction)\b/i],
-  ["politics", /\b(trump|president|congress|senate|house|election|governor|vote|bill|executive order|supreme court|cabinet|attorney general|impeach|shutdown)\b/i],
-  ["economy", /\b(fed|fomc|rate (hike|cut)|inflation|cpi|gdp|unemployment|recession|tariff|oil|opec|treasury|dollar|yield)\b/i],
-  ["tech", /\b(ai|openai|anthropic|google|apple|nvidia|tesla|spacex|launch|model|gpt|chip|iphone)\b/i],
-];
-const topicOf = (q) => q.topic || (TOPIC_RULES.find(([, re]) => re.test(q.question)) || ["other"])[0];
+/* every ledger entry is topic-tagged by the snapshot; "other" is the only fallback */
+const topicOf = (q) => q.topic || "other";
+/* slug → question, built once when the ledger loads (see setLedger) */
+let LEDGER_BY = {};
+function setLedger(d) {
+  LEDGER = d && d.questions ? d : null;
+  LEDGER_BY = {}; if (LEDGER) LEDGER.questions.forEach(q => { LEDGER_BY[q.slug] = q; });
+}
+/* a forecast is gradable only if the question resolved after it was committed — the same
+   rule the public-record grader and check-records.mjs apply */
+const gradable = (f, q) => q && q.resolved != null && (!f.at || !q.resolvedAt || Date.parse(f.at) < Date.parse(q.resolvedAt));
 const C = OO.calibration;
 let charts = [];
 
@@ -107,9 +110,9 @@ function eligibleQuestions() {
 function renderAiLedger() {
   const box = document.getElementById("aiLedger");
   if (!LEDGER) { box.innerHTML = `<p class="dim-note">${OO_T("tour.ai.ledger.none")}</p>`; return; }
-  const bySlug = {}; LEDGER.questions.forEach(q => { bySlug[q.slug] = q; });
-  /* grade stored forecasts against resolutions */
-  const graded = AIF.map(f => { const q = bySlug[f.slug]; return q && q.resolved != null ? { ...f, y: q.resolved } : null; }).filter(Boolean);
+  const bySlug = LEDGER_BY;
+  /* grade stored forecasts against resolutions (only forecasts committed before resolution) */
+  const graded = AIF.map(f => { const q = bySlug[f.slug]; return gradable(f, q) ? { ...f, y: q.resolved } : null; }).filter(Boolean);
   const pending = AIF.filter(f => { const q = bySlug[f.slug]; return q && q.resolved == null; });
   let html = `<p class="dim-note">${T2("tour.ai.ledger.stats", { n: LEDGER.questions.length, open: LEDGER.questions.filter(q => !q.closed).length, res: LEDGER.questions.filter(q => q.resolved != null).length, upd: (LEDGER.updated || "").slice(0, 10) })}</p>`;
   /* real scoreboard, no key needed: baselines computed from the ledger itself (market price at
@@ -147,9 +150,9 @@ function renderAiLedger() {
   }
   box.innerHTML = html;
 }
-function T2(key, params) { let s = OO_T(key); for (const k in params) s = s.replaceAll("{" + k + "}", params[k]); return s; }
+const T2 = ooT;
 
-OO_FETCH("data/questions.json", { ttl: 900 }).then(d => { LEDGER = d && d.questions ? d : null; renderAiLedger(); if (typeof renderMy === "function") { renderMy(); buildCharts(); } renderLedgerBrowser(); });
+OO_FETCH("data/questions.json", { ttl: 900 }).then(d => { setLedger(d); renderAiLedger(); if (typeof renderMy === "function") { renderMy(); buildCharts(); } renderLedgerBrowser(); });
 
 document.getElementById("aiRunBtn").addEventListener("click", async () => {
   const st = document.getElementById("aiRunStatus");
@@ -205,13 +208,13 @@ function renderMy() {
   const out = document.getElementById("myOut");
   if (!MYF.length) { out.classList.add("hide"); return; }
   out.classList.remove("hide");
-  const bySlug = {}; if (LEDGER) LEDGER.questions.forEach(q => { bySlug[q.slug] = q; });
+  const bySlug = LEDGER_BY;
   const row = (f, k) => {
     const real = !!f.slug, q = real ? bySlug[f.slug] : null;
     const label = real ? (q ? q.question : f.question) : OO.markets[f.i].q;
     const mkt = real ? (q ? q.price : f.marketP) : OO.markets[f.i].yes;
     const d = f.p - mkt * 100;
-    const status = real ? (q && q.resolved != null ? `<span class="tag ${brier(f.p / 100, q.resolved) <= brier(f.marketP, q.resolved) ? "green" : "red"}">${q.resolved ? "YES" : "NO"} · Brier ${brier(f.p / 100, q.resolved).toFixed(3)} vs ${OO_T("tour.ai.mkt")} ${brier(f.marketP, q.resolved).toFixed(3)}</span>` : `<span class="tag">${OO_T("my.real.open")}</span>`) : `<span class="tag purple">${OO_T("my.demo")}</span>`;
+    const status = real ? (gradable(f, q) ? `<span class="tag ${brier(f.p / 100, q.resolved) <= brier(f.marketP, q.resolved) ? "green" : "red"}">${q.resolved ? "YES" : "NO"} · Brier ${brier(f.p / 100, q.resolved).toFixed(3)} vs ${OO_T("tour.ai.mkt")} ${brier(f.marketP, q.resolved).toFixed(3)}</span>` : `<span class="tag">${OO_T("my.real.open")}</span>`) : `<span class="tag purple">${OO_T("my.demo")}</span>`;
     return `<tr>
       <td style="max-width:340px;">${label}</td>
       <td class="num-cell">${f.p}%</td>
@@ -227,7 +230,7 @@ function renderMy() {
 }
 /* graded human forecasts → Brier vs market, and the real calibration points for the chart */
 function gradedHuman(bySlug) {
-  return MYF.filter(f => f.slug && bySlug[f.slug] && bySlug[f.slug].resolved != null).map(f => ({ p: f.p / 100, mp: f.marketP, y: bySlug[f.slug].resolved }));
+  return MYF.filter(f => f.slug && gradable(f, bySlug[f.slug])).map(f => ({ p: f.p / 100, mp: f.marketP, y: bySlug[f.slug].resolved }));
 }
 function humanSummary(bySlug) {
   const g = gradedHuman(bySlug);
@@ -243,8 +246,8 @@ function marketCalibration() {
   return C.bins.map(b => { const pts = res.filter(q => Math.abs(q.priceAtCapture - b) <= 0.05); return pts.length ? pts.reduce((a, q) => a + q.resolved, 0) / pts.length : null; });
 }
 function realCalibration() {
-  const bySlug = {}; if (LEDGER) LEDGER.questions.forEach(q => { bySlug[q.slug] = q; });
-  const g = gradedHuman(bySlug).concat(AIF.map(f => { const q = bySlug[f.slug]; return q && q.resolved != null ? { p: f.p, y: q.resolved } : null; }).filter(Boolean));
+  const bySlug = LEDGER_BY;
+  const g = gradedHuman(bySlug).concat(AIF.map(f => { const q = bySlug[f.slug]; return gradable(f, q) ? { p: f.p, y: q.resolved } : null; }).filter(Boolean));
   if (g.length < 10) return null;
   return C.bins.map(b => { const pts = g.filter(x => Math.abs(x.p - b) <= 0.05); return pts.length ? pts.reduce((a, x) => a + x.y, 0) / pts.length : null; });
 }
@@ -282,9 +285,15 @@ document.getElementById("fcImport").addEventListener("change", (e) => {
   rd.onload = () => {
     try {
       const d = JSON.parse(String(rd.result));
+      if (!d || !Array.isArray(d.my) || !Array.isArray(d.ai)) throw new Error("shape");
+      const pOk = (p, max) => Number.isFinite(p) && p >= 0 && p <= max;
+      /* only well-formed entries are merged: real ones need a slug and in-range prices,
+         demo ones a valid market index — a hand-edited file must not break rendering */
+      const validMy = x => x && typeof x === "object" && (x.slug ? typeof x.slug === "string" && pOk(x.p, 100) && pOk(x.marketP, 1) : Number.isInteger(x.i) && !!OO.markets[x.i] && pOk(x.p, 100));
+      const validAi = x => x && typeof x === "object" && typeof x.slug === "string" && pOk(x.p, 1) && pOk(x.marketP, 1) && typeof x.model === "string";
       const key = x => x.slug ? "s:" + x.slug + ":" + (x.model || "h") : "i:" + x.i;
-      const merge = (cur, inc) => { const seen = new Set(cur.map(key)); (inc || []).forEach(x => { if (!seen.has(key(x))) cur.push(x); }); return cur; };
-      MYF = merge(MYF, d.my); AIF = merge(AIF, d.ai); saveMy(); saveAif(); renderMy(); renderAiLedger(); buildCharts();
+      const merge = (cur, inc, ok) => { const seen = new Set(cur.map(key)); inc.filter(ok).forEach(x => { if (!seen.has(key(x))) { cur.push(x); seen.add(key(x)); } }); return cur; };
+      MYF = merge(MYF, d.my, validMy); AIF = merge(AIF, d.ai, validAi); saveMy(); saveAif(); renderMy(); renderAiLedger(); buildCharts();
     } catch (err) { alert(OO_T("my.import.bad")); }
     e.target.value = "";
   };

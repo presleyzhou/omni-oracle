@@ -205,8 +205,9 @@ async function questionLedger() {
       known.add(m.slug); perEvent++;
     }
   }
-  /* 2. refresh open entries (price, closed, resolution) */
-  const open = ledger.questions.filter(q => !q.closed);
+  /* 2. refresh every unresolved entry (a market can close before UMA resolves it, so
+     closed-but-unresolved entries must keep being polled) */
+  const open = ledger.questions.filter(q => q.resolved == null);
   for (let i = 0; i < open.length; i += 4) {
     await Promise.all(open.slice(i, i + 4).map(async (q) => {
       try {
