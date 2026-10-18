@@ -1,51 +1,59 @@
 {
- "generated": "2026-10-17T10:46:50.531Z",
+ "generated": "2026-10-18T11:07:45.302Z",
  "method": "tf-idf cosine over question text",
  "related": {
   "demo:0": [
    {
-    "id": "demo:1",
-    "s": 0.233
+    "id": "pm:next-white-house-press-secretary-announced-by-october-31-2026",
+    "s": 0.26
+   },
+   {
+    "id": "pm:next-white-house-press-secretary-announced-by-november-30-2026",
+    "s": 0.257
+   },
+   {
+    "id": "pm:next-white-house-press-secretary-announced-by-december-31-2026",
+    "s": 0.257
    },
    {
     "id": "demo:2",
-    "s": 0.194
+    "s": 0.208
    }
   ],
   "demo:1": [
    {
     "id": "pm:us-iran-ceasefire-continues-through-the-midterms",
-    "s": 0.408
+    "s": 0.436
    },
    {
     "id": "pm:hormuz-agreement-by-nov-2-and-the-democrats-win-the-senate",
-    "s": 0.247
+    "s": 0.27
    },
    {
     "id": "pm:will-there-be-a-hormuz-agreement-and-the-democrats-win-the-senate",
-    "s": 0.247
+    "s": 0.27
    },
    {
     "id": "pm:oil-below-80-on-november-2-and-the-democrats-win-the-senate",
-    "s": 0.235
+    "s": 0.258
    }
   ],
   "demo:2": [
    {
     "id": "demo:0",
-    "s": 0.194
+    "s": 0.208
    },
    {
     "id": "pm:will-candidate-z-win-the-next-taipei-mayor-election-20260813125857129",
-    "s": 0.089
+    "s": 0.093
    },
    {
     "id": "pm:will-candidate-y-win-the-next-taipei-mayor-election-20260813125857128",
-    "s": 0.089
+    "s": 0.093
    },
    {
     "id": "pm:will-another-candidate-win-the-next-taipei-mayor-election-20260813125857199",
-    "s": 0.081
+    "s": 0.085
    }
   ],
   "demo:3": [],
@@ -59,62 +67,62 @@
   "demo:6": [
    {
     "id": "pm:another-fed-rate-hike-in-2026",
-    "s": 0.233
+    "s": 0.232
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-december-31-20260918",
-    "s": 0.102
-   },
-   {
-    "id": "pm:us-iran-hormuz-agreement-by-december-31",
-    "s": 0.09
-   }
-  ],
-  "demo:7": [
-   {
-    "id": "pm:us-x-iran-ceasefire-continues-through-december-31-20260918",
-    "s": 0.1
+    "s": 0.099
    },
    {
     "id": "pm:us-iran-hormuz-agreement-by-december-31",
     "s": 0.088
    }
   ],
+  "demo:7": [
+   {
+    "id": "pm:us-x-iran-ceasefire-continues-through-december-31-20260918",
+    "s": 0.097
+   },
+   {
+    "id": "pm:us-iran-hormuz-agreement-by-december-31",
+    "s": 0.086
+   }
+  ],
   "demo:8": [],
   "demo:9": [
    {
     "id": "demo:18",
-    "s": 0.194
+    "s": 0.193
    },
    {
     "id": "pm:no-hormuz-agreement-by-nov-2",
-    "s": 0.148
+    "s": 0.15
    },
    {
     "id": "pm:will-there-be-no-hormuz-agreement",
-    "s": 0.148
+    "s": 0.15
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
-    "s": 0.143
+    "s": 0.147
    }
   ],
   "demo:10": [
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-march-31-2027",
-    "s": 0.28
+    "s": 0.282
    },
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-november-30-2026",
-    "s": 0.17
+    "s": 0.171
    },
    {
     "id": "demo:14",
-    "s": 0.125
+    "s": 0.126
    },
    {
     "id": "demo:17",
-    "s": 0.121
+    "s": 0.122
    }
   ],
   "demo:11": [],
@@ -123,33 +131,33 @@
   "demo:14": [
    {
     "id": "pm:will-google-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841120",
-    "s": 0.164
+    "s": 0.166
    },
    {
     "id": "pm:will-anthropic-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841118",
-    "s": 0.164
-   },
-   {
-    "id": "pm:us-announces-end-of-iranian-blockade-by-march-31-2027",
-    "s": 0.125
+    "s": 0.166
    },
    {
     "id": "demo:10",
+    "s": 0.126
+   },
+   {
+    "id": "pm:us-announces-end-of-iranian-blockade-by-march-31-2027",
     "s": 0.125
    }
   ],
   "demo:15": [
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-november-30-2026",
-    "s": 0.135
-   },
-   {
-    "id": "pm:us-announces-end-of-iranian-blockade-by-march-31-2027",
-    "s": 0.111
+    "s": 0.136
    },
    {
     "id": "demo:10",
-    "s": 0.111
+    "s": 0.112
+   },
+   {
+    "id": "pm:us-announces-end-of-iranian-blockade-by-march-31-2027",
+    "s": 0.112
    }
   ],
   "demo:16": [
@@ -167,33 +175,33 @@
    },
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-march-31-2027",
-    "s": 0.118
+    "s": 0.119
    }
   ],
   "demo:17": [
    {
-    "id": "pm:us-announces-end-of-iranian-blockade-by-march-31-2027",
-    "s": 0.121
+    "id": "demo:10",
+    "s": 0.122
    },
    {
-    "id": "demo:10",
-    "s": 0.121
+    "id": "pm:us-announces-end-of-iranian-blockade-by-march-31-2027",
+    "s": 0.122
    },
    {
     "id": "demo:14",
-    "s": 0.108
+    "s": 0.109
    }
   ],
   "demo:18": [
    {
     "id": "demo:9",
-    "s": 0.194
+    "s": 0.193
    }
   ],
   "demo:19": [
    {
     "id": "pm:will-another-person-win-the-second-round-of-the-2026-brazilian-presidential-election",
-    "s": 0.19
+    "s": 0.188
    },
    {
     "id": "demo:5",
@@ -203,37 +211,37 @@
   "pm:us-x-iran-ceasefire-continues-through-october-31-20260917": [
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-november-15",
-    "s": 0.812
+    "s": 0.827
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-december-31-20260918",
-    "s": 0.812
+    "s": 0.827
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-november-30-20260918",
-    "s": 0.812
+    "s": 0.827
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-november-22",
-    "s": 0.812
+    "s": 0.827
    }
   ],
   "pm:strait-of-hormuz-traffic-returns-to-normal-by-october-31-20260810151043583": [
    {
     "id": "pm:bab-el-mandeb-strait-effectively-closed-by-october-31",
-    "s": 0.208
+    "s": 0.205
    },
    {
     "id": "pm:no-hormuz-agreement-by-nov-2",
-    "s": 0.132
+    "s": 0.135
    },
    {
     "id": "pm:will-there-be-no-hormuz-agreement",
-    "s": 0.132
+    "s": 0.135
    },
    {
     "id": "pm:hormuz-agreement-by-oct-23-and-oil-below-80-and-the-democrats-win-the-senate",
-    "s": 0.122
+    "s": 0.119
    }
   ],
   "pm:kharg-island-no-longer-under-iranian-control-by-december-31-20260730004337418": [
@@ -243,79 +251,79 @@
    },
    {
     "id": "pm:perim-island-no-longer-under-houthi-control-by-october-31-20260916",
-    "s": 0.51
+    "s": 0.513
    },
    {
     "id": "pm:perim-island-no-longer-under-houthi-control-by-november-30-20260916",
-    "s": 0.506
+    "s": 0.508
    },
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-november-30-2026",
-    "s": 0.21
+    "s": 0.211
    }
   ],
   "pm:will-ethereum-dip-to-2250-by-december-31-2026": [
    {
     "id": "pm:will-ethereum-dip-to-2100-in-october-2026",
-    "s": 0.535
+    "s": 0.54
    },
    {
     "id": "pm:will-bitcoin-dip-to-70000-by-december-31-2026-from-august-24",
-    "s": 0.289
+    "s": 0.286
    },
    {
     "id": "pm:will-bitcoin-dip-to-65k-in-october-2026",
-    "s": 0.203
+    "s": 0.205
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-december-31-20260918",
-    "s": 0.127
+    "s": 0.123
    }
   ],
   "pm:us-iran-final-nuclear-deal-by-october-31-2026": [
    {
     "id": "pm:us-iran-hormuz-agreement-by-november-2",
-    "s": 0.242
+    "s": 0.244
    },
    {
     "id": "pm:us-iran-hormuz-agreement-by-december-31",
-    "s": 0.242
+    "s": 0.244
    },
    {
     "id": "pm:us-iran-hormuz-agreement-by-november-30",
-    "s": 0.242
+    "s": 0.244
    },
    {
     "id": "pm:us-iran-ceasefire-continues-through-the-midterms",
-    "s": 0.197
+    "s": 0.198
    }
   ],
   "pm:another-fed-rate-hike-in-2026": [
    {
     "id": "demo:6",
-    "s": 0.233
+    "s": 0.232
    },
    {
     "id": "pm:will-another-candidate-win-the-next-taipei-mayor-election-20260813125857199",
-    "s": 0.159
+    "s": 0.164
    },
    {
     "id": "pm:will-another-list-win-the-most-seats-in-the-2026-serbian-parliamentary-election",
-    "s": 0.158
+    "s": 0.156
    },
    {
     "id": "pm:will-another-person-win-the-second-round-of-the-2026-brazilian-presidential-election",
-    "s": 0.149
+    "s": 0.147
    }
   ],
   "pm:israel-x-iran-ceasefire-continues-through-october-31": [
    {
     "id": "pm:israel-x-iran-ceasefire-continues-through-november-15",
-    "s": 0.885
+    "s": 0.894
    },
    {
     "id": "pm:israel-x-iran-ceasefire-continues-through-november-30",
-    "s": 0.885
+    "s": 0.894
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
@@ -323,27 +331,27 @@
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-november-15",
-    "s": 0.631
+    "s": 0.643
    }
   ],
   "pm:bab-el-mandeb-strait-effectively-closed-by-october-31": [
    {
     "id": "pm:strait-of-hormuz-traffic-returns-to-normal-by-october-31-20260810151043583",
-    "s": 0.208
+    "s": 0.205
    }
   ],
   "pm:will-google-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841120": [
    {
     "id": "pm:will-anthropic-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841118",
-    "s": 0.687
+    "s": 0.686
    },
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-november-30-2026",
-    "s": 0.191
+    "s": 0.19
    },
    {
     "id": "demo:14",
-    "s": 0.164
+    "s": 0.166
    },
    {
     "id": "demo:16",
@@ -353,15 +361,15 @@
   "pm:will-anthropic-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841118": [
    {
     "id": "pm:will-google-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841120",
-    "s": 0.687
+    "s": 0.686
    },
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-november-30-2026",
-    "s": 0.191
+    "s": 0.19
    },
    {
     "id": "demo:14",
-    "s": 0.164
+    "s": 0.166
    },
    {
     "id": "demo:16",
@@ -371,19 +379,19 @@
   "pm:will-bitcoin-dip-to-65k-in-october-2026": [
    {
     "id": "pm:will-bitcoin-dip-to-70000-by-december-31-2026-from-august-24",
-    "s": 0.621
+    "s": 0.625
    },
    {
     "id": "pm:will-ethereum-dip-to-2100-in-october-2026",
-    "s": 0.259
+    "s": 0.256
    },
    {
     "id": "pm:will-bitcoin-reach-87pt5k-in-october-2026",
-    "s": 0.226
+    "s": 0.223
    },
    {
     "id": "pm:will-bitcoin-reach-92pt5k-in-october-2026",
-    "s": 0.226
+    "s": 0.223
    }
   ],
   "pm:will-bitcoin-reach-87pt5k-in-october-2026": [
@@ -393,15 +401,11 @@
    },
    {
     "id": "pm:will-bitcoin-dip-to-65k-in-october-2026",
-    "s": 0.226
+    "s": 0.223
    },
    {
     "id": "pm:will-bitcoin-dip-to-70000-by-december-31-2026-from-august-24",
-    "s": 0.178
-   },
-   {
-    "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
-    "s": 0.084
+    "s": 0.18
    }
   ],
   "pm:will-bitcoin-reach-92pt5k-in-october-2026": [
@@ -411,89 +415,85 @@
    },
    {
     "id": "pm:will-bitcoin-dip-to-65k-in-october-2026",
-    "s": 0.226
+    "s": 0.223
    },
    {
     "id": "pm:will-bitcoin-dip-to-70000-by-december-31-2026-from-august-24",
-    "s": 0.178
-   },
-   {
-    "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
-    "s": 0.084
+    "s": 0.18
    }
   ],
   "pm:any-of-the-cornell-7-charged-with-a-felony-sex-crime": [],
   "pm:israel-accuses-iranproxies-of-plane-stabbing-incident-by-oct-31": [
    {
     "id": "pm:israel-x-iran-ceasefire-continues-through-october-31",
-    "s": 0.257
+    "s": 0.26
    },
    {
     "id": "pm:israel-x-iran-ceasefire-continues-through-november-15",
-    "s": 0.252
+    "s": 0.254
    },
    {
     "id": "pm:israel-x-iran-ceasefire-continues-through-november-30",
-    "s": 0.252
+    "s": 0.254
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
-    "s": 0.093
+    "s": 0.096
    }
   ],
   "pm:will-bitcoin-dip-to-70000-by-december-31-2026-from-august-24": [
    {
     "id": "pm:will-bitcoin-dip-to-65k-in-october-2026",
-    "s": 0.621
+    "s": 0.625
    },
    {
     "id": "pm:will-ethereum-dip-to-2250-by-december-31-2026",
-    "s": 0.289
+    "s": 0.286
    },
    {
     "id": "pm:will-ethereum-dip-to-2100-in-october-2026",
-    "s": 0.204
+    "s": 0.206
    },
    {
     "id": "pm:will-bitcoin-reach-87pt5k-in-october-2026",
-    "s": 0.178
+    "s": 0.18
    }
   ],
   "pm:will-ethereum-dip-to-2100-in-october-2026": [
    {
     "id": "pm:will-ethereum-dip-to-2250-by-december-31-2026",
-    "s": 0.535
+    "s": 0.54
    },
    {
     "id": "pm:will-bitcoin-dip-to-65k-in-october-2026",
-    "s": 0.259
+    "s": 0.256
    },
    {
     "id": "pm:will-bitcoin-dip-to-70000-by-december-31-2026-from-august-24",
-    "s": 0.204
+    "s": 0.206
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
-    "s": 0.097
+    "s": 0.086
    }
   ],
   "pm:plague-pandemic-in-2026": [],
   "pm:will-aleksandar-vucic-united-serbia-win-the-most-seats-in-the-2026-serbian-parliamentary-election": [
    {
     "id": "pm:will-list-z-win-the-most-seats-in-the-2026-serbian-parliamentary-election",
-    "s": 0.619
+    "s": 0.621
    },
    {
     "id": "pm:will-list-y-win-the-most-seats-in-the-2026-serbian-parliamentary-election",
-    "s": 0.619
+    "s": 0.621
    },
    {
     "id": "pm:will-another-list-win-the-most-seats-in-the-2026-serbian-parliamentary-election",
-    "s": 0.577
+    "s": 0.579
    },
    {
     "id": "pm:will-candidate-z-win-the-next-taipei-mayor-election-20260813125857129",
-    "s": 0.091
+    "s": 0.097
    }
   ],
   "pm:will-openai-announce-another-millennium-prize-solution-by-december-31-2026": [
@@ -503,61 +503,69 @@
    },
    {
     "id": "pm:will-another-candidate-win-the-next-taipei-mayor-election-20260813125857199",
-    "s": 0.122
+    "s": 0.125
    },
    {
     "id": "pm:will-another-list-win-the-most-seats-in-the-2026-serbian-parliamentary-election",
-    "s": 0.12
+    "s": 0.119
    },
    {
     "id": "pm:will-another-person-win-the-second-round-of-the-2026-brazilian-presidential-election",
-    "s": 0.114
+    "s": 0.113
    }
   ],
   "pm:will-another-person-win-the-second-round-of-the-2026-brazilian-presidential-election": [
    {
     "id": "pm:will-flavio-bolsonaro-win-the-second-round-of-the-2026-brazilian-presidential-election-by-less-than-4",
-    "s": 0.608
+    "s": 0.609
    },
    {
     "id": "pm:will-luiz-inacio-lula-da-silva-win-the-second-round-of-the-2026-brazilian-presidential-election-by-less-than-4",
-    "s": 0.525
+    "s": 0.527
    },
    {
     "id": "pm:will-another-candidate-win-the-next-taipei-mayor-election-20260813125857199",
-    "s": 0.234
+    "s": 0.243
    },
    {
     "id": "pm:will-another-list-win-the-most-seats-in-the-2026-serbian-parliamentary-election",
-    "s": 0.221
+    "s": 0.223
    }
   ],
   "pm:will-luiz-inacio-lula-da-silva-win-the-second-round-of-the-2026-brazilian-presidential-election-by-less-than-4": [
    {
     "id": "pm:will-flavio-bolsonaro-win-the-second-round-of-the-2026-brazilian-presidential-election-by-less-than-4",
-    "s": 0.572
+    "s": 0.574
    },
    {
     "id": "pm:will-another-person-win-the-second-round-of-the-2026-brazilian-presidential-election",
-    "s": 0.525
+    "s": 0.527
+   },
+   {
+    "id": "pm:will-candidate-z-win-the-next-taipei-mayor-election-20260813125857129",
+    "s": 0.083
+   },
+   {
+    "id": "pm:will-candidate-y-win-the-next-taipei-mayor-election-20260813125857128",
+    "s": 0.083
    }
   ],
   "pm:will-flavio-bolsonaro-win-the-second-round-of-the-2026-brazilian-presidential-election-by-less-than-4": [
    {
     "id": "pm:will-another-person-win-the-second-round-of-the-2026-brazilian-presidential-election",
-    "s": 0.608
+    "s": 0.609
    },
    {
     "id": "pm:will-luiz-inacio-lula-da-silva-win-the-second-round-of-the-2026-brazilian-presidential-election-by-less-than-4",
-    "s": 0.572
+    "s": 0.574
    },
    {
-    "id": "pm:will-list-z-win-the-most-seats-in-the-2026-serbian-parliamentary-election",
-    "s": 0.091
+    "id": "pm:will-candidate-z-win-the-next-taipei-mayor-election-20260813125857129",
+    "s": 0.095
    },
    {
-    "id": "pm:will-list-y-win-the-most-seats-in-the-2026-serbian-parliamentary-election",
-    "s": 0.091
+    "id": "pm:will-candidate-y-win-the-next-taipei-mayor-election-20260813125857128",
+    "s": 0.095
    }
   ],
   "pm:saudi-arabia-military-action-against-yemen-on-october-31": [
@@ -567,15 +575,15 @@
    },
    {
     "id": "pm:us-x-yemen-ceasefire-continues-through-october-31-20260920",
-    "s": 0.281
+    "s": 0.276
    },
    {
     "id": "pm:us-x-yemen-ceasefire-continues-through-october-18",
-    "s": 0.281
+    "s": 0.276
    },
    {
     "id": "pm:us-x-yemen-ceasefire-continues-through-november-30",
-    "s": 0.214
+    "s": 0.215
    }
   ],
   "pm:saudi-arabia-military-action-against-yemen-on-october-30": [
@@ -585,15 +593,15 @@
    },
    {
     "id": "pm:us-x-yemen-ceasefire-continues-through-october-31-20260920",
-    "s": 0.281
+    "s": 0.276
    },
    {
     "id": "pm:us-x-yemen-ceasefire-continues-through-october-18",
-    "s": 0.281
+    "s": 0.276
    },
    {
     "id": "pm:us-x-yemen-ceasefire-continues-through-november-30",
-    "s": 0.214
+    "s": 0.215
    }
   ],
   "pm:will-another-list-win-the-most-seats-in-the-2026-serbian-parliamentary-election": [
@@ -607,11 +615,11 @@
    },
    {
     "id": "pm:will-aleksandar-vucic-united-serbia-win-the-most-seats-in-the-2026-serbian-parliamentary-election",
-    "s": 0.577
+    "s": 0.579
    },
    {
     "id": "pm:will-another-candidate-win-the-next-taipei-mayor-election-20260813125857199",
-    "s": 0.248
+    "s": 0.257
    }
   ],
   "pm:will-list-z-win-the-most-seats-in-the-2026-serbian-parliamentary-election": [
@@ -625,11 +633,11 @@
    },
    {
     "id": "pm:will-aleksandar-vucic-united-serbia-win-the-most-seats-in-the-2026-serbian-parliamentary-election",
-    "s": 0.619
+    "s": 0.621
    },
    {
     "id": "pm:will-candidate-z-win-the-next-taipei-mayor-election-20260813125857129",
-    "s": 0.118
+    "s": 0.125
    }
   ],
   "pm:will-list-y-win-the-most-seats-in-the-2026-serbian-parliamentary-election": [
@@ -643,11 +651,11 @@
    },
    {
     "id": "pm:will-aleksandar-vucic-united-serbia-win-the-most-seats-in-the-2026-serbian-parliamentary-election",
-    "s": 0.619
+    "s": 0.621
    },
    {
     "id": "pm:will-candidate-z-win-the-next-taipei-mayor-election-20260813125857129",
-    "s": 0.118
+    "s": 0.125
    }
   ],
   "pm:us-x-iran-ceasefire-continues-through-november-15": [
@@ -661,29 +669,29 @@
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
-    "s": 0.812
+    "s": 0.827
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-december-31-20260918",
-    "s": 0.788
+    "s": 0.797
    }
   ],
   "pm:us-x-iran-ceasefire-continues-through-december-31-20260918": [
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
-    "s": 0.812
+    "s": 0.827
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-november-15",
-    "s": 0.788
+    "s": 0.797
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-november-30-20260918",
-    "s": 0.788
+    "s": 0.797
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-november-22",
-    "s": 0.788
+    "s": 0.797
    }
   ],
   "pm:us-x-iran-ceasefire-continues-through-november-30-20260918": [
@@ -697,11 +705,11 @@
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
-    "s": 0.812
+    "s": 0.827
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-december-31-20260918",
-    "s": 0.788
+    "s": 0.797
    }
   ],
   "pm:israel-x-iran-ceasefire-continues-through-november-15": [
@@ -711,15 +719,15 @@
    },
    {
     "id": "pm:israel-x-iran-ceasefire-continues-through-october-31",
-    "s": 0.885
+    "s": 0.894
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-november-15",
-    "s": 0.786
+    "s": 0.788
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-november-30-20260918",
-    "s": 0.786
+    "s": 0.788
    }
   ],
   "pm:israel-x-iran-ceasefire-continues-through-november-30": [
@@ -729,25 +737,25 @@
    },
    {
     "id": "pm:israel-x-iran-ceasefire-continues-through-october-31",
-    "s": 0.885
+    "s": 0.894
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-november-15",
-    "s": 0.786
+    "s": 0.788
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-november-30-20260918",
-    "s": 0.786
+    "s": 0.788
    }
   ],
   "pm:us-announces-end-of-iranian-blockade-by-march-31-2027": [
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-november-30-2026",
-    "s": 0.75
+    "s": 0.752
    },
    {
     "id": "demo:10",
-    "s": 0.28
+    "s": 0.282
    },
    {
     "id": "pm:kharg-island-no-longer-under-iranian-control-by-december-31-20260730004337418",
@@ -755,61 +763,61 @@
    },
    {
     "id": "pm:will-google-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841120",
-    "s": 0.141
+    "s": 0.143
    }
   ],
   "pm:us-announces-end-of-iranian-blockade-by-november-30-2026": [
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-march-31-2027",
-    "s": 0.75
+    "s": 0.752
    },
    {
     "id": "pm:kharg-island-no-longer-under-iranian-control-by-december-31-20260730004337418",
-    "s": 0.21
+    "s": 0.211
    },
    {
     "id": "pm:will-google-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841120",
-    "s": 0.191
+    "s": 0.19
    },
    {
     "id": "pm:will-anthropic-have-the-best-ai-model-at-the-end-of-october-2026-20260811194841118",
-    "s": 0.191
+    "s": 0.19
    }
   ],
   "pm:us-iran-ceasefire-continues-through-the-midterms": [
    {
     "id": "demo:1",
-    "s": 0.408
+    "s": 0.436
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
-    "s": 0.403
+    "s": 0.412
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-november-15",
-    "s": 0.391
+    "s": 0.397
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-december-31-20260918",
-    "s": 0.391
+    "s": 0.397
    }
   ],
   "pm:will-another-candidate-win-the-next-taipei-mayor-election-20260813125857199": [
    {
     "id": "pm:will-candidate-z-win-the-next-taipei-mayor-election-20260813125857129",
-    "s": 0.913
+    "s": 0.909
    },
    {
     "id": "pm:will-candidate-y-win-the-next-taipei-mayor-election-20260813125857128",
-    "s": 0.913
+    "s": 0.909
    },
    {
     "id": "pm:will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101",
-    "s": 0.546
+    "s": 0.532
    },
    {
     "id": "pm:will-puma-shen-win-the-next-taipei-mayor-election-20260813125857102",
-    "s": 0.546
+    "s": 0.532
    }
   ],
   "pm:will-candidate-z-win-the-next-taipei-mayor-election-20260813125857129": [
@@ -819,15 +827,15 @@
    },
    {
     "id": "pm:will-another-candidate-win-the-next-taipei-mayor-election-20260813125857199",
-    "s": 0.913
+    "s": 0.909
    },
    {
     "id": "pm:will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101",
-    "s": 0.598
+    "s": 0.585
    },
    {
     "id": "pm:will-puma-shen-win-the-next-taipei-mayor-election-20260813125857102",
-    "s": 0.598
+    "s": 0.585
    }
   ],
   "pm:will-candidate-y-win-the-next-taipei-mayor-election-20260813125857128": [
@@ -837,51 +845,51 @@
    },
    {
     "id": "pm:will-another-candidate-win-the-next-taipei-mayor-election-20260813125857199",
-    "s": 0.913
+    "s": 0.909
    },
    {
     "id": "pm:will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101",
-    "s": 0.598
+    "s": 0.585
    },
    {
     "id": "pm:will-puma-shen-win-the-next-taipei-mayor-election-20260813125857102",
-    "s": 0.598
+    "s": 0.585
    }
   ],
   "pm:will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101": [
    {
     "id": "pm:will-candidate-z-win-the-next-taipei-mayor-election-20260813125857129",
-    "s": 0.598
+    "s": 0.585
    },
    {
     "id": "pm:will-candidate-y-win-the-next-taipei-mayor-election-20260813125857128",
-    "s": 0.598
+    "s": 0.585
    },
    {
     "id": "pm:will-another-candidate-win-the-next-taipei-mayor-election-20260813125857199",
-    "s": 0.546
+    "s": 0.532
    },
    {
     "id": "pm:will-puma-shen-win-the-next-taipei-mayor-election-20260813125857102",
-    "s": 0.486
+    "s": 0.472
    }
   ],
   "pm:will-puma-shen-win-the-next-taipei-mayor-election-20260813125857102": [
    {
     "id": "pm:will-candidate-z-win-the-next-taipei-mayor-election-20260813125857129",
-    "s": 0.598
+    "s": 0.585
    },
    {
     "id": "pm:will-candidate-y-win-the-next-taipei-mayor-election-20260813125857128",
-    "s": 0.598
+    "s": 0.585
    },
    {
     "id": "pm:will-another-candidate-win-the-next-taipei-mayor-election-20260813125857199",
-    "s": 0.546
+    "s": 0.532
    },
    {
     "id": "pm:will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101",
-    "s": 0.486
+    "s": 0.472
    }
   ],
   "pm:no-hormuz-agreement-by-nov-2": [
@@ -891,11 +899,11 @@
    },
    {
     "id": "pm:hormuz-agreement-by-nov-2-and-the-democrats-win-the-senate",
-    "s": 0.74
+    "s": 0.739
    },
    {
     "id": "pm:will-there-be-a-hormuz-agreement-and-the-democrats-win-the-senate",
-    "s": 0.74
+    "s": 0.739
    },
    {
     "id": "pm:hormuz-agreement-by-nov-2-and-the-republicans-win-the-senate",
@@ -909,15 +917,15 @@
    },
    {
     "id": "pm:hormuz-agreement-by-oct-23-and-oil-below-80-and-the-democrats-win-the-senate",
-    "s": 0.786
+    "s": 0.791
    },
    {
-    "id": "pm:no-hormuz-agreement-by-nov-2",
-    "s": 0.74
+    "id": "pm:hormuz-agreement-by-nov-2-and-the-republicans-win-the-senate",
+    "s": 0.739
    },
    {
-    "id": "pm:will-there-be-no-hormuz-agreement",
-    "s": 0.74
+    "id": "pm:will-there-be-a-hormuz-agreement-and-the-republicans-win-the-senate",
+    "s": 0.739
    }
   ],
   "pm:hormuz-agreement-by-nov-2-and-the-republicans-win-the-senate": [
@@ -927,15 +935,15 @@
    },
    {
     "id": "pm:no-hormuz-agreement-by-oct-23-or-oil-at-least-80-and-the-republicans-win-the-senate",
-    "s": 0.74
+    "s": 0.744
    },
    {
     "id": "pm:hormuz-agreement-by-nov-2-and-the-democrats-win-the-senate",
-    "s": 0.736
+    "s": 0.739
    },
    {
     "id": "pm:will-there-be-a-hormuz-agreement-and-the-democrats-win-the-senate",
-    "s": 0.736
+    "s": 0.739
    }
   ],
   "pm:will-there-be-no-hormuz-agreement": [
@@ -945,11 +953,11 @@
    },
    {
     "id": "pm:hormuz-agreement-by-nov-2-and-the-democrats-win-the-senate",
-    "s": 0.74
+    "s": 0.739
    },
    {
     "id": "pm:will-there-be-a-hormuz-agreement-and-the-democrats-win-the-senate",
-    "s": 0.74
+    "s": 0.739
    },
    {
     "id": "pm:hormuz-agreement-by-nov-2-and-the-republicans-win-the-senate",
@@ -963,15 +971,15 @@
    },
    {
     "id": "pm:hormuz-agreement-by-oct-23-and-oil-below-80-and-the-democrats-win-the-senate",
-    "s": 0.786
+    "s": 0.791
    },
    {
-    "id": "pm:no-hormuz-agreement-by-nov-2",
-    "s": 0.74
+    "id": "pm:hormuz-agreement-by-nov-2-and-the-republicans-win-the-senate",
+    "s": 0.739
    },
    {
-    "id": "pm:will-there-be-no-hormuz-agreement",
-    "s": 0.74
+    "id": "pm:will-there-be-a-hormuz-agreement-and-the-republicans-win-the-senate",
+    "s": 0.739
    }
   ],
   "pm:will-there-be-a-hormuz-agreement-and-the-republicans-win-the-senate": [
@@ -981,15 +989,15 @@
    },
    {
     "id": "pm:no-hormuz-agreement-by-oct-23-or-oil-at-least-80-and-the-republicans-win-the-senate",
-    "s": 0.74
+    "s": 0.744
    },
    {
     "id": "pm:hormuz-agreement-by-nov-2-and-the-democrats-win-the-senate",
-    "s": 0.736
+    "s": 0.739
    },
    {
     "id": "pm:will-there-be-a-hormuz-agreement-and-the-democrats-win-the-senate",
-    "s": 0.736
+    "s": 0.739
    }
   ],
   "pm:will-texas-enact-a-data-center-moratorium-by-december-31-2026": [
@@ -999,11 +1007,11 @@
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-december-31-20260918",
-    "s": 0.097
+    "s": 0.094
    },
    {
     "id": "pm:us-iran-hormuz-agreement-by-december-31",
-    "s": 0.086
+    "s": 0.084
    }
   ],
   "pm:will-ohio-enact-a-data-center-moratorium-by-december-31-2026": [
@@ -1013,11 +1021,11 @@
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-december-31-20260918",
-    "s": 0.097
+    "s": 0.094
    },
    {
     "id": "pm:us-iran-hormuz-agreement-by-december-31",
-    "s": 0.086
+    "s": 0.084
    }
   ],
   "pm:us-x-yemen-ceasefire-continues-through-october-31-20260920": [
@@ -1027,15 +1035,15 @@
    },
    {
     "id": "pm:us-x-yemen-ceasefire-continues-through-november-30",
-    "s": 0.856
+    "s": 0.867
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
-    "s": 0.646
+    "s": 0.641
    },
    {
     "id": "pm:israel-x-iran-ceasefire-continues-through-october-31",
-    "s": 0.502
+    "s": 0.498
    }
   ],
   "pm:no-hormuz-agreement-by-oct-23-or-oil-at-least-80-and-the-democrats-win-the-senate": [
@@ -1049,11 +1057,11 @@
    },
    {
     "id": "pm:oil-at-least-80-on-november-2-and-the-democrats-win-the-senate",
-    "s": 0.777
+    "s": 0.78
    },
    {
     "id": "pm:hormuz-agreement-by-nov-2-and-the-democrats-win-the-senate",
-    "s": 0.722
+    "s": 0.727
    }
   ],
   "pm:no-hormuz-agreement-by-oct-23-or-oil-at-least-80-and-the-republicans-win-the-senate": [
@@ -1063,15 +1071,15 @@
    },
    {
     "id": "pm:oil-at-least-80-on-november-2-and-the-republicans-win-the-senate",
-    "s": 0.79
+    "s": 0.793
    },
    {
     "id": "pm:hormuz-agreement-by-oct-23-and-oil-below-80-and-the-democrats-win-the-senate",
-    "s": 0.769
+    "s": 0.77
    },
    {
     "id": "pm:hormuz-agreement-by-nov-2-and-the-republicans-win-the-senate",
-    "s": 0.74
+    "s": 0.744
    }
   ],
   "pm:hormuz-agreement-by-oct-23-and-oil-below-80-and-the-democrats-win-the-senate": [
@@ -1081,15 +1089,15 @@
    },
    {
     "id": "pm:hormuz-agreement-by-nov-2-and-the-democrats-win-the-senate",
-    "s": 0.786
+    "s": 0.791
    },
    {
     "id": "pm:will-there-be-a-hormuz-agreement-and-the-democrats-win-the-senate",
-    "s": 0.786
+    "s": 0.791
    },
    {
     "id": "pm:no-hormuz-agreement-by-oct-23-or-oil-at-least-80-and-the-republicans-win-the-senate",
-    "s": 0.769
+    "s": 0.77
    }
   ],
   "pm:oil-at-least-85-on-november-2-and-the-democrats-win-the-senate": [
@@ -1103,11 +1111,11 @@
    },
    {
     "id": "pm:oil-at-least-80-on-november-2-and-the-democrats-win-the-senate",
-    "s": 0.75
+    "s": 0.752
    },
    {
     "id": "pm:oil-below-80-on-november-2-and-the-democrats-win-the-senate",
-    "s": 0.616
+    "s": 0.619
    }
   ],
   "pm:oil-at-least-85-on-november-2-and-the-republicans-win-the-senate": [
@@ -1117,15 +1125,15 @@
    },
    {
     "id": "pm:oil-at-least-80-on-november-2-and-the-republicans-win-the-senate",
-    "s": 0.768
+    "s": 0.769
    },
    {
     "id": "pm:oil-below-85-on-november-2-and-the-democrats-win-the-senate",
-    "s": 0.712
+    "s": 0.711
    },
    {
     "id": "pm:no-hormuz-agreement-by-oct-23-or-oil-at-least-80-and-the-republicans-win-the-senate",
-    "s": 0.593
+    "s": 0.596
    }
   ],
   "pm:oil-below-85-on-november-2-and-the-democrats-win-the-senate": [
@@ -1135,21 +1143,21 @@
    },
    {
     "id": "pm:oil-at-least-85-on-november-2-and-the-republicans-win-the-senate",
-    "s": 0.712
+    "s": 0.711
    },
    {
     "id": "pm:oil-below-80-on-november-2-and-the-democrats-win-the-senate",
-    "s": 0.686
+    "s": 0.689
    },
    {
     "id": "pm:oil-at-least-80-on-november-2-and-the-democrats-win-the-senate",
-    "s": 0.609
+    "s": 0.612
    }
   ],
   "pm:oil-at-least-80-on-november-2-and-the-democrats-win-the-senate": [
    {
     "id": "pm:oil-below-80-on-november-2-and-the-democrats-win-the-senate",
-    "s": 0.887
+    "s": 0.888
    },
    {
     "id": "pm:oil-at-least-80-on-november-2-and-the-republicans-win-the-senate",
@@ -1157,11 +1165,11 @@
    },
    {
     "id": "pm:no-hormuz-agreement-by-oct-23-or-oil-at-least-80-and-the-democrats-win-the-senate",
-    "s": 0.777
+    "s": 0.78
    },
    {
     "id": "pm:oil-at-least-85-on-november-2-and-the-democrats-win-the-senate",
-    "s": 0.75
+    "s": 0.752
    }
   ],
   "pm:oil-at-least-80-on-november-2-and-the-republicans-win-the-senate": [
@@ -1171,33 +1179,33 @@
    },
    {
     "id": "pm:no-hormuz-agreement-by-oct-23-or-oil-at-least-80-and-the-republicans-win-the-senate",
-    "s": 0.79
+    "s": 0.793
    },
    {
     "id": "pm:oil-at-least-85-on-november-2-and-the-republicans-win-the-senate",
-    "s": 0.768
+    "s": 0.769
    },
    {
     "id": "pm:oil-below-80-on-november-2-and-the-democrats-win-the-senate",
-    "s": 0.681
+    "s": 0.682
    }
   ],
   "pm:oil-below-80-on-november-2-and-the-democrats-win-the-senate": [
    {
     "id": "pm:oil-at-least-80-on-november-2-and-the-democrats-win-the-senate",
-    "s": 0.887
+    "s": 0.888
    },
    {
     "id": "pm:hormuz-agreement-by-oct-23-and-oil-below-80-and-the-democrats-win-the-senate",
-    "s": 0.729
+    "s": 0.734
    },
    {
     "id": "pm:oil-below-85-on-november-2-and-the-democrats-win-the-senate",
-    "s": 0.686
+    "s": 0.689
    },
    {
     "id": "pm:oil-at-least-80-on-november-2-and-the-republicans-win-the-senate",
-    "s": 0.681
+    "s": 0.682
    }
   ],
   "pm:will-russia-target-kyiv-on-october-31-2026": [
@@ -1206,16 +1214,16 @@
     "s": 1
    },
    {
+    "id": "pm:will-ukraine-target-moscow-on-october-31-2026",
+    "s": 0.324
+   },
+   {
+    "id": "pm:will-ukraine-target-moscow-on-october-30-2026",
+    "s": 0.324
+   },
+   {
     "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
-    "s": 0.095
-   },
-   {
-    "id": "pm:us-x-yemen-ceasefire-continues-through-october-31-20260920",
-    "s": 0.083
-   },
-   {
-    "id": "pm:us-x-yemen-ceasefire-continues-through-october-18",
-    "s": 0.083
+    "s": 0.088
    }
   ],
   "pm:will-russia-target-kyiv-on-october-30-2026": [
@@ -1224,16 +1232,16 @@
     "s": 1
    },
    {
+    "id": "pm:will-ukraine-target-moscow-on-october-31-2026",
+    "s": 0.324
+   },
+   {
+    "id": "pm:will-ukraine-target-moscow-on-october-30-2026",
+    "s": 0.324
+   },
+   {
     "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
-    "s": 0.095
-   },
-   {
-    "id": "pm:us-x-yemen-ceasefire-continues-through-october-31-20260920",
-    "s": 0.083
-   },
-   {
-    "id": "pm:us-x-yemen-ceasefire-continues-through-october-18",
-    "s": 0.083
+    "s": 0.088
    }
   ],
   "pm:us-x-yemen-ceasefire-continues-through-october-18": [
@@ -1243,79 +1251,79 @@
    },
    {
     "id": "pm:us-x-yemen-ceasefire-continues-through-november-30",
-    "s": 0.856
+    "s": 0.867
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
-    "s": 0.646
+    "s": 0.641
    },
    {
     "id": "pm:israel-x-iran-ceasefire-continues-through-october-31",
-    "s": 0.502
+    "s": 0.498
    }
   ],
   "pm:will-mohammed-bin-abdulrahman-al-thani-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2": [
    {
     "id": "pm:will-mohammed-bin-salman-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026",
-    "s": 0.711
+    "s": 0.712
    },
    {
     "id": "pm:will-jared-kushner-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.426
+    "s": 0.428
    },
    {
     "id": "pm:will-abbas-araghchi-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.426
+    "s": 0.428
    },
    {
     "id": "pm:will-steve-witkoff-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.426
+    "s": 0.428
    }
   ],
   "pm:will-jared-kushner-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2": [
    {
     "id": "pm:will-abbas-araghchi-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.504
+    "s": 0.506
    },
    {
     "id": "pm:will-steve-witkoff-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.504
+    "s": 0.506
    },
    {
     "id": "pm:will-mohammed-bin-salman-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026",
-    "s": 0.47
+    "s": 0.472
    },
    {
     "id": "pm:will-mohammed-bin-abdulrahman-al-thani-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.426
+    "s": 0.428
    }
   ],
   "pm:will-abbas-araghchi-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2": [
    {
     "id": "pm:will-jared-kushner-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.504
+    "s": 0.506
    },
    {
     "id": "pm:will-steve-witkoff-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.504
+    "s": 0.506
    },
    {
     "id": "pm:will-mohammed-bin-salman-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026",
-    "s": 0.47
+    "s": 0.472
    },
    {
     "id": "pm:will-mohammed-bin-abdulrahman-al-thani-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.426
+    "s": 0.428
    }
   ],
   "pm:us-x-yemen-ceasefire-continues-through-november-30": [
    {
     "id": "pm:us-x-yemen-ceasefire-continues-through-october-31-20260920",
-    "s": 0.856
+    "s": 0.867
    },
    {
     "id": "pm:us-x-yemen-ceasefire-continues-through-october-18",
-    "s": 0.856
+    "s": 0.867
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-november-15",
@@ -1329,37 +1337,37 @@
   "pm:will-mohammed-bin-salman-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026": [
    {
     "id": "pm:will-mohammed-bin-abdulrahman-al-thani-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.711
+    "s": 0.712
    },
    {
     "id": "pm:will-jared-kushner-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.47
+    "s": 0.472
    },
    {
     "id": "pm:will-abbas-araghchi-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.47
+    "s": 0.472
    },
    {
     "id": "pm:will-steve-witkoff-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.47
+    "s": 0.472
    }
   ],
   "pm:will-steve-witkoff-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2": [
    {
     "id": "pm:will-jared-kushner-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.504
+    "s": 0.506
    },
    {
     "id": "pm:will-abbas-araghchi-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.504
+    "s": 0.506
    },
    {
     "id": "pm:will-mohammed-bin-salman-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026",
-    "s": 0.47
+    "s": 0.472
    },
    {
     "id": "pm:will-mohammed-bin-abdulrahman-al-thani-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.426
+    "s": 0.428
    }
   ],
   "pm:us-iran-hormuz-agreement-by-november-2": [
@@ -1369,33 +1377,33 @@
    },
    {
     "id": "pm:us-iran-hormuz-agreement-by-december-31",
-    "s": 0.834
+    "s": 0.841
    },
    {
     "id": "pm:no-hormuz-agreement-by-nov-2",
-    "s": 0.492
+    "s": 0.498
    },
    {
     "id": "pm:will-there-be-no-hormuz-agreement",
-    "s": 0.492
+    "s": 0.498
    }
   ],
   "pm:us-iran-hormuz-agreement-by-december-31": [
    {
     "id": "pm:us-iran-hormuz-agreement-by-november-2",
-    "s": 0.834
+    "s": 0.841
    },
    {
     "id": "pm:us-iran-hormuz-agreement-by-november-30",
-    "s": 0.834
+    "s": 0.841
    },
    {
     "id": "pm:no-hormuz-agreement-by-nov-2",
-    "s": 0.492
+    "s": 0.498
    },
    {
     "id": "pm:will-there-be-no-hormuz-agreement",
-    "s": 0.492
+    "s": 0.498
    }
   ],
   "pm:us-iran-hormuz-agreement-by-november-30": [
@@ -1405,15 +1413,15 @@
    },
    {
     "id": "pm:us-iran-hormuz-agreement-by-december-31",
-    "s": 0.834
+    "s": 0.841
    },
    {
     "id": "pm:no-hormuz-agreement-by-nov-2",
-    "s": 0.492
+    "s": 0.498
    },
    {
     "id": "pm:will-there-be-no-hormuz-agreement",
-    "s": 0.492
+    "s": 0.498
    }
   ],
   "pm:us-x-iran-ceasefire-continues-through-november-22": [
@@ -1427,39 +1435,39 @@
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
-    "s": 0.812
+    "s": 0.827
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-december-31-20260918",
-    "s": 0.788
+    "s": 0.797
    }
   ],
   "pm:perim-island-no-longer-under-houthi-control-by-november-30-20260916": [
    {
     "id": "pm:perim-island-no-longer-under-houthi-control-by-october-31-20260916",
-    "s": 0.947
+    "s": 0.951
    },
    {
     "id": "pm:perim-island-no-longer-under-houthi-control-by-december-31-20260916",
-    "s": 0.939
+    "s": 0.941
    },
    {
     "id": "pm:kharg-island-no-longer-under-iranian-control-by-december-31-20260730004337418",
-    "s": 0.506
+    "s": 0.508
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-november-15",
-    "s": 0.113
+    "s": 0.109
    }
   ],
   "pm:perim-island-no-longer-under-houthi-control-by-december-31-20260916": [
    {
     "id": "pm:perim-island-no-longer-under-houthi-control-by-october-31-20260916",
-    "s": 0.947
+    "s": 0.951
    },
    {
     "id": "pm:perim-island-no-longer-under-houthi-control-by-november-30-20260916",
-    "s": 0.939
+    "s": 0.941
    },
    {
     "id": "pm:kharg-island-no-longer-under-iranian-control-by-december-31-20260730004337418",
@@ -1467,25 +1475,123 @@
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-december-31-20260918",
-    "s": 0.113
+    "s": 0.109
    }
   ],
   "pm:perim-island-no-longer-under-houthi-control-by-october-31-20260916": [
    {
     "id": "pm:perim-island-no-longer-under-houthi-control-by-november-30-20260916",
-    "s": 0.947
+    "s": 0.951
    },
    {
     "id": "pm:perim-island-no-longer-under-houthi-control-by-december-31-20260916",
-    "s": 0.947
+    "s": 0.951
    },
    {
     "id": "pm:kharg-island-no-longer-under-iranian-control-by-december-31-20260730004337418",
-    "s": 0.51
+    "s": 0.513
+   }
+  ],
+  "pm:next-white-house-press-secretary-announced-by-november-30-2026": [
+   {
+    "id": "pm:next-white-house-press-secretary-announced-by-october-31-2026",
+    "s": 0.957
+   },
+   {
+    "id": "pm:next-white-house-press-secretary-announced-by-december-31-2026",
+    "s": 0.948
+   },
+   {
+    "id": "demo:0",
+    "s": 0.257
+   },
+   {
+    "id": "demo:1",
+    "s": 0.217
+   }
+  ],
+  "pm:next-white-house-press-secretary-announced-by-december-31-2026": [
+   {
+    "id": "pm:next-white-house-press-secretary-announced-by-october-31-2026",
+    "s": 0.957
+   },
+   {
+    "id": "pm:next-white-house-press-secretary-announced-by-november-30-2026",
+    "s": 0.948
+   },
+   {
+    "id": "demo:0",
+    "s": 0.257
+   },
+   {
+    "id": "demo:1",
+    "s": 0.217
+   }
+  ],
+  "pm:next-white-house-press-secretary-announced-by-october-31-2026": [
+   {
+    "id": "pm:next-white-house-press-secretary-announced-by-november-30-2026",
+    "s": 0.957
+   },
+   {
+    "id": "pm:next-white-house-press-secretary-announced-by-december-31-2026",
+    "s": 0.957
+   },
+   {
+    "id": "demo:0",
+    "s": 0.26
+   },
+   {
+    "id": "demo:1",
+    "s": 0.219
+   }
+  ],
+  "pm:will-grand-theft-auto-vi-launch-trailer-get-between-60-and-80-million-views-on-week-1": [
+   {
+    "id": "pm:will-grand-theft-auto-vi-launch-trailer-get-between-40-and-60-million-views-on-week-1",
+    "s": 1
+   }
+  ],
+  "pm:will-grand-theft-auto-vi-launch-trailer-get-between-40-and-60-million-views-on-week-1": [
+   {
+    "id": "pm:will-grand-theft-auto-vi-launch-trailer-get-between-60-and-80-million-views-on-week-1",
+    "s": 1
+   }
+  ],
+  "pm:will-ukraine-target-moscow-on-october-31-2026": [
+   {
+    "id": "pm:will-ukraine-target-moscow-on-october-30-2026",
+    "s": 1
+   },
+   {
+    "id": "pm:will-russia-target-kyiv-on-october-31-2026",
+    "s": 0.324
+   },
+   {
+    "id": "pm:will-russia-target-kyiv-on-october-30-2026",
+    "s": 0.324
    },
    {
     "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
-    "s": 0.085
+    "s": 0.088
+   }
+  ],
+  "pm:will-ukraine-target-moscow-on-october-30-2026": [
+   {
+    "id": "pm:will-ukraine-target-moscow-on-october-31-2026",
+    "s": 1
+   },
+   {
+    "id": "pm:will-russia-target-kyiv-on-october-31-2026",
+    "s": 0.324
+   },
+   {
+    "id": "pm:will-russia-target-kyiv-on-october-30-2026",
+    "s": 0.324
+   },
+   {
+    "id": "pm:us-x-iran-ceasefire-continues-through-october-31-20260917",
+    "s": 0.088
    }
   ]
  }

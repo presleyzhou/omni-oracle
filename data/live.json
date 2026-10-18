@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T10:46:07.018Z",
+ "generated": "2026-10-18T11:07:01.914Z",
  "worldbank": {
   "USA": {
    "cpi": [
@@ -134,38 +134,6 @@
    ]
   },
   "EUU": {
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 2.46605755272817
-     },
-     {
-      "date": "2024",
-      "value": 2.43531202435314
-     },
-     {
-      "date": "2023",
-      "value": 6.29942487419124
-     },
-     {
-      "date": "2022",
-      "value": 8.83346218008716
-     },
-     {
-      "date": "2021",
-      "value": 2.5545069964204
-     }
-    ]
-   ],
    "gdp": [
     {
      "page": 1,
@@ -197,10 +165,8 @@
       "value": 6.37773717070797
      }
     ]
-   ]
-  },
-  "JPN": {
-   "gdp": [
+   ],
+   "cpi": [
     {
      "page": 1,
      "pages": 1,
@@ -212,26 +178,28 @@
     [
      {
       "date": "2025",
-      "value": 1.19311288444599
+      "value": 2.46605755272817
      },
      {
       "date": "2024",
-      "value": -0.240084236041696
+      "value": 2.43531202435314
      },
      {
       "date": "2023",
-      "value": 0.720785304749811
+      "value": 6.29942487419124
      },
      {
       "date": "2022",
-      "value": 1.33164750653741
+      "value": 8.83346218008716
      },
      {
       "date": "2021",
-      "value": 3.56419531474475
+      "value": 2.5545069964204
      }
     ]
-   ],
+   ]
+  },
+  "JPN": {
    "cpi": [
     {
      "page": 1,
@@ -261,6 +229,38 @@
      {
       "date": "2021",
       "value": -0.233352779398263
+     }
+    ]
+   ],
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 1.19311288444599
+     },
+     {
+      "date": "2024",
+      "value": -0.240084236041696
+     },
+     {
+      "date": "2023",
+      "value": 0.720785304749811
+     },
+     {
+      "date": "2022",
+      "value": 1.33164750653741
+     },
+     {
+      "date": "2021",
+      "value": 3.56419531474475
      }
     ]
    ]
@@ -1581,6 +1581,12 @@
   ]
  },
  "quotes": {
+  "NVDA": {
+   "data": {
+    "p": 214.13,
+    "cp": -1.43
+   }
+  },
   "GOOGL": {
    "data": {
     "p": 340.59,
@@ -1593,28 +1599,10 @@
     "cp": -1.93
    }
   },
-  "NVDA": {
-   "data": {
-    "p": 214.13,
-    "cp": -1.43
-   }
-  },
   "AAPL": {
    "data": {
     "p": 343.46,
     "cp": 0.43
-   }
-  },
-  "VRT": {
-   "data": {
-    "p": 206.42,
-    "cp": -3.88
-   }
-  },
-  "MU": {
-   "data": {
-    "p": 878.84,
-    "cp": -5.63
    }
   },
   "AVGO": {
@@ -1623,16 +1611,28 @@
     "cp": -4.52
    }
   },
+  "VRT": {
+   "data": {
+    "p": 206.42,
+    "cp": -3.88
+   }
+  },
   "META": {
    "data": {
     "p": 709.325,
     "cp": -3.72
    }
   },
-  "ISRG": {
+  "MU": {
    "data": {
-    "p": 426.7,
-    "cp": -0.27
+    "p": 878.84,
+    "cp": -5.63
+   }
+  },
+  "TSLA": {
+   "data": {
+    "p": 354.72,
+    "cp": -2.13
    }
   },
   "NVO": {
@@ -1647,10 +1647,22 @@
     "cp": 0.43
    }
   },
-  "TSLA": {
+  "ISRG": {
    "data": {
-    "p": 354.72,
-    "cp": -2.13
+    "p": 426.7,
+    "cp": -0.27
+   }
+  },
+  "GEV": {
+   "data": {
+    "p": 921.2,
+    "cp": -0.57
+   }
+  },
+  "CEG": {
+   "data": {
+    "p": 271.37,
+    "cp": -1.32
    }
   },
   "IONQ": {
@@ -1663,18 +1675,6 @@
    "data": {
     "p": 50.84,
     "cp": -7.98
-   }
-  },
-  "CEG": {
-   "data": {
-    "p": 271.37,
-    "cp": -1.32
-   }
-  },
-  "GEV": {
-   "data": {
-    "p": 921.2,
-    "cp": -0.57
    }
   }
  },
@@ -6452,60 +6452,60 @@
  ],
  "coingecko": {
   "bitcoin": {
-   "usd": 81555,
-   "usd_24h_change": -0.7036240914561562
+   "usd": 82009,
+   "usd_24h_change": 0.5421289687746306
   },
   "ethereum": {
-   "usd": 2435.86,
-   "usd_24h_change": -1.0412577943476302
+   "usd": 2416.33,
+   "usd_24h_change": -0.8800997431722537
   },
   "solana": {
-   "usd": 104.83,
-   "usd_24h_change": -1.5545259030624652
+   "usd": 103.93,
+   "usd_24h_change": -0.802988354465046
   }
  },
  "polymarket": [
   {
+   "question": "Shanghai Rolex Masters: Alejandro Davidovich Fokina vs Rafael Jodar",
+   "slug": "atp-fokina-jodar-2026-10-18",
+   "volume24hr": 1398295.0673890007,
+   "outcomePrices": "[\"0.915\", \"0.085\"]",
+   "outcomes": "[\"Alejandro Davidovich Fokina\", \"Rafael Jodar\"]"
+  },
+  {
+   "question": "Will Flávio Bolsonaro win the 2026 Brazilian presidential election?",
+   "slug": "will-flvio-bolsonaro-win-the-2026-brazilian-presidential-election",
+   "volume24hr": 951961.3220729978,
+   "outcomePrices": "[\"0.8085\", \"0.1915\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
+  },
+  {
+   "question": "Will Luiz Inácio Lula da Silva win the 2026 Brazilian presidential election?",
+   "slug": "will-luiz-incio-lula-da-silva-win-the-2026-brazilian-presidential-election",
+   "volume24hr": 784954.1833349997,
+   "outcomePrices": "[\"0.195\", \"0.805\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
+  },
+  {
+   "question": "Spread: Jaguars (-2.5)",
+   "slug": "nfl-hou-jax-2026-10-18-spread-home-2pt5",
+   "volume24hr": 530061.1035989999,
+   "outcomePrices": "[\"0.505\", \"0.495\"]",
+   "outcomes": "[\"Jaguars\", \"Texans\"]"
+  },
+  {
    "question": "Will the Tesla Roadster's 0-60 time be less than 1 second?",
    "slug": "will-the-tesla-roadsters-0-60-time-be-less-than-1-second",
-   "volume24hr": 5411960.689601001,
+   "volume24hr": 474010.86,
    "outcomePrices": "[\"0.9995\", \"0.0005\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Valorant: Team Vitality vs 100 Thieves (BO5) - VCT Champions Playoffs",
-   "slug": "val-vit-100t1-2026-10-17",
-   "volume24hr": 1126221.7002500012,
-   "outcomePrices": "[\"0.625\", \"0.375\"]",
-   "outcomes": "[\"Team Vitality\", \"100 Thieves\"]"
-  },
-  {
-   "question": "Shanghai Rolex Masters: Alexander Zverev vs Alejandro Davidovich Fokina",
-   "slug": "atp-zverev-fokina-2026-10-16",
-   "volume24hr": 1017191.5136489993,
-   "outcomePrices": "[\"0.0005\", \"0.9995\"]",
-   "outcomes": "[\"Alexander Zverev\", \"Alejandro Davidovich Fokina\"]"
-  },
-  {
-   "question": "LoL: BNK FEARX vs Team WE (BO5) - Demacia Cup Global Invitational Playoffs",
-   "slug": "lol-fox1-we-2026-10-17",
-   "volume24hr": 996315.6352249994,
-   "outcomePrices": "[\"0.935\", \"0.065\"]",
-   "outcomes": "[\"BNK FEARX\", \"Team WE\"]"
-  },
-  {
-   "question": "LoL: BNK FEARX vs Team WE - Game 1 Winner",
-   "slug": "lol-fox1-we-2026-10-17-game1",
-   "volume24hr": 784728.4248639995,
-   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
-   "outcomes": "[\"BNK FEARX\", \"Team WE\"]"
-  },
-  {
-   "question": "LoL: BNK FEARX vs Team WE - Game 2 Winner",
-   "slug": "lol-fox1-we-2026-10-17-game2",
-   "volume24hr": 777005.8622660002,
-   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
-   "outcomes": "[\"BNK FEARX\", \"Team WE\"]"
+   "question": "Will Shakhtar Donetsk win the 2026-27 UEFA Champions League Championship?",
+   "slug": "will-shakhtar-donetsk-win-the-2026-27-uefa-champions-league-championship-20260701202025578",
+   "volume24hr": 422892.088,
+   "outcomePrices": "[\"0.0015\", \"0.9985\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
   }
  ]
 }
