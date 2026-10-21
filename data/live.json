@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T11:38:44.318Z",
+ "generated": "2026-10-21T11:50:39.866Z",
  "worldbank": {
   "USA": {
    "gdp": [
@@ -67,72 +67,6 @@
     ]
    ]
   },
-  "CHN": {
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 4.95994886240992
-     },
-     {
-      "date": "2024",
-      "value": 4.95830378788091
-     },
-     {
-      "date": "2023",
-      "value": 5.41600334492955
-     },
-     {
-      "date": "2022",
-      "value": 3.13385438394069
-     },
-     {
-      "date": "2021",
-      "value": 8.57038414981781
-     }
-    ]
-   ],
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 0.0595646916565402
-     },
-     {
-      "date": "2024",
-      "value": 0.218128938439177
-     },
-     {
-      "date": "2023",
-      "value": 0.23483682889305
-     },
-     {
-      "date": "2022",
-      "value": 1.9735755573905
-     },
-     {
-      "date": "2021",
-      "value": 0.981015135544881
-     }
-    ]
-   ]
-  },
   "EUU": {
    "cpi": [
     {
@@ -195,6 +129,72 @@
      {
       "date": "2021",
       "value": 6.37773717070797
+     }
+    ]
+   ]
+  },
+  "CHN": {
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 0.0595646916565402
+     },
+     {
+      "date": "2024",
+      "value": 0.218128938439177
+     },
+     {
+      "date": "2023",
+      "value": 0.23483682889305
+     },
+     {
+      "date": "2022",
+      "value": 1.9735755573905
+     },
+     {
+      "date": "2021",
+      "value": 0.981015135544881
+     }
+    ]
+   ],
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 4.95994886240992
+     },
+     {
+      "date": "2024",
+      "value": 4.95830378788091
+     },
+     {
+      "date": "2023",
+      "value": 5.41600334492955
+     },
+     {
+      "date": "2022",
+      "value": 3.13385438394069
+     },
+     {
+      "date": "2021",
+      "value": 8.57038414981781
      }
     ]
    ]
@@ -1529,12 +1529,12 @@
  "fx": {
   "amount": 1,
   "base": "USD",
-  "date": "2026-10-19",
+  "date": "2026-10-20",
   "rates": {
-   "CNY": 6.6807,
-   "EUR": 0.89087,
-   "GBP": 0.75016,
-   "JPY": 158.24
+   "CNY": 6.678,
+   "EUR": 0.89166,
+   "GBP": 0.74925,
+   "JPY": 158.13
   }
  },
  "treasury": {
@@ -1581,108 +1581,104 @@
   ]
  },
  "quotes": {
+  "GOOGL": {
+   "data": {
+    "p": 340.275,
+    "cp": -1.13
+   }
+  },
   "NVDA": {
    "data": {
-    "p": 217.09,
-    "cp": 1.38
+    "p": 216.47,
+    "cp": -0.29
    }
   },
   "MSFT": {
    "data": {
-    "p": 533.52,
-    "cp": 0.84
-   }
-  },
-  "GOOGL": {
-   "data": {
-    "p": 344.18,
-    "cp": 1.05
+    "p": 531.87,
+    "cp": -0.31
    }
   },
   "AAPL": {
    "data": {
-    "p": 342.94,
-    "cp": -0.15
+    "p": 339.5,
+    "cp": -1
    }
   },
   "MU": {
    "data": {
-    "p": 904.9,
-    "cp": 2.97
-   }
-  },
-  "VRT": {
-   "data": {
-    "p": 206.08,
-    "cp": -0.16
+    "p": 896.07,
+    "cp": -0.98
    }
   },
   "META": {
    "data": {
-    "p": 705.44,
-    "cp": -0.55
+    "p": 694.25,
+    "cp": -1.59
+   }
+  },
+  "VRT": {
+   "data": {
+    "p": 203.56,
+    "cp": -1.22
    }
   },
   "AVGO": {
    "data": {
-    "p": 334.59,
-    "cp": 1.78
-   }
-  },
-  "TSLA": {
-   "data": {
-    "p": 368.06,
-    "cp": 3.76
-   }
-  },
-  "LLY": {
-   "data": {
-    "p": 1240.34,
-    "cp": -1.33
+    "p": 334.37,
+    "cp": -0.07
    }
   },
   "ISRG": {
    "data": {
-    "p": 433.18,
-    "cp": 1.52
+    "p": 438,
+    "cp": 1.11
+   }
+  },
+  "LLY": {
+   "data": {
+    "p": 1283.66,
+    "cp": 3.49
    }
   },
   "NVO": {
    "data": {
-    "p": 38.42,
-    "cp": -1.06
+    "p": 39.35,
+    "cp": 2.42
    }
   },
-  "IONQ": {
+  "TSLA": {
    "data": {
-    "p": 30.78,
-    "cp": -1.6
+    "p": 373.71,
+    "cp": 1.54
    }
   },
   "GEV": {
    "data": {
-    "p": 908.44,
-    "cp": -1.39
+    "p": 890.33,
+    "cp": -1.99
    }
   },
   "CEG": {
    "data": {
-    "p": 263.19,
-    "cp": -3.01
+    "p": 258.84,
+    "cp": -1.65
+   }
+  },
+  "IONQ": {
+   "data": {
+    "p": 31.26,
+    "cp": 1.56
    }
   },
   "RKLB": {
    "data": {
-    "p": 51.36,
-    "cp": 1.02
+    "p": 50.9,
+    "cp": -0.9
    }
   }
  },
  "vix": [
-  {
-   "d": "2024-10-14",
-   "c": 19.7
-  },
   {
    "d": "2024-10-15",
    "c": 20.64
@@ -3758,6 +3754,10 @@
   {
    "d": "2026-10-19",
    "c": 18.44
+  },
+  {
+   "d": "2026-10-20",
+   "c": 17.31
   }
  ],
  "treasury_curve": [
@@ -6454,63 +6454,69 @@
    "m3": 4.27,
    "y2": 4.77,
    "y10": 5.15
+  },
+  {
+   "d": "2026-10-20",
+   "m3": 4.26,
+   "y2": 4.79,
+   "y10": 5.12
   }
  ],
  "coingecko": {
   "bitcoin": {
-   "usd": 81387,
-   "usd_24h_change": -0.971573053271583
+   "usd": 83406,
+   "usd_24h_change": 2.4624513637292407
   },
   "ethereum": {
-   "usd": 2380.95,
-   "usd_24h_change": -1.4235793891685737
+   "usd": 2464.29,
+   "usd_24h_change": 3.4633639496291604
   },
   "solana": {
-   "usd": 103.99,
-   "usd_24h_change": -0.5409437378123755
+   "usd": 106.76,
+   "usd_24h_change": 2.6435704251554037
   }
  },
  "polymarket": [
   {
-   "question": "Will FC Barcelona win on 2026-10-20?",
-   "slug": "ucl-psg-fcb-2026-10-20-fcb",
-   "volume24hr": 878904.7358660001,
-   "outcomePrices": "[\"0.395\", \"0.605\"]",
+   "question": "Will FC Bayern München win on 2026-10-21?",
+   "slug": "ucl-bay-ars-2026-10-21-bay",
+   "volume24hr": 923838.2095240001,
+   "outcomePrices": "[\"0.435\", \"0.565\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "US x Iran ceasefire continues through October 22?",
-   "slug": "us-x-iran-ceasefire-continues-through-october-22",
-   "volume24hr": 832119.476035,
-   "outcomePrices": "[\"0.9275\", \"0.0725\"]",
+   "question": "2026 Balance of Power: R Senate, R House",
+   "slug": "2026-balance-of-power-r-senate-r-house-537",
+   "volume24hr": 805774.649145,
+   "outcomePrices": "[\"0.085\", \"0.915\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Will the Fed decrease interest rates by 25 bps after the October 2026 meeting?",
-   "slug": "will-the-fed-decrease-interest-rates-by-25-bps-after-the-october-2026-meeting-20260617190324030",
-   "volume24hr": 782814.518329,
-   "outcomePrices": "[\"0.0035\", \"0.9965\"]",
+   "question": "2026 Balance of Power: R Senate, D House",
+   "slug": "2026-balance-of-power-r-senate-d-house-444",
+   "volume24hr": 660313.5780570001,
+   "outcomePrices": "[\"0.275\", \"0.725\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "US x Iran ceasefire continues through October 31?",
-   "slug": "us-x-iran-ceasefire-continues-through-october-31-20260917",
-   "volume24hr": 649863.6656200001,
-   "outcomePrices": "[\"0.785\", \"0.215\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  },
-  {
-   "question": "Will the Fed increase interest rates by 25 bps after the October 2026 meeting?",
-   "slug": "will-the-fed-increase-interest-rates-by-25-bps-after-the-october-2026-meeting-20260617190324032",
-   "volume24hr": 640706.0030260001,
-   "outcomePrices": "[\"0.145\", \"0.855\"]",
+   "question": "Will Luiz Inácio Lula da Silva win the 2026 Brazilian presidential election?",
+   "slug": "will-luiz-incio-lula-da-silva-win-the-2026-brazilian-presidential-election",
+   "volume24hr": 644069.9700140001,
+   "outcomePrices": "[\"0.195\", \"0.805\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
    "question": "Will there be no change in Fed interest rates after the October 2026 meeting?",
    "slug": "will-there-be-no-change-in-fed-interest-rates-after-the-october-2026-meeting-20260617190324031",
-   "volume24hr": 572628.3518480001,
-   "outcomePrices": "[\"0.855\", \"0.145\"]",
+   "volume24hr": 639161.634253,
+   "outcomePrices": "[\"0.885\", \"0.115\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
+  },
+  {
+   "question": "Will Flávio Bolsonaro win the 2026 Brazilian presidential election?",
+   "slug": "will-flvio-bolsonaro-win-the-2026-brazilian-presidential-election",
+   "volume24hr": 637811.660135,
+   "outcomePrices": "[\"0.8025\", \"0.1975\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   }
  ]
