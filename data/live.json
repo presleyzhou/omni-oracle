@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-28T12:56:16.317Z",
+ "generated": "2026-10-29T13:03:04.745Z",
  "bls": {
   "CUUR0000SA0": [
    {
@@ -616,38 +616,6 @@
  },
  "worldbank": {
   "USA": {
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": null
-     },
-     {
-      "date": "2024",
-      "value": 2.94952520485207
-     },
-     {
-      "date": "2023",
-      "value": 4.11633838374487
-     },
-     {
-      "date": "2022",
-      "value": 8.00279982052121
-     },
-     {
-      "date": "2021",
-      "value": 4.69785886363742
-     }
-    ]
-   ],
    "gdp": [
     {
      "page": 1,
@@ -679,10 +647,8 @@
       "value": 6.15202247867526
      }
     ]
-   ]
-  },
-  "CHN": {
-   "gdp": [
+   ],
+   "cpi": [
     {
      "page": 1,
      "pages": 1,
@@ -694,26 +660,28 @@
     [
      {
       "date": "2025",
-      "value": 4.95994886240992
+      "value": null
      },
      {
       "date": "2024",
-      "value": 4.95830378788091
+      "value": 2.94952520485207
      },
      {
       "date": "2023",
-      "value": 5.41600334492955
+      "value": 4.11633838374487
      },
      {
       "date": "2022",
-      "value": 3.13385438394069
+      "value": 8.00279982052121
      },
      {
       "date": "2021",
-      "value": 8.57038414981781
+      "value": 4.69785886363742
      }
     ]
-   ],
+   ]
+  },
+  "CHN": {
    "cpi": [
     {
      "page": 1,
@@ -743,6 +711,38 @@
      {
       "date": "2021",
       "value": 0.981015135544881
+     }
+    ]
+   ],
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 4.95994886240992
+     },
+     {
+      "date": "2024",
+      "value": 4.95830378788091
+     },
+     {
+      "date": "2023",
+      "value": 5.41600334492955
+     },
+     {
+      "date": "2022",
+      "value": 3.13385438394069
+     },
+     {
+      "date": "2021",
+      "value": 8.57038414981781
      }
     ]
    ]
@@ -814,38 +814,6 @@
    ]
   },
   "JPN": {
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 1.19311288444599
-     },
-     {
-      "date": "2024",
-      "value": -0.240084236041696
-     },
-     {
-      "date": "2023",
-      "value": 0.720785304749811
-     },
-     {
-      "date": "2022",
-      "value": 1.33164750653741
-     },
-     {
-      "date": "2021",
-      "value": 3.56419531474475
-     }
-    ]
-   ],
    "cpi": [
     {
      "page": 1,
@@ -875,6 +843,38 @@
      {
       "date": "2021",
       "value": -0.233352779398263
+     }
+    ]
+   ],
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 1.19311288444599
+     },
+     {
+      "date": "2024",
+      "value": -0.240084236041696
+     },
+     {
+      "date": "2023",
+      "value": 0.720785304749811
+     },
+     {
+      "date": "2022",
+      "value": 1.33164750653741
+     },
+     {
+      "date": "2021",
+      "value": 3.56419531474475
      }
     ]
    ]
@@ -1526,17 +1526,6 @@
    ]
   }
  },
- "fx": {
-  "amount": 1,
-  "base": "USD",
-  "date": "2026-10-27",
-  "rates": {
-   "CNY": 6.6675,
-   "EUR": 0.89686,
-   "GBP": 0.7503,
-   "JPY": 157.82
-  }
- },
  "treasury": {
   "data": [
    {
@@ -1580,109 +1569,116 @@
    }
   ]
  },
+ "fx": {
+  "amount": 1,
+  "base": "USD",
+  "date": "2026-10-28",
+  "rates": {
+   "CNY": 6.6664,
+   "EUR": 0.89823,
+   "GBP": 0.75258,
+   "JPY": 157.96
+  }
+ },
  "quotes": {
+  "MSFT": {
+   "data": {
+    "p": 531.01,
+    "cp": -0.06
+   }
+  },
   "NVDA": {
    "data": {
-    "p": 217.94,
-    "cp": 0.9
+    "p": 215.38,
+    "cp": -1.17
    }
   },
   "AAPL": {
    "data": {
-    "p": 347.1,
-    "cp": 0.93
+    "p": 343.83,
+    "cp": -0.94
    }
   },
   "GOOGL": {
    "data": {
-    "p": 320.58,
-    "cp": 1.19
-   }
-  },
-  "MSFT": {
-   "data": {
-    "p": 531.33,
-    "cp": -0.24
-   }
-  },
-  "VRT": {
-   "data": {
-    "p": 208.56,
-    "cp": 4.39
-   }
-  },
-  "AVGO": {
-   "data": {
-    "p": 342.33,
-    "cp": 4
-   }
-  },
-  "MU": {
-   "data": {
-    "p": 928.76,
-    "cp": 2.77
+    "p": 324.89,
+    "cp": 1.34
    }
   },
   "META": {
    "data": {
-    "p": 620.19,
-    "cp": -1.64
+    "p": 612.49,
+    "cp": -1.24
    }
   },
-  "TSLA": {
+  "AVGO": {
    "data": {
-    "p": 407.46,
-    "cp": 4.04
+    "p": 351.81,
+    "cp": 2.77
    }
   },
-  "ISRG": {
+  "MU": {
    "data": {
-    "p": 445.88,
-    "cp": -1.27
+    "p": 983.23,
+    "cp": 5.86
    }
   },
-  "NVO": {
+  "VRT": {
    "data": {
-    "p": 38.67,
-    "cp": -1.18
+    "p": 242.94,
+    "cp": 16.48
    }
   },
   "LLY": {
    "data": {
-    "p": 1281.91,
-    "cp": 0.22
+    "p": 1288.3,
+    "cp": 0.5
    }
   },
-  "GEV": {
+  "TSLA": {
    "data": {
-    "p": 895.08,
-    "cp": 4.73
+    "p": 404.22,
+    "cp": -0.8
    }
   },
-  "CEG": {
+  "NVO": {
    "data": {
-    "p": 258.98,
-    "cp": 2.57
+    "p": 38.29,
+    "cp": -0.98
    }
   },
-  "IONQ": {
+  "ISRG": {
    "data": {
-    "p": 32.95,
-    "cp": 7.12
+    "p": 444.18,
+    "cp": -0.38
    }
   },
   "RKLB": {
    "data": {
-    "p": 58.31,
-    "cp": 8.34
+    "p": 58.6,
+    "cp": 0.5
+   }
+  },
+  "CEG": {
+   "data": {
+    "p": 258.08,
+    "cp": -0.35
+   }
+  },
+  "GEV": {
+   "data": {
+    "p": 878.03,
+    "cp": -1.9
+   }
+  },
+  "IONQ": {
+   "data": {
+    "p": 32.43,
+    "cp": -1.58
    }
   }
  },
  "vix": [
-  {
-   "d": "2024-10-22",
-   "c": 18.2
-  },
   {
    "d": "2024-10-23",
    "c": 19.24
@@ -3758,6 +3754,10 @@
   {
    "d": "2026-10-27",
    "c": 17.52
+  },
+  {
+   "d": "2026-10-28",
+   "c": 16.91
   }
  ],
  "treasury_curve": [
@@ -6490,63 +6490,69 @@
    "m3": 4.22,
    "y2": 4.7,
    "y10": 4.99
+  },
+  {
+   "d": "2026-10-28",
+   "m3": 4.18,
+   "y2": 4.67,
+   "y10": 5.05
   }
  ],
  "coingecko": {
   "bitcoin": {
-   "usd": 80641,
-   "usd_24h_change": 0.39645714206842836
+   "usd": 80026,
+   "usd_24h_change": -0.7519806289876496
   },
   "ethereum": {
-   "usd": 2336.48,
-   "usd_24h_change": 0.0015833809064647979
+   "usd": 2322.64,
+   "usd_24h_change": -0.6125311455585055
   },
   "solana": {
-   "usd": 101.39,
-   "usd_24h_change": 0.41078387294258784
+   "usd": 100.56,
+   "usd_24h_change": -0.8649671271646018
   }
  },
  "polymarket": [
   {
    "question": "Will Benjamin Netanyahu be the next Prime Minister of Israel?",
    "slug": "will-benjamin-netanyahu-be-the-next-prime-minister-of-israel",
-   "volume24hr": 11300636.84238,
-   "outcomePrices": "[\"0.465\", \"0.535\"]",
+   "volume24hr": 2583884.5378349996,
+   "outcomePrices": "[\"0.455\", \"0.545\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
+  },
+  {
+   "question": "Counter-Strike: Vitality vs Natus Vincere (BO3) - PGL Masters Bucharest Playoffs",
+   "slug": "cs2-vit-navi-2026-10-29",
+   "volume24hr": 1943171.8406620005,
+   "outcomePrices": "[\"0.985\", \"0.015\"]",
+   "outcomes": "[\"Vitality\", \"Natus Vincere\"]"
+  },
+  {
+   "question": "Will the Democratic Party control the House after the 2026 Midterm elections?",
+   "slug": "will-the-democratic-party-control-the-house-after-the-2026-midterm-elections",
+   "volume24hr": 1444086.607887,
+   "outcomePrices": "[\"0.925\", \"0.075\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
+  },
+  {
+   "question": "Will the Republican Party control the House after the 2026 Midterm elections?",
+   "slug": "will-the-republican-party-control-the-house-after-the-2026-midterm-elections",
+   "volume24hr": 1086591.029487,
+   "outcomePrices": "[\"0.075\", \"0.925\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
    "question": "Will Likud win the most seats in the 2026 Israeli legislative election?",
    "slug": "will-likud-win-the-most-seats-in-the-2026-israeli-legislative-election",
-   "volume24hr": 5388532.641586,
-   "outcomePrices": "[\"0.984\", \"0.016\"]",
+   "volume24hr": 1064138.3364170003,
+   "outcomePrices": "[\"0.9875\", \"0.0125\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Will there be no change in Fed interest rates after the October 2026 meeting?",
-   "slug": "will-there-be-no-change-in-fed-interest-rates-after-the-october-2026-meeting-20260617190324031",
-   "volume24hr": 4210850.786539,
-   "outcomePrices": "[\"0.9465\", \"0.0535\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  },
-  {
-   "question": "Will the Fed increase interest rates by 50+ bps after the October 2026 meeting?",
-   "slug": "will-the-fed-increase-interest-rates-by-50-bps-after-the-october-2026-meeting-20260617190324033",
-   "volume24hr": 3492814.6679800004,
-   "outcomePrices": "[\"0.0035\", \"0.9965\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  },
-  {
-   "question": "Will Yashar win the most seats in the 2026 Israeli legislative election?",
-   "slug": "will-yashar-win-the-most-seats-in-the-2026-israeli-legislative-election",
-   "volume24hr": 2568075.8243100015,
-   "outcomePrices": "[\"0.0095\", \"0.9905\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  },
-  {
-   "question": "Will Likud win 30-34 seats in the 2026 Israeli legislative election?",
-   "slug": "will-likud-win-30-34-seats-in-the-2026-israeli-legislative-election",
-   "volume24hr": 2190633.703231,
-   "outcomePrices": "[\"0.0145\", \"0.9855\"]",
+   "question": "Will there be no change in Fed interest rates after the December 2026 meeting?",
+   "slug": "will-there-be-no-change-in-fed-interest-rates-after-the-december-2026-meeting-20260729232808635",
+   "volume24hr": 738882.39262,
+   "outcomePrices": "[\"0.195\", \"0.805\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   }
  ]
