@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05T14:42:01.819Z",
+ "updated": "2026-11-06T14:18:10.131Z",
  "questions": [
   {
    "slug": "us-x-iran-ceasefire-continues-through-october-31-20260917",
@@ -507,7 +507,7 @@
    "endDate": "2027-01-01T05:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.285,
-   "price": 0.355,
+   "price": 0.575,
    "closed": false,
    "resolved": null,
    "topic": "crypto"
@@ -604,7 +604,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-07T13:26:35.094Z",
    "priceAtCapture": 0.0465,
-   "price": 0.014,
+   "price": 0.0135,
    "closed": false,
    "resolved": null,
    "topic": "other"
@@ -645,7 +645,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-07T13:26:35.094Z",
    "priceAtCapture": 0.205,
-   "price": 0.122,
+   "price": 0.121,
    "closed": false,
    "resolved": null,
    "topic": "tech"
@@ -1008,7 +1008,7 @@
    "endDate": "2026-11-16T04:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.715,
-   "price": 0.805,
+   "price": 0.77,
    "closed": false,
    "resolved": null
   },
@@ -1029,7 +1029,7 @@
    "endDate": "2026-11-30T20:29:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.635,
-   "price": 0.625,
+   "price": 0.635,
    "closed": false,
    "resolved": null
   },
@@ -1053,7 +1053,7 @@
    "endDate": "2027-04-01T03:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.68,
-   "price": 0.7,
+   "price": 0.71,
    "closed": false,
    "resolved": null
   },
@@ -1077,7 +1077,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.34,
-   "price": 0.225,
+   "price": 0.215,
    "closed": false,
    "resolved": null
   },
@@ -1195,7 +1195,7 @@
    "endDate": "2026-11-29T04:59:00Z",
    "capturedAt": "2026-10-10T12:34:42.209Z",
    "priceAtCapture": 0.645,
-   "price": 0.73,
+   "price": 0.7,
    "closed": false,
    "resolved": null
   },
@@ -1218,7 +1218,7 @@
    "endDate": "2026-11-29T04:59:00Z",
    "capturedAt": "2026-10-10T12:34:42.209Z",
    "priceAtCapture": 0.354,
-   "price": 0.2655,
+   "price": 0.293,
    "closed": false,
    "resolved": null
   },
@@ -1423,7 +1423,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-12T15:28:23.121Z",
    "priceAtCapture": 0.031,
-   "price": 0.034,
+   "price": 0.033,
    "closed": false,
    "resolved": null
   },
@@ -1898,7 +1898,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-14T11:54:50.659Z",
    "priceAtCapture": 0.295,
-   "price": 0.355,
+   "price": 0.3,
    "closed": false,
    "resolved": null
   },
@@ -1948,7 +1948,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-14T11:54:50.659Z",
    "priceAtCapture": 0.415,
-   "price": 0.375,
+   "price": 0.385,
    "closed": false,
    "resolved": null
   },
@@ -1973,7 +1973,7 @@
    "endDate": "2026-11-30T23:59:00Z",
    "capturedAt": "2026-10-14T11:54:50.659Z",
    "priceAtCapture": 0.675,
-   "price": 0.92,
+   "price": 0.885,
    "closed": false,
    "resolved": null
   },
@@ -2068,7 +2068,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-15T11:32:19.686Z",
    "priceAtCapture": 0.3,
-   "price": 0.345,
+   "price": 0.37,
    "closed": false,
    "resolved": null
   },
@@ -2090,7 +2090,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-15T11:32:19.686Z",
    "priceAtCapture": 0.22,
-   "price": 0.19,
+   "price": 0.185,
    "closed": false,
    "resolved": null
   },
@@ -2141,7 +2141,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-16T11:27:31.959Z",
    "priceAtCapture": 0.255,
-   "price": 0.045,
+   "price": 0.031,
    "closed": false,
    "resolved": null
   },
@@ -2214,7 +2214,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-18T11:07:43.076Z",
    "priceAtCapture": 0.595,
-   "price": 0.34,
+   "price": 0.295,
    "closed": false,
    "resolved": null
   },
@@ -2236,7 +2236,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-18T11:07:43.076Z",
    "priceAtCapture": 0.805,
-   "price": 0.675,
+   "price": 0.6,
    "closed": false,
    "resolved": null
   },
@@ -2519,7 +2519,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-19T13:18:37.159Z",
    "priceAtCapture": 0.225,
-   "price": 0.295,
+   "price": 0.215,
    "closed": false,
    "resolved": null
   },
@@ -2567,7 +2567,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-20T11:39:23.807Z",
    "priceAtCapture": 0.165,
-   "price": 0.065,
+   "price": 0.055,
    "closed": false,
    "resolved": null
   },
@@ -2616,7 +2616,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-21T11:51:26.911Z",
    "priceAtCapture": 0.68,
-   "price": 0.16,
+   "price": 0.145,
    "closed": false,
    "resolved": null
   },
@@ -2641,7 +2641,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-21T11:51:26.911Z",
    "priceAtCapture": 0.6,
-   "price": 0.125,
+   "price": 0.115,
    "closed": false,
    "resolved": null
   },
@@ -2855,7 +2855,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-21T11:51:26.911Z",
    "priceAtCapture": 0.27,
-   "price": 0.2,
+   "price": 0.14,
    "closed": false,
    "resolved": null
   },
@@ -2902,7 +2902,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-22T11:54:54.667Z",
    "priceAtCapture": 0.9615,
-   "price": 0.943,
+   "price": 0.949,
    "closed": false,
    "resolved": null
   },
@@ -3043,7 +3043,7 @@
    "endDate": "2026-11-30T20:59:00Z",
    "capturedAt": "2026-10-27T12:14:26.220Z",
    "priceAtCapture": 0.55,
-   "price": 0.295,
+   "price": 0.25,
    "closed": false,
    "resolved": null
   },
@@ -3067,7 +3067,7 @@
    "endDate": "2026-10-31T20:59:00Z",
    "capturedAt": "2026-10-27T12:14:26.220Z",
    "priceAtCapture": 0.14,
-   "price": 0.0175,
+   "price": 0.0155,
    "closed": false,
    "resolved": null
   },
@@ -3091,7 +3091,7 @@
    "endDate": "2026-12-16T04:59:00Z",
    "capturedAt": "2026-10-27T12:14:26.220Z",
    "priceAtCapture": 0.745,
-   "price": 0.989,
+   "price": 0.924,
    "closed": false,
    "resolved": null
   },
@@ -3115,7 +3115,7 @@
    "endDate": "2026-11-16T04:59:00Z",
    "capturedAt": "2026-10-27T12:14:26.220Z",
    "priceAtCapture": 0.36,
-   "price": 0.925,
+   "price": 0.615,
    "closed": false,
    "resolved": null
   },
@@ -3139,7 +3139,7 @@
    "endDate": "2026-11-30T23:59:00Z",
    "capturedAt": "2026-10-27T12:14:26.220Z",
    "priceAtCapture": 0.6,
-   "price": 0.98,
+   "price": 0.8355,
    "closed": false,
    "resolved": null
   },
@@ -3163,7 +3163,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-27T12:14:26.220Z",
    "priceAtCapture": 0.8,
-   "price": 0.988,
+   "price": 0.9865,
    "closed": false,
    "resolved": null
   },
@@ -3266,7 +3266,7 @@
    "endDate": "2026-11-03T23:59:00Z",
    "capturedAt": "2026-10-29T13:03:44.831Z",
    "priceAtCapture": 0.205,
-   "price": 0.9515,
+   "price": 0.977,
    "closed": false,
    "resolved": null
   },
@@ -3437,7 +3437,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-02T15:55:57.372Z",
    "priceAtCapture": 0.625,
-   "price": 0.615,
+   "price": 0.6,
    "closed": false,
    "resolved": null
   },
@@ -3457,7 +3457,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-02T15:55:57.372Z",
    "priceAtCapture": 0.031,
-   "price": 0.0315,
+   "price": 0.03,
    "closed": false,
    "resolved": null
   },
@@ -3477,7 +3477,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-02T15:55:57.372Z",
    "priceAtCapture": 0.034,
-   "price": 0.0205,
+   "price": 0.0195,
    "closed": false,
    "resolved": null
   },
@@ -3502,7 +3502,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-02T15:55:57.372Z",
    "priceAtCapture": 0.265,
-   "price": 0.255,
+   "price": 0.26,
    "closed": false,
    "resolved": null
   },
@@ -3527,7 +3527,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-11-02T15:55:57.372Z",
    "priceAtCapture": 0.415,
-   "price": 0.425,
+   "price": 0.445,
    "closed": false,
    "resolved": null
   },
@@ -3552,7 +3552,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-05T14:42:01.819Z",
    "priceAtCapture": 0.315,
-   "price": 0.315,
+   "price": 0.285,
    "closed": false,
    "resolved": null
   },
@@ -3577,7 +3577,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-05T14:42:01.819Z",
    "priceAtCapture": 0.425,
-   "price": 0.425,
+   "price": 0.395,
    "closed": false,
    "resolved": null
   },
@@ -3602,7 +3602,7 @@
    "endDate": "2026-11-16T04:59:00Z",
    "capturedAt": "2026-11-05T14:42:01.819Z",
    "priceAtCapture": 0.655,
-   "price": 0.655,
+   "price": 0.585,
    "closed": false,
    "resolved": null
   },
@@ -3623,7 +3623,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-05T14:42:01.819Z",
    "priceAtCapture": 0.33,
-   "price": 0.33,
+   "price": 0.225,
    "closed": false,
    "resolved": null
   },
@@ -3648,7 +3648,7 @@
    "endDate": "2027-02-01T04:59:00Z",
    "capturedAt": "2026-11-05T14:42:01.819Z",
    "priceAtCapture": 0.17,
-   "price": 0.17,
+   "price": 0.18,
    "closed": false,
    "resolved": null
   },
@@ -3673,7 +3673,76 @@
    "endDate": "2027-04-01T03:59:00Z",
    "capturedAt": "2026-11-05T14:42:01.819Z",
    "priceAtCapture": 0.22,
-   "price": 0.22,
+   "price": 0.225,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "marco-rubio-out-as-secretary-of-state-by-march-31-2027",
+   "id": "6723102",
+   "question": "Marco Rubio out as Secretary of State by March 31, 2027?",
+   "topic": "geo",
+   "tags": [
+    "Trump",
+    "rubio",
+    "Politics",
+    "Geopolitics",
+    "Trump Cabinet",
+    "Cabinet Shakeup"
+   ],
+   "event": "marco-rubio-out-as-secretary-of-state-byptptpt",
+   "horizon": "long",
+   "createdAt": "2026-11-05T18:19:58.85607Z",
+   "endDate": "2027-04-01T03:59:00Z",
+   "capturedAt": "2026-11-06T14:18:10.131Z",
+   "priceAtCapture": 0.27,
+   "price": 0.27,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "marco-rubio-out-as-secretary-of-state-by-december-31-2026",
+   "id": "6723101",
+   "question": "Marco Rubio out as Secretary of State by December 31, 2026?",
+   "topic": "geo",
+   "tags": [
+    "Trump",
+    "rubio",
+    "Politics",
+    "Geopolitics",
+    "Trump Cabinet",
+    "Cabinet Shakeup"
+   ],
+   "event": "marco-rubio-out-as-secretary-of-state-byptptpt",
+   "horizon": "long",
+   "createdAt": "2026-11-05T18:19:57.746503Z",
+   "endDate": "2027-01-01T04:59:00Z",
+   "capturedAt": "2026-11-06T14:18:10.131Z",
+   "priceAtCapture": 0.145,
+   "price": 0.145,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "marco-rubio-out-as-secretary-of-state-by-november-30-2026",
+   "id": "6723100",
+   "question": "Marco Rubio out as Secretary of State by November 30, 2026?",
+   "topic": "geo",
+   "tags": [
+    "Trump",
+    "rubio",
+    "Politics",
+    "Geopolitics",
+    "Trump Cabinet",
+    "Cabinet Shakeup"
+   ],
+   "event": "marco-rubio-out-as-secretary-of-state-byptptpt",
+   "horizon": "short",
+   "createdAt": "2026-11-05T18:19:55.975006Z",
+   "endDate": "2026-12-01T04:59:00Z",
+   "capturedAt": "2026-11-06T14:18:10.131Z",
+   "priceAtCapture": 0.045,
+   "price": 0.045,
    "closed": false,
    "resolved": null
   }
