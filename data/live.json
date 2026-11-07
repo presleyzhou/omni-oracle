@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-06T14:17:31.618Z",
+ "generated": "2026-11-07T13:02:58.047Z",
  "worldbank": {
   "USA": {
    "cpi": [
@@ -68,38 +68,6 @@
    ]
   },
   "CHN": {
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 0.0595646916565402
-     },
-     {
-      "date": "2024",
-      "value": 0.218128938439177
-     },
-     {
-      "date": "2023",
-      "value": 0.23483682889305
-     },
-     {
-      "date": "2022",
-      "value": 1.9735755573905
-     },
-     {
-      "date": "2021",
-      "value": 0.981015135544881
-     }
-    ]
-   ],
    "gdp": [
     {
      "page": 1,
@@ -129,6 +97,38 @@
      {
       "date": "2021",
       "value": 8.57038414981781
+     }
+    ]
+   ],
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 0.0595646916565402
+     },
+     {
+      "date": "2024",
+      "value": 0.218128938439177
+     },
+     {
+      "date": "2023",
+      "value": 0.23483682889305
+     },
+     {
+      "date": "2022",
+      "value": 1.9735755573905
+     },
+     {
+      "date": "2021",
+      "value": 0.981015135544881
      }
     ]
    ]
@@ -1537,12 +1537,12 @@
  "fx": {
   "amount": 1,
   "base": "USD",
-  "date": "2026-11-05",
+  "date": "2026-11-06",
   "rates": {
-   "CNY": 6.6684,
-   "EUR": 0.89095,
-   "GBP": 0.74299,
-   "JPY": 158.46
+   "CNY": 6.6713,
+   "EUR": 0.89566,
+   "GBP": 0.74711,
+   "JPY": 158.33
   }
  },
  "treasury": {
@@ -1589,108 +1589,104 @@
   ]
  },
  "quotes": {
-  "MSFT": {
-   "data": {
-    "p": 535.93,
-    "cp": -3.58
-   }
-  },
   "NVDA": {
    "data": {
-    "p": 181.6,
-    "cp": -9.26
+    "p": 186.64,
+    "cp": 2.78
+   }
+  },
+  "MSFT": {
+   "data": {
+    "p": 530.61,
+    "cp": -0.99
    }
   },
   "AAPL": {
    "data": {
-    "p": 344.17,
-    "cp": -1.53
+    "p": 342.37,
+    "cp": -0.52
    }
   },
   "GOOGL": {
    "data": {
-    "p": 282.57,
-    "cp": -2.2
-   }
-  },
-  "META": {
-   "data": {
-    "p": 605.08,
-    "cp": -3.96
-   }
-  },
-  "VRT": {
-   "data": {
-    "p": 176.73,
-    "cp": -14.02
-   }
-  },
-  "MU": {
-   "data": {
-    "p": 656.39,
-    "cp": -17.46
+    "p": 284.78,
+    "cp": 0.78
    }
   },
   "AVGO": {
    "data": {
-    "p": 291.53,
-    "cp": -10.43
+    "p": 293.69,
+    "cp": 0.74
+   }
+  },
+  "META": {
+   "data": {
+    "p": 610.15,
+    "cp": 0.84
+   }
+  },
+  "MU": {
+   "data": {
+    "p": 690,
+    "cp": 5.12
+   }
+  },
+  "VRT": {
+   "data": {
+    "p": 182.86,
+    "cp": 3.47
    }
   },
   "TSLA": {
    "data": {
-    "p": 343.69,
-    "cp": -10.77
+    "p": 358.22,
+    "cp": 4.23
    }
   },
   "NVO": {
    "data": {
-    "p": 40.3,
-    "cp": -4.46
-   }
-  },
-  "LLY": {
-   "data": {
-    "p": 1364.73,
-    "cp": -3.76
+    "p": 40.31,
+    "cp": 0.02
    }
   },
   "ISRG": {
    "data": {
-    "p": 468.52,
-    "cp": -2.82
+    "p": 452.8,
+    "cp": -3.36
    }
   },
-  "RKLB": {
+  "LLY": {
    "data": {
-    "p": 45.99,
-    "cp": -12.18
-   }
-  },
-  "CEG": {
-   "data": {
-    "p": 239.65,
-    "cp": -2.47
+    "p": 1354,
+    "cp": -0.79
    }
   },
   "GEV": {
    "data": {
-    "p": 770.51,
-    "cp": -7.48
+    "p": 774.11,
+    "cp": 0.47
+   }
+  },
+  "CEG": {
+   "data": {
+    "p": 249.95,
+    "cp": 4.3
    }
   },
   "IONQ": {
    "data": {
-    "p": 26.43,
-    "cp": -10.53
+    "p": 32.62,
+    "cp": 23.42
+   }
+  },
+  "RKLB": {
+   "data": {
+    "p": 53.07,
+    "cp": 15.39
    }
   }
  },
  "vix": [
-  {
-   "d": "2024-10-31",
-   "c": 23.16
-  },
   {
    "d": "2024-11-01",
    "c": 21.88
@@ -3766,6 +3762,10 @@
   {
    "d": "2026-11-05",
    "c": 28.18
+  },
+  {
+   "d": "2026-11-06",
+   "c": 25.64
   }
  ],
  "treasury_curve": [
@@ -6540,63 +6540,69 @@
    "m3": 4.17,
    "y2": 4.46,
    "y10": 4.84
+  },
+  {
+   "d": "2026-11-06",
+   "m3": 4.19,
+   "y2": 4.51,
+   "y10": 4.86
   }
  ],
  "coingecko": {
   "bitcoin": {
-   "usd": 75503,
-   "usd_24h_change": -4.925486078568298
+   "usd": 75832,
+   "usd_24h_change": -0.11901941752604578
   },
   "ethereum": {
-   "usd": 2225.72,
-   "usd_24h_change": -6.5578911223587015
+   "usd": 2239.57,
+   "usd_24h_change": 0.1694972247854974
   },
   "solana": {
-   "usd": 89.84,
-   "usd_24h_change": -5.517631607911327
+   "usd": 89.72,
+   "usd_24h_change": -0.3950565612431023
   }
  },
  "polymarket": [
   {
-   "question": "Counter-Strike: FURIA vs BetBoom Team (BO3) - IEM Beijing Playoffs",
-   "slug": "cs2-furia-bb3-2026-11-06",
-   "volume24hr": 2719791.6920149997,
-   "outcomePrices": "[\"0.68\", \"0.32\"]",
-   "outcomes": "[\"FURIA\", \"BetBoom Team\"]"
-  },
-  {
-   "question": "Will the Fed increase interest rates by 25 bps after the December 2026 meeting?",
-   "slug": "will-the-fed-increase-interest-rates-by-25-bps-after-the-december-2026-meeting-20260729232808636",
-   "volume24hr": 1631033.635551,
-   "outcomePrices": "[\"0.785\", \"0.215\"]",
+   "question": "Will Abdul El-Sayed win the 2028 Democratic presidential nomination?",
+   "slug": "will-abdul-el-sayed-win-the-2028-democratic-presidential-nomination",
+   "volume24hr": 1029296.4908709999,
+   "outcomePrices": "[\"0.0115\", \"0.9885\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Will Donald Trump publicly insult Ken Paxton by October 31, 2026?",
-   "slug": "will-donald-trump-publicly-insult-ken-paxton-by-october-31-2026",
-   "volume24hr": 660400.9203240001,
-   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
+   "question": "Will Rick Scott win the 2028 Republican presidential nomination?",
+   "slug": "will-rick-scott-win-the-2028-republican-presidential-nomination",
+   "volume24hr": 767393.048572,
+   "outcomePrices": "[\"0.0015\", \"0.9985\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Will Mary Peltola win the Alaska Senate race in 2026?",
-   "slug": "will-mary-peltola-win-the-alaska-senate-race-in-2026",
-   "volume24hr": 627553.61795,
-   "outcomePrices": "[\"0.9785\", \"0.0215\"]",
+   "question": "Israel x Iran ceasefire continues through November 7?",
+   "slug": "israel-x-iran-ceasefire-continues-through-november-7",
+   "volume24hr": 697726.4584950001,
+   "outcomePrices": "[\"0.979\", \"0.021\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Will there be no change in Fed interest rates after the December 2026 meeting?",
-   "slug": "will-there-be-no-change-in-fed-interest-rates-after-the-december-2026-meeting-20260729232808635",
-   "volume24hr": 568058.3062369999,
-   "outcomePrices": "[\"0.215\", \"0.785\"]",
+   "question": "US x Iran effective ceasefire continues through November 6, 2026?",
+   "slug": "us-x-iran-effective-ceasefire-continues-through-november-6-20261103",
+   "volume24hr": 581687.392796,
+   "outcomePrices": "[\"0.9655\", \"0.0345\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "US x Iran ceasefire continues through October 31?",
-   "slug": "us-x-iran-ceasefire-continues-through-october-31-20260917",
-   "volume24hr": 516761.23,
-   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
+   "question": "LoL: Invictus Gaming vs Gen.G (BO5) - Worlds Playoffs",
+   "slug": "lol-ig1-gen-2026-11-07",
+   "volume24hr": 581618.505764,
+   "outcomePrices": "[\"0.195\", \"0.805\"]",
+   "outcomes": "[\"Invictus Gaming\", \"Gen.G\"]"
+  },
+  {
+   "question": "Will Tulsi Gabbard win the 2028 Republican presidential nomination?",
+   "slug": "will-tulsi-gabbard-win-the-2028-republican-presidential-nomination",
+   "volume24hr": 497283.03,
+   "outcomePrices": "[\"0.0015\", \"0.9985\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   }
  ]
