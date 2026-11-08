@@ -1,271 +1,5 @@
 {
- "generated": "2026-11-07T13:02:58.047Z",
- "worldbank": {
-  "USA": {
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": null
-     },
-     {
-      "date": "2024",
-      "value": 2.94952520485207
-     },
-     {
-      "date": "2023",
-      "value": 4.11633838374487
-     },
-     {
-      "date": "2022",
-      "value": 8.00279982052121
-     },
-     {
-      "date": "2021",
-      "value": 4.69785886363742
-     }
-    ]
-   ],
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 2.16138195623856
-     },
-     {
-      "date": "2024",
-      "value": 2.79318715363841
-     },
-     {
-      "date": "2023",
-      "value": 2.93436322440155
-     },
-     {
-      "date": "2022",
-      "value": 2.52421385073222
-     },
-     {
-      "date": "2021",
-      "value": 6.15202247867526
-     }
-    ]
-   ]
-  },
-  "CHN": {
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 4.95994886240992
-     },
-     {
-      "date": "2024",
-      "value": 4.95830378788091
-     },
-     {
-      "date": "2023",
-      "value": 5.41600334492955
-     },
-     {
-      "date": "2022",
-      "value": 3.13385438394069
-     },
-     {
-      "date": "2021",
-      "value": 8.57038414981781
-     }
-    ]
-   ],
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 0.0595646916565402
-     },
-     {
-      "date": "2024",
-      "value": 0.218128938439177
-     },
-     {
-      "date": "2023",
-      "value": 0.23483682889305
-     },
-     {
-      "date": "2022",
-      "value": 1.9735755573905
-     },
-     {
-      "date": "2021",
-      "value": 0.981015135544881
-     }
-    ]
-   ]
-  },
-  "EUU": {
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 1.53795434836212
-     },
-     {
-      "date": "2024",
-      "value": 1.08657885620458
-     },
-     {
-      "date": "2023",
-      "value": 0.4380089249495
-     },
-     {
-      "date": "2022",
-      "value": 3.56455510630462
-     },
-     {
-      "date": "2021",
-      "value": 6.37773717070797
-     }
-    ]
-   ],
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 2.46605755272817
-     },
-     {
-      "date": "2024",
-      "value": 2.43531202435314
-     },
-     {
-      "date": "2023",
-      "value": 6.29942487419124
-     },
-     {
-      "date": "2022",
-      "value": 8.83346218008716
-     },
-     {
-      "date": "2021",
-      "value": 2.5545069964204
-     }
-    ]
-   ]
-  },
-  "JPN": {
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 1.19311288444599
-     },
-     {
-      "date": "2024",
-      "value": -0.240084236041696
-     },
-     {
-      "date": "2023",
-      "value": 0.720785304749811
-     },
-     {
-      "date": "2022",
-      "value": 1.33164750653741
-     },
-     {
-      "date": "2021",
-      "value": 3.56419531474475
-     }
-    ]
-   ],
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 3.17253034260247
-     },
-     {
-      "date": "2024",
-      "value": 2.7385368163524
-     },
-     {
-      "date": "2023",
-      "value": 3.26813365933163
-     },
-     {
-      "date": "2022",
-      "value": 2.49770278172254
-     },
-     {
-      "date": "2021",
-      "value": -0.233352779398263
-     }
-    ]
-   ]
-  }
- },
+ "generated": "2026-11-08T13:25:55.616Z",
  "bls": {
   "CUUR0000SA0": [
    {
@@ -885,6 +619,272 @@
     "value": "3.7"
    }
   ]
+ },
+ "worldbank": {
+  "USA": {
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 2.16138195623856
+     },
+     {
+      "date": "2024",
+      "value": 2.79318715363841
+     },
+     {
+      "date": "2023",
+      "value": 2.93436322440155
+     },
+     {
+      "date": "2022",
+      "value": 2.52421385073222
+     },
+     {
+      "date": "2021",
+      "value": 6.15202247867526
+     }
+    ]
+   ],
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": null
+     },
+     {
+      "date": "2024",
+      "value": 2.94952520485207
+     },
+     {
+      "date": "2023",
+      "value": 4.11633838374487
+     },
+     {
+      "date": "2022",
+      "value": 8.00279982052121
+     },
+     {
+      "date": "2021",
+      "value": 4.69785886363742
+     }
+    ]
+   ]
+  },
+  "CHN": {
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 0.0595646916565402
+     },
+     {
+      "date": "2024",
+      "value": 0.218128938439177
+     },
+     {
+      "date": "2023",
+      "value": 0.23483682889305
+     },
+     {
+      "date": "2022",
+      "value": 1.9735755573905
+     },
+     {
+      "date": "2021",
+      "value": 0.981015135544881
+     }
+    ]
+   ],
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 4.95994886240992
+     },
+     {
+      "date": "2024",
+      "value": 4.95830378788091
+     },
+     {
+      "date": "2023",
+      "value": 5.41600334492955
+     },
+     {
+      "date": "2022",
+      "value": 3.13385438394069
+     },
+     {
+      "date": "2021",
+      "value": 8.57038414981781
+     }
+    ]
+   ]
+  },
+  "EUU": {
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 2.46605755272817
+     },
+     {
+      "date": "2024",
+      "value": 2.43531202435314
+     },
+     {
+      "date": "2023",
+      "value": 6.29942487419124
+     },
+     {
+      "date": "2022",
+      "value": 8.83346218008716
+     },
+     {
+      "date": "2021",
+      "value": 2.5545069964204
+     }
+    ]
+   ],
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 1.53795434836212
+     },
+     {
+      "date": "2024",
+      "value": 1.08657885620458
+     },
+     {
+      "date": "2023",
+      "value": 0.4380089249495
+     },
+     {
+      "date": "2022",
+      "value": 3.56455510630462
+     },
+     {
+      "date": "2021",
+      "value": 6.37773717070797
+     }
+    ]
+   ]
+  },
+  "JPN": {
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 1.19311288444599
+     },
+     {
+      "date": "2024",
+      "value": -0.240084236041696
+     },
+     {
+      "date": "2023",
+      "value": 0.720785304749811
+     },
+     {
+      "date": "2022",
+      "value": 1.33164750653741
+     },
+     {
+      "date": "2021",
+      "value": 3.56419531474475
+     }
+    ]
+   ],
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 3.17253034260247
+     },
+     {
+      "date": "2024",
+      "value": 2.7385368163524
+     },
+     {
+      "date": "2023",
+      "value": 3.26813365933163
+     },
+     {
+      "date": "2022",
+      "value": 2.49770278172254
+     },
+     {
+      "date": "2021",
+      "value": -0.233352779398263
+     }
+    ]
+   ]
+  }
  },
  "bea_gdp": {
   "series": {
@@ -1589,10 +1589,10 @@
   ]
  },
  "quotes": {
-  "NVDA": {
+  "AAPL": {
    "data": {
-    "p": 186.64,
-    "cp": 2.78
+    "p": 342.37,
+    "cp": -0.52
    }
   },
   "MSFT": {
@@ -1601,16 +1601,16 @@
     "cp": -0.99
    }
   },
-  "AAPL": {
-   "data": {
-    "p": 342.37,
-    "cp": -0.52
-   }
-  },
   "GOOGL": {
    "data": {
     "p": 284.78,
     "cp": 0.78
+   }
+  },
+  "NVDA": {
+   "data": {
+    "p": 186.64,
+    "cp": 2.78
    }
   },
   "AVGO": {
@@ -1619,10 +1619,10 @@
     "cp": 0.74
    }
   },
-  "META": {
+  "VRT": {
    "data": {
-    "p": 610.15,
-    "cp": 0.84
+    "p": 182.86,
+    "cp": 3.47
    }
   },
   "MU": {
@@ -1631,10 +1631,22 @@
     "cp": 5.12
    }
   },
-  "VRT": {
+  "META": {
    "data": {
-    "p": 182.86,
-    "cp": 3.47
+    "p": 610.15,
+    "cp": 0.84
+   }
+  },
+  "LLY": {
+   "data": {
+    "p": 1354,
+    "cp": -0.79
+   }
+  },
+  "ISRG": {
+   "data": {
+    "p": 452.8,
+    "cp": -3.36
    }
   },
   "TSLA": {
@@ -1649,18 +1661,6 @@
     "cp": 0.02
    }
   },
-  "ISRG": {
-   "data": {
-    "p": 452.8,
-    "cp": -3.36
-   }
-  },
-  "LLY": {
-   "data": {
-    "p": 1354,
-    "cp": -0.79
-   }
-  },
   "GEV": {
    "data": {
     "p": 774.11,
@@ -1673,16 +1673,16 @@
     "cp": 4.3
    }
   },
-  "IONQ": {
-   "data": {
-    "p": 32.62,
-    "cp": 23.42
-   }
-  },
   "RKLB": {
    "data": {
     "p": 53.07,
     "cp": 15.39
+   }
+  },
+  "IONQ": {
+   "data": {
+    "p": 32.62,
+    "cp": 23.42
    }
   }
  },
@@ -6550,59 +6550,59 @@
  ],
  "coingecko": {
   "bitcoin": {
-   "usd": 75832,
-   "usd_24h_change": -0.11901941752604578
+   "usd": 76025,
+   "usd_24h_change": 0.2829714150153007
   },
   "ethereum": {
-   "usd": 2239.57,
-   "usd_24h_change": 0.1694972247854974
+   "usd": 2240.62,
+   "usd_24h_change": 0.04293137801844617
   },
   "solana": {
-   "usd": 89.72,
-   "usd_24h_change": -0.3950565612431023
+   "usd": 89.64,
+   "usd_24h_change": -0.11502308893203703
   }
  },
  "polymarket": [
   {
-   "question": "Will Abdul El-Sayed win the 2028 Democratic presidential nomination?",
-   "slug": "will-abdul-el-sayed-win-the-2028-democratic-presidential-nomination",
-   "volume24hr": 1029296.4908709999,
-   "outcomePrices": "[\"0.0115\", \"0.9885\"]",
+   "question": "Will Chelsea FC win on 2026-11-08?",
+   "slug": "epl-sun-che-2026-11-08-che",
+   "volume24hr": 6156051.891283989,
+   "outcomePrices": "[\"0.425\", \"0.575\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Will Rick Scott win the 2028 Republican presidential nomination?",
-   "slug": "will-rick-scott-win-the-2028-republican-presidential-nomination",
-   "volume24hr": 767393.048572,
-   "outcomePrices": "[\"0.0015\", \"0.9985\"]",
+   "question": "Will SSC Napoli win on 2026-11-08?",
+   "slug": "sea-nap-laz-2026-11-08-nap",
+   "volume24hr": 772697.6633800002,
+   "outcomePrices": "[\"0.0005\", \"0.9995\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Israel x Iran ceasefire continues through November 7?",
-   "slug": "israel-x-iran-ceasefire-continues-through-november-7",
-   "volume24hr": 697726.4584950001,
-   "outcomePrices": "[\"0.979\", \"0.021\"]",
+   "question": "Giants vs. Eagles",
+   "slug": "nfl-nyg-phi-2026-11-08",
+   "volume24hr": 752031.686975,
+   "outcomePrices": "[\"0.585\", \"0.415\"]",
+   "outcomes": "[\"Giants\", \"Eagles\"]"
+  },
+  {
+   "question": "Will FC Barcelona win on 2026-11-08?",
+   "slug": "lal-mad-bar-2026-11-08-bar",
+   "volume24hr": 722306.6258410001,
+   "outcomePrices": "[\"0.485\", \"0.515\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "US x Iran effective ceasefire continues through November 6, 2026?",
-   "slug": "us-x-iran-effective-ceasefire-continues-through-november-6-20261103",
-   "volume24hr": 581687.392796,
-   "outcomePrices": "[\"0.9655\", \"0.0345\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
+   "question": "LoL: Bilibili Gaming vs T1 (BO5) - Worlds Playoffs",
+   "slug": "lol-blg-t1-2026-11-08",
+   "volume24hr": 586677.4295619999,
+   "outcomePrices": "[\"0.555\", \"0.445\"]",
+   "outcomes": "[\"Bilibili Gaming\", \"T1\"]"
   },
   {
-   "question": "LoL: Invictus Gaming vs Gen.G (BO5) - Worlds Playoffs",
-   "slug": "lol-ig1-gen-2026-11-07",
-   "volume24hr": 581618.505764,
-   "outcomePrices": "[\"0.195\", \"0.805\"]",
-   "outcomes": "[\"Invictus Gaming\", \"Gen.G\"]"
-  },
-  {
-   "question": "Will Tulsi Gabbard win the 2028 Republican presidential nomination?",
-   "slug": "will-tulsi-gabbard-win-the-2028-republican-presidential-nomination",
-   "volume24hr": 497283.03,
-   "outcomePrices": "[\"0.0015\", \"0.9985\"]",
+   "question": "Will SS Lazio win on 2026-11-08?",
+   "slug": "sea-nap-laz-2026-11-08-laz",
+   "volume24hr": 561779.6108270002,
+   "outcomePrices": "[\"0.0005\", \"0.9995\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   }
  ]
