@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T13:26:32.856Z",
+ "updated": "2026-11-09T16:26:43.824Z",
  "questions": [
   {
    "slug": "us-x-iran-ceasefire-continues-through-october-31-20260917",
@@ -260,7 +260,7 @@
    "endDate": "2026-12-09T00:00:00Z",
    "capturedAt": "2026-09-30T12:37:09.469Z",
    "priceAtCapture": 0.825,
-   "price": 0.755,
+   "price": 0.795,
    "closed": false,
    "resolved": null,
    "topic": "economy"
@@ -510,7 +510,7 @@
    "endDate": "2027-01-01T05:00:00Z",
    "capturedAt": "2026-10-02T12:37:34.916Z",
    "priceAtCapture": 0.285,
-   "price": 0.555,
+   "price": 0.585,
    "closed": false,
    "resolved": null,
    "topic": "crypto"
@@ -648,7 +648,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-07T13:26:35.094Z",
    "priceAtCapture": 0.205,
-   "price": 0.096,
+   "price": 0.082,
    "closed": false,
    "resolved": null,
    "topic": "tech"
@@ -1011,7 +1011,7 @@
    "endDate": "2026-11-16T04:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.715,
-   "price": 0.915,
+   "price": 0.935,
    "closed": false,
    "resolved": null
   },
@@ -1032,7 +1032,7 @@
    "endDate": "2026-11-30T20:29:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.635,
-   "price": 0.725,
+   "price": 0.78,
    "closed": false,
    "resolved": null
   },
@@ -1056,7 +1056,7 @@
    "endDate": "2027-04-01T03:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.68,
-   "price": 0.655,
+   "price": 0.685,
    "closed": false,
    "resolved": null
   },
@@ -1080,7 +1080,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.34,
-   "price": 0.145,
+   "price": 0.215,
    "closed": false,
    "resolved": null
   },
@@ -1198,7 +1198,7 @@
    "endDate": "2026-11-29T04:59:00Z",
    "capturedAt": "2026-10-10T12:34:42.209Z",
    "priceAtCapture": 0.645,
-   "price": 0.675,
+   "price": 0.665,
    "closed": false,
    "resolved": null
   },
@@ -1221,7 +1221,7 @@
    "endDate": "2026-11-29T04:59:00Z",
    "capturedAt": "2026-10-10T12:34:42.209Z",
    "priceAtCapture": 0.354,
-   "price": 0.332,
+   "price": 0.3375,
    "closed": false,
    "resolved": null
   },
@@ -1401,7 +1401,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-12T15:28:23.121Z",
    "priceAtCapture": 0.0305,
-   "price": 0.02,
+   "price": 0.019,
    "closed": false,
    "resolved": null
   },
@@ -1426,7 +1426,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-12T15:28:23.121Z",
    "priceAtCapture": 0.031,
-   "price": 0.033,
+   "price": 0.0325,
    "closed": false,
    "resolved": null
   },
@@ -1901,7 +1901,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-14T11:54:50.659Z",
    "priceAtCapture": 0.295,
-   "price": 0.295,
+   "price": 0.31,
    "closed": false,
    "resolved": null
   },
@@ -1926,7 +1926,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-14T11:54:50.659Z",
    "priceAtCapture": 0.405,
-   "price": 0.35,
+   "price": 0.435,
    "closed": false,
    "resolved": null
   },
@@ -1951,7 +1951,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-14T11:54:50.659Z",
    "priceAtCapture": 0.415,
-   "price": 0.365,
+   "price": 0.43,
    "closed": false,
    "resolved": null
   },
@@ -1976,7 +1976,7 @@
    "endDate": "2026-11-30T23:59:00Z",
    "capturedAt": "2026-10-14T11:54:50.659Z",
    "priceAtCapture": 0.675,
-   "price": 0.875,
+   "price": 0.9,
    "closed": false,
    "resolved": null
   },
@@ -2026,7 +2026,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-14T11:54:50.659Z",
    "priceAtCapture": 0.4,
-   "price": 0.365,
+   "price": 0.425,
    "closed": false,
    "resolved": null
   },
@@ -2093,7 +2093,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-15T11:32:19.686Z",
    "priceAtCapture": 0.22,
-   "price": 0.155,
+   "price": 0.16,
    "closed": false,
    "resolved": null
   },
@@ -2144,7 +2144,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-16T11:27:31.959Z",
    "priceAtCapture": 0.255,
-   "price": 0.033,
+   "price": 0.031,
    "closed": false,
    "resolved": null
   },
@@ -2217,7 +2217,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-18T11:07:43.076Z",
    "priceAtCapture": 0.595,
-   "price": 0.395,
+   "price": 0.355,
    "closed": false,
    "resolved": null
   },
@@ -2239,7 +2239,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-18T11:07:43.076Z",
    "priceAtCapture": 0.805,
-   "price": 0.715,
+   "price": 0.72,
    "closed": false,
    "resolved": null
   },
@@ -2522,7 +2522,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-19T13:18:37.159Z",
    "priceAtCapture": 0.225,
-   "price": 0.225,
+   "price": 0.305,
    "closed": false,
    "resolved": null
   },
@@ -2570,7 +2570,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-20T11:39:23.807Z",
    "priceAtCapture": 0.165,
-   "price": 0.032,
+   "price": 0.0285,
    "closed": false,
    "resolved": null
   },
@@ -2619,7 +2619,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-21T11:51:26.911Z",
    "priceAtCapture": 0.68,
-   "price": 0.16,
+   "price": 0.21,
    "closed": false,
    "resolved": null
   },
@@ -2644,7 +2644,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-21T11:51:26.911Z",
    "priceAtCapture": 0.6,
-   "price": 0.13,
+   "price": 0.17,
    "closed": false,
    "resolved": null
   },
@@ -2836,7 +2836,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-21T11:51:26.911Z",
    "priceAtCapture": 0.315,
-   "price": 0.235,
+   "price": 0.295,
    "closed": false,
    "resolved": null
   },
@@ -2905,7 +2905,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-22T11:54:54.667Z",
    "priceAtCapture": 0.9615,
-   "price": 0.9785,
+   "price": 0.977,
    "closed": false,
    "resolved": null
   },
@@ -3046,7 +3046,7 @@
    "endDate": "2026-11-30T20:59:00Z",
    "capturedAt": "2026-10-27T12:14:26.220Z",
    "priceAtCapture": 0.55,
-   "price": 0.395,
+   "price": 0.815,
    "closed": false,
    "resolved": null
   },
@@ -3070,7 +3070,7 @@
    "endDate": "2026-10-31T20:59:00Z",
    "capturedAt": "2026-10-27T12:14:26.220Z",
    "priceAtCapture": 0.14,
-   "price": 0.0135,
+   "price": 0.0315,
    "closed": false,
    "resolved": null
   },
@@ -3094,7 +3094,7 @@
    "endDate": "2026-12-16T04:59:00Z",
    "capturedAt": "2026-10-27T12:14:26.220Z",
    "priceAtCapture": 0.745,
-   "price": 0.9345,
+   "price": 0.9675,
    "closed": false,
    "resolved": null
   },
@@ -3118,7 +3118,7 @@
    "endDate": "2026-11-16T04:59:00Z",
    "capturedAt": "2026-10-27T12:14:26.220Z",
    "priceAtCapture": 0.36,
-   "price": 0.59,
+   "price": 0.61,
    "closed": false,
    "resolved": null
   },
@@ -3142,7 +3142,7 @@
    "endDate": "2026-11-30T23:59:00Z",
    "capturedAt": "2026-10-27T12:14:26.220Z",
    "priceAtCapture": 0.6,
-   "price": 0.901,
+   "price": 0.9335,
    "closed": false,
    "resolved": null
   },
@@ -3166,7 +3166,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-27T12:14:26.220Z",
    "priceAtCapture": 0.8,
-   "price": 0.978,
+   "price": 0.9895,
    "closed": false,
    "resolved": null
   },
@@ -3269,7 +3269,7 @@
    "endDate": "2026-11-03T23:59:00Z",
    "capturedAt": "2026-10-29T13:03:44.831Z",
    "priceAtCapture": 0.205,
-   "price": 0.9845,
+   "price": 0.9825,
    "closed": false,
    "resolved": null
   },
@@ -3440,7 +3440,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-02T15:55:57.372Z",
    "priceAtCapture": 0.625,
-   "price": 0.585,
+   "price": 0.59,
    "closed": false,
    "resolved": null
   },
@@ -3460,7 +3460,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-02T15:55:57.372Z",
    "priceAtCapture": 0.031,
-   "price": 0.0325,
+   "price": 0.0315,
    "closed": false,
    "resolved": null
   },
@@ -3505,7 +3505,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-02T15:55:57.372Z",
    "priceAtCapture": 0.265,
-   "price": 0.175,
+   "price": 0.28,
    "closed": false,
    "resolved": null
   },
@@ -3530,7 +3530,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-11-02T15:55:57.372Z",
    "priceAtCapture": 0.415,
-   "price": 0.405,
+   "price": 0.45,
    "closed": false,
    "resolved": null
   },
@@ -3629,7 +3629,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-05T14:42:01.819Z",
    "priceAtCapture": 0.33,
-   "price": 0.285,
+   "price": 0.3,
    "closed": false,
    "resolved": null
   },
@@ -3654,7 +3654,7 @@
    "endDate": "2027-02-01T04:59:00Z",
    "capturedAt": "2026-11-05T14:42:01.819Z",
    "priceAtCapture": 0.17,
-   "price": 0.165,
+   "price": 0.23,
    "closed": false,
    "resolved": null
   },
@@ -3679,7 +3679,7 @@
    "endDate": "2027-04-01T03:59:00Z",
    "capturedAt": "2026-11-05T14:42:01.819Z",
    "priceAtCapture": 0.22,
-   "price": 0.195,
+   "price": 0.345,
    "closed": false,
    "resolved": null
   },
@@ -3702,7 +3702,7 @@
    "endDate": "2027-04-01T03:59:00Z",
    "capturedAt": "2026-11-06T14:18:10.131Z",
    "priceAtCapture": 0.27,
-   "price": 0.255,
+   "price": 0.245,
    "closed": false,
    "resolved": null
   },
@@ -3725,7 +3725,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-06T14:18:10.131Z",
    "priceAtCapture": 0.145,
-   "price": 0.125,
+   "price": 0.11,
    "closed": false,
    "resolved": null
   },
@@ -3748,7 +3748,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-06T14:18:10.131Z",
    "priceAtCapture": 0.045,
-   "price": 0.038,
+   "price": 0.04,
    "closed": false,
    "resolved": null
   },
@@ -3771,7 +3771,7 @@
    "endDate": "2026-11-17T04:59:00Z",
    "capturedAt": "2026-11-07T13:03:38.443Z",
    "priceAtCapture": 0.935,
-   "price": 0.977,
+   "price": 0.988,
    "closed": false,
    "resolved": null
   },
@@ -3794,7 +3794,7 @@
    "endDate": "2026-11-14T04:59:00Z",
    "capturedAt": "2026-11-07T13:03:38.443Z",
    "priceAtCapture": 0.765,
-   "price": 0.948,
+   "price": 0.972,
    "closed": false,
    "resolved": null
   },
@@ -3817,7 +3817,7 @@
    "endDate": "2026-11-15T04:59:00Z",
    "capturedAt": "2026-11-07T13:03:38.443Z",
    "priceAtCapture": 0.86,
-   "price": 0.956,
+   "price": 0.9815,
    "closed": false,
    "resolved": null
   },
@@ -3864,7 +3864,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-08T13:26:32.856Z",
    "priceAtCapture": 0.175,
-   "price": 0.175,
+   "price": 0.145,
    "closed": false,
    "resolved": null
   },
@@ -3887,7 +3887,221 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-08T13:26:32.856Z",
    "priceAtCapture": 0.315,
-   "price": 0.315,
+   "price": 0.285,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "jensen-huang-divorce-by-march-31-2027",
+   "id": "6908170",
+   "question": "Jensen Huang divorce by March 31, 2027?",
+   "topic": "politics",
+   "tags": [
+    "AI",
+    "ICE",
+    "Tech",
+    "Trump",
+    "NVIDIA",
+    "Culture",
+    "Finance",
+    "Celebrities"
+   ],
+   "event": "jensen-huang-divorce-in-2026",
+   "horizon": "long",
+   "createdAt": "2026-11-09T16:15:31.112188Z",
+   "endDate": "2027-04-01T03:59:00Z",
+   "capturedAt": "2026-11-09T16:26:43.824Z",
+   "priceAtCapture": 0.52,
+   "price": 0.52,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "jensen-huang-divorce-in-2026",
+   "id": "6884119",
+   "question": "Jensen Huang divorce by December 31, 2026?",
+   "topic": "politics",
+   "tags": [
+    "AI",
+    "ICE",
+    "Tech",
+    "Trump",
+    "NVIDIA",
+    "Culture",
+    "Finance",
+    "Celebrities"
+   ],
+   "event": "jensen-huang-divorce-in-2026",
+   "horizon": "long",
+   "createdAt": "2026-11-08T22:40:05.181249Z",
+   "endDate": "2027-01-01T04:59:00Z",
+   "capturedAt": "2026-11-09T16:26:43.824Z",
+   "priceAtCapture": 0.09,
+   "price": 0.09,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "jensen-huang-announced-resignation-or-removal-by-march-31-2027",
+   "id": "6908168",
+   "question": "Jensen Huang announced resignation or removal by March 31, 2027?",
+   "topic": "economy",
+   "tags": [
+    "ceo",
+    "Tech",
+    "NVIDIA",
+    "resign",
+    "Finance",
+    "Big Tech",
+    "Business"
+   ],
+   "event": "jensen-huang-announced-resignation-or-removal-by-december-31",
+   "horizon": "long",
+   "createdAt": "2026-11-09T16:15:09.520076Z",
+   "endDate": "2027-04-01T03:59:00Z",
+   "capturedAt": "2026-11-09T16:26:43.824Z",
+   "priceAtCapture": 0.53,
+   "price": 0.53,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "jensen-huang-announced-resignation-or-removal-by-december-31",
+   "id": "6882826",
+   "question": "Jensen Huang announced resignation or removal by December 31, 2026?",
+   "topic": "economy",
+   "tags": [
+    "ceo",
+    "Tech",
+    "NVIDIA",
+    "resign",
+    "Finance",
+    "Big Tech",
+    "Business"
+   ],
+   "event": "jensen-huang-announced-resignation-or-removal-by-december-31",
+   "horizon": "long",
+   "createdAt": "2026-11-08T21:17:32.290833Z",
+   "endDate": "2027-01-01T04:59:00Z",
+   "capturedAt": "2026-11-09T16:26:43.824Z",
+   "priceAtCapture": 0.155,
+   "price": 0.155,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "us-x-iran-effective-ceasefire-by-december-31-20261108",
+   "id": "6831497",
+   "question": "US x Iran Effective Ceasefire by December 31?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Politics",
+    "ceasefire",
+    "Peace Deal",
+    "Geopolitics",
+    "U.S. x Iran",
+    "Iran Ceasefire"
+   ],
+   "event": "us-x-iran-effective-ceasefire-begins-by-2-week-pause-20261108",
+   "horizon": "long",
+   "createdAt": "2026-11-08T02:48:26.85233Z",
+   "endDate": "2026-12-31T20:29:00Z",
+   "capturedAt": "2026-11-09T16:26:43.824Z",
+   "priceAtCapture": 0.805,
+   "price": 0.805,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "us-x-iran-effective-ceasefire-by-november-30-20261108",
+   "id": "6831496",
+   "question": "US x Iran Effective Ceasefire by November 30?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Politics",
+    "ceasefire",
+    "Peace Deal",
+    "Geopolitics",
+    "U.S. x Iran",
+    "Iran Ceasefire"
+   ],
+   "event": "us-x-iran-effective-ceasefire-begins-by-2-week-pause-20261108",
+   "horizon": "short",
+   "createdAt": "2026-11-08T02:48:26.040517Z",
+   "endDate": "2026-11-30T20:29:00Z",
+   "capturedAt": "2026-11-09T16:26:43.824Z",
+   "priceAtCapture": 0.595,
+   "price": 0.595,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "us-x-iran-effective-ceasefire-by-november-22-20261108",
+   "id": "6831495",
+   "question": "US x Iran Effective Ceasefire by November 22?",
+   "topic": "geo",
+   "tags": [
+    "Iran",
+    "Politics",
+    "ceasefire",
+    "Peace Deal",
+    "Geopolitics",
+    "U.S. x Iran",
+    "Iran Ceasefire"
+   ],
+   "event": "us-x-iran-effective-ceasefire-begins-by-2-week-pause-20261108",
+   "horizon": "short",
+   "createdAt": "2026-11-08T02:48:24.194999Z",
+   "endDate": "2026-11-22T20:29:00Z",
+   "capturedAt": "2026-11-09T16:26:43.824Z",
+   "priceAtCapture": 0.525,
+   "price": 0.525,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "pete-hegseth-out-as-secretary-of-defense-by-november-21",
+   "id": "6880640",
+   "question": "Pete Hegseth out as Secretary of Defense by November 21?",
+   "topic": "politics",
+   "tags": [
+    "resign",
+    "Hegseth",
+    "Politics",
+    "Department of War",
+    "Cabinet Shakeup"
+   ],
+   "event": "pete-hegseth-out-as-secretary-of-defense-by-november-30-20261001003401433",
+   "horizon": "short",
+   "createdAt": "2026-11-08T19:54:47.172714Z",
+   "endDate": "2026-11-22T04:59:00Z",
+   "capturedAt": "2026-11-09T16:26:43.824Z",
+   "priceAtCapture": 0.195,
+   "price": 0.195,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "pete-hegseth-out-as-secretary-of-defense-by-november-14",
+   "id": "6880638",
+   "question": "Pete Hegseth out as Secretary of Defense by November 14?",
+   "topic": "politics",
+   "tags": [
+    "resign",
+    "Hegseth",
+    "Politics",
+    "Department of War",
+    "Cabinet Shakeup"
+   ],
+   "event": "pete-hegseth-out-as-secretary-of-defense-by-november-30-20261001003401433",
+   "horizon": "short",
+   "createdAt": "2026-11-08T19:54:46.288353Z",
+   "endDate": "2026-11-15T04:59:00Z",
+   "capturedAt": "2026-11-09T16:26:43.824Z",
+   "priceAtCapture": 0.115,
+   "price": 0.115,
    "closed": false,
    "resolved": null
   }
