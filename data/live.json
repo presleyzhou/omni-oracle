@@ -1,39 +1,7 @@
 {
- "generated": "2026-11-10T14:54:27.354Z",
+ "generated": "2026-11-11T14:24:31.979Z",
  "worldbank": {
   "USA": {
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-10-08"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 2.16138195623856
-     },
-     {
-      "date": "2024",
-      "value": 2.79318715363841
-     },
-     {
-      "date": "2023",
-      "value": 2.93436322440155
-     },
-     {
-      "date": "2022",
-      "value": 2.52421385073222
-     },
-     {
-      "date": "2021",
-      "value": 6.15202247867526
-     }
-    ]
-   ],
    "cpi": [
     {
      "page": 1,
@@ -65,10 +33,8 @@
       "value": 4.69785886363742
      }
     ]
-   ]
-  },
-  "CHN": {
-   "cpi": [
+   ],
+   "gdp": [
     {
      "page": 1,
      "pages": 1,
@@ -80,26 +46,28 @@
     [
      {
       "date": "2025",
-      "value": 0.0595646916565402
+      "value": 2.16138195623856
      },
      {
       "date": "2024",
-      "value": 0.218128938439177
+      "value": 2.79318715363841
      },
      {
       "date": "2023",
-      "value": 0.23483682889305
+      "value": 2.93436322440155
      },
      {
       "date": "2022",
-      "value": 1.9735755573905
+      "value": 2.52421385073222
      },
      {
       "date": "2021",
-      "value": 0.981015135544881
+      "value": 6.15202247867526
      }
     ]
-   ],
+   ]
+  },
+  "CHN": {
    "gdp": [
     {
      "page": 1,
@@ -131,10 +99,8 @@
       "value": 8.57038414981781
      }
     ]
-   ]
-  },
-  "EUU": {
-   "gdp": [
+   ],
+   "cpi": [
     {
      "page": 1,
      "pages": 1,
@@ -146,26 +112,28 @@
     [
      {
       "date": "2025",
-      "value": 1.53795434836212
+      "value": 0.0595646916565402
      },
      {
       "date": "2024",
-      "value": 1.08657885620458
+      "value": 0.218128938439177
      },
      {
       "date": "2023",
-      "value": 0.4380089249495
+      "value": 0.23483682889305
      },
      {
       "date": "2022",
-      "value": 3.56455510630462
+      "value": 1.9735755573905
      },
      {
       "date": "2021",
-      "value": 6.37773717070797
+      "value": 0.981015135544881
      }
     ]
-   ],
+   ]
+  },
+  "EUU": {
    "cpi": [
     {
      "page": 1,
@@ -197,10 +165,8 @@
       "value": 2.5545069964204
      }
     ]
-   ]
-  },
-  "JPN": {
-   "cpi": [
+   ],
+   "gdp": [
     {
      "page": 1,
      "pages": 1,
@@ -212,26 +178,28 @@
     [
      {
       "date": "2025",
-      "value": 3.17253034260247
+      "value": 1.53795434836212
      },
      {
       "date": "2024",
-      "value": 2.7385368163524
+      "value": 1.08657885620458
      },
      {
       "date": "2023",
-      "value": 3.26813365933163
+      "value": 0.4380089249495
      },
      {
       "date": "2022",
-      "value": 2.49770278172254
+      "value": 3.56455510630462
      },
      {
       "date": "2021",
-      "value": -0.233352779398263
+      "value": 6.37773717070797
      }
     ]
-   ],
+   ]
+  },
+  "JPN": {
    "gdp": [
     {
      "page": 1,
@@ -261,6 +229,38 @@
      {
       "date": "2021",
       "value": 3.56419531474475
+     }
+    ]
+   ],
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-10-08"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 3.17253034260247
+     },
+     {
+      "date": "2024",
+      "value": 2.7385368163524
+     },
+     {
+      "date": "2023",
+      "value": 3.26813365933163
+     },
+     {
+      "date": "2022",
+      "value": 2.49770278172254
+     },
+     {
+      "date": "2021",
+      "value": -0.233352779398263
      }
     ]
    ]
@@ -1549,12 +1549,12 @@
  "fx": {
   "amount": 1,
   "base": "USD",
-  "date": "2026-11-09",
+  "date": "2026-11-10",
   "rates": {
-   "CNY": 6.6728,
-   "EUR": 0.89342,
-   "GBP": 0.74538,
-   "JPY": 157.95
+   "CNY": 6.6703,
+   "EUR": 0.89174,
+   "GBP": 0.74501,
+   "JPY": 158.18
   }
  },
  "treasury": {
@@ -1603,106 +1603,102 @@
  "quotes": {
   "NVDA": {
    "data": {
-    "p": 171.02,
-    "cp": -4.28
-   }
-  },
-  "GOOGL": {
-   "data": {
-    "p": 288.96,
-    "cp": 0.28
+    "p": 168.89,
+    "cp": -5.47
    }
   },
   "MSFT": {
    "data": {
-    "p": 541.99,
-    "cp": -0.59
+    "p": 533.16,
+    "cp": -2.2
    }
   },
   "AAPL": {
    "data": {
-    "p": 348.76,
-    "cp": -0.55
+    "p": 348.51,
+    "cp": -0.62
    }
   },
-  "MU": {
+  "GOOGL": {
    "data": {
-    "p": 726.5,
-    "cp": -0.91
-   }
-  },
-  "AVGO": {
-   "data": {
-    "p": 328.92,
-    "cp": 2.95
+    "p": 287.38,
+    "cp": -0.27
    }
   },
   "META": {
    "data": {
-    "p": 640,
-    "cp": -0.21
+    "p": 641.39,
+    "cp": 0
+   }
+  },
+  "MU": {
+   "data": {
+    "p": 725.11,
+    "cp": -1.1
    }
   },
   "VRT": {
    "data": {
-    "p": 196.2,
-    "cp": -2.13
+    "p": 194.22,
+    "cp": -3.12
    }
   },
-  "NVO": {
+  "AVGO": {
    "data": {
-    "p": 40.67,
-    "cp": -1.72
-   }
-  },
-  "LLY": {
-   "data": {
-    "p": 1413.36,
-    "cp": 0.1
+    "p": 331.98,
+    "cp": 3.91
    }
   },
   "TSLA": {
    "data": {
-    "p": 375.93,
-    "cp": -0.56
+    "p": 379.78,
+    "cp": 0.46
+   }
+  },
+  "NVO": {
+   "data": {
+    "p": 40.7,
+    "cp": -1.64
+   }
+  },
+  "LLY": {
+   "data": {
+    "p": 1432.29,
+    "cp": 1.44
    }
   },
   "ISRG": {
    "data": {
-    "p": 452.835,
-    "cp": -1.68
-   }
-  },
-  "CEG": {
-   "data": {
-    "p": 269.68,
-    "cp": -2.32
-   }
-  },
-  "IONQ": {
-   "data": {
-    "p": 34.94,
-    "cp": -1.13
-   }
-  },
-  "GEV": {
-   "data": {
-    "p": 765,
-    "cp": -7.76
+    "p": 450.04,
+    "cp": -2.28
    }
   },
   "RKLB": {
    "data": {
-    "p": 58.31,
-    "cp": -0.93
+    "p": 62.71,
+    "cp": 6.54
+   }
+  },
+  "CEG": {
+   "data": {
+    "p": 267.76,
+    "cp": -3.02
+   }
+  },
+  "IONQ": {
+   "data": {
+    "p": 34.99,
+    "cp": -0.99
+   }
+  },
+  "GEV": {
+   "data": {
+    "p": 797.04,
+    "cp": -3.89
    }
   }
  },
  "vix": [
-  {
-   "d": "2024-11-04",
-   "c": 21.98
-  },
   {
    "d": "2024-11-05",
    "c": 20.49
@@ -3778,6 +3774,10 @@
   {
    "d": "2026-11-09",
    "c": 19.92
+  },
+  {
+   "d": "2026-11-10",
+   "c": 19.46
   }
  ],
  "treasury_curve": [
@@ -6564,63 +6564,69 @@
    "m3": 4.24,
    "y2": 4.56,
    "y10": 4.88
+  },
+  {
+   "d": "2026-11-10",
+   "m3": 4.3,
+   "y2": 4.73,
+   "y10": 4.98
   }
  ],
  "coingecko": {
   "bitcoin": {
-   "usd": 74072,
-   "usd_24h_change": -1.0765628622448422
+   "usd": 73580,
+   "usd_24h_change": -0.10019770628725154
   },
   "ethereum": {
-   "usd": 2072.9,
-   "usd_24h_change": -2.704828428541076
+   "usd": 2047,
+   "usd_24h_change": -0.7323463361398165
   },
   "solana": {
-   "usd": 83.84,
-   "usd_24h_change": -4.0183528410814695
+   "usd": 83.85,
+   "usd_24h_change": 0.21018859992259636
   }
  },
  "polymarket": [
   {
-   "question": "Will there be no change in Fed interest rates after the December 2026 meeting?",
-   "slug": "will-there-be-no-change-in-fed-interest-rates-after-the-december-2026-meeting-20260729232808635",
-   "volume24hr": 2039190.3372570004,
-   "outcomePrices": "[\"0.0285\", \"0.9715\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  },
-  {
-   "question": "Will the Fed increase interest rates by 25 bps after the December 2026 meeting?",
-   "slug": "will-the-fed-increase-interest-rates-by-25-bps-after-the-december-2026-meeting-20260729232808636",
-   "volume24hr": 1435195.8490549999,
-   "outcomePrices": "[\"0.845\", \"0.155\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  },
-  {
    "question": "Will the Fed increase interest rates by 50+ bps after the December 2026 meeting?",
    "slug": "will-the-fed-increase-interest-rates-by-50-bps-after-the-december-2026-meeting-20260729232808637",
-   "volume24hr": 1160202.3789930001,
-   "outcomePrices": "[\"0.1265\", \"0.8735\"]",
+   "volume24hr": 1074903.4367050002,
+   "outcomePrices": "[\"0.1135\", \"0.8865\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Will Shawn Fain win the 2028 Democratic presidential nomination?",
-   "slug": "will-shawn-fain-win-the-2028-democratic-presidential-nomination",
-   "volume24hr": 805046.776286,
-   "outcomePrices": "[\"0.0035\", \"0.9965\"]",
+   "question": "BNP Paribas Nordic Open: Lorenzo Sonego vs Alejandro Tabilo",
+   "slug": "atp-sonego-tabilo-2026-11-11",
+   "volume24hr": 978212.4727919998,
+   "outcomePrices": "[\"0.545\", \"0.455\"]",
+   "outcomes": "[\"Lorenzo Sonego\", \"Alejandro Tabilo\"]"
+  },
+  {
+   "question": "Will there be no change in Fed interest rates after the December 2026 meeting?",
+   "slug": "will-there-be-no-change-in-fed-interest-rates-after-the-december-2026-meeting-20260729232808635",
+   "volume24hr": 667223.6422200002,
+   "outcomePrices": "[\"0.0365\", \"0.9635\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "BNP Paribas Nordic Open: Lorenzo Sonego vs Quentin Halys",
-   "slug": "atp-sonego-halys-2026-11-10",
-   "volume24hr": 653663.6590949999,
-   "outcomePrices": "[\"0.915\", \"0.085\"]",
-   "outcomes": "[\"Lorenzo Sonego\", \"Quentin Halys\"]"
+   "question": "UFC 334: Josh Hokit vs. Ciryl Gane (Heavyweight, Main Card)",
+   "slug": "ufc-jos52-cir-2026-11-14",
+   "volume24hr": 557756.2538829999,
+   "outcomePrices": "[\"0.365\", \"0.635\"]",
+   "outcomes": "[\"Josh Hokit\", \"Ciryl Gane\"]"
   },
   {
-   "question": "Will Kai Cenat finish his GTA marathon by November 10?",
-   "slug": "will-kai-cenat-finish-his-gta-marathon-by-november-10-20261105",
-   "volume24hr": 581980.167226,
-   "outcomePrices": "[\"0.148\", \"0.852\"]",
+   "question": "Will Sport Lisboa e Benfica vs. FK Austria Wien end in a draw?",
+   "slug": "uwcl-slb-faw-2026-11-11-draw",
+   "volume24hr": 444836.387889,
+   "outcomePrices": "[\"0.255\", \"0.745\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
+  },
+  {
+   "question": "Will Shakhtar Donetsk win the 2026-27 UEFA Champions League Championship?",
+   "slug": "will-shakhtar-donetsk-win-the-2026-27-uefa-champions-league-championship-20260701202025578",
+   "volume24hr": 423889.232,
+   "outcomePrices": "[\"0.0015\", \"0.9985\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   }
  ]
