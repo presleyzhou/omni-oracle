@@ -604,5 +604,11 @@
   "res.group.real": "Preguntas reales del registro pendientes de resolución",
   "res.group.demo": "Mercados demo",
   "cw.hist.title": "Historial del compuesto — lo que habría marcado el indicador a cada fin de mes, últimos 24 meses",
-  "cw.hist.note": "Reconstrucción ex post con las series revisadas de hoy (seis de siete indicadores; el diferencial de crédito requiere una clave FRED) y los mismos umbrales. Ignora los retrasos de publicación: muestra cómo se comporta el conjunto de indicadores, no lo que un pronosticador habría visto en tiempo real."
+  "cw.hist.note": "Reconstrucción ex post con las series revisadas de hoy (seis de siete indicadores; el diferencial de crédito requiere una clave FRED) y los mismos umbrales. Ignora los retrasos de publicación: muestra cómo se comporta el conjunto de indicadores, no lo que un pronosticador habría visto en tiempo real.",
+  "tour.real.base": "Siempre la tasa base ({p} % SÍ, dentro de la muestra)",
+  "tour.real.ci": "Intervalo 95 %",
+  "tour.real.bss": "Habilidad vs tasa base",
+  "tour.real.baseline": "Referencia de tasa base",
+  "mk.closed": "Cerrado (mercado demo)",
+  "tour.real.note2": "Los intervalos son intervalos bootstrap del 95 % del Brier medio (se muestran a partir de 10 pronósticos calificados). Habilidad = 1 − Brier ÷ Brier de la tasa base: 0 % significa no mejor que citar siempre la frecuencia de SÍ del registro, calculada dentro de la muestra y por tanto exigente."
 }

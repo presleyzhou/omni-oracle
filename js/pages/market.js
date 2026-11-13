@@ -158,7 +158,12 @@ document.getElementById("sideTog").addEventListener("click", (e) => {
 document.getElementById("shSlider").addEventListener("input", (e) => {
   S.shares = +e.target.value; renderTrade();
 });
+if (OO.isExpired(m)) { // closed demo market: view-only
+  const b = document.getElementById("execBtn"); b.disabled = true; b.style.opacity = 0.4;
+  document.getElementById("execMsg").textContent = OO_T("mk.closed");
+}
 document.getElementById("execBtn").addEventListener("click", () => {
+  if (OO.isExpired(m)) return;
   const cost = LMSR.cost(S.price, S.side, S.shares);
   S.price = Math.min(0.99, Math.max(0.01, LMSR.newPrice(S.price, S.side, S.shares)));
   const pos = PORT.find(p => p.i === id && p.side === S.side && !p.bot);

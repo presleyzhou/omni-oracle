@@ -17,6 +17,17 @@ let AIF = [];
 try { AIF = JSON.parse(localStorage.getItem(AIF_KEY)) || []; } catch (e) { AIF = []; }
 const saveAif = () => localStorage.setItem(AIF_KEY, JSON.stringify(AIF.slice(-400)));
 const brier = (p, y) => (p - y) * (p - y);
+/* 95% bootstrap interval of a mean (1000 resamples, deterministic seed so the table does not
+   flicker between renders); null below 10 observations, where an interval would be noise */
+function bootCI(arr, B = 1000) {
+  if (arr.length < 10) return null;
+  let seed = 12345 + arr.length;
+  const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+  const means = [];
+  for (let b = 0; b < B; b++) { let sum = 0; for (let j = 0; j < arr.length; j++) sum += arr[(rnd() * arr.length) | 0]; means.push(sum / arr.length); }
+  means.sort((x, y) => x - y);
+  return [means[Math.floor(0.025 * B)], means[Math.ceil(0.975 * B) - 1]];
+}
 let MYF = [];
 try { MYF = JSON.parse(localStorage.getItem("oo-myforecasts")) || []; } catch (e) { MYF = []; }
 MYF = MYF.filter(f => f.slug || OO.markets[f.i]);
@@ -133,16 +144,21 @@ function renderAiLedger() {
     const mean = (arr) => arr.reduce((a, b) => a + b, 0) / arr.length;
     rows.push({ name: OO_T("tour.real.market"), n: resolved.length, b: mean(resolved.map(q => brier(q.priceAtCapture, q.resolved))), real: true });
     rows.push({ name: OO_T("tour.real.uniform"), n: resolved.length, b: 0.25, real: true });
+    /* base-rate baseline: always forecast the ledger's own YES frequency. It is computed
+       in-sample, which flatters it — a participant that cannot beat it has no skill. */
+    const baseRate = mean(resolved.map(q => q.resolved)), baseBrier = baseRate * (1 - baseRate);
+    rows.push({ name: T2("tour.real.base", { p: Math.round(baseRate * 100) }), n: resolved.length, b: baseBrier, real: true });
+    rows[0].ci = bootCI(resolved.map(q => brier(q.priceAtCapture, q.resolved)));
     const gh = gradedHuman(bySlug);
-    if (gh.length) rows.push({ name: OO_T("tour.real.you"), n: gh.length, b: mean(gh.map(x => brier(x.p, x.y))), mb: mean(gh.map(x => brier(x.mp, x.y))) });
+    if (gh.length) rows.push({ name: OO_T("tour.real.you"), n: gh.length, b: mean(gh.map(x => brier(x.p, x.y))), mb: mean(gh.map(x => brier(x.mp, x.y))), ci: bootCI(gh.map(x => brier(x.p, x.y))) });
     const byModel = {};
     graded.forEach(f => { const m = byModel[f.model] = byModel[f.model] || { b: [], mb: [] }; m.b.push(brier(f.p, f.y)); m.mb.push(brier(f.marketP, f.y)); });
-    Object.entries(byModel).forEach(([m, v]) => rows.push({ name: m, n: v.b.length, b: mean(v.b), mb: mean(v.mb) }));
+    Object.entries(byModel).forEach(([m, v]) => rows.push({ name: m, n: v.b.length, b: mean(v.b), mb: mean(v.mb), ci: bootCI(v.b) }));
     rows.sort((a, b) => a.b - b.b);
     html += `<h4 class="real-h">${OO_T("tour.real.title")}</h4>
-      <table style="margin-top:6px;"><thead><tr><th scope="col">${OO_T("tour.real.who")}</th><th scope="col">${OO_T("tour.ai.graded")}</th><th scope="col">${OO_T("tour.th.brier")}</th><th scope="col">${OO_T("tour.real.vsmkt")}</th></tr></thead><tbody>` +
-      rows.map(r => `<tr><td>${r.real ? "" : "<strong>"}${r.name}${r.real ? "" : "</strong>"}</td><td class="num-cell">${r.n}</td><td class="num-cell">${r.b.toFixed(3)}</td><td class="num-cell ${r.mb == null ? "" : r.b <= r.mb ? "pos" : "neg"}">${r.mb == null ? "—" : (r.b - r.mb >= 0 ? "+" : "") + (r.b - r.mb).toFixed(3)}</td></tr>`).join("") +
-      `</tbody></table><p class="dim-note" style="margin-top:6px;">${OO_T("tour.real.bytopic")}: ${topicLine}</p><p class="dim-note">${OO_T("tour.real.byhorizon")}: ${horizonLine}</p><p class="dim-note">${OO_T("tour.real.note")}</p>`;
+      <table style="margin-top:6px;"><thead><tr><th scope="col">${OO_T("tour.real.who")}</th><th scope="col">${OO_T("tour.ai.graded")}</th><th scope="col">${OO_T("tour.th.brier")}</th><th scope="col">${OO_T("tour.real.ci")}</th><th scope="col">${OO_T("tour.real.bss")}</th><th scope="col">${OO_T("tour.real.vsmkt")}</th></tr></thead><tbody>` +
+      rows.map(r => `<tr><td>${r.real ? "" : "<strong>"}${r.name}${r.real ? "" : "</strong>"}</td><td class="num-cell">${r.n}</td><td class="num-cell">${r.b.toFixed(3)}</td><td class="num-cell dim-note">${r.ci ? r.ci[0].toFixed(3) + "–" + r.ci[1].toFixed(3) : "—"}</td><td class="num-cell ${1 - r.b / baseBrier > 0 ? "pos" : ""}">${(100 * (1 - r.b / baseBrier)).toFixed(0)}%</td><td class="num-cell ${r.mb == null ? "" : r.b <= r.mb ? "pos" : "neg"}">${r.mb == null ? "—" : (r.b - r.mb >= 0 ? "+" : "") + (r.b - r.mb).toFixed(3)}</td></tr>`).join("") +
+      `</tbody></table><p class="dim-note" style="margin-top:6px;">${OO_T("tour.real.bytopic")}: ${topicLine}</p><p class="dim-note">${OO_T("tour.real.byhorizon")}: ${horizonLine}</p><p class="dim-note">${OO_T("tour.real.note")}</p><p class="dim-note">${OO_T("tour.real.note2")}</p>`;
   }
   if (pending.length) {
     html += `<p class="dim-note" style="margin-top:10px;">${T2("tour.ai.pending", { n: pending.length })}</p><ul class="pending-list">` +
@@ -201,7 +217,7 @@ function renderMy() {
     const open = LEDGER.questions.filter(q => !q.closed && !done.has(q.slug));
     sel.innerHTML = open.map(q => `<option value="${q.slug}">${q.question}</option>`).join("") || `<option value="">${OO_T("my.real.none")}</option>`;
   } else {
-    sel.innerHTML = OO.markets.map((m, i) => `<option value="${i}">${m.q}</option>`).join("");
+    sel.innerHTML = OO.markets.map((m, i) => OO.isExpired(m) ? "" : `<option value="${i}">${m.q}</option>`).join("");
   }
   if (cur && [...sel.options].some(o => o.value === cur)) sel.value = cur;
   document.querySelectorAll("#mySrc .chip").forEach(c => c.classList.toggle("active", c.dataset.src === MYSRC));
@@ -354,9 +370,14 @@ function renderHistory(h) {
     type: "line",
     data: { labels: h.rows.map(r => r.d), datasets: [
       { label: OO_T("tour.real.market"), data: h.rows.map(r => r.market), borderColor: OO_COLORS.purple, backgroundColor: OO_COLORS.purple, tension: 0.2, pointRadius: 2, yAxisID: "y" },
+      ...(h.rows.some(r => r.ci) ? [
+        { label: OO_T("tour.real.ci"), data: h.rows.map(r => r.ci ? r.ci[1] : null), borderColor: "rgba(139,92,246,0.35)", backgroundColor: "rgba(139,92,246,0.12)", pointRadius: 0, borderWidth: 1, fill: "+1", tension: 0.2, yAxisID: "y" },
+        { label: "", data: h.rows.map(r => r.ci ? r.ci[0] : null), borderColor: "rgba(139,92,246,0.35)", pointRadius: 0, borderWidth: 1, tension: 0.2, yAxisID: "y" },
+      ] : []),
+      ...(h.rows.some(r => r.base != null) ? [{ label: OO_T("tour.real.baseline"), data: h.rows.map(r => r.base ?? null), borderColor: OO_COLORS.amber, borderDash: [2, 3], pointRadius: 0, tension: 0.2, yAxisID: "y" }] : []),
       { label: OO_T("tour.ai.graded"), data: h.rows.map(r => r.n), borderColor: OO_COLORS.dim, borderDash: [4, 4], pointRadius: 0, tension: 0.2, yAxisID: "y2" },
     ] },
-    options: { maintainAspectRatio: false, scales: { y: { min: 0, max: 0.3, title: { display: true, text: "Brier" } }, y2: { position: "right", grid: { drawOnChartArea: false }, title: { display: true, text: "n" } }, x: { ticks: { maxTicksLimit: 8 } } } },
+    options: { maintainAspectRatio: false, plugins: { legend: { labels: { filter: (item) => item.text !== "" } } }, scales: { y: { min: 0, max: 0.3, title: { display: true, text: "Brier" } }, y2: { position: "right", grid: { drawOnChartArea: false }, title: { display: true, text: "n" } }, x: { ticks: { maxTicksLimit: 8 } } } },
   });
 }
 let HIST = null;

@@ -160,6 +160,7 @@ function render() {
   else if (SORTMODE === "vd") order.sort((a, b) => volNum(OO.markets[b].vol) - volNum(OO.markets[a].vol));
   grid.innerHTML = order.map(i => {
     const m = OO.markets[i];
+    if (OO.isExpired(m)) return ""; // closed demo markets leave the grid (see OO.isExpired)
     if (activeCat !== "all" && m.cat !== activeCat) return "";
     if (SEARCH && !m.q.toLowerCase().includes(SEARCH)) return "";
     const s = state[i];
@@ -315,7 +316,7 @@ grid.addEventListener("input", (e) => {
    the disagreement is the information. Paper money only — six frontier models
    trading real markets for 57 days all lost money (Prediction Arena, 2604.07355),
    and none of four agents beat the bookmaker on 104 World Cup matches (2607.17765). */
-const AI_PICKS = [0, 3, 6, 9, 15, 18];
+const AI_PICKS = [0, 3, 6, 9, 15, 18, 20, 5, 10, 13].filter(i => OO.markets[i] && !OO.isExpired(OO.markets[i])).slice(0, 6);
 const DISPUTE = 0.25;
 document.getElementById("aiRun").addEventListener("click", async () => {
   const st = document.getElementById("aiStatus");

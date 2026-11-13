@@ -378,8 +378,20 @@ try {
     const mean = (a) => a.reduce((x, y) => x + y, 0) / a.length;
     const byTopic = {};
     res.forEach(q => { (byTopic[q.topic || "other"] = byTopic[q.topic || "other"] || []).push(brier(q.priceAtCapture, q.resolved)); });
+    const errs = res.map(q => brier(q.priceAtCapture, q.resolved));
+    /* 95% bootstrap interval, deterministic seed (same generator as the tournament page) */
+    const bootCI = (arr, B = 1000) => {
+      if (arr.length < 10) return null;
+      let seed = 12345 + arr.length; const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+      const m = []; for (let b = 0; b < B; b++) { let sum = 0; for (let j = 0; j < arr.length; j++) sum += arr[(rnd() * arr.length) | 0]; m.push(sum / arr.length); }
+      m.sort((x, y) => x - y); return [+m[Math.floor(0.025 * B)].toFixed(4), +m[Math.ceil(0.975 * B) - 1].toFixed(4)];
+    };
+    const yes = mean(res.map(q => q.resolved));
+    const hz = (q) => (Date.parse(q.endDate) - Date.parse(q.capturedAt)) / 864e5;
+    const bucket = (f) => { const a = res.filter(f).map(q => brier(q.priceAtCapture, q.resolved)); return a.length ? { n: a.length, b: +mean(a).toFixed(4) } : null; };
     const row = { d: new Date().toISOString().slice(0, 10), n: res.length, open: ledger.questions.filter(q => !q.closed).length,
-      market: +mean(res.map(q => brier(q.priceAtCapture, q.resolved))).toFixed(4),
+      market: +mean(errs).toFixed(4), ci: bootCI(errs), base: +(yes * (1 - yes)).toFixed(4), yesRate: +yes.toFixed(4),
+      horizon: { short: bucket(q => hz(q) <= 7), mid: bucket(q => hz(q) > 7 && hz(q) <= 30), long: bucket(q => hz(q) > 30) },
       topics: Object.fromEntries(Object.entries(byTopic).map(([t, a]) => [t, { n: a.length, b: +mean(a).toFixed(4) }])) };
     hist.rows = hist.rows.filter(r => r.d !== row.d).concat(row).slice(-730);
     fs.writeFileSync(HIST, JSON.stringify(hist, null, 1) + "\n");

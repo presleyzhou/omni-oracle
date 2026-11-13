@@ -72,7 +72,7 @@ OO.categories = [
 
 OO.markets = [
   { cat: "politics", q: "Will the incumbent party keep the White House in 2028?", yes: 0.47, vol: "12.4M", close: "Nov 2028", res: "Official election results" },
-  { cat: "politics", q: "Democrats win the House in the 2026 midterms?", yes: 0.58, vol: "8.9M", close: "Nov 2026", res: "AP race calls" },
+  { cat: "politics", q: "Democrats win the House in the 2026 midterms?", yes: 0.58, vol: "8.9M", close: "Nov 3 2026", res: "AP race calls" },
   { cat: "politics", q: "UK general election held before 2028?", yes: 0.24, vol: "1.1M", close: "Dec 2027", res: "Official announcement" },
   { cat: "crypto",   coin: "bitcoin", sym: "BTC", q: "BTC above $150K on Dec 31, 2026?", yes: 0.36, vol: "22.7M", close: "Dec 2026", res: "Medianized exchange price feed" },
   { cat: "crypto",   coin: "ethereum", sym: "ETH", q: "ETH above $6K at any point in 2026?", yes: 0.51, vol: "9.3M", close: "Dec 2026", res: "Medianized exchange price feed" },
@@ -91,7 +91,20 @@ OO.markets = [
   { cat: "tech",     q: "FDA approves an AI-discovered drug (NME) by 2027?", yes: 0.34, vol: "2.0M", close: "Dec 2027", res: "FDA approval letter" },
   { cat: "news",     q: "A new all-time global temperature record set in 2026?", yes: 0.55, vol: "1.6M", close: "Jan 2027", res: "NASA GISS / NOAA datasets" },
   { cat: "news",     q: "Time Person of the Year 2026 is an AI-related figure?", yes: 0.27, vol: "0.8M", close: "Dec 2026", res: "TIME announcement" },
+  /* appended (never inserted) so stored positions keep pointing at the same index */
+  { cat: "politics", q: "Will the 2028 Democratic nominee be a sitting governor?", yes: 0.44, vol: "5.2M", close: "Aug 2028", res: "DNC convention roll call" },
 ];
+
+/* Demo markets expire on their close date ("Nov 3 2026" → that day, "Nov 2026" → end of the
+   month). Expired ones stay in the array — indices are stored in portfolios and forecasts —
+   but pages hide them from trading, selects and AI picks. */
+OO.closeDate = (m) => {
+  const dated = m.close.match(/^(\w{3}) (\d{1,2}) (\d{4})$/), monthly = m.close.match(/^(\w{3}) (\d{4})$/);
+  if (dated) return new Date(`${dated[1]} ${dated[2]} ${dated[3]} 23:59:59`);
+  if (monthly) { const d = new Date(`${monthly[1]} 1 ${monthly[2]}`); return new Date(d.getFullYear(), d.getMonth() + 1, 0, 23, 59, 59); }
+  return null;
+};
+OO.isExpired = (m) => { const d = OO.closeDate(m); return !!d && d.getTime() < Date.now(); };
 
 /* ---------- Tournament (C1) ---------- */
 OO.leaderboard = [

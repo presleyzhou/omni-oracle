@@ -619,7 +619,13 @@ en: {
   "res.group.real": "Real ledger questions awaiting resolution",
   "res.group.demo": "Demo markets",
   "cw.hist.title": "Composite history — what the gauge would have read at each month-end, last 24 months",
-  "cw.hist.note": "Ex post reconstruction from today's revised series (six of seven indicators; the credit spread needs a FRED key) with the same thresholds. It ignores publication lags, so it shows how the indicator set behaves — not what a forecaster could have seen in real time."
+  "cw.hist.note": "Ex post reconstruction from today's revised series (six of seven indicators; the credit spread needs a FRED key) with the same thresholds. It ignores publication lags, so it shows how the indicator set behaves — not what a forecaster could have seen in real time.",
+  "tour.real.base": "Always the base rate ({p}% YES, in-sample)",
+  "tour.real.ci": "95% interval",
+  "tour.real.bss": "Skill vs base rate",
+  "tour.real.baseline": "Base-rate baseline",
+  "mk.closed": "Closed (demo market)",
+  "tour.real.note2": "Intervals are 95% bootstrap intervals of the mean Brier (shown from 10 graded forecasts). Skill = 1 − Brier ÷ base-rate Brier: 0% means no better than always quoting the ledger's YES frequency, which is computed in-sample and therefore a demanding reference."
 },
 };
 

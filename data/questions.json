@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-13T14:37:22.623Z",
+ "updated": "2026-11-13T18:52:29.494Z",
  "questions": [
   {
    "slug": "us-x-iran-ceasefire-continues-through-october-31-20260917",
@@ -51,7 +51,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.065,
-   "price": 0.0345,
+   "price": 0.033,
    "closed": false,
    "resolved": null,
    "topic": "other"
@@ -260,7 +260,7 @@
    "endDate": "2026-12-09T00:00:00Z",
    "capturedAt": "2026-09-30T12:37:09.469Z",
    "priceAtCapture": 0.825,
-   "price": 0.9685,
+   "price": 0.968,
    "closed": false,
    "resolved": null,
    "topic": "economy"
@@ -1012,7 +1012,7 @@
    "endDate": "2026-11-16T04:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.715,
-   "price": 0.959,
+   "price": 0.947,
    "closed": false,
    "resolved": null
   },
@@ -1057,7 +1057,7 @@
    "endDate": "2027-04-01T03:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.68,
-   "price": 0.59,
+   "price": 0.585,
    "closed": false,
    "resolved": null
   },
@@ -1222,7 +1222,7 @@
    "endDate": "2026-11-29T04:59:00Z",
    "capturedAt": "2026-10-10T12:34:42.209Z",
    "priceAtCapture": 0.354,
-   "price": 0.3535,
+   "price": 0.3525,
    "closed": false,
    "resolved": null
   },
@@ -1427,7 +1427,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-12T15:28:23.121Z",
    "priceAtCapture": 0.031,
-   "price": 0.027,
+   "price": 0.0265,
    "closed": false,
    "resolved": null
   },
@@ -1902,7 +1902,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-14T11:54:50.659Z",
    "priceAtCapture": 0.295,
-   "price": 0.295,
+   "price": 0.265,
    "closed": false,
    "resolved": null
   },
@@ -1927,7 +1927,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-14T11:54:50.659Z",
    "priceAtCapture": 0.405,
-   "price": 0.295,
+   "price": 0.28,
    "closed": false,
    "resolved": null
   },
@@ -1952,7 +1952,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-14T11:54:50.659Z",
    "priceAtCapture": 0.415,
-   "price": 0.305,
+   "price": 0.275,
    "closed": false,
    "resolved": null
   },
@@ -1977,7 +1977,7 @@
    "endDate": "2026-11-30T23:59:00Z",
    "capturedAt": "2026-10-14T11:54:50.659Z",
    "priceAtCapture": 0.675,
-   "price": 0.94,
+   "price": 0.925,
    "closed": false,
    "resolved": null
   },
@@ -2002,7 +2002,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-14T11:54:50.659Z",
    "priceAtCapture": 0.0455,
-   "price": 0.036,
+   "price": 0.0365,
    "closed": false,
    "resolved": null
   },
@@ -2027,7 +2027,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-14T11:54:50.659Z",
    "priceAtCapture": 0.4,
-   "price": 0.28,
+   "price": 0.275,
    "closed": false,
    "resolved": null
   },
@@ -2072,7 +2072,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-15T11:32:19.686Z",
    "priceAtCapture": 0.3,
-   "price": 0.245,
+   "price": 0.225,
    "closed": false,
    "resolved": null
   },
@@ -2145,7 +2145,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-16T11:27:31.959Z",
    "priceAtCapture": 0.255,
-   "price": 0.0475,
+   "price": 0.045,
    "closed": false,
    "resolved": null
   },
@@ -2170,7 +2170,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-16T11:27:31.959Z",
    "priceAtCapture": 0.295,
-   "price": 0.105,
+   "price": 0.11,
    "closed": false,
    "resolved": null
   },
@@ -2218,7 +2218,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-18T11:07:43.076Z",
    "priceAtCapture": 0.595,
-   "price": 0.305,
+   "price": 0.275,
    "closed": false,
    "resolved": null
   },
@@ -2240,7 +2240,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-18T11:07:43.076Z",
    "priceAtCapture": 0.805,
-   "price": 0.7,
+   "price": 0.71,
    "closed": false,
    "resolved": null
   },
@@ -2378,7 +2378,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-19T13:18:37.159Z",
    "priceAtCapture": 0.038,
-   "price": 0.018,
+   "price": 0.0185,
    "closed": false,
    "resolved": null
   },
@@ -3073,7 +3073,7 @@
    "endDate": "2026-10-31T20:59:00Z",
    "capturedAt": "2026-10-27T12:14:26.220Z",
    "priceAtCapture": 0.14,
-   "price": 0.0455,
+   "price": 0.032,
    "closed": false,
    "resolved": null
   },
@@ -3097,7 +3097,7 @@
    "endDate": "2026-12-16T04:59:00Z",
    "capturedAt": "2026-10-27T12:14:26.220Z",
    "priceAtCapture": 0.745,
-   "price": 0.968,
+   "price": 0.969,
    "closed": false,
    "resolved": null
   },
@@ -3121,7 +3121,7 @@
    "endDate": "2026-11-16T04:59:00Z",
    "capturedAt": "2026-10-27T12:14:26.220Z",
    "priceAtCapture": 0.36,
-   "price": 0.042,
+   "price": 0.016,
    "closed": false,
    "resolved": null
   },
@@ -3169,7 +3169,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-27T12:14:26.220Z",
    "priceAtCapture": 0.8,
-   "price": 0.9855,
+   "price": 0.9845,
    "closed": false,
    "resolved": null
   },
@@ -3272,7 +3272,7 @@
    "endDate": "2026-11-03T23:59:00Z",
    "capturedAt": "2026-10-29T13:03:44.831Z",
    "priceAtCapture": 0.205,
-   "price": 0.9945,
+   "price": 0.9955,
    "closed": false,
    "resolved": null
   },
@@ -3443,7 +3443,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-02T15:55:57.372Z",
    "priceAtCapture": 0.625,
-   "price": 0.355,
+   "price": 0.345,
    "closed": false,
    "resolved": null
   },
@@ -3508,7 +3508,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-02T15:55:57.372Z",
    "priceAtCapture": 0.265,
-   "price": 0.095,
+   "price": 0.085,
    "closed": false,
    "resolved": null
   },
@@ -3533,7 +3533,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-11-02T15:55:57.372Z",
    "priceAtCapture": 0.415,
-   "price": 0.305,
+   "price": 0.285,
    "closed": false,
    "resolved": null
   },
@@ -3632,7 +3632,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-05T14:42:01.819Z",
    "priceAtCapture": 0.33,
-   "price": 0.0535,
+   "price": 0.0515,
    "closed": false,
    "resolved": null
   },
@@ -3728,7 +3728,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-06T14:18:10.131Z",
    "priceAtCapture": 0.145,
-   "price": 0.075,
+   "price": 0.07,
    "closed": false,
    "resolved": null
   },
@@ -3893,7 +3893,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-08T13:26:32.856Z",
    "priceAtCapture": 0.315,
-   "price": 0.255,
+   "price": 0.26,
    "closed": false,
    "resolved": null
   },
@@ -3918,7 +3918,7 @@
    "endDate": "2027-04-01T03:59:00Z",
    "capturedAt": "2026-11-09T16:26:43.824Z",
    "priceAtCapture": 0.52,
-   "price": 0.365,
+   "price": 0.355,
    "closed": false,
    "resolved": null
   },
@@ -4017,7 +4017,7 @@
    "endDate": "2026-12-31T20:29:00Z",
    "capturedAt": "2026-11-09T16:26:43.824Z",
    "priceAtCapture": 0.805,
-   "price": 0.81,
+   "price": 0.815,
    "closed": false,
    "resolved": null
   },
@@ -4065,7 +4065,7 @@
    "endDate": "2026-11-22T20:29:00Z",
    "capturedAt": "2026-11-09T16:26:43.824Z",
    "priceAtCapture": 0.525,
-   "price": 0.485,
+   "price": 0.475,
    "closed": false,
    "resolved": null
   },
@@ -4087,7 +4087,7 @@
    "endDate": "2026-11-22T04:59:00Z",
    "capturedAt": "2026-11-09T16:26:43.824Z",
    "priceAtCapture": 0.195,
-   "price": 0.023,
+   "price": 0.0215,
    "closed": false,
    "resolved": null
   },
@@ -4134,7 +4134,7 @@
    "endDate": "2026-12-31T21:59:00Z",
    "capturedAt": "2026-11-11T14:25:12.278Z",
    "priceAtCapture": 0.305,
-   "price": 0.235,
+   "price": 0.225,
    "closed": false,
    "resolved": null
   },
@@ -4184,7 +4184,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-12T15:20:42.364Z",
    "priceAtCapture": 0.48,
-   "price": 0.415,
+   "price": 0.47,
    "closed": false,
    "resolved": null
   },
@@ -4209,7 +4209,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-12T15:20:42.364Z",
    "priceAtCapture": 0.53,
-   "price": 0.575,
+   "price": 0.515,
    "closed": false,
    "resolved": null
   },
@@ -4329,7 +4329,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-13T14:37:22.623Z",
    "priceAtCapture": 0.06,
-   "price": 0.06,
+   "price": 0.055,
    "closed": false,
    "resolved": null
   },
@@ -4375,7 +4375,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-13T14:37:22.623Z",
    "priceAtCapture": 0.0835,
-   "price": 0.0835,
+   "price": 0.071,
    "closed": false,
    "resolved": null
   },
@@ -4397,7 +4397,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-13T14:37:22.623Z",
    "priceAtCapture": 0.0355,
-   "price": 0.0355,
+   "price": 0.0285,
    "closed": false,
    "resolved": null
   },
@@ -4445,7 +4445,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-13T14:37:22.623Z",
    "priceAtCapture": 0.385,
-   "price": 0.385,
+   "price": 0.325,
    "closed": false,
    "resolved": null
   },
@@ -4469,7 +4469,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-13T14:37:22.623Z",
    "priceAtCapture": 0.076,
-   "price": 0.076,
+   "price": 0.073,
    "closed": false,
    "resolved": null
   },
@@ -4492,7 +4492,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-13T14:37:22.623Z",
    "priceAtCapture": 0.0455,
-   "price": 0.0455,
+   "price": 0.0365,
    "closed": false,
    "resolved": null
   }

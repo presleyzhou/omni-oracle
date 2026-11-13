@@ -604,5 +604,11 @@
   "res.group.real": "Vraies questions du registre en attente de résolution",
   "res.group.demo": "Marchés démo",
   "cw.hist.title": "Historique du composite — ce que la jauge aurait indiqué à chaque fin de mois, 24 derniers mois",
-  "cw.hist.note": "Reconstruction ex post à partir des séries révisées d'aujourd'hui (six indicateurs sur sept ; l'écart de crédit requiert une clé FRED) avec les mêmes seuils. Elle ignore les délais de publication : elle montre le comportement de l'ensemble d'indicateurs, pas ce qu'un prévisionniste aurait vu en temps réel."
+  "cw.hist.note": "Reconstruction ex post à partir des séries révisées d'aujourd'hui (six indicateurs sur sept ; l'écart de crédit requiert une clé FRED) avec les mêmes seuils. Elle ignore les délais de publication : elle montre le comportement de l'ensemble d'indicateurs, pas ce qu'un prévisionniste aurait vu en temps réel.",
+  "tour.real.base": "Toujours le taux de base ({p} % OUI, dans l'échantillon)",
+  "tour.real.ci": "Intervalle à 95 %",
+  "tour.real.bss": "Compétence vs taux de base",
+  "tour.real.baseline": "Référence taux de base",
+  "mk.closed": "Clos (marché démo)",
+  "tour.real.note2": "Les intervalles sont des intervalles bootstrap à 95 % du Brier moyen (affichés à partir de 10 prévisions notées). Compétence = 1 − Brier ÷ Brier du taux de base : 0 % signifie pas mieux que d'annoncer toujours la fréquence de OUI du registre, calculée dans l'échantillon et donc exigeante."
 }
