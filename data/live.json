@@ -1,39 +1,7 @@
 {
- "generated": "2026-11-13T14:36:11.468Z",
+ "generated": "2026-11-14T13:32:49.000Z",
  "worldbank": {
   "USA": {
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-11-11"
-    },
-    [
-     {
-      "date": "2025",
-      "value": null
-     },
-     {
-      "date": "2024",
-      "value": 2.94952520485207
-     },
-     {
-      "date": "2023",
-      "value": 4.11633838374487
-     },
-     {
-      "date": "2022",
-      "value": 8.00279982052121
-     },
-     {
-      "date": "2021",
-      "value": 4.69785886363742
-     }
-    ]
-   ],
    "gdp": [
     {
      "page": 1,
@@ -63,6 +31,38 @@
      {
       "date": "2021",
       "value": 6.15202247867526
+     }
+    ]
+   ],
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-11-11"
+    },
+    [
+     {
+      "date": "2025",
+      "value": null
+     },
+     {
+      "date": "2024",
+      "value": 2.94952520485207
+     },
+     {
+      "date": "2023",
+      "value": 4.11633838374487
+     },
+     {
+      "date": "2022",
+      "value": 8.00279982052121
+     },
+     {
+      "date": "2021",
+      "value": 4.69785886363742
      }
     ]
    ]
@@ -134,38 +134,6 @@
    ]
   },
   "CHN": {
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-11-11"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 4.95994886240992
-     },
-     {
-      "date": "2024",
-      "value": 4.95830378788091
-     },
-     {
-      "date": "2023",
-      "value": 5.41600334492955
-     },
-     {
-      "date": "2022",
-      "value": 3.13385438394069
-     },
-     {
-      "date": "2021",
-      "value": 8.57038414981781
-     }
-    ]
-   ],
    "cpi": [
     {
      "page": 1,
@@ -197,10 +165,8 @@
       "value": 0.981015135544881
      }
     ]
-   ]
-  },
-  "JPN": {
-   "cpi": [
+   ],
+   "gdp": [
     {
      "page": 1,
      "pages": 1,
@@ -212,26 +178,28 @@
     [
      {
       "date": "2025",
-      "value": 3.17253034260247
+      "value": 4.95994886240992
      },
      {
       "date": "2024",
-      "value": 2.7385368163524
+      "value": 4.95830378788091
      },
      {
       "date": "2023",
-      "value": 3.26813365933163
+      "value": 5.41600334492955
      },
      {
       "date": "2022",
-      "value": 2.49770278172254
+      "value": 3.13385438394069
      },
      {
       "date": "2021",
-      "value": -0.233352779398263
+      "value": 8.57038414981781
      }
     ]
-   ],
+   ]
+  },
+  "JPN": {
    "gdp": [
     {
      "page": 1,
@@ -261,6 +229,38 @@
      {
       "date": "2021",
       "value": 3.56419531474475
+     }
+    ]
+   ],
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-11-11"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 3.17253034260247
+     },
+     {
+      "date": "2024",
+      "value": 2.7385368163524
+     },
+     {
+      "date": "2023",
+      "value": 3.26813365933163
+     },
+     {
+      "date": "2022",
+      "value": 2.49770278172254
+     },
+     {
+      "date": "2021",
+      "value": -0.233352779398263
      }
     ]
    ]
@@ -1549,12 +1549,12 @@
  "fx": {
   "amount": 1,
   "base": "USD",
-  "date": "2026-11-12",
+  "date": "2026-11-13",
   "rates": {
-   "CNY": 6.6683,
-   "EUR": 0.90245,
-   "GBP": 0.7544,
-   "JPY": 159.7
+   "CNY": 6.6719,
+   "EUR": 0.90481,
+   "GBP": 0.75605,
+   "JPY": 160
   }
  },
  "treasury": {
@@ -1601,108 +1601,104 @@
   ]
  },
  "quotes": {
-  "NVDA": {
+  "GOOGL": {
    "data": {
-    "p": 163.98,
-    "cp": -1.33
+    "p": 295.77,
+    "cp": -0.98
    }
   },
   "AAPL": {
    "data": {
-    "p": 359.41,
-    "cp": 1.28
-   }
-  },
-  "GOOGL": {
-   "data": {
-    "p": 302.8,
-    "cp": 1.37
+    "p": 356.27,
+    "cp": 0.39
    }
   },
   "MSFT": {
    "data": {
-    "p": 515.7,
-    "cp": -1.4
+    "p": 523.88,
+    "cp": 0.17
    }
   },
-  "MU": {
+  "NVDA": {
    "data": {
-    "p": 787.85,
-    "cp": -1.33
-   }
-  },
-  "META": {
-   "data": {
-    "p": 628.91,
-    "cp": 0.85
-   }
-  },
-  "VRT": {
-   "data": {
-    "p": 210.71,
-    "cp": 0.51
+    "p": 162.85,
+    "cp": -2.01
    }
   },
   "AVGO": {
    "data": {
-    "p": 354.43,
-    "cp": -2.73
+    "p": 347.01,
+    "cp": -4.76
+   }
+  },
+  "MU": {
+   "data": {
+    "p": 778.31,
+    "cp": -2.52
+   }
+  },
+  "META": {
+   "data": {
+    "p": 641.69,
+    "cp": 2.9
+   }
+  },
+  "VRT": {
+   "data": {
+    "p": 202.07,
+    "cp": -3.61
    }
   },
   "TSLA": {
    "data": {
-    "p": 394.85,
-    "cp": -0.65
+    "p": 390.22,
+    "cp": -1.82
    }
   },
   "LLY": {
    "data": {
-    "p": 1431.61,
-    "cp": 0.43
-   }
-  },
-  "NVO": {
-   "data": {
-    "p": 40.76,
-    "cp": 0.27
+    "p": 1443.5,
+    "cp": 1.26
    }
   },
   "ISRG": {
    "data": {
-    "p": 444.4,
-    "cp": 1.03
+    "p": 443.59,
+    "cp": 0.84
+   }
+  },
+  "NVO": {
+   "data": {
+    "p": 41.63,
+    "cp": 2.41
    }
   },
   "GEV": {
    "data": {
-    "p": 823,
-    "cp": 0.55
-   }
-  },
-  "RKLB": {
-   "data": {
-    "p": 61.57,
-    "cp": -3.9
-   }
-  },
-  "CEG": {
-   "data": {
-    "p": 282.15,
-    "cp": -0.09
+    "p": 803.13,
+    "cp": -1.88
    }
   },
   "IONQ": {
    "data": {
-    "p": 29.07,
-    "cp": -5.8
+    "p": 28.88,
+    "cp": -6.42
+   }
+  },
+  "CEG": {
+   "data": {
+    "p": 280.2,
+    "cp": -0.78
+   }
+  },
+  "RKLB": {
+   "data": {
+    "p": 61.53,
+    "cp": -3.96
    }
   }
  },
  "vix": [
-  {
-   "d": "2024-11-07",
-   "c": 15.2
-  },
   {
    "d": "2024-11-08",
    "c": 14.94
@@ -3778,6 +3774,10 @@
   {
    "d": "2026-11-12",
    "c": 18.7
+  },
+  {
+   "d": "2026-11-13",
+   "c": 19.3
   }
  ],
  "treasury_curve": [
@@ -6576,63 +6576,69 @@
    "m3": 4.32,
    "y2": 4.86,
    "y10": 5.1
+  },
+  {
+   "d": "2026-11-13",
+   "m3": 4.32,
+   "y2": 4.88,
+   "y10": 5.15
   }
  ],
  "coingecko": {
   "bitcoin": {
-   "usd": 68981,
-   "usd_24h_change": -4.305697197714929
+   "usd": 66663,
+   "usd_24h_change": -4.525690727126867
   },
   "ethereum": {
-   "usd": 1957.93,
-   "usd_24h_change": -2.5887371815014495
+   "usd": 1889.17,
+   "usd_24h_change": -4.332540907064921
   },
   "solana": {
-   "usd": 81.16,
-   "usd_24h_change": -0.4104111985715557
+   "usd": 75.28,
+   "usd_24h_change": -7.9688097686581
   }
  },
  "polymarket": [
   {
-   "question": "Louisiana-Lafayette Ragin' Cajuns vs. UNCW Seahawks",
-   "slug": "cbb-loulaf-ncw-2026-11-14",
-   "volume24hr": 1939196.388374,
-   "outcomePrices": "[\"0.495\", \"0.505\"]",
-   "outcomes": "[\"Louisiana-Lafayette Ragin' Cajuns\", \"UNCW Seahawks\"]"
+   "question": "Counter-Strike: FURIA vs Team Falcons (BO3) - BLAST Rivals Playoffs",
+   "slug": "cs2-furia-fal2-2026-11-14",
+   "volume24hr": 3098019.4568730015,
+   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
+   "outcomes": "[\"FURIA\", \"Team Falcons\"]"
   },
   {
-   "question": "Will the Fed decrease interest rates by 25 bps after the December 2026 meeting?",
-   "slug": "will-the-fed-decrease-interest-rates-by-25-bps-after-the-december-2026-meeting-20260729232808634",
-   "volume24hr": 1452593.182621,
-   "outcomePrices": "[\"0.0035\", \"0.9965\"]",
+   "question": "Counter-Strike: FURIA vs Team Falcons - Map 2 Winner",
+   "slug": "cs2-furia-fal2-2026-11-14-game2",
+   "volume24hr": 1298774.3001040006,
+   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
+   "outcomes": "[\"FURIA\", \"Team Falcons\"]"
+  },
+  {
+   "question": "Will the Fed increase interest rates by 50+ bps after the December 2026 meeting?",
+   "slug": "will-the-fed-increase-interest-rates-by-50-bps-after-the-december-2026-meeting-20260729232808637",
+   "volume24hr": 893883.908531,
+   "outcomePrices": "[\"0.0825\", \"0.9175\"]",
    "outcomes": "[\"Yes\", \"No\"]"
+  },
+  {
+   "question": "LoL: Bilibili Gaming vs Gen.G (BO5) - Worlds Playoffs",
+   "slug": "lol-blg-gen-2026-11-14",
+   "volume24hr": 824781.4287730003,
+   "outcomePrices": "[\"0.375\", \"0.625\"]",
+   "outcomes": "[\"Bilibili Gaming\", \"Gen.G\"]"
   },
   {
    "question": "Will Jesus Christ return before 2027?",
    "slug": "will-jesus-christ-return-before-2027",
-   "volume24hr": 1056077.759718,
-   "outcomePrices": "[\"0.0135\", \"0.9865\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  },
-  {
-   "question": "Will the Fed increase interest rates by 25 bps after the December 2026 meeting?",
-   "slug": "will-the-fed-increase-interest-rates-by-25-bps-after-the-december-2026-meeting-20260729232808636",
-   "volume24hr": 923842.237468,
-   "outcomePrices": "[\"0.905\", \"0.095\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  },
-  {
-   "question": "Will the Fed decrease interest rates by 50+ bps after the December 2026 meeting?",
-   "slug": "will-the-fed-decrease-interest-rates-by-50-bps-after-the-december-2026-meeting-20260729232808633",
-   "volume24hr": 863933.265335,
-   "outcomePrices": "[\"0.0025\", \"0.9975\"]",
+   "volume24hr": 817839.1503120002,
+   "outcomePrices": "[\"0.0115\", \"0.9885\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
    "question": "Will there be no change in Fed interest rates after the December 2026 meeting?",
    "slug": "will-there-be-no-change-in-fed-interest-rates-after-the-december-2026-meeting-20260729232808635",
-   "volume24hr": 736330.4838090001,
-   "outcomePrices": "[\"0.028\", \"0.972\"]",
+   "volume24hr": 605590.409168,
+   "outcomePrices": "[\"0.04\", \"0.96\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   }
  ]
