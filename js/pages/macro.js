@@ -12,7 +12,7 @@ const R = { gdp: null, cpi: null, core: null, unemp: null };
 let charts = [];
 /* crisis early-warning state (module further down; declared here because buildCharts() runs first) */
 const CW = { curve: null, vix: null, credit: null, src: [] };
-const RAW = { core: null, unemp: null }; // full BLS rows (3 years) for the composite history
+const RAW = { core: null, unemp: null, gdp: null }; // full BLS rows (3 years) for the composite history
 let cwHistChart = null;
 let cwChart = null;
 
@@ -141,8 +141,9 @@ ooSnap("bea_gdp", "https://api.db.nomics.world/v22/series/BEA/NIPA-T10101/A191RL
     loading--;
     const doc = d && d.series && d.series.docs && d.series.docs[0];
     if (!doc) { ooMarkSource("gdpCard", null); buildCharts(); return; }
-    R.gdp = doc.period.map((t, i) => ({ t, v: doc.value[i] }))
-      .filter(x => typeof x.v === "number").slice(-12);
+    RAW.gdp = doc.period.map((t, i) => ({ t, v: doc.value[i] })).filter(x => typeof x.v === "number");
+    R.gdp = RAW.gdp.slice(-12);
+    renderForecastLab();
     ooMarkSource("gdpCard", source);
     buildCharts();
   });
@@ -219,6 +220,48 @@ Promise.all(Object.keys(WB.countries).flatMap(iso => [
   renderWb();
 });
 document.addEventListener("oo:lang", renderWb);
+
+/* ---- GDP forecast lab: walk-forward horse race + conformal interval -------------------
+   Four transparent one-quarter-ahead forecasters on the full BEA series (expanding window):
+   historical mean, random walk, AR(1), and their equal-weight average. The simple average is
+   the benchmark the combination literature says is hard to beat because it has no weights to
+   estimate (Wang, Hyndman et al. review; "Combining Forecasts", JBES 2026). The interval is
+   split-conformal on a rolling window of the combination's last 40 absolute errors — a
+   distribution-free 80% band that adapts as the error regime changes (cf. regime-aware
+   conformal calibration, arXiv 2608.17079) and, like every interval, under-covers in a
+   break such as 2020 (arXiv 2210.13562). Ex post: revised data, no publication lag. */
+function renderForecastLab() {
+  const card = document.getElementById("fcCard");
+  if (!card || !RAW.gdp || RAW.gdp.length < 140) return;
+  const rows = RAW.gdp, N = rows.length, START = 60, EVAL = 80, W = 40, ALPHA = 0.2;
+  const ar1 = (vals) => { const n = vals.length, m = vals.reduce((a, b) => a + b, 0) / n; let num = 0, den = 0;
+    for (let i = 1; i < n; i++) { num += (vals[i] - m) * (vals[i - 1] - m); den += (vals[i - 1] - m) ** 2; }
+    const phi = den ? Math.max(-0.95, Math.min(0.95, num / den)) : 0; return m + phi * (vals[n - 1] - m); };
+  const forecast = (h) => { const m = h.reduce((a, b) => a + b, 0) / h.length, rw = h[h.length - 1], a = ar1(h); return { mean: m, rw, ar1: a, combo: (m + rw + a) / 3 }; };
+  const f = { mean: [], rw: [], ar1: [], combo: [] }, y = [], lab = [];
+  for (let t = START; t < N; t++) { const fc = forecast(rows.slice(0, t).map(r => r.v)); for (const k in f) f[k].push(fc[k]); y.push(rows[t].v); lab.push(rows[t].t); }
+  const idx = y.map((_, i) => i).slice(-EVAL);
+  const covid = (i) => /^2020-Q[23]$/.test(lab[i]);
+  const rmse = (k, keep) => { const e = idx.filter(keep).map(i => (f[k][i] - y[i]) ** 2); return Math.sqrt(e.reduce((a, b) => a + b, 0) / e.length); };
+  const q80 = (i) => { const r = []; for (let s = i - W; s < i; s++) r.push(Math.abs(f.combo[s] - y[s])); r.sort((a, b) => a - b); return r[Math.min(W - 1, Math.ceil((W + 1) * (1 - ALPHA)) - 1)]; };
+  let hit = 0, hit20 = 0, n20 = 0;
+  idx.forEach(i => { const ok = Math.abs(f.combo[i] - y[i]) <= q80(i); hit += ok; if (/^2020/.test(lab[i])) { n20++; hit20 += ok; } });
+  const next = forecast(rows.map(r => r.v)), q = q80(y.length);
+  const last = rows[N - 1], [ly, lq] = last.t.split("-Q").map(Number), nextLabel = lq === 4 ? `${ly + 1}-Q1` : `${ly}-Q${lq + 1}`;
+  const models = [["mean", "fc.m.mean"], ["rw", "fc.m.rw"], ["ar1", "fc.m.ar1"], ["combo", "fc.m.combo"]]
+    .map(([k, key]) => ({ k, key, all: rmse(k, () => true), ex: rmse(k, i => !covid(i)), next: next[k] }));
+  const best = Math.min(...models.map(m => m.ex));
+  card.classList.remove("hide");
+  card.querySelector("tbody").innerHTML = models.map(m => `<tr>
+      <td>${m.k === "combo" ? "<strong>" : ""}${OO_T(m.key)}${m.k === "combo" ? "</strong>" : ""}</td>
+      <td class="num-cell">${m.all.toFixed(2)}</td>
+      <td class="num-cell ${m.ex === best ? "pos" : ""}">${m.ex.toFixed(2)}</td>
+      <td class="num-cell">${m.next.toFixed(1)}%</td></tr>`).join("");
+  document.getElementById("fcNext").innerHTML = ooT("fc.next", { q: nextLabel, f: next.combo.toFixed(1), lo: (next.combo - q).toFixed(1), hi: (next.combo + q).toFixed(1), last: last.t });
+  document.getElementById("fcCov").textContent = ooT("fc.cov", { c: Math.round(100 * hit / idx.length), n: idx.length, from: lab[idx[0]], h: hit20, n20 });
+  ooMarkSource("fcCard", "snapshot");
+}
+document.addEventListener("oo:lang", renderForecastLab);
 
 /* ---- Data-quality notes: BLS footnotes (shutdown gaps, population-control and
    benchmark revisions) and, when the snapshot carries FRED vintages, the gap between

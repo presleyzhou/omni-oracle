@@ -21,5 +21,8 @@ console.log(`✓ data/scoreboard.json OK (${hist.rows.length} day(s), latest mar
 const pub = JSON.parse(fs.readFileSync(new URL("../data/ai-scoreboard.json", import.meta.url), "utf8"));
 if (!Array.isArray(pub.rows)) { console.error("✗ data/ai-scoreboard.json malformed"); process.exit(1); }
 console.log(`✓ data/ai-scoreboard.json OK (${pub.rows.length} public record row(s))`);
+const cal = JSON.parse(fs.readFileSync(new URL("../data/calibration.json", import.meta.url), "utf8"));
+if (!(cal.fit && Number.isFinite(cal.fit.b) && cal.murphy && cal.walk)) { console.error("✗ data/calibration.json malformed"); process.exit(1); }
+console.log(`✓ data/calibration.json OK (slope ${cal.fit.b}, ${cal.n} questions, walk-forward n=${cal.walk.n})`);
 const age = (Date.now() - Date.parse(snap.generated)) / 864e5;
 console.log(`✓ data/live.json OK (${need.length} fields, generated ${snap.generated}, ${age.toFixed(1)} days old)`);

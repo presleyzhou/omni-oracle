@@ -142,3 +142,17 @@ via the existing BYOK plumbing), #5 via question-text embeddings computed offlin
 | Scale limits of social mechanisms, arXiv 2608.22884; AgentSociety, arXiv 2502.08691 | Audit a mechanism (frequency, usage, measurement) before scaling; validate against real social experiments | Sim Worlds: message reach/lifetime dials driving diffusion, four-population scale audit, two pattern-replication checks |
 
 Open items carried forward: vintage-consistent TSFM layer (needs offline training), M3 topology beyond the small-world ring, embedding-based related markets.
+
+
+---
+
+## 2026 Q4 update (September–November 2026) — forecasting models, implemented
+
+| Paper | Finding | Change on the site |
+|---|---|---|
+| Cardozo & Rivero-Wildemauwe, arXiv 2609.12878; Reichenbach & Walther, SSRN 7552098; Gruener, SSRN 6863546; arXiv 2602.19520 | Polymarket favorite–longshot bias: present in aggregate and strongest in crypto/politics per one paper, absent market-wide per another; categories differ; ignoring dependence between markets manufactures significance | `scripts/calibration.mjs` → `data/calibration.json`: Platt slope, walk-forward recalibration test, Murphy decomposition, per-topic slopes; all intervals on the real scoreboard and in the history file use an event-clustered bootstrap |
+| arXiv 2604.18576, 2604.24517, 1705.02391 | Logit-space pooling beats the arithmetic mean; extremize only when forecasters hold independent information | `OO_LLM.askEnsemble` pools confidence-weighted log-odds, no extremizing; arithmetic pool kept as `pLinear` |
+| "Combining Forecasts", JBES 2026; Wang, Hyndman et al. review | The simple average is hard to beat because it estimates no weights | Macro page GDP forecast lab: historical mean, random walk, AR(1) and their equal-weight average, walk-forward RMSE on the full BEA series |
+| arXiv 2608.17079; arXiv 2210.13562 | Conformal intervals must adapt to regime change; intervals under-cover in breaks | Rolling split-conformal 80% interval on the lab's next-quarter forecast, with realised coverage reported |
+
+First readings (2026-11-13, 127 resolved questions in 74 events): market Brier 0.159, clustered 95% interval 0.118–0.205; overall slope 0.93; politics 0.33 (over-confident, n = 27), geopolitics 1.28 (under-confident, n = 56); walk-forward recalibration does not beat the raw price (difference +0.010, interval −0.007 to +0.033, n = 42). GDP lab: AR(1) has the lowest RMSE outside 2020 Q2–Q3 (2.46) against 2.70 for the equal-weight average and 4.39 for the random walk; the 80% conformal band covered 80% of the last 80 quarters and 0 of 4 in 2020.

@@ -18,16 +18,22 @@ try { AIF = JSON.parse(localStorage.getItem(AIF_KEY)) || []; } catch (e) { AIF =
 const saveAif = () => localStorage.setItem(AIF_KEY, JSON.stringify(AIF.slice(-400)));
 const brier = (p, y) => (p - y) * (p - y);
 /* 95% bootstrap interval of a mean (1000 resamples, deterministic seed so the table does not
-   flicker between renders); null below 10 observations, where an interval would be noise */
-function bootCI(arr, B = 1000) {
-  if (arr.length < 10) return null;
-  let seed = 12345 + arr.length;
+   flicker between renders); null below 10 clusters. With `keys`, whole clusters are resampled:
+   markets of one event are not independent, and treating them as independent manufactures
+   significance (Gruener 2026, SSRN 6863546). Same routine as scripts/calibration.mjs. */
+function bootCI(arr, keys) {
+  const B = 1000, groups = new Map();
+  arr.forEach((v, i) => { const k = keys ? keys[i] : i, g = groups.get(k) || { s: 0, n: 0 }; g.s += v; g.n++; groups.set(k, g); });
+  const gs = [...groups.values()];
+  if (gs.length < 10) return null;
+  let seed = 987654321 + arr.length;
   const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
   const means = [];
-  for (let b = 0; b < B; b++) { let sum = 0; for (let j = 0; j < arr.length; j++) sum += arr[(rnd() * arr.length) | 0]; means.push(sum / arr.length); }
+  for (let b = 0; b < B; b++) { let s = 0, n = 0; for (let j = 0; j < gs.length; j++) { const g = gs[(rnd() * gs.length) | 0]; s += g.s; n += g.n; } means.push(s / n); }
   means.sort((x, y) => x - y);
   return [means[Math.floor(0.025 * B)], means[Math.ceil(0.975 * B) - 1]];
 }
+const clusterOf = (q) => q.event || q.slug.replace(/\d+(pt\d+)?k?/g, "#");
 let MYF = [];
 try { MYF = JSON.parse(localStorage.getItem("oo-myforecasts")) || []; } catch (e) { MYF = []; }
 MYF = MYF.filter(f => f.slug || OO.markets[f.i]);
@@ -148,7 +154,7 @@ function renderAiLedger() {
        in-sample, which flatters it — a participant that cannot beat it has no skill. */
     const baseRate = mean(resolved.map(q => q.resolved)), baseBrier = baseRate * (1 - baseRate);
     rows.push({ name: T2("tour.real.base", { p: Math.round(baseRate * 100) }), n: resolved.length, b: baseBrier, real: true });
-    rows[0].ci = bootCI(resolved.map(q => brier(q.priceAtCapture, q.resolved)));
+    rows[0].ci = bootCI(resolved.map(q => brier(q.priceAtCapture, q.resolved)), resolved.map(clusterOf));
     const gh = gradedHuman(bySlug);
     if (gh.length) rows.push({ name: OO_T("tour.real.you"), n: gh.length, b: mean(gh.map(x => brier(x.p, x.y))), mb: mean(gh.map(x => brier(x.mp, x.y))), ci: bootCI(gh.map(x => brier(x.p, x.y))) });
     const byModel = {};
@@ -358,6 +364,31 @@ document.getElementById("lbTable").addEventListener("click", (e) => {
 });
 
 
+
+/* ----- market calibration study (data/calibration.json, scripts/calibration.mjs) ----- */
+let CAL = null;
+function renderCalibration() {
+  const box = document.getElementById("calBox"); if (!box) return;
+  if (!CAL || !CAL.fit) { box.innerHTML = `<p class="dim-note">${OO_T("cal.none")}</p>`; return; }
+  const b = CAL.fit.b, verdict = b > 1.15 ? "cal.under" : b < 0.85 ? "cal.over" : "cal.ok";
+  const m = CAL.murphy, w = CAL.walk;
+  const topics = Object.entries(CAL.byTopic || {}).sort((x, y) => y[1].n - x[1].n)
+    .map(([t, v]) => `<tr><td>${OO_T("lb.topic." + t)}</td><td class="num-cell">${v.n}</td><td class="num-cell">${v.brier.toFixed(3)}</td><td class="num-cell ${v.b > 1.15 || v.b < 0.85 ? "neg" : "pos"}">${v.b.toFixed(2)}</td><td>${OO_T(v.b > 1.15 ? "cal.under.s" : v.b < 0.85 ? "cal.over.s" : "cal.ok.s")}</td></tr>`).join("");
+  box.innerHTML = `<div class="stats-bar" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); margin:8px 0 12px;">
+      <div class="stat"><div class="num" style="font-size:1.25rem;">${b.toFixed(2)}</div><div class="lbl">${OO_T("cal.slope")}</div></div>
+      <div class="stat"><div class="num" style="font-size:1.25rem;">${m.reliability.toFixed(3)}</div><div class="lbl">${OO_T("cal.rel")}</div></div>
+      <div class="stat"><div class="num" style="font-size:1.25rem;">${m.resolution.toFixed(3)}</div><div class="lbl">${OO_T("cal.res")}</div></div>
+      <div class="stat"><div class="num" style="font-size:1.25rem;">${CAL.clusters}</div><div class="lbl">${T2("cal.clusters", { n: CAL.n })}</div></div>
+    </div>
+    <p style="font-size:0.88rem;">${T2(verdict, { b: b.toFixed(2) })}</p>
+    <p style="font-size:0.88rem; margin-top:6px;">${w && w.raw != null
+      ? T2(w.ci[0] > 0 ? "cal.walk.worse" : w.ci[1] < 0 ? "cal.walk.better" : "cal.walk.same", { n: w.n, raw: w.raw.toFixed(3), rec: w.recal.toFixed(3), lo: w.ci[0].toFixed(3), hi: w.ci[1].toFixed(3) })
+      : OO_T("cal.walk.wait")}</p>
+    ${topics ? `<table style="margin-top:10px;"><thead><tr><th scope="col">${OO_T("cal.th.topic")}</th><th scope="col">n</th><th scope="col">${OO_T("tour.th.brier")}</th><th scope="col">${OO_T("cal.slope.short")}</th><th scope="col"></th></tr></thead><tbody>${topics}</tbody></table>` : ""}
+    <p class="dim-note" style="margin-top:8px;">${OO_T("cal.note")}</p>`;
+}
+OO_FETCH("data/calibration.json", { ttl: 900 }).then(d => { CAL = d; renderCalibration(); });
+
 /* ----- market-baseline track record (data/scoreboard.json, one row per day) ----- */
 let histChart = null;
 function renderHistory(h) {
@@ -427,4 +458,4 @@ document.getElementById("lbCsv").addEventListener("click", () => {
   show(["real", "my", "demo"].includes(want) ? want : "real", false);
 })();
 
-document.addEventListener("oo:lang", () => { buildCharts(); renderAiBench(); renderAiLedger(); renderMy(); renderLedgerBrowser(); renderHistory(HIST); renderPublic(); });
+document.addEventListener("oo:lang", () => { buildCharts(); renderAiBench(); renderAiLedger(); renderMy(); renderLedgerBrowser(); renderHistory(HIST); renderPublic(); renderCalibration(); });

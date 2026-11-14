@@ -14,6 +14,7 @@ import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { fileURLToPath } from "node:url";
 import { LADDERS, family, FAMILY_CAP, topicOf, SPORTS, TAG_EXCLUDE, topicFromTags, EVENT_CAP } from "./ledger-rules.mjs";
+import { calibrationStudy, clusterBoot, clusterOf } from "./calibration.mjs";
 
 dns.setDefaultResultOrder("ipv4first"); // some sandboxes have broken IPv6 egress
 const execFileP = promisify(execFile);
@@ -379,13 +380,8 @@ try {
     const byTopic = {};
     res.forEach(q => { (byTopic[q.topic || "other"] = byTopic[q.topic || "other"] || []).push(brier(q.priceAtCapture, q.resolved)); });
     const errs = res.map(q => brier(q.priceAtCapture, q.resolved));
-    /* 95% bootstrap interval, deterministic seed (same generator as the tournament page) */
-    const bootCI = (arr, B = 1000) => {
-      if (arr.length < 10) return null;
-      let seed = 12345 + arr.length; const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
-      const m = []; for (let b = 0; b < B; b++) { let sum = 0; for (let j = 0; j < arr.length; j++) sum += arr[(rnd() * arr.length) | 0]; m.push(sum / arr.length); }
-      m.sort((x, y) => x - y); return [+m[Math.floor(0.025 * B)].toFixed(4), +m[Math.ceil(0.975 * B) - 1].toFixed(4)];
-    };
+    /* 95% interval from an event-clustered bootstrap: markets of one event are not independent */
+    const bootCI = (arr) => { const ci = clusterBoot(arr, res.map(clusterOf)); return ci ? ci.map(v => +v.toFixed(4)) : null; };
     const yes = mean(res.map(q => q.resolved));
     const hz = (q) => (Date.parse(q.endDate) - Date.parse(q.capturedAt)) / 864e5;
     const bucket = (f) => { const a = res.filter(f).map(q => brier(q.priceAtCapture, q.resolved)); return a.length ? { n: a.length, b: +mean(a).toFixed(4) } : null; };
@@ -398,6 +394,14 @@ try {
     log.push(`✓ scoreboard history: ${hist.rows.length} day(s), market Brier ${row.market} on ${row.n}`);
   }
 } catch (e) { log.push(`✗ scoreboard history (${e.message})`); }
+/* --- market calibration study (data/calibration.json), see scripts/calibration.mjs --- */
+try {
+  const study = calibrationStudy(JSON.parse(fs.readFileSync(LEDGER, "utf8")));
+  if (study) {
+    fs.writeFileSync(path.join(ROOT, "data", "calibration.json"), JSON.stringify(study, null, 1) + "\n");
+    log.push(`✓ calibration study: slope ${study.fit.b} on ${study.n} questions / ${study.clusters} events`);
+  }
+} catch (e) { log.push(`✗ calibration study (${e.message})`); }
 
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
 if (!LEDGER_ONLY) fs.writeFileSync(OUT, JSON.stringify(out, null, 1) + "\n");

@@ -249,11 +249,14 @@ const OO_LLM = {
     if (!res.ok) throw new Error(res.status + " " + (await res.text()).slice(0, 120));
     return (await res.json()).content.map(b => b.text || "").join("").trim();
   },
-  /* Independent aggregation with confidence-weighted voting — the configuration that
-     beat both single models and deliberative consensus in arXiv 2605.30802 ("confidently
-     wrong models flip correct ones" when models debate). Each model answers alone with
-     a JSON array of {p, c} (probability, self-reported confidence 0–1) per question;
-     the ensemble estimate is Σc·p/Σc and `spread` = max−min is the disagreement signal. */
+  /* Independent aggregation, pooled in log-odds space. Each model answers alone with a JSON
+     array of {p, c} (probability, self-reported confidence 0–1) per question — debate-style
+     consensus made things worse in arXiv 2605.30802. The ensemble estimate is
+     σ(Σc·logit(p)/Σc): averaging in logit space beat the arithmetic mean on every metric in
+     arXiv 2604.18576's ablations and is the closed-form robust aggregator of arXiv 2604.24517.
+     No extremizing factor is applied — models trained on overlapping text share information,
+     the case where extremizing is not warranted (arXiv 1705.02391). `pLinear` keeps the
+     arithmetic pool for comparison; `spread` = max−min is the disagreement signal. */
   async askEnsemble(questions, maxTokens = 400) {
     const n = questions.length;
     const sys = `You are a careful probabilistic forecaster. For each numbered question give the probability that it resolves YES and your confidence in that estimate. Reply ONLY with a JSON array of ${n} objects {"p": number in [0,1], "c": number in [0,1]}, in order, no other text.`;
@@ -271,7 +274,9 @@ const OO_LLM = {
     const agg = questions.map((_, k) => {
       const ps = ok.map(r => r.est[k].p), cs = ok.map(r => r.est[k].c);
       const wsum = cs.reduce((a, b) => a + b, 0);
-      return { p: ps.reduce((a, p, i) => a + p * cs[i], 0) / wsum, spread: Math.max(...ps) - Math.min(...ps), n: ok.length };
+      const lg = (p) => { const q = Math.min(0.99, Math.max(0.01, p)); return Math.log(q / (1 - q)); };
+      const pooled = 1 / (1 + Math.exp(-ps.reduce((a, p, i) => a + lg(p) * cs[i], 0) / wsum));
+      return { p: ok.length > 1 ? pooled : ps[0], pLinear: ps.reduce((a, p, i) => a + p * cs[i], 0) / wsum, spread: Math.max(...ps) - Math.min(...ps), n: ok.length };
     });
     return { per, agg };
   },

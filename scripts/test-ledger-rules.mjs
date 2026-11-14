@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /* Unit tests for the ledger rules (run by CI). */
 import assert from "node:assert/strict";
+import { fitPlatt, clusterBoot, calibrationStudy } from "./calibration.mjs";
 import { LADDERS, family, FAMILY_CAP, topicOf, SPORTS, TAG_EXCLUDE, topicFromTags, EVENT_CAP } from "./ledger-rules.mjs";
 
 let n = 0; const t = (name, fn) => { fn(); n++; };
@@ -37,4 +38,22 @@ t("tag topics: politics beats the generic World tag; sports/recurring/weather ta
     assert.ok(TAG_EXCLUDE.test(tag), tag);
   for (const tag of ["Politics", "Crypto", "Geopolitics", "Economy"]) assert.ok(!TAG_EXCLUDE.test(tag), tag);
 });
-console.log(`✓ ledger rules: ${n} test groups passed`);
+t("Platt fit recovers a known slope and stays at the identity without data", () => {
+  let seed = 7; const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+  const xs = [], ys = [];
+  for (let i = 0; i < 4000; i++) { const x = (rnd() - 0.5) * 6; xs.push(x); ys.push(rnd() < 1 / (1 + Math.exp(-(0.3 + 1.5 * x))) ? 1 : 0); }
+  const f = fitPlatt(xs, ys);
+  assert.ok(Math.abs(f.b - 1.5) < 0.15 && Math.abs(f.a - 0.3) < 0.15, JSON.stringify(f));
+  const id = fitPlatt([], []); assert.equal(id.a, 0); assert.equal(id.b, 1);
+});
+t("clustered bootstrap is wider than independence when clusters are homogeneous", () => {
+  const vals = [], keys = [];
+  for (let c = 0; c < 20; c++) for (let j = 0; j < 5; j++) { vals.push(c % 2); keys.push("c" + c); }
+  const clustered = clusterBoot(vals, keys), indep = clusterBoot(vals, vals.map((_, i) => "i" + i));
+  assert.ok(clustered[1] - clustered[0] > indep[1] - indep[0]);
+  assert.equal(clusterBoot([1, 2], ["a", "b"]), null);
+});
+t("calibration study needs 40 resolved questions", () => {
+  assert.equal(calibrationStudy({ questions: [] }), null);
+});
+console.log(`✓ ledger rules + calibration: ${n} test groups passed`);
