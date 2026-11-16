@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-15T13:56:43.157Z",
+ "generated": "2026-11-16T15:48:37.047Z",
  "bls": {
   "CUUR0000SA0": [
    {
@@ -1282,38 +1282,6 @@
  },
  "worldbank": {
   "USA": {
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-11-11"
-    },
-    [
-     {
-      "date": "2025",
-      "value": null
-     },
-     {
-      "date": "2024",
-      "value": 2.94952520485207
-     },
-     {
-      "date": "2023",
-      "value": 4.11633838374487
-     },
-     {
-      "date": "2022",
-      "value": 8.00279982052121
-     },
-     {
-      "date": "2021",
-      "value": 4.69785886363742
-     }
-    ]
-   ],
    "gdp": [
     {
      "page": 1,
@@ -1343,6 +1311,38 @@
      {
       "date": "2021",
       "value": 6.15202247867526
+     }
+    ]
+   ],
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-11-11"
+    },
+    [
+     {
+      "date": "2025",
+      "value": null
+     },
+     {
+      "date": "2024",
+      "value": 2.94952520485207
+     },
+     {
+      "date": "2023",
+      "value": 4.11633838374487
+     },
+     {
+      "date": "2022",
+      "value": 8.00279982052121
+     },
+     {
+      "date": "2021",
+      "value": 4.69785886363742
      }
     ]
    ]
@@ -1414,38 +1414,6 @@
    ]
   },
   "CHN": {
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-11-11"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 0.0595646916565402
-     },
-     {
-      "date": "2024",
-      "value": 0.218128938439177
-     },
-     {
-      "date": "2023",
-      "value": 0.23483682889305
-     },
-     {
-      "date": "2022",
-      "value": 1.9735755573905
-     },
-     {
-      "date": "2021",
-      "value": 0.981015135544881
-     }
-    ]
-   ],
    "gdp": [
     {
      "page": 1,
@@ -1477,9 +1445,7 @@
       "value": 8.57038414981781
      }
     ]
-   ]
-  },
-  "JPN": {
+   ],
    "cpi": [
     {
      "page": 1,
@@ -1492,26 +1458,28 @@
     [
      {
       "date": "2025",
-      "value": 3.17253034260247
+      "value": 0.0595646916565402
      },
      {
       "date": "2024",
-      "value": 2.7385368163524
+      "value": 0.218128938439177
      },
      {
       "date": "2023",
-      "value": 3.26813365933163
+      "value": 0.23483682889305
      },
      {
       "date": "2022",
-      "value": 2.49770278172254
+      "value": 1.9735755573905
      },
      {
       "date": "2021",
-      "value": -0.233352779398263
+      "value": 0.981015135544881
      }
     ]
-   ],
+   ]
+  },
+  "JPN": {
    "gdp": [
     {
      "page": 1,
@@ -1541,6 +1509,38 @@
      {
       "date": "2021",
       "value": 3.56419531474475
+     }
+    ]
+   ],
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-11-11"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 3.17253034260247
+     },
+     {
+      "date": "2024",
+      "value": 2.7385368163524
+     },
+     {
+      "date": "2023",
+      "value": 3.26813365933163
+     },
+     {
+      "date": "2022",
+      "value": 2.49770278172254
+     },
+     {
+      "date": "2021",
+      "value": -0.233352779398263
      }
     ]
    ]
@@ -1592,109 +1592,109 @@
  "fx": {
   "amount": 1,
   "base": "USD",
-  "date": "2026-11-13",
+  "date": "2026-11-16",
   "rates": {
-   "CNY": 6.6719,
-   "EUR": 0.90481,
-   "GBP": 0.75605,
-   "JPY": 160
+   "CNY": 6.6665,
+   "EUR": 0.90794,
+   "GBP": 0.75767,
+   "JPY": 159.6
   }
  },
  "quotes": {
-  "NVDA": {
-   "data": {
-    "p": 162.85,
-    "cp": -2.01
-   }
-  },
   "GOOGL": {
    "data": {
-    "p": 295.77,
-    "cp": -0.98
+    "p": 288.28,
+    "cp": -2.53
    }
   },
   "AAPL": {
    "data": {
-    "p": 356.27,
-    "cp": 0.39
+    "p": 354.72,
+    "cp": -0.44
    }
   },
   "MSFT": {
    "data": {
-    "p": 523.88,
-    "cp": 0.17
+    "p": 521.78,
+    "cp": -0.4
    }
   },
-  "MU": {
+  "NVDA": {
    "data": {
-    "p": 778.31,
-    "cp": -2.52
-   }
-  },
-  "VRT": {
-   "data": {
-    "p": 202.07,
-    "cp": -3.61
-   }
-  },
-  "META": {
-   "data": {
-    "p": 641.69,
-    "cp": 2.9
+    "p": 159.11,
+    "cp": -2.3
    }
   },
   "AVGO": {
    "data": {
-    "p": 347.01,
-    "cp": -4.76
+    "p": 332.69,
+    "cp": -4.13
    }
   },
-  "LLY": {
+  "MU": {
    "data": {
-    "p": 1443.5,
-    "cp": 1.26
+    "p": 731.42,
+    "cp": -6.02
    }
   },
-  "NVO": {
+  "META": {
    "data": {
-    "p": 41.63,
-    "cp": 2.41
+    "p": 628.01,
+    "cp": -2.13
    }
   },
-  "TSLA": {
+  "VRT": {
    "data": {
-    "p": 390.22,
-    "cp": -1.82
+    "p": 190.64,
+    "cp": -5.66
    }
   },
   "ISRG": {
    "data": {
-    "p": 443.59,
-    "cp": 0.84
+    "p": 439.85,
+    "cp": -0.84
    }
   },
-  "CEG": {
+  "LLY": {
    "data": {
-    "p": 280.2,
-    "cp": -0.78
+    "p": 1454.71,
+    "cp": 0.78
    }
   },
-  "GEV": {
+  "NVO": {
    "data": {
-    "p": 803.13,
-    "cp": -1.88
+    "p": 41.95,
+    "cp": 0.77
    }
   },
-  "RKLB": {
+  "TSLA": {
    "data": {
-    "p": 61.53,
-    "cp": -3.96
+    "p": 380.8,
+    "cp": -2.41
    }
   },
   "IONQ": {
    "data": {
-    "p": 28.88,
-    "cp": -6.42
+    "p": 26.74,
+    "cp": -7.41
+   }
+  },
+  "RKLB": {
+   "data": {
+    "p": 59.5,
+    "cp": -3.3
+   }
+  },
+  "CEG": {
+   "data": {
+    "p": 277.05,
+    "cp": -0.97
+   }
+  },
+  "GEV": {
+   "data": {
+    "p": 777.13,
+    "cp": -3.24
    }
   }
  },
@@ -6586,60 +6586,60 @@
  ],
  "coingecko": {
   "bitcoin": {
-   "usd": 65463,
-   "usd_24h_change": -1.9328275029267212
+   "usd": 64535,
+   "usd_24h_change": -0.2037956520406055
   },
   "ethereum": {
-   "usd": 1834.05,
-   "usd_24h_change": -2.9972143211198876
+   "usd": 1820.06,
+   "usd_24h_change": 0.697113809709232
   },
   "solana": {
-   "usd": 72.74,
-   "usd_24h_change": -3.6015914509175047
+   "usd": 70.73,
+   "usd_24h_change": -0.5965014928198403
   }
  },
  "polymarket": [
   {
-   "question": "Dota 2: PARIVISION vs GamerLegion (BO3) - 1win Essence Playoffs",
-   "slug": "dota2-pari-gl-2026-11-15",
-   "volume24hr": 1009026.566504,
-   "outcomePrices": "[\"0.8305\", \"0.1695\"]",
-   "outcomes": "[\"PARIVISION\", \"GamerLegion\"]"
+   "question": "Will Kristi Noem win the 2028 Republican presidential nomination?",
+   "slug": "will-kristi-noem-win-the-2028-republican-presidential-nomination",
+   "volume24hr": 1151835.522,
+   "outcomePrices": "[\"0.0015\", \"0.9985\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Pepperdine Waves vs. Oregon Ducks",
-   "slug": "cbb-pepp-ore-2026-11-15",
-   "volume24hr": 538546.896377,
-   "outcomePrices": "[\"0.451\", \"0.549\"]",
-   "outcomes": "[\"Pepperdine Waves\", \"Oregon Ducks\"]"
+   "question": "Will there be no new be CEO of NVIDIA by December 31, 2028?",
+   "slug": "will-candidate-a-be-the-next-ceo-of-nvidia",
+   "volume24hr": 1005403.207343,
+   "outcomePrices": "[\"0.1595\", \"0.8405\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Spread: Lions (-2.5)",
-   "slug": "nfl-ne-det-2026-11-15-spread-home-2pt5",
-   "volume24hr": 533078.4432960001,
-   "outcomePrices": "[\"0.525\", \"0.475\"]",
-   "outcomes": "[\"Lions\", \"Patriots\"]"
+   "question": "Will Jensen Huang rejoin NVIDIA by December 31, 2026?",
+   "slug": "will-jensen-huang-rejoin-nvidia-by-december-31-2026",
+   "volume24hr": 613093.5800170001,
+   "outcomePrices": "[\"0.1365\", \"0.8635\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Chiefs vs. Falcons",
-   "slug": "nfl-kc-atl-2026-11-15",
-   "volume24hr": 447163.624844,
-   "outcomePrices": "[\"0.635\", \"0.365\"]",
-   "outcomes": "[\"Chiefs\", \"Falcons\"]"
-  },
-  {
-   "question": "Will the Fed increase interest rates by 25 bps after the December 2026 meeting?",
-   "slug": "will-the-fed-increase-interest-rates-by-25-bps-after-the-december-2026-meeting-20260729232808636",
-   "volume24hr": 425767.7411780001,
-   "outcomePrices": "[\"0.865\", \"0.135\"]",
+   "question": "Will Jensen Huang rejoin NVIDIA by November 30, 2026?",
+   "slug": "will-jensen-huang-rejoin-nvidia-by-november-30-2026",
+   "volume24hr": 531198.484026,
+   "outcomePrices": "[\"0.0575\", \"0.9425\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
    "question": "Will Shakhtar Donetsk win the 2026-27 UEFA Champions League Championship?",
    "slug": "will-shakhtar-donetsk-win-the-2026-27-uefa-champions-league-championship-20260701202025578",
-   "volume24hr": 421481,
+   "volume24hr": 425639.132,
    "outcomePrices": "[\"0.0015\", \"0.9985\"]",
    "outcomes": "[\"Yes\", \"No\"]"
+  },
+  {
+   "question": "Counter-Strike: magic vs Eternal Fire (BO3) - PGL Cluj-Napoca: Closed Qualifier Playoffs",
+   "slug": "cs2-mgc-ef1-2026-11-16",
+   "volume24hr": 342361.69828700006,
+   "outcomePrices": "[\"0.705\", \"0.295\"]",
+   "outcomes": "[\"magic\", \"Eternal Fire\"]"
   }
  ]
 }
