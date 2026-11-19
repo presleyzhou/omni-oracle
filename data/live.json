@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18T15:41:04.756Z",
+ "generated": "2026-11-19T15:45:47.995Z",
  "bls": {
   "CUUR0000SA0": [
    {
@@ -1348,38 +1348,6 @@
    ]
   },
   "EUU": {
-   "cpi": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-11-11"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 2.46605755272817
-     },
-     {
-      "date": "2024",
-      "value": 2.43531202435314
-     },
-     {
-      "date": "2023",
-      "value": 6.29942487419124
-     },
-     {
-      "date": "2022",
-      "value": 8.83346218008716
-     },
-     {
-      "date": "2021",
-      "value": 2.5545069964204
-     }
-    ]
-   ],
    "gdp": [
     {
      "page": 1,
@@ -1409,6 +1377,38 @@
      {
       "date": "2021",
       "value": 6.37773717070797
+     }
+    ]
+   ],
+   "cpi": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-11-11"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 2.46605755272817
+     },
+     {
+      "date": "2024",
+      "value": 2.43531202435314
+     },
+     {
+      "date": "2023",
+      "value": 6.29942487419124
+     },
+     {
+      "date": "2022",
+      "value": 8.83346218008716
+     },
+     {
+      "date": "2021",
+      "value": 2.5545069964204
      }
     ]
    ]
@@ -1480,38 +1480,6 @@
    ]
   },
   "JPN": {
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-11-11"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 1.19311288444599
-     },
-     {
-      "date": "2024",
-      "value": -0.240084236041696
-     },
-     {
-      "date": "2023",
-      "value": 0.720785304749811
-     },
-     {
-      "date": "2022",
-      "value": 1.33164750653741
-     },
-     {
-      "date": "2021",
-      "value": 3.56419531474475
-     }
-    ]
-   ],
    "cpi": [
     {
      "page": 1,
@@ -1543,18 +1511,39 @@
       "value": -0.233352779398263
      }
     ]
+   ],
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-11-11"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 1.19311288444599
+     },
+     {
+      "date": "2024",
+      "value": -0.240084236041696
+     },
+     {
+      "date": "2023",
+      "value": 0.720785304749811
+     },
+     {
+      "date": "2022",
+      "value": 1.33164750653741
+     },
+     {
+      "date": "2021",
+      "value": 3.56419531474475
+     }
+    ]
    ]
-  }
- },
- "fx": {
-  "amount": 1,
-  "base": "USD",
-  "date": "2026-11-18",
-  "rates": {
-   "CNY": 6.6672,
-   "EUR": 0.91174,
-   "GBP": 0.75939,
-   "JPY": 159.42
   }
  },
  "treasury": {
@@ -1600,109 +1589,116 @@
    }
   ]
  },
+ "fx": {
+  "amount": 1,
+  "base": "USD",
+  "date": "2026-11-19",
+  "rates": {
+   "CNY": 6.6667,
+   "EUR": 0.90975,
+   "GBP": 0.76038,
+   "JPY": 159.97
+  }
+ },
  "quotes": {
   "AAPL": {
    "data": {
-    "p": 352.675,
-    "cp": 0.22
-   }
-  },
-  "NVDA": {
-   "data": {
-    "p": 151.72,
-    "cp": -2.41
+    "p": 348.83,
+    "cp": -1.03
    }
   },
   "GOOGL": {
    "data": {
-    "p": 282.17,
-    "cp": 0.7
+    "p": 289.82,
+    "cp": 2.61
+   }
+  },
+  "NVDA": {
+   "data": {
+    "p": 152.48,
+    "cp": 1.01
    }
   },
   "MSFT": {
    "data": {
-    "p": 502.19,
-    "cp": -0.8
+    "p": 518.51,
+    "cp": 2.21
    }
   },
   "MU": {
    "data": {
-    "p": 698,
-    "cp": -2.02
+    "p": 715.46,
+    "cp": 1.44
    }
   },
   "AVGO": {
    "data": {
-    "p": 351.04,
-    "cp": 2.76
+    "p": 356.51,
+    "cp": 0.69
    }
   },
   "META": {
    "data": {
-    "p": 613,
-    "cp": -0.95
+    "p": 618.77,
+    "cp": 0.39
    }
   },
   "VRT": {
    "data": {
-    "p": 192.89,
-    "cp": 1.32
-   }
-  },
-  "TSLA": {
-   "data": {
-    "p": 379.75,
-    "cp": -0.09
-   }
-  },
-  "ISRG": {
-   "data": {
-    "p": 423.67,
-    "cp": -1.59
-   }
-  },
-  "LLY": {
-   "data": {
-    "p": 1393.47,
-    "cp": -1.56
+    "p": 192.91,
+    "cp": -0.81
    }
   },
   "NVO": {
    "data": {
-    "p": 39.51,
-    "cp": -2.92
+    "p": 39.05,
+    "cp": -0.96
    }
   },
-  "IONQ": {
+  "LLY": {
    "data": {
-    "p": 23.71,
-    "cp": -4.55
+    "p": 1348.04,
+    "cp": -2.51
+   }
+  },
+  "TSLA": {
+   "data": {
+    "p": 381.17,
+    "cp": -0.66
+   }
+  },
+  "ISRG": {
+   "data": {
+    "p": 414.54,
+    "cp": -1.52
    }
   },
   "CEG": {
    "data": {
-    "p": 265.87,
-    "cp": -0.82
-   }
-  },
-  "RKLB": {
-   "data": {
-    "p": 53.8,
-    "cp": -2.27
+    "p": 258.85,
+    "cp": -1.48
    }
   },
   "GEV": {
    "data": {
-    "p": 783.3,
-    "cp": 0.43
+    "p": 783.8,
+    "cp": 1.5
+   }
+  },
+  "RKLB": {
+   "data": {
+    "p": 52.11,
+    "cp": -1.81
+   }
+  },
+  "IONQ": {
+   "data": {
+    "p": 24.12,
+    "cp": 2.73
    }
   }
  },
  "vix": [
-  {
-   "d": "2024-11-12",
-   "c": 14.71
-  },
   {
    "d": "2024-11-13",
    "c": 14.02
@@ -3778,6 +3774,10 @@
   {
    "d": "2026-11-17",
    "c": 25.46
+  },
+  {
+   "d": "2026-11-18",
+   "c": 24.56
   }
  ],
  "treasury_curve": [
@@ -6594,63 +6594,69 @@
    "m3": 4.33,
    "y2": 4.8,
    "y10": 5.1
+  },
+  {
+   "d": "2026-11-18",
+   "m3": 4.34,
+   "y2": 4.8,
+   "y10": 5.07
   }
  ],
  "coingecko": {
   "bitcoin": {
-   "usd": 63266,
-   "usd_24h_change": -1.5708486504673647
+   "usd": 62873,
+   "usd_24h_change": -0.446473542562389
   },
   "ethereum": {
-   "usd": 1764.99,
-   "usd_24h_change": -1.3114869181360298
+   "usd": 1775.44,
+   "usd_24h_change": 0.6329183661773063
   },
   "solana": {
-   "usd": 73.52,
-   "usd_24h_change": 1.4605568135044542
+   "usd": 73.57,
+   "usd_24h_change": 0.3612214047055284
   }
  },
  "polymarket": [
   {
-   "question": "Will there be no new be CEO of NVIDIA by December 31, 2028?",
-   "slug": "will-candidate-a-be-the-next-ceo-of-nvidia",
-   "volume24hr": 1005183.104786,
-   "outcomePrices": "[\"0.115\", \"0.885\"]",
+   "question": "Anthropic IPO closing market cap above $1.1T?",
+   "slug": "anthropic-ipo-closing-market-cap-above-1pt1t",
+   "volume24hr": 2352159.6555279996,
+   "outcomePrices": "[\"0.985\", \"0.015\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Will Jensen Huang rejoin NVIDIA by December 31, 2026?",
-   "slug": "will-jensen-huang-rejoin-nvidia-by-december-31-2026",
-   "volume24hr": 962957.1388769997,
-   "outcomePrices": "[\"0.0735\", \"0.9265\"]",
+   "question": "ATP World Tour Finals, John McEnroe Group: Ben Shelton vs Rafael Jodar",
+   "slug": "atp-shelton-jodar-2026-11-17",
+   "volume24hr": 1822333.3732920003,
+   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
+   "outcomes": "[\"Ben Shelton\", \"Rafael Jodar\"]"
+  },
+  {
+   "question": "Will Anthropic's market cap be less than $1.25T at market close on IPO day?",
+   "slug": "will-anthropics-market-cap-be-less-than-1pt25t-at-market-close-on-ipo-day",
+   "volume24hr": 1735070.4588559999,
+   "outcomePrices": "[\"0.1615\", \"0.8385\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Will Jensen Huang rejoin NVIDIA by November 30, 2026?",
-   "slug": "will-jensen-huang-rejoin-nvidia-by-november-30-2026",
-   "volume24hr": 905012.4136899997,
-   "outcomePrices": "[\"0.0205\", \"0.9795\"]",
+   "question": "Will the Fed decrease interest rates by 50+ bps after the December 2026 meeting?",
+   "slug": "will-the-fed-decrease-interest-rates-by-50-bps-after-the-december-2026-meeting-20260729232808633",
+   "volume24hr": 827408.103,
+   "outcomePrices": "[\"0.0015\", \"0.9985\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Will South Shields vs. Harborough Town FC end in a draw?",
-   "slug": "nln-sos-har-2026-11-17-draw",
-   "volume24hr": 746163.1932809998,
-   "outcomePrices": "[\"0.9845\", \"0.0155\"]",
+   "question": "Will Anthropic's market cap be between $1.5T and $1.75T at market close on IPO day?",
+   "slug": "will-anthropics-market-cap-be-between-1pt5t-and-1pt75t-at-market-close-on-ipo-day",
+   "volume24hr": 791625.9570140002,
+   "outcomePrices": "[\"0.1735\", \"0.8265\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   },
   {
-   "question": "Will there be no change in Fed interest rates after the December 2026 meeting?",
-   "slug": "will-there-be-no-change-in-fed-interest-rates-after-the-december-2026-meeting-20260729232808635",
-   "volume24hr": 706556.5181169999,
-   "outcomePrices": "[\"0.0295\", \"0.9705\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  },
-  {
-   "question": "Will Fabien Roussel win the 2027 French presidential election?",
-   "slug": "will-fabien-roussel-win-the-2027-french-presidential-election",
-   "volume24hr": 591521.06,
-   "outcomePrices": "[\"0.001\", \"0.999\"]",
+   "question": "Will Anthropic's market cap be between $1.75T and $2.0T at market close on IPO day?",
+   "slug": "will-anthropics-market-cap-be-between-1pt75t-and-2pt0t-at-market-close-on-ipo-day",
+   "volume24hr": 774397.024736,
+   "outcomePrices": "[\"0.037\", \"0.963\"]",
    "outcomes": "[\"Yes\", \"No\"]"
   }
  ]
