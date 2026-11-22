@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T14:40:48.862Z",
+ "updated": "2026-11-22T14:36:46.098Z",
  "questions": [
   {
    "slug": "us-x-iran-ceasefire-continues-through-october-31-20260917",
@@ -51,7 +51,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-09-26T15:49:29.375Z",
    "priceAtCapture": 0.065,
-   "price": 0.0385,
+   "price": 0.0275,
    "closed": false,
    "resolved": null,
    "topic": "other"
@@ -260,7 +260,7 @@
    "endDate": "2026-12-09T00:00:00Z",
    "capturedAt": "2026-09-30T12:37:09.469Z",
    "priceAtCapture": 0.825,
-   "price": 0.9005,
+   "price": 0.9265,
    "closed": false,
    "resolved": null,
    "topic": "economy"
@@ -608,7 +608,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-07T13:26:35.094Z",
    "priceAtCapture": 0.0465,
-   "price": 0.0125,
+   "price": 0.0115,
    "closed": false,
    "resolved": null,
    "topic": "other"
@@ -649,7 +649,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-07T13:26:35.094Z",
    "priceAtCapture": 0.205,
-   "price": 0.06,
+   "price": 0.0775,
    "closed": false,
    "resolved": null,
    "topic": "tech"
@@ -1034,7 +1034,7 @@
    "endDate": "2026-11-30T20:29:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.635,
-   "price": 0.855,
+   "price": 0.885,
    "closed": false,
    "resolved": null
   },
@@ -1082,7 +1082,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-09T17:17:53.945Z",
    "priceAtCapture": 0.34,
-   "price": 0.0275,
+   "price": 0.0375,
    "closed": false,
    "resolved": null
   },
@@ -1200,7 +1200,7 @@
    "endDate": "2026-11-29T04:59:00Z",
    "capturedAt": "2026-10-10T12:34:42.209Z",
    "priceAtCapture": 0.645,
-   "price": 0.655,
+   "price": 0.685,
    "closed": false,
    "resolved": null
   },
@@ -1223,7 +1223,7 @@
    "endDate": "2026-11-29T04:59:00Z",
    "capturedAt": "2026-10-10T12:34:42.209Z",
    "priceAtCapture": 0.354,
-   "price": 0.3565,
+   "price": 0.3235,
    "closed": false,
    "resolved": null
   },
@@ -1428,7 +1428,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-12T15:28:23.121Z",
    "priceAtCapture": 0.031,
-   "price": 0.019,
+   "price": 0.0185,
    "closed": false,
    "resolved": null
   },
@@ -1903,7 +1903,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-14T11:54:50.659Z",
    "priceAtCapture": 0.295,
-   "price": 0.175,
+   "price": 0.155,
    "closed": false,
    "resolved": null
   },
@@ -1928,7 +1928,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-14T11:54:50.659Z",
    "priceAtCapture": 0.405,
-   "price": 0.145,
+   "price": 0.135,
    "closed": false,
    "resolved": null
   },
@@ -1953,7 +1953,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-14T11:54:50.659Z",
    "priceAtCapture": 0.415,
-   "price": 0.175,
+   "price": 0.15,
    "closed": false,
    "resolved": null
   },
@@ -1978,7 +1978,7 @@
    "endDate": "2026-11-30T23:59:00Z",
    "capturedAt": "2026-10-14T11:54:50.659Z",
    "priceAtCapture": 0.675,
-   "price": 0.955,
+   "price": 0.96,
    "closed": false,
    "resolved": null
   },
@@ -2028,7 +2028,7 @@
    "endDate": "2026-12-31T23:59:00Z",
    "capturedAt": "2026-10-14T11:54:50.659Z",
    "priceAtCapture": 0.4,
-   "price": 0.19,
+   "price": 0.12,
    "closed": false,
    "resolved": null
   },
@@ -2073,7 +2073,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-15T11:32:19.686Z",
    "priceAtCapture": 0.3,
-   "price": 0.095,
+   "price": 0.115,
    "closed": false,
    "resolved": null
   },
@@ -2095,7 +2095,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-15T11:32:19.686Z",
    "priceAtCapture": 0.22,
-   "price": 0.025,
+   "price": 0.0345,
    "closed": false,
    "resolved": null
   },
@@ -2146,7 +2146,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-16T11:27:31.959Z",
    "priceAtCapture": 0.255,
-   "price": 0.005,
+   "price": 0.0145,
    "closed": false,
    "resolved": null
   },
@@ -2171,7 +2171,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-16T11:27:31.959Z",
    "priceAtCapture": 0.295,
-   "price": 0.0395,
+   "price": 0.0345,
    "closed": false,
    "resolved": null
   },
@@ -2219,7 +2219,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-18T11:07:43.076Z",
    "priceAtCapture": 0.595,
-   "price": 0.15,
+   "price": 0.105,
    "closed": false,
    "resolved": null
   },
@@ -2241,7 +2241,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-18T11:07:43.076Z",
    "priceAtCapture": 0.805,
-   "price": 0.665,
+   "price": 0.58,
    "closed": false,
    "resolved": null
   },
@@ -2379,7 +2379,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-19T13:18:37.159Z",
    "priceAtCapture": 0.038,
-   "price": 0.0155,
+   "price": 0.013,
    "closed": false,
    "resolved": null
   },
@@ -2524,7 +2524,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-19T13:18:37.159Z",
    "priceAtCapture": 0.225,
-   "price": 0.065,
+   "price": 0.105,
    "closed": false,
    "resolved": null
   },
@@ -2572,7 +2572,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-20T11:39:23.807Z",
    "priceAtCapture": 0.165,
-   "price": 0.0215,
+   "price": 0.022,
    "closed": false,
    "resolved": null
   },
@@ -2621,7 +2621,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-21T11:51:26.911Z",
    "priceAtCapture": 0.68,
-   "price": 0.095,
+   "price": 0.085,
    "closed": false,
    "resolved": null
   },
@@ -2646,7 +2646,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-21T11:51:26.911Z",
    "priceAtCapture": 0.6,
-   "price": 0.042,
+   "price": 0.019,
    "closed": false,
    "resolved": null
   },
@@ -2838,7 +2838,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-10-21T11:51:26.911Z",
    "priceAtCapture": 0.315,
-   "price": 0.15,
+   "price": 0.105,
    "closed": false,
    "resolved": null
   },
@@ -2860,7 +2860,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-10-21T11:51:26.911Z",
    "priceAtCapture": 0.27,
-   "price": 0.026,
+   "price": 0.0305,
    "closed": false,
    "resolved": null
   },
@@ -3074,7 +3074,7 @@
    "endDate": "2026-10-31T20:59:00Z",
    "capturedAt": "2026-10-27T12:14:26.220Z",
    "priceAtCapture": 0.14,
-   "price": 0.029,
+   "price": 0.0335,
    "closed": false,
    "resolved": null
   },
@@ -3449,7 +3449,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-02T15:55:57.372Z",
    "priceAtCapture": 0.625,
-   "price": 0.695,
+   "price": 0.725,
    "closed": false,
    "resolved": null
   },
@@ -3489,7 +3489,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-02T15:55:57.372Z",
    "priceAtCapture": 0.034,
-   "price": 0.022,
+   "price": 0.0185,
    "closed": false,
    "resolved": null
   },
@@ -3514,7 +3514,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-02T15:55:57.372Z",
    "priceAtCapture": 0.265,
-   "price": 0.028,
+   "price": 0.0295,
    "closed": false,
    "resolved": null
   },
@@ -3638,7 +3638,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-05T14:42:01.819Z",
    "priceAtCapture": 0.33,
-   "price": 0.0175,
+   "price": 0.018,
    "closed": false,
    "resolved": null
   },
@@ -3663,7 +3663,7 @@
    "endDate": "2027-02-01T04:59:00Z",
    "capturedAt": "2026-11-05T14:42:01.819Z",
    "priceAtCapture": 0.17,
-   "price": 0.145,
+   "price": 0.115,
    "closed": false,
    "resolved": null
   },
@@ -3688,7 +3688,7 @@
    "endDate": "2027-04-01T03:59:00Z",
    "capturedAt": "2026-11-05T14:42:01.819Z",
    "priceAtCapture": 0.22,
-   "price": 0.215,
+   "price": 0.21,
    "closed": false,
    "resolved": null
   },
@@ -3734,7 +3734,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-06T14:18:10.131Z",
    "priceAtCapture": 0.145,
-   "price": 0.065,
+   "price": 0.06,
    "closed": false,
    "resolved": null
   },
@@ -3757,7 +3757,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-06T14:18:10.131Z",
    "priceAtCapture": 0.045,
-   "price": 0.0145,
+   "price": 0.015,
    "closed": false,
    "resolved": null
   },
@@ -3853,7 +3853,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-07T13:03:38.443Z",
    "priceAtCapture": 0.735,
-   "price": 0.195,
+   "price": 0.16,
    "closed": false,
    "resolved": null
   },
@@ -3876,7 +3876,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-08T13:26:32.856Z",
    "priceAtCapture": 0.175,
-   "price": 0.1075,
+   "price": 0.0845,
    "closed": false,
    "resolved": null
   },
@@ -3899,7 +3899,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-08T13:26:32.856Z",
    "priceAtCapture": 0.315,
-   "price": 0.27,
+   "price": 0.245,
    "closed": false,
    "resolved": null
   },
@@ -3924,7 +3924,7 @@
    "endDate": "2027-04-01T03:59:00Z",
    "capturedAt": "2026-11-09T16:26:43.824Z",
    "priceAtCapture": 0.52,
-   "price": 0.155,
+   "price": 0.135,
    "closed": false,
    "resolved": null
   },
@@ -3949,7 +3949,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-09T16:26:43.824Z",
    "priceAtCapture": 0.09,
-   "price": 0.065,
+   "price": 0.055,
    "closed": false,
    "resolved": null
   },
@@ -4023,7 +4023,7 @@
    "endDate": "2026-12-31T20:29:00Z",
    "capturedAt": "2026-11-09T16:26:43.824Z",
    "priceAtCapture": 0.805,
-   "price": 0.815,
+   "price": 0.735,
    "closed": false,
    "resolved": null
   },
@@ -4047,7 +4047,7 @@
    "endDate": "2026-11-30T20:29:00Z",
    "capturedAt": "2026-11-09T16:26:43.824Z",
    "priceAtCapture": 0.595,
-   "price": 0.53,
+   "price": 0.54,
    "closed": false,
    "resolved": null
   },
@@ -4071,7 +4071,7 @@
    "endDate": "2026-11-22T20:29:00Z",
    "capturedAt": "2026-11-09T16:26:43.824Z",
    "priceAtCapture": 0.525,
-   "price": 0.35,
+   "price": 0.32,
    "closed": false,
    "resolved": null
   },
@@ -4093,9 +4093,10 @@
    "endDate": "2026-11-22T04:59:00Z",
    "capturedAt": "2026-11-09T16:26:43.824Z",
    "priceAtCapture": 0.195,
-   "price": 0.0015,
-   "closed": false,
-   "resolved": null
+   "price": 0,
+   "closed": true,
+   "resolved": 0,
+   "resolvedAt": "2026-11-22 07:01:39.18807+00"
   },
   {
    "slug": "pete-hegseth-out-as-secretary-of-defense-by-november-14",
@@ -4166,7 +4167,7 @@
    "endDate": "2026-11-30T21:59:00Z",
    "capturedAt": "2026-11-11T14:25:12.278Z",
    "priceAtCapture": 0.155,
-   "price": 0.0155,
+   "price": 0.007,
    "closed": false,
    "resolved": null
   },
@@ -4191,7 +4192,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-12T15:20:42.364Z",
    "priceAtCapture": 0.48,
-   "price": 0.845,
+   "price": 0.815,
    "closed": false,
    "resolved": null
   },
@@ -4216,7 +4217,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-12T15:20:42.364Z",
    "priceAtCapture": 0.53,
-   "price": 0.16,
+   "price": 0.185,
    "closed": false,
    "resolved": null
   },
@@ -4312,7 +4313,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-13T14:37:22.623Z",
    "priceAtCapture": 0.065,
-   "price": 0.029,
+   "price": 0.025,
    "closed": false,
    "resolved": null
   },
@@ -4336,7 +4337,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-13T14:37:22.623Z",
    "priceAtCapture": 0.06,
-   "price": 0.0305,
+   "price": 0.027,
    "closed": false,
    "resolved": null
   },
@@ -4360,7 +4361,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-13T14:37:22.623Z",
    "priceAtCapture": 0.075,
-   "price": 0.07,
+   "price": 0.065,
    "closed": false,
    "resolved": null
   },
@@ -4382,7 +4383,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-13T14:37:22.623Z",
    "priceAtCapture": 0.0835,
-   "price": 0.0585,
+   "price": 0.0605,
    "closed": false,
    "resolved": null
   },
@@ -4404,7 +4405,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-13T14:37:22.623Z",
    "priceAtCapture": 0.0355,
-   "price": 0.0165,
+   "price": 0.0155,
    "closed": false,
    "resolved": null
   },
@@ -4428,7 +4429,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-13T14:37:22.623Z",
    "priceAtCapture": 0.55,
-   "price": 0.215,
+   "price": 0.25,
    "closed": false,
    "resolved": null
   },
@@ -4476,7 +4477,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-13T14:37:22.623Z",
    "priceAtCapture": 0.076,
-   "price": 0.0455,
+   "price": 0.0465,
    "closed": false,
    "resolved": null
   },
@@ -4499,7 +4500,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-13T14:37:22.623Z",
    "priceAtCapture": 0.0455,
-   "price": 0.024,
+   "price": 0.026,
    "closed": false,
    "resolved": null
   },
@@ -4524,7 +4525,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-14T13:35:50.234Z",
    "priceAtCapture": 0.051,
-   "price": 0.025,
+   "price": 0.0215,
    "closed": false,
    "resolved": null
   },
@@ -4549,7 +4550,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-14T13:35:50.234Z",
    "priceAtCapture": 0.031,
-   "price": 0.0125,
+   "price": 0.0135,
    "closed": false,
    "resolved": null
   },
@@ -4597,7 +4598,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-17T16:06:10.627Z",
    "priceAtCapture": 0.0305,
-   "price": 0.0355,
+   "price": 0.034,
    "closed": false,
    "resolved": null
   },
@@ -5084,7 +5085,7 @@
    "endDate": "2027-01-01T04:59:00Z",
    "capturedAt": "2026-11-18T15:43:51.584Z",
    "priceAtCapture": 0.705,
-   "price": 0.685,
+   "price": 0.595,
    "closed": false,
    "resolved": null
   },
@@ -5194,7 +5195,7 @@
    "endDate": "2026-12-01T04:59:00Z",
    "capturedAt": "2026-11-18T15:43:51.584Z",
    "priceAtCapture": 0.0905,
-   "price": 0.014,
+   "price": 0.033,
    "closed": false,
    "resolved": null
   },
@@ -5242,7 +5243,180 @@
    "endDate": "2027-04-01T03:59:00Z",
    "capturedAt": "2026-11-20T15:29:15.682Z",
    "priceAtCapture": 0.125,
-   "price": 0.195,
+   "price": 0.205,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-anthropic-close-below-its-ipo-price-by-november-27-2026",
+   "id": "7209783",
+   "question": "Will Anthropic close below its IPO price by November 27, 2026?",
+   "topic": "economy",
+   "tags": [
+    "AI",
+    "IPO",
+    "IPOs",
+    "Claude",
+    "Stocks",
+    "Finance",
+    "Big Tech",
+    "Equities"
+   ],
+   "event": "anthropic-closes-below-ipo-price-by",
+   "horizon": "short",
+   "createdAt": "2026-11-20T21:59:13.895238Z",
+   "endDate": "2026-11-28T04:59:00Z",
+   "capturedAt": "2026-11-22T14:36:46.098Z",
+   "priceAtCapture": 0.365,
+   "price": 0.365,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-anthropic-close-below-its-ipo-price-by-december-4-2026",
+   "id": "7209782",
+   "question": "Will Anthropic close below its IPO price by December 4, 2026?",
+   "topic": "economy",
+   "tags": [
+    "AI",
+    "IPO",
+    "IPOs",
+    "Claude",
+    "Stocks",
+    "Finance",
+    "Big Tech",
+    "Equities"
+   ],
+   "event": "anthropic-closes-below-ipo-price-by",
+   "horizon": "short",
+   "createdAt": "2026-11-20T21:59:13.878328Z",
+   "endDate": "2026-12-05T04:59:00Z",
+   "capturedAt": "2026-11-22T14:36:46.098Z",
+   "priceAtCapture": 0.57,
+   "price": 0.57,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-anthropic-close-below-its-ipo-price-by-november-25-2026",
+   "id": "7208791",
+   "question": "Will Anthropic close below its IPO price by November 25, 2026?",
+   "topic": "economy",
+   "tags": [
+    "AI",
+    "IPO",
+    "IPOs",
+    "Claude",
+    "Stocks",
+    "Finance",
+    "Big Tech",
+    "Equities"
+   ],
+   "event": "anthropic-closes-below-ipo-price-by",
+   "horizon": "short",
+   "createdAt": "2026-11-20T21:21:52.814731Z",
+   "endDate": "2026-11-26T04:59:00Z",
+   "capturedAt": "2026-11-22T14:36:46.098Z",
+   "priceAtCapture": 0.255,
+   "price": 0.255,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-xqc-finish-gta-vi-by-november-23",
+   "id": "7150747",
+   "question": "Will xQc finish GTA VI by November 23?",
+   "topic": "other",
+   "tags": [
+    "GTA",
+    "Xqc",
+    "gaming",
+    "Culture",
+    "streamer",
+    "Live Streams",
+    "GTA Streamers"
+   ],
+   "event": "xqc-finishes-gta-vi-by",
+   "horizon": "short",
+   "createdAt": "2026-11-18T17:28:35.808493Z",
+   "endDate": "2026-11-24T04:59:00Z",
+   "capturedAt": "2026-11-22T14:36:46.098Z",
+   "priceAtCapture": 0.9285,
+   "price": 0.9285,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-xqc-finish-gta-vi-by-november-28",
+   "id": "7147747",
+   "question": "Will xQc finish GTA VI by November 28?",
+   "topic": "other",
+   "tags": [
+    "GTA",
+    "Xqc",
+    "gaming",
+    "Culture",
+    "streamer",
+    "Live Streams",
+    "GTA Streamers"
+   ],
+   "event": "xqc-finishes-gta-vi-by",
+   "horizon": "short",
+   "createdAt": "2026-11-18T15:10:28.956423Z",
+   "endDate": "2026-11-29T04:59:00Z",
+   "capturedAt": "2026-11-22T14:36:46.098Z",
+   "priceAtCapture": 0.967,
+   "price": 0.967,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-anthropic-close-below-its-ipo-price-by-december-31-2026",
+   "id": "7201654",
+   "question": "Will Anthropic close below its IPO price by December 31, 2026?",
+   "topic": "economy",
+   "tags": [
+    "AI",
+    "IPO",
+    "IPOs",
+    "Claude",
+    "Stocks",
+    "Finance",
+    "Big Tech",
+    "Equities"
+   ],
+   "event": "anthropic-closes-below-ipo-price-by",
+   "horizon": "long",
+   "createdAt": "2026-11-20T15:16:58.852733Z",
+   "endDate": "2027-01-01T04:59:00Z",
+   "capturedAt": "2026-11-22T14:36:46.098Z",
+   "priceAtCapture": 0.73,
+   "price": 0.73,
+   "closed": false,
+   "resolved": null
+  },
+  {
+   "slug": "will-anthropic-close-below-its-ipo-price-by-march-31-2027",
+   "id": "7201655",
+   "question": "Will Anthropic close below its IPO price by March 31, 2027?",
+   "topic": "economy",
+   "tags": [
+    "AI",
+    "IPO",
+    "IPOs",
+    "Claude",
+    "Stocks",
+    "Finance",
+    "Big Tech",
+    "Equities"
+   ],
+   "event": "anthropic-closes-below-ipo-price-by",
+   "horizon": "long",
+   "createdAt": "2026-11-20T15:16:59.910643Z",
+   "endDate": "2027-04-01T03:59:00Z",
+   "capturedAt": "2026-11-22T14:36:46.098Z",
+   "priceAtCapture": 0.809,
+   "price": 0.809,
    "closed": false,
    "resolved": null
   }
