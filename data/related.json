@@ -1,15 +1,15 @@
 {
- "generated": "2026-11-22T14:36:49.919Z",
+ "generated": "2026-11-23T18:12:06.674Z",
  "method": "tf-idf cosine over question text",
  "related": {
   "demo:0": [
    {
     "id": "pm:next-white-house-press-secretary-announced-by-december-31-2026",
-    "s": 0.318
+    "s": 0.323
    },
    {
     "id": "pm:next-white-house-press-secretary-announced-by-november-30-2026",
-    "s": 0.316
+    "s": 0.32
    },
    {
     "id": "demo:2",
@@ -17,39 +17,39 @@
    },
    {
     "id": "demo:1",
-    "s": 0.165
+    "s": 0.164
    }
   ],
   "demo:1": [
    {
     "id": "pm:next-white-house-press-secretary-announced-by-december-31-2026",
-    "s": 0.196
+    "s": 0.199
    },
    {
     "id": "pm:next-white-house-press-secretary-announced-by-november-30-2026",
-    "s": 0.195
+    "s": 0.197
    },
    {
     "id": "demo:0",
-    "s": 0.165
+    "s": 0.164
    },
    {
     "id": "pm:will-person-z-win-the-2026-ljubljana-mayoral-election",
-    "s": 0.109
+    "s": 0.108
    }
   ],
   "demo:2": [
    {
     "id": "pm:will-party-ad-win-the-most-seats-in-the-2026-spanish-general-election",
-    "s": 0.286
+    "s": 0.285
    },
    {
     "id": "pm:will-party-ac-win-the-most-seats-in-the-2026-spanish-general-election",
-    "s": 0.286
+    "s": 0.285
    },
    {
     "id": "pm:will-another-party-win-the-most-seats-in-the-2026-spanish-general-election",
-    "s": 0.269
+    "s": 0.268
    },
    {
     "id": "demo:20",
@@ -75,15 +75,15 @@
   "demo:9": [
    {
     "id": "pm:saudi-houthi-ceasefire-agreement-announced-by-december-31",
-    "s": 0.261
+    "s": 0.265
    },
    {
     "id": "pm:russia-x-ukraine-energy-ceasefire-agreement-by-december-31-2026",
-    "s": 0.23
+    "s": 0.229
    },
    {
     "id": "pm:russia-x-ukraine-energy-ceasefire-agreement-by-november-30-2026",
-    "s": 0.228
+    "s": 0.226
    },
    {
     "id": "demo:18",
@@ -93,7 +93,7 @@
   "demo:10": [
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-march-31-2027",
-    "s": 0.262
+    "s": 0.261
    },
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-november-30-2026",
@@ -101,7 +101,7 @@
    },
    {
     "id": "pm:jensen-huang-divorce-by-march-31-2027",
-    "s": 0.128
+    "s": 0.127
    },
    {
     "id": "demo:15",
@@ -127,25 +127,25 @@
   "demo:14": [
    {
     "id": "pm:jensen-huang-divorce-by-march-31-2027",
-    "s": 0.11
-   },
-   {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-march-31-2027",
-    "s": 0.101
+    "s": 0.109
    },
    {
     "id": "pm:will-anthropic-close-below-its-ipo-price-by-march-31-2027",
-    "s": 0.092
+    "s": 0.091
    },
    {
     "id": "pm:marco-rubio-out-as-secretary-of-state-by-march-31-2027",
     "s": 0.088
+   },
+   {
+    "id": "pm:us-announces-end-of-iranian-blockade-by-march-31-2027",
+    "s": 0.084
    }
   ],
   "demo:15": [
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-november-30-2026",
-    "s": 0.14
+    "s": 0.139
    },
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-march-31-2027",
@@ -159,37 +159,37 @@
   "demo:16": [
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-november-30-2026",
-    "s": 0.158
+    "s": 0.157
    },
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-march-31-2027",
-    "s": 0.135
+    "s": 0.134
    },
    {
     "id": "pm:jensen-huang-resigned-or-removed-and-nvidia-4t-end-of-2026-resigned-under",
-    "s": 0.107
+    "s": 0.109
    },
    {
     "id": "pm:jensen-huang-resigned-or-removed-and-nvidia-4t-end-of-2026-resigned-over",
-    "s": 0.107
+    "s": 0.109
    }
   ],
   "demo:17": [
    {
     "id": "pm:jensen-huang-divorce-by-march-31-2027",
-    "s": 0.11
-   },
-   {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-march-31-2027",
-    "s": 0.101
+    "s": 0.109
    },
    {
     "id": "pm:will-anthropic-close-below-its-ipo-price-by-march-31-2027",
-    "s": 0.092
+    "s": 0.091
    },
    {
     "id": "pm:marco-rubio-out-as-secretary-of-state-by-march-31-2027",
     "s": 0.088
+   },
+   {
+    "id": "pm:us-announces-end-of-iranian-blockade-by-march-31-2027",
+    "s": 0.084
    }
   ],
   "demo:18": [
@@ -219,11 +219,11 @@
    },
    {
     "id": "pm:democratic-trifecta-odds-dip-to-45-by-december-31",
-    "s": 0.161
+    "s": 0.16
    },
    {
     "id": "pm:democratic-trifecta-odds-dip-to-50-by-december-31",
-    "s": 0.161
+    "s": 0.16
    },
    {
     "id": "demo:0",
@@ -237,11 +237,11 @@
    },
    {
     "id": "pm:perim-island-no-longer-under-houthi-control-by-november-30-20260916",
-    "s": 0.541
+    "s": 0.54
    },
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-november-30-2026",
-    "s": 0.211
+    "s": 0.21
    },
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-march-31-2027",
@@ -259,11 +259,11 @@
    },
    {
     "id": "pm:jensen-huang-admits-to-another-affair-by-december-31",
-    "s": 0.137
+    "s": 0.136
    },
    {
     "id": "pm:will-another-party-win-the-most-seats-in-the-2026-spanish-general-election",
-    "s": 0.136
+    "s": 0.135
    }
   ],
   "pm:any-of-the-cornell-7-charged-with-a-felony-sex-crime": [],
@@ -271,11 +271,11 @@
   "pm:will-openai-announce-another-millennium-prize-solution-by-december-31-2026": [
    {
     "id": "pm:jensen-huang-admits-to-another-affair-by-december-31",
-    "s": 0.121
+    "s": 0.12
    },
    {
     "id": "pm:another-fed-rate-hike-in-2026",
-    "s": 0.119
+    "s": 0.118
    },
    {
     "id": "pm:will-another-candidate-win-the-next-taipei-mayor-election-20260813125857199",
@@ -289,47 +289,47 @@
   "pm:israel-x-iran-ceasefire-continues-through-november-30": [
    {
     "id": "pm:us-x-yemen-ceasefire-continues-through-november-30",
-    "s": 0.525
+    "s": 0.527
    },
    {
     "id": "pm:us-x-iran-effective-ceasefire-by-november-30-20261108",
-    "s": 0.421
+    "s": 0.424
    },
    {
     "id": "pm:us-x-iran-effective-ceasefire-by-november-22-20261108",
-    "s": 0.421
+    "s": 0.424
    },
    {
     "id": "pm:us-x-iran-effective-ceasefire-by-december-31-20261108",
-    "s": 0.367
+    "s": 0.364
    }
   ],
   "pm:us-announces-end-of-iranian-blockade-by-march-31-2027": [
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-november-30-2026",
-    "s": 0.851
+    "s": 0.849
    },
    {
     "id": "pm:jensen-huang-divorce-by-march-31-2027",
-    "s": 0.303
-   },
-   {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-march-31-2027",
-    "s": 0.276
+    "s": 0.3
    },
    {
     "id": "demo:10",
-    "s": 0.262
+    "s": 0.261
+   },
+   {
+    "id": "pm:will-anthropic-close-below-its-ipo-price-by-march-31-2027",
+    "s": 0.251
    }
   ],
   "pm:us-announces-end-of-iranian-blockade-by-november-30-2026": [
    {
     "id": "pm:us-announces-end-of-iranian-blockade-by-march-31-2027",
-    "s": 0.851
+    "s": 0.849
    },
    {
     "id": "pm:kharg-island-no-longer-under-iranian-control-by-december-31-20260730004337418",
-    "s": 0.211
+    "s": 0.21
    },
    {
     "id": "demo:10",
@@ -337,7 +337,7 @@
    },
    {
     "id": "demo:16",
-    "s": 0.158
+    "s": 0.157
    }
   ],
   "pm:will-another-candidate-win-the-next-taipei-mayor-election-20260813125857199": [
@@ -351,11 +351,11 @@
    },
    {
     "id": "pm:will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101",
-    "s": 0.575
+    "s": 0.574
    },
    {
     "id": "pm:will-puma-shen-win-the-next-taipei-mayor-election-20260813125857102",
-    "s": 0.575
+    "s": 0.574
    }
   ],
   "pm:will-candidate-z-win-the-next-taipei-mayor-election-20260813125857129": [
@@ -369,11 +369,11 @@
    },
    {
     "id": "pm:will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101",
-    "s": 0.627
+    "s": 0.626
    },
    {
     "id": "pm:will-puma-shen-win-the-next-taipei-mayor-election-20260813125857102",
-    "s": 0.627
+    "s": 0.626
    }
   ],
   "pm:will-candidate-y-win-the-next-taipei-mayor-election-20260813125857128": [
@@ -387,219 +387,219 @@
    },
    {
     "id": "pm:will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101",
-    "s": 0.627
+    "s": 0.626
    },
    {
     "id": "pm:will-puma-shen-win-the-next-taipei-mayor-election-20260813125857102",
-    "s": 0.627
+    "s": 0.626
    }
   ],
   "pm:will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101": [
    {
     "id": "pm:will-candidate-z-win-the-next-taipei-mayor-election-20260813125857129",
-    "s": 0.627
+    "s": 0.626
    },
    {
     "id": "pm:will-candidate-y-win-the-next-taipei-mayor-election-20260813125857128",
-    "s": 0.627
+    "s": 0.626
    },
    {
     "id": "pm:will-another-candidate-win-the-next-taipei-mayor-election-20260813125857199",
-    "s": 0.575
+    "s": 0.574
    },
    {
     "id": "pm:will-puma-shen-win-the-next-taipei-mayor-election-20260813125857102",
-    "s": 0.499
+    "s": 0.497
    }
   ],
   "pm:will-puma-shen-win-the-next-taipei-mayor-election-20260813125857102": [
    {
     "id": "pm:will-candidate-z-win-the-next-taipei-mayor-election-20260813125857129",
-    "s": 0.627
+    "s": 0.626
    },
    {
     "id": "pm:will-candidate-y-win-the-next-taipei-mayor-election-20260813125857128",
-    "s": 0.627
+    "s": 0.626
    },
    {
     "id": "pm:will-another-candidate-win-the-next-taipei-mayor-election-20260813125857199",
-    "s": 0.575
+    "s": 0.574
    },
    {
     "id": "pm:will-chiang-wan-an-win-the-next-taipei-mayor-election-20260813125857101",
-    "s": 0.499
+    "s": 0.497
    }
   ],
   "pm:will-texas-enact-a-data-center-moratorium-by-december-31-2026": [
    {
     "id": "pm:will-ohio-enact-a-data-center-moratorium-by-december-31-2026",
-    "s": 0.77
+    "s": 0.769
    }
   ],
   "pm:will-ohio-enact-a-data-center-moratorium-by-december-31-2026": [
    {
     "id": "pm:will-texas-enact-a-data-center-moratorium-by-december-31-2026",
-    "s": 0.77
+    "s": 0.769
    }
   ],
   "pm:will-mohammed-bin-abdulrahman-al-thani-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2": [
    {
     "id": "pm:will-mohammed-bin-salman-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026",
-    "s": 0.703
+    "s": 0.702
    },
    {
     "id": "pm:will-jared-kushner-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.405
+    "s": 0.403
    },
    {
     "id": "pm:will-abbas-araghchi-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.405
+    "s": 0.403
    },
    {
     "id": "pm:will-steve-witkoff-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.405
+    "s": 0.403
    }
   ],
   "pm:will-jared-kushner-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2": [
    {
     "id": "pm:will-abbas-araghchi-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.483
+    "s": 0.481
    },
    {
     "id": "pm:will-steve-witkoff-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.483
+    "s": 0.481
    },
    {
     "id": "pm:will-mohammed-bin-salman-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026",
-    "s": 0.448
+    "s": 0.446
    },
    {
     "id": "pm:will-mohammed-bin-abdulrahman-al-thani-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.405
+    "s": 0.403
    }
   ],
   "pm:will-abbas-araghchi-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2": [
    {
     "id": "pm:will-jared-kushner-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.483
+    "s": 0.481
    },
    {
     "id": "pm:will-steve-witkoff-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.483
+    "s": 0.481
    },
    {
     "id": "pm:will-mohammed-bin-salman-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026",
-    "s": 0.448
+    "s": 0.446
    },
    {
     "id": "pm:will-mohammed-bin-abdulrahman-al-thani-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.405
+    "s": 0.403
    }
   ],
   "pm:us-x-yemen-ceasefire-continues-through-november-30": [
    {
     "id": "pm:israel-x-iran-ceasefire-continues-through-november-30",
-    "s": 0.525
+    "s": 0.527
    },
    {
     "id": "pm:us-x-iran-effective-ceasefire-by-november-30-20261108",
-    "s": 0.259
+    "s": 0.265
    },
    {
     "id": "pm:us-x-iran-effective-ceasefire-by-november-22-20261108",
-    "s": 0.259
+    "s": 0.265
    },
    {
     "id": "pm:us-x-iran-effective-ceasefire-by-december-31-20261108",
-    "s": 0.197
+    "s": 0.196
    }
   ],
   "pm:will-mohammed-bin-salman-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026": [
    {
     "id": "pm:will-mohammed-bin-abdulrahman-al-thani-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.703
+    "s": 0.702
    },
    {
     "id": "pm:will-jared-kushner-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.448
+    "s": 0.446
    },
    {
     "id": "pm:will-abbas-araghchi-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.448
+    "s": 0.446
    },
    {
     "id": "pm:will-steve-witkoff-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.448
+    "s": 0.446
    }
   ],
   "pm:will-steve-witkoff-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2": [
    {
     "id": "pm:will-jared-kushner-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.483
+    "s": 0.481
    },
    {
     "id": "pm:will-abbas-araghchi-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.483
+    "s": 0.481
    },
    {
     "id": "pm:will-mohammed-bin-salman-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026",
-    "s": 0.448
+    "s": 0.446
    },
    {
     "id": "pm:will-mohammed-bin-abdulrahman-al-thani-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.405
+    "s": 0.403
    }
   ],
   "pm:us-iran-hormuz-agreement-by-december-31": [
    {
     "id": "pm:us-iran-hormuz-agreement-by-november-30",
-    "s": 0.944
+    "s": 0.939
    },
    {
     "id": "pm:iran-oman-hormuz-agreement-by-december-31",
-    "s": 0.603
+    "s": 0.602
    },
    {
     "id": "pm:iran-oman-hormuz-agreement-by-november-30",
-    "s": 0.556
+    "s": 0.553
    },
    {
     "id": "pm:us-x-iran-diplomatic-meeting-by-december-31-2026-20260922",
-    "s": 0.313
+    "s": 0.312
    }
   ],
   "pm:us-iran-hormuz-agreement-by-november-30": [
    {
     "id": "pm:us-iran-hormuz-agreement-by-december-31",
-    "s": 0.944
+    "s": 0.939
    },
    {
     "id": "pm:iran-oman-hormuz-agreement-by-november-30",
-    "s": 0.614
+    "s": 0.618
    },
    {
     "id": "pm:iran-oman-hormuz-agreement-by-december-31",
-    "s": 0.555
+    "s": 0.552
    },
    {
     "id": "pm:next-us-iran-senior-diplomatic-meeting-by-november-30-2026",
-    "s": 0.329
+    "s": 0.335
    }
   ],
   "pm:perim-island-no-longer-under-houthi-control-by-november-30-20260916": [
    {
     "id": "pm:perim-island-no-longer-under-houthi-control-by-december-31-20260916",
-    "s": 0.975
+    "s": 0.973
    },
    {
     "id": "pm:kharg-island-no-longer-under-iranian-control-by-december-31-20260730004337418",
-    "s": 0.541
+    "s": 0.54
    }
   ],
   "pm:perim-island-no-longer-under-houthi-control-by-december-31-20260916": [
    {
     "id": "pm:perim-island-no-longer-under-houthi-control-by-november-30-20260916",
-    "s": 0.975
+    "s": 0.973
    },
    {
     "id": "pm:kharg-island-no-longer-under-iranian-control-by-december-31-20260730004337418",
@@ -609,47 +609,47 @@
   "pm:next-white-house-press-secretary-announced-by-november-30-2026": [
    {
     "id": "pm:next-white-house-press-secretary-announced-by-december-31-2026",
-    "s": 0.973
+    "s": 0.971
    },
    {
     "id": "demo:0",
-    "s": 0.316
+    "s": 0.32
    },
    {
     "id": "pm:marco-rubio-out-as-secretary-of-state-by-november-30-2026",
-    "s": 0.208
+    "s": 0.216
    },
    {
     "id": "demo:1",
-    "s": 0.195
+    "s": 0.197
    }
   ],
   "pm:next-white-house-press-secretary-announced-by-december-31-2026": [
    {
     "id": "pm:next-white-house-press-secretary-announced-by-november-30-2026",
-    "s": 0.973
+    "s": 0.971
    },
    {
     "id": "demo:0",
-    "s": 0.318
-   },
-   {
-    "id": "pm:saudi-houthi-ceasefire-agreement-announced-by-december-31",
-    "s": 0.207
+    "s": 0.323
    },
    {
     "id": "demo:1",
+    "s": 0.199
+   },
+   {
+    "id": "pm:marco-rubio-out-as-secretary-of-state-by-december-31-2026",
     "s": 0.196
    }
   ],
   "pm:france-declares-state-of-siege-by-december-31-2026": [
    {
     "id": "pm:france-declares-state-of-emergency-by-december-31-2026",
-    "s": 0.545
+    "s": 0.544
    },
    {
     "id": "pm:marco-rubio-out-as-secretary-of-state-by-december-31-2026",
-    "s": 0.175
+    "s": 0.174
    },
    {
     "id": "pm:marco-rubio-out-as-secretary-of-state-by-november-30-2026",
@@ -663,33 +663,33 @@
   "pm:saudi-houthi-ceasefire-agreement-announced-by-december-31": [
    {
     "id": "pm:russia-x-ukraine-energy-ceasefire-agreement-by-december-31-2026",
-    "s": 0.297
+    "s": 0.302
    },
    {
     "id": "pm:russia-x-ukraine-energy-ceasefire-agreement-by-november-30-2026",
-    "s": 0.271
+    "s": 0.275
    },
    {
     "id": "demo:9",
-    "s": 0.261
+    "s": 0.265
    },
    {
     "id": "pm:us-iran-hormuz-agreement-by-december-31",
-    "s": 0.235
+    "s": 0.238
    }
   ],
   "pm:france-declares-state-of-emergency-by-december-31-2026": [
    {
     "id": "pm:france-declares-state-of-siege-by-december-31-2026",
-    "s": 0.545
+    "s": 0.544
    },
    {
     "id": "pm:marco-rubio-out-as-secretary-of-state-by-december-31-2026",
-    "s": 0.223
+    "s": 0.221
    },
    {
     "id": "pm:marco-rubio-out-as-secretary-of-state-by-november-30-2026",
-    "s": 0.196
+    "s": 0.195
    },
    {
     "id": "pm:marco-rubio-out-as-secretary-of-state-by-march-31-2027",
@@ -699,11 +699,11 @@
   "pm:us-imports-russian-diesel-by-december-31": [
    {
     "id": "pm:us-imports-russian-diesel-by-november-30",
-    "s": 0.95
+    "s": 0.946
    },
    {
     "id": "pm:us-imports-russian-diesel-by-march-31",
-    "s": 0.881
+    "s": 0.882
    },
    {
     "id": "pm:us-imports-russian-diesel-by-january-31",
@@ -713,51 +713,55 @@
   "pm:us-imports-russian-diesel-by-november-30": [
    {
     "id": "pm:us-imports-russian-diesel-by-december-31",
-    "s": 0.95
+    "s": 0.946
    },
    {
     "id": "pm:us-imports-russian-diesel-by-march-31",
-    "s": 0.869
+    "s": 0.865
    },
    {
     "id": "pm:us-imports-russian-diesel-by-january-31",
-    "s": 0.776
+    "s": 0.772
+   },
+   {
+    "id": "pm:us-x-iran-effective-ceasefire-by-november-30-20261108",
+    "s": 0.081
    }
   ],
   "pm:iran-oman-hormuz-agreement-by-december-31": [
    {
     "id": "pm:iran-oman-hormuz-agreement-by-november-30",
-    "s": 0.95
+    "s": 0.946
    },
    {
     "id": "pm:us-iran-hormuz-agreement-by-december-31",
-    "s": 0.603
+    "s": 0.602
    },
    {
     "id": "pm:us-iran-hormuz-agreement-by-november-30",
-    "s": 0.555
+    "s": 0.552
    },
    {
     "id": "pm:saudi-houthi-ceasefire-agreement-announced-by-december-31",
-    "s": 0.221
+    "s": 0.224
    }
   ],
   "pm:iran-oman-hormuz-agreement-by-november-30": [
    {
     "id": "pm:iran-oman-hormuz-agreement-by-december-31",
-    "s": 0.95
+    "s": 0.946
    },
    {
     "id": "pm:us-iran-hormuz-agreement-by-november-30",
-    "s": 0.614
+    "s": 0.618
    },
    {
     "id": "pm:us-iran-hormuz-agreement-by-december-31",
-    "s": 0.556
+    "s": 0.553
    },
    {
     "id": "pm:russia-x-ukraine-energy-ceasefire-agreement-by-november-30-2026",
-    "s": 0.204
+    "s": 0.209
    }
   ],
   "pm:will-another-outcome-occur-in-the-brazilian-israeli-and-american-elections": [
@@ -775,7 +779,7 @@
    },
    {
     "id": "pm:another-fed-rate-hike-in-2026",
-    "s": 0.106
+    "s": 0.105
    }
   ],
   "pm:candidate-ac": [
@@ -785,11 +789,11 @@
    },
    {
     "id": "pm:will-candidate-z-win-the-next-taipei-mayor-election-20260813125857129",
-    "s": 0.459
+    "s": 0.46
    },
    {
     "id": "pm:will-candidate-y-win-the-next-taipei-mayor-election-20260813125857128",
-    "s": 0.459
+    "s": 0.46
    },
    {
     "id": "pm:will-another-candidate-win-the-next-taipei-mayor-election-20260813125857199",
@@ -803,11 +807,11 @@
    },
    {
     "id": "pm:will-candidate-z-win-the-next-taipei-mayor-election-20260813125857129",
-    "s": 0.459
+    "s": 0.46
    },
    {
     "id": "pm:will-candidate-y-win-the-next-taipei-mayor-election-20260813125857128",
-    "s": 0.459
+    "s": 0.46
    },
    {
     "id": "pm:will-another-candidate-win-the-next-taipei-mayor-election-20260813125857199",
@@ -823,109 +827,109 @@
   "pm:will-trump-speak-to-andy-burnham-by-november-30-2026": [
    {
     "id": "pm:will-trump-meet-with-andy-burnham-by-november-30-2026",
-    "s": 0.759
+    "s": 0.761
    },
    {
     "id": "pm:will-trump-speak-to-miguel-diaz-canel-by-november-30-2026",
-    "s": 0.417
+    "s": 0.419
    },
    {
     "id": "pm:will-trump-speak-to-mojtaba-khamenei-by-november-30-2026",
-    "s": 0.417
+    "s": 0.419
    },
    {
     "id": "pm:will-trump-meet-with-dario-amodei-by-november-30-2026",
-    "s": 0.193
+    "s": 0.197
    }
   ],
   "pm:will-trump-speak-to-miguel-diaz-canel-by-november-30-2026": [
    {
     "id": "pm:will-trump-speak-to-andy-burnham-by-november-30-2026",
-    "s": 0.417
+    "s": 0.419
    },
    {
     "id": "pm:will-trump-speak-to-mojtaba-khamenei-by-november-30-2026",
-    "s": 0.392
+    "s": 0.394
    },
    {
     "id": "pm:will-trump-meet-with-andy-burnham-by-november-30-2026",
-    "s": 0.193
+    "s": 0.197
    },
    {
     "id": "pm:will-trump-meet-with-dario-amodei-by-november-30-2026",
-    "s": 0.182
+    "s": 0.185
    }
   ],
   "pm:will-trump-speak-to-mojtaba-khamenei-by-november-30-2026": [
    {
     "id": "pm:will-trump-speak-to-andy-burnham-by-november-30-2026",
-    "s": 0.417
+    "s": 0.419
    },
    {
     "id": "pm:will-trump-speak-to-miguel-diaz-canel-by-november-30-2026",
-    "s": 0.392
+    "s": 0.394
    },
    {
     "id": "pm:will-trump-meet-with-andy-burnham-by-november-30-2026",
-    "s": 0.193
+    "s": 0.197
    },
    {
     "id": "pm:will-trump-meet-with-dario-amodei-by-november-30-2026",
-    "s": 0.182
+    "s": 0.185
    }
   ],
   "pm:next-us-iran-senior-diplomatic-meeting-by-november-30-2026": [
    {
     "id": "pm:us-x-iran-diplomatic-meeting-by-december-31-2026-20260922",
-    "s": 0.966
+    "s": 0.963
    },
    {
     "id": "pm:us-iran-hormuz-agreement-by-november-30",
-    "s": 0.329
+    "s": 0.335
    },
    {
     "id": "pm:us-iran-hormuz-agreement-by-december-31",
-    "s": 0.278
+    "s": 0.277
    },
    {
     "id": "pm:will-jared-kushner-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.274
+    "s": 0.272
    }
   ],
   "pm:us-x-iran-diplomatic-meeting-by-december-31-2026-20260922": [
    {
     "id": "pm:next-us-iran-senior-diplomatic-meeting-by-november-30-2026",
-    "s": 0.966
+    "s": 0.963
    },
    {
     "id": "pm:us-iran-hormuz-agreement-by-december-31",
-    "s": 0.313
+    "s": 0.312
    },
    {
     "id": "pm:will-jared-kushner-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.297
+    "s": 0.296
    },
    {
     "id": "pm:will-abbas-araghchi-attend-a-us-x-iran-diplomatic-meeting-by-december-31-2026-2",
-    "s": 0.297
+    "s": 0.296
    }
   ],
   "pm:pete-hegseth-out-as-secretary-of-defense-by-october-31-20261001003401433": [
    {
     "id": "pm:marco-rubio-out-as-secretary-of-state-by-november-30-2026",
-    "s": 0.199
+    "s": 0.203
    },
    {
     "id": "pm:next-white-house-press-secretary-announced-by-november-30-2026",
-    "s": 0.166
+    "s": 0.172
    },
    {
     "id": "pm:marco-rubio-out-as-secretary-of-state-by-december-31-2026",
-    "s": 0.16
+    "s": 0.159
    },
    {
     "id": "pm:marco-rubio-out-as-secretary-of-state-by-march-31-2027",
-    "s": 0.141
+    "s": 0.14
    }
   ],
   "pm:us-imports-russian-diesel-by-january-31": [
@@ -935,83 +939,83 @@
    },
    {
     "id": "pm:us-imports-russian-diesel-by-november-30",
-    "s": 0.776
+    "s": 0.772
    },
    {
     "id": "pm:us-imports-russian-diesel-by-march-31",
-    "s": 0.72
+    "s": 0.719
    }
   ],
   "pm:us-imports-russian-diesel-by-march-31": [
    {
     "id": "pm:us-imports-russian-diesel-by-december-31",
-    "s": 0.881
+    "s": 0.882
    },
    {
     "id": "pm:us-imports-russian-diesel-by-november-30",
-    "s": 0.869
+    "s": 0.865
    },
    {
     "id": "pm:us-imports-russian-diesel-by-january-31",
-    "s": 0.72
+    "s": 0.719
    },
    {
     "id": "pm:jensen-huang-divorce-by-march-31-2027",
-    "s": 0.204
+    "s": 0.202
    }
   ],
   "pm:marco-rubio-out-as-secretary-of-state-by-march-31-2027": [
    {
     "id": "pm:marco-rubio-out-as-secretary-of-state-by-december-31-2026",
-    "s": 0.848
+    "s": 0.849
    },
    {
     "id": "pm:marco-rubio-out-as-secretary-of-state-by-november-30-2026",
-    "s": 0.839
+    "s": 0.836
    },
    {
     "id": "pm:jensen-huang-divorce-by-march-31-2027",
-    "s": 0.314
+    "s": 0.311
    },
    {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-march-31-2027",
-    "s": 0.286
+    "id": "pm:will-anthropic-close-below-its-ipo-price-by-march-31-2027",
+    "s": 0.261
    }
   ],
   "pm:marco-rubio-out-as-secretary-of-state-by-december-31-2026": [
    {
     "id": "pm:marco-rubio-out-as-secretary-of-state-by-november-30-2026",
-    "s": 0.962
+    "s": 0.959
    },
    {
     "id": "pm:marco-rubio-out-as-secretary-of-state-by-march-31-2027",
-    "s": 0.848
+    "s": 0.849
    },
    {
     "id": "pm:france-declares-state-of-emergency-by-december-31-2026",
-    "s": 0.223
+    "s": 0.221
    },
    {
     "id": "pm:next-white-house-press-secretary-announced-by-december-31-2026",
-    "s": 0.194
+    "s": 0.196
    }
   ],
   "pm:marco-rubio-out-as-secretary-of-state-by-november-30-2026": [
    {
     "id": "pm:marco-rubio-out-as-secretary-of-state-by-december-31-2026",
-    "s": 0.962
+    "s": 0.959
    },
    {
     "id": "pm:marco-rubio-out-as-secretary-of-state-by-march-31-2027",
-    "s": 0.839
+    "s": 0.836
    },
    {
     "id": "pm:next-white-house-press-secretary-announced-by-november-30-2026",
-    "s": 0.208
+    "s": 0.216
    },
    {
     "id": "pm:pete-hegseth-out-as-secretary-of-defense-by-october-31-20261001003401433",
-    "s": 0.199
+    "s": 0.203
    }
   ],
   "pm:will-the-houthis-enter-saudi-arabia-by-december-31": [
@@ -1023,7 +1027,7 @@
   "pm:israeli-airspace-closed-by-november-30-2026": [
    {
     "id": "pm:israeli-airspace-closed-by-december-31-2026",
-    "s": 0.961
+    "s": 0.958
    },
    {
     "id": "pm:will-another-outcome-occur-in-the-brazilian-israeli-and-american-elections",
@@ -1033,7 +1037,7 @@
   "pm:israeli-airspace-closed-by-december-31-2026": [
    {
     "id": "pm:israeli-airspace-closed-by-november-30-2026",
-    "s": 0.961
+    "s": 0.958
    },
    {
     "id": "pm:will-another-outcome-occur-in-the-brazilian-israeli-and-american-elections",
@@ -1043,55 +1047,55 @@
   "pm:jensen-huang-divorce-by-march-31-2027": [
    {
     "id": "pm:jensen-huang-divorce-in-2026",
-    "s": 0.749
-   },
-   {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-march-31-2027",
-    "s": 0.548
+    "s": 0.753
    },
    {
     "id": "pm:will-jensen-huang-publicly-testify-before-congress-by-march-31-2027",
-    "s": 0.448
+    "s": 0.451
+   },
+   {
+    "id": "pm:jensen-huang-announced-resignation-or-removal-again-by-march-31-2027",
+    "s": 0.451
    },
    {
     "id": "pm:will-anthropic-close-below-its-ipo-price-by-march-31-2027",
-    "s": 0.327
+    "s": 0.325
    }
   ],
   "pm:jensen-huang-divorce-in-2026": [
    {
     "id": "pm:jensen-huang-divorce-by-march-31-2027",
-    "s": 0.749
+    "s": 0.753
    },
    {
     "id": "pm:will-jensen-huang-be-arrested-by-december-31-2026",
-    "s": 0.367
-   },
-   {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-december-31-2026",
-    "s": 0.343
+    "s": 0.374
    },
    {
     "id": "pm:will-6-jensen-huang-affairs-be-reported-by-december-31",
-    "s": 0.325
+    "s": 0.333
+   },
+   {
+    "id": "pm:will-5-jensen-huang-affairs-be-reported-by-december-31",
+    "s": 0.333
    }
   ],
   "pm:us-x-iran-effective-ceasefire-by-december-31-20261108": [
    {
     "id": "pm:us-x-iran-effective-ceasefire-by-november-30-20261108",
-    "s": 0.937
+    "s": 0.932
    },
    {
     "id": "pm:us-x-iran-effective-ceasefire-by-november-22-20261108",
-    "s": 0.937
+    "s": 0.932
    },
    {
     "id": "pm:israel-x-iran-ceasefire-continues-through-november-30",
-    "s": 0.367
+    "s": 0.364
    },
    {
     "id": "pm:saudi-houthi-ceasefire-agreement-announced-by-december-31",
-    "s": 0.231
+    "s": 0.235
    }
   ],
   "pm:us-x-iran-effective-ceasefire-by-november-30-20261108": [
@@ -1101,15 +1105,15 @@
    },
    {
     "id": "pm:us-x-iran-effective-ceasefire-by-december-31-20261108",
-    "s": 0.937
+    "s": 0.932
    },
    {
     "id": "pm:israel-x-iran-ceasefire-continues-through-november-30",
-    "s": 0.421
+    "s": 0.424
    },
    {
     "id": "pm:us-x-yemen-ceasefire-continues-through-november-30",
-    "s": 0.259
+    "s": 0.265
    }
   ],
   "pm:us-x-iran-effective-ceasefire-by-november-22-20261108": [
@@ -1119,51 +1123,51 @@
    },
    {
     "id": "pm:us-x-iran-effective-ceasefire-by-december-31-20261108",
-    "s": 0.937
+    "s": 0.932
    },
    {
     "id": "pm:israel-x-iran-ceasefire-continues-through-november-30",
-    "s": 0.421
+    "s": 0.424
    },
    {
     "id": "pm:us-x-yemen-ceasefire-continues-through-november-30",
-    "s": 0.259
+    "s": 0.265
    }
   ],
   "pm:russia-x-ukraine-energy-ceasefire-agreement-by-december-31-2026": [
    {
     "id": "pm:russia-x-ukraine-energy-ceasefire-agreement-by-november-30-2026",
-    "s": 0.971
+    "s": 0.969
    },
    {
     "id": "pm:saudi-houthi-ceasefire-agreement-announced-by-december-31",
-    "s": 0.297
+    "s": 0.302
    },
    {
     "id": "demo:9",
-    "s": 0.23
+    "s": 0.229
    },
    {
     "id": "pm:us-iran-hormuz-agreement-by-december-31",
-    "s": 0.199
+    "s": 0.197
    }
   ],
   "pm:russia-x-ukraine-energy-ceasefire-agreement-by-november-30-2026": [
    {
     "id": "pm:russia-x-ukraine-energy-ceasefire-agreement-by-december-31-2026",
-    "s": 0.971
+    "s": 0.969
    },
    {
     "id": "pm:saudi-houthi-ceasefire-agreement-announced-by-december-31",
-    "s": 0.271
+    "s": 0.275
    },
    {
     "id": "demo:9",
-    "s": 0.228
+    "s": 0.226
    },
    {
     "id": "pm:us-iran-hormuz-agreement-by-november-30",
-    "s": 0.216
+    "s": 0.221
    }
   ],
   "pm:jensen-huang-resigned-or-removed-and-nvidia-4t-end-of-2026-resigned-under": [
@@ -1172,16 +1176,16 @@
     "s": 1
    },
    {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-december-31-2026",
-    "s": 0.302
+    "id": "pm:jensen-huang-announced-resignation-or-removal-again-by-december-31-2026",
+    "s": 0.502
    },
    {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-november-30-2026",
-    "s": 0.298
+    "id": "pm:jensen-huang-announced-resignation-or-removal-again-by-march-31-2027",
+    "s": 0.446
    },
    {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-march-31-2027",
-    "s": 0.247
+    "id": "pm:jensen-huang-divorce-in-2026",
+    "s": 0.168
    }
   ],
   "pm:jensen-huang-resigned-or-removed-and-nvidia-4t-end-of-2026-resigned-over": [
@@ -1190,34 +1194,34 @@
     "s": 1
    },
    {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-december-31-2026",
-    "s": 0.302
+    "id": "pm:jensen-huang-announced-resignation-or-removal-again-by-december-31-2026",
+    "s": 0.502
    },
    {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-november-30-2026",
-    "s": 0.298
+    "id": "pm:jensen-huang-announced-resignation-or-removal-again-by-march-31-2027",
+    "s": 0.446
    },
    {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-march-31-2027",
-    "s": 0.247
+    "id": "pm:jensen-huang-divorce-in-2026",
+    "s": 0.168
    }
   ],
   "pm:will-someone-else-win-the-2026-ljubljana-mayoral-election": [
    {
     "id": "pm:will-person-z-win-the-2026-ljubljana-mayoral-election",
-    "s": 0.606
+    "s": 0.605
    },
    {
     "id": "pm:will-person-y-win-the-2026-ljubljana-mayoral-election",
-    "s": 0.606
+    "s": 0.605
    },
    {
     "id": "pm:will-candidate-z-win-the-next-taipei-mayor-election-20260813125857129",
-    "s": 0.178
+    "s": 0.176
    },
    {
     "id": "pm:will-candidate-y-win-the-next-taipei-mayor-election-20260813125857128",
-    "s": 0.178
+    "s": 0.176
    }
   ],
   "pm:will-person-z-win-the-2026-ljubljana-mayoral-election": [
@@ -1227,15 +1231,15 @@
    },
    {
     "id": "pm:will-someone-else-win-the-2026-ljubljana-mayoral-election",
-    "s": 0.606
+    "s": 0.605
    },
    {
     "id": "pm:will-candidate-z-win-the-next-taipei-mayor-election-20260813125857129",
-    "s": 0.217
+    "s": 0.216
    },
    {
     "id": "pm:will-candidate-y-win-the-next-taipei-mayor-election-20260813125857128",
-    "s": 0.217
+    "s": 0.216
    }
   ],
   "pm:will-person-y-win-the-2026-ljubljana-mayoral-election": [
@@ -1245,33 +1249,33 @@
    },
    {
     "id": "pm:will-someone-else-win-the-2026-ljubljana-mayoral-election",
-    "s": 0.606
+    "s": 0.605
    },
    {
     "id": "pm:will-candidate-z-win-the-next-taipei-mayor-election-20260813125857129",
-    "s": 0.217
+    "s": 0.216
    },
    {
     "id": "pm:will-candidate-y-win-the-next-taipei-mayor-election-20260813125857128",
-    "s": 0.217
+    "s": 0.216
    }
   ],
   "pm:will-7-or-more-jensen-huang-affairs-be-reported-by-december-31": [
    {
     "id": "pm:will-6-jensen-huang-affairs-be-reported-by-december-31",
-    "s": 0.794
+    "s": 0.795
    },
    {
     "id": "pm:will-5-jensen-huang-affairs-be-reported-by-december-31",
-    "s": 0.794
+    "s": 0.795
    },
    {
     "id": "pm:fourth-jensen-huang-affair-reported-by-december-31",
-    "s": 0.391
+    "s": 0.395
    },
    {
     "id": "pm:fourth-jensen-huang-affair-reported-by-november-30",
-    "s": 0.361
+    "s": 0.364
    }
   ],
   "pm:will-6-jensen-huang-affairs-be-reported-by-december-31": [
@@ -1281,15 +1285,15 @@
    },
    {
     "id": "pm:will-7-or-more-jensen-huang-affairs-be-reported-by-december-31",
-    "s": 0.794
+    "s": 0.795
    },
    {
     "id": "pm:fourth-jensen-huang-affair-reported-by-december-31",
-    "s": 0.492
+    "s": 0.496
    },
    {
     "id": "pm:fourth-jensen-huang-affair-reported-by-november-30",
-    "s": 0.454
+    "s": 0.458
    }
   ],
   "pm:will-5-jensen-huang-affairs-be-reported-by-december-31": [
@@ -1299,123 +1303,87 @@
    },
    {
     "id": "pm:will-7-or-more-jensen-huang-affairs-be-reported-by-december-31",
-    "s": 0.794
+    "s": 0.795
    },
    {
     "id": "pm:fourth-jensen-huang-affair-reported-by-december-31",
-    "s": 0.492
+    "s": 0.496
    },
    {
     "id": "pm:fourth-jensen-huang-affair-reported-by-november-30",
-    "s": 0.454
-   }
-  ],
-  "pm:will-jensen-huang-rejoin-nvidia-by-december-31-2026": [
-   {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-november-30-2026",
-    "s": 0.946
-   },
-   {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-march-31-2027",
-    "s": 0.796
-   },
-   {
-    "id": "pm:jensen-huang-divorce-in-2026",
-    "s": 0.343
-   },
-   {
-    "id": "pm:will-jensen-huang-be-arrested-by-december-31-2026",
-    "s": 0.321
-   }
-  ],
-  "pm:will-jensen-huang-rejoin-nvidia-by-november-30-2026": [
-   {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-december-31-2026",
-    "s": 0.946
-   },
-   {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-march-31-2027",
-    "s": 0.784
-   },
-   {
-    "id": "pm:jensen-huang-resigned-or-removed-and-nvidia-4t-end-of-2026-resigned-under",
-    "s": 0.298
-   },
-   {
-    "id": "pm:jensen-huang-resigned-or-removed-and-nvidia-4t-end-of-2026-resigned-over",
-    "s": 0.298
+    "s": 0.458
    }
   ],
   "pm:fourth-jensen-huang-affair-reported-by-december-31": [
    {
     "id": "pm:fourth-jensen-huang-affair-reported-by-november-30",
-    "s": 0.962
+    "s": 0.96
    },
    {
     "id": "pm:will-6-jensen-huang-affairs-be-reported-by-december-31",
-    "s": 0.492
+    "s": 0.496
    },
    {
     "id": "pm:will-5-jensen-huang-affairs-be-reported-by-december-31",
-    "s": 0.492
+    "s": 0.496
    },
    {
     "id": "pm:will-7-or-more-jensen-huang-affairs-be-reported-by-december-31",
-    "s": 0.391
+    "s": 0.395
    }
   ],
   "pm:jensen-huang-admits-to-another-affair-by-december-31": [
    {
     "id": "pm:fourth-jensen-huang-affair-reported-by-december-31",
-    "s": 0.388
+    "s": 0.391
    },
    {
     "id": "pm:fourth-jensen-huang-affair-reported-by-november-30",
-    "s": 0.361
+    "s": 0.364
    },
    {
     "id": "pm:jensen-huang-divorce-in-2026",
-    "s": 0.222
+    "s": 0.228
    },
    {
     "id": "pm:will-jensen-huang-be-arrested-by-december-31-2026",
-    "s": 0.208
+    "s": 0.213
    }
   ],
   "pm:will-jensen-huang-join-spacex-by-december-31-2026": [
    {
     "id": "pm:jensen-huang-divorce-in-2026",
-    "s": 0.285
+    "s": 0.291
    },
    {
     "id": "pm:will-jensen-huang-be-arrested-by-december-31-2026",
-    "s": 0.266
-   },
-   {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-december-31-2026",
-    "s": 0.249
+    "s": 0.273
    },
    {
     "id": "pm:will-6-jensen-huang-affairs-be-reported-by-december-31",
-    "s": 0.236
+    "s": 0.243
+   },
+   {
+    "id": "pm:will-5-jensen-huang-affairs-be-reported-by-december-31",
+    "s": 0.243
    }
   ],
   "pm:will-jensen-huang-be-arrested-by-december-31-2026": [
    {
     "id": "pm:jensen-huang-divorce-in-2026",
-    "s": 0.367
-   },
-   {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-december-31-2026",
-    "s": 0.321
+    "s": 0.374
    },
    {
     "id": "pm:will-6-jensen-huang-affairs-be-reported-by-december-31",
-    "s": 0.304
+    "s": 0.311
    },
    {
     "id": "pm:will-5-jensen-huang-affairs-be-reported-by-december-31",
-    "s": 0.304
+    "s": 0.311
+   },
+   {
+    "id": "pm:will-jensen-huang-join-spacex-by-december-31-2026",
+    "s": 0.273
    }
   ],
   "pm:faa-outage-attributed-to-hack": [
@@ -1437,7 +1405,7 @@
    },
    {
     "id": "demo:20",
-    "s": 0.161
+    "s": 0.16
    }
   ],
   "pm:democratic-trifecta-odds-dip-to-50-by-december-31": [
@@ -1447,7 +1415,7 @@
    },
    {
     "id": "demo:20",
-    "s": 0.161
+    "s": 0.16
    }
   ],
   "pm:will-another-party-win-the-most-seats-in-the-2026-spanish-general-election": [
@@ -1461,11 +1429,11 @@
    },
    {
     "id": "pm:will-another-candidate-win-the-next-taipei-mayor-election-20260813125857199",
-    "s": 0.291
+    "s": 0.29
    },
    {
     "id": "demo:2",
-    "s": 0.269
+    "s": 0.268
    }
   ],
   "pm:will-party-ad-win-the-most-seats-in-the-2026-spanish-general-election": [
@@ -1479,11 +1447,11 @@
    },
    {
     "id": "demo:2",
-    "s": 0.286
+    "s": 0.285
    },
    {
     "id": "pm:will-person-z-win-the-2026-ljubljana-mayoral-election",
-    "s": 0.188
+    "s": 0.186
    }
   ],
   "pm:will-party-ac-win-the-most-seats-in-the-2026-spanish-general-election": [
@@ -1497,137 +1465,119 @@
    },
    {
     "id": "demo:2",
-    "s": 0.286
+    "s": 0.285
    },
    {
     "id": "pm:will-person-z-win-the-2026-ljubljana-mayoral-election",
-    "s": 0.188
+    "s": 0.186
    }
   ],
   "pm:will-jensen-huang-publicly-testify-before-congress-by-march-31-2027": [
    {
     "id": "pm:will-jensen-huang-publicly-testify-before-congress-by-december-31-2026",
-    "s": 0.869
+    "s": 0.87
    },
    {
     "id": "pm:jensen-huang-divorce-by-march-31-2027",
-    "s": 0.448
+    "s": 0.451
    },
    {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-march-31-2027",
-    "s": 0.409
+    "id": "pm:jensen-huang-announced-resignation-or-removal-again-by-march-31-2027",
+    "s": 0.337
    },
    {
     "id": "pm:will-anthropic-close-below-its-ipo-price-by-march-31-2027",
-    "s": 0.244
+    "s": 0.243
    }
   ],
   "pm:will-jensen-huang-publicly-testify-before-congress-by-december-31-2026": [
    {
     "id": "pm:will-jensen-huang-publicly-testify-before-congress-by-march-31-2027",
-    "s": 0.869
+    "s": 0.87
    },
    {
     "id": "pm:jensen-huang-divorce-in-2026",
-    "s": 0.263
+    "s": 0.27
    },
    {
     "id": "pm:will-jensen-huang-be-arrested-by-december-31-2026",
-    "s": 0.246
+    "s": 0.252
    },
    {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-december-31-2026",
-    "s": 0.23
+    "id": "pm:will-6-jensen-huang-affairs-be-reported-by-december-31",
+    "s": 0.224
    }
   ],
   "pm:will-trump-meet-with-dario-amodei-by-november-30-2026": [
    {
     "id": "pm:will-trump-meet-with-andy-burnham-by-november-30-2026",
-    "s": 0.423
+    "s": 0.425
    },
    {
     "id": "pm:will-trump-meet-with-sam-altman-by-november-30-2026",
-    "s": 0.398
+    "s": 0.4
    },
    {
     "id": "pm:will-trump-speak-to-andy-burnham-by-november-30-2026",
-    "s": 0.193
+    "s": 0.197
    },
    {
     "id": "pm:will-trump-speak-to-miguel-diaz-canel-by-november-30-2026",
-    "s": 0.182
+    "s": 0.185
    }
   ],
   "pm:will-trump-meet-with-sam-altman-by-november-30-2026": [
    {
     "id": "pm:will-trump-meet-with-andy-burnham-by-november-30-2026",
-    "s": 0.423
+    "s": 0.425
    },
    {
     "id": "pm:will-trump-meet-with-dario-amodei-by-november-30-2026",
-    "s": 0.398
+    "s": 0.4
    },
    {
     "id": "pm:will-trump-speak-to-andy-burnham-by-november-30-2026",
-    "s": 0.193
+    "s": 0.197
    },
    {
     "id": "pm:will-trump-speak-to-miguel-diaz-canel-by-november-30-2026",
-    "s": 0.182
+    "s": 0.185
    }
   ],
   "pm:will-trump-meet-with-andy-burnham-by-november-30-2026": [
    {
     "id": "pm:will-trump-speak-to-andy-burnham-by-november-30-2026",
-    "s": 0.759
+    "s": 0.761
    },
    {
     "id": "pm:will-trump-meet-with-dario-amodei-by-november-30-2026",
-    "s": 0.423
+    "s": 0.425
    },
    {
     "id": "pm:will-trump-meet-with-sam-altman-by-november-30-2026",
-    "s": 0.423
+    "s": 0.425
    },
    {
     "id": "pm:will-trump-speak-to-miguel-diaz-canel-by-november-30-2026",
-    "s": 0.193
+    "s": 0.197
    }
   ],
   "pm:fourth-jensen-huang-affair-reported-by-november-30": [
    {
     "id": "pm:fourth-jensen-huang-affair-reported-by-december-31",
-    "s": 0.962
+    "s": 0.96
    },
    {
     "id": "pm:will-6-jensen-huang-affairs-be-reported-by-december-31",
-    "s": 0.454
+    "s": 0.458
    },
    {
     "id": "pm:will-5-jensen-huang-affairs-be-reported-by-december-31",
-    "s": 0.454
+    "s": 0.458
    },
    {
     "id": "pm:jensen-huang-admits-to-another-affair-by-december-31",
-    "s": 0.361
-   }
-  ],
-  "pm:will-jensen-huang-rejoin-nvidia-by-march-31-2027": [
-   {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-december-31-2026",
-    "s": 0.796
-   },
-   {
-    "id": "pm:will-jensen-huang-rejoin-nvidia-by-november-30-2026",
-    "s": 0.784
-   },
-   {
-    "id": "pm:jensen-huang-divorce-by-march-31-2027",
-    "s": 0.548
-   },
-   {
-    "id": "pm:will-jensen-huang-publicly-testify-before-congress-by-march-31-2027",
-    "s": 0.409
+    "s": 0.364
    }
   ],
   "pm:will-anthropic-close-below-its-ipo-price-by-november-27-2026": [
@@ -1637,15 +1587,15 @@
    },
    {
     "id": "pm:will-anthropic-close-below-its-ipo-price-by-december-4-2026",
-    "s": 0.958
+    "s": 0.954
    },
    {
     "id": "pm:will-anthropic-close-below-its-ipo-price-by-december-31-2026",
-    "s": 0.958
+    "s": 0.954
    },
    {
     "id": "pm:will-anthropic-close-below-its-ipo-price-by-march-31-2027",
-    "s": 0.823
+    "s": 0.821
    }
   ],
   "pm:will-anthropic-close-below-its-ipo-price-by-december-4-2026": [
@@ -1655,15 +1605,15 @@
    },
    {
     "id": "pm:will-anthropic-close-below-its-ipo-price-by-november-27-2026",
-    "s": 0.958
+    "s": 0.954
    },
    {
     "id": "pm:will-anthropic-close-below-its-ipo-price-by-november-25-2026",
-    "s": 0.958
+    "s": 0.954
    },
    {
     "id": "pm:will-anthropic-close-below-its-ipo-price-by-march-31-2027",
-    "s": 0.833
+    "s": 0.834
    }
   ],
   "pm:will-anthropic-close-below-its-ipo-price-by-november-25-2026": [
@@ -1673,27 +1623,15 @@
    },
    {
     "id": "pm:will-anthropic-close-below-its-ipo-price-by-december-4-2026",
-    "s": 0.958
+    "s": 0.954
    },
    {
     "id": "pm:will-anthropic-close-below-its-ipo-price-by-december-31-2026",
-    "s": 0.958
+    "s": 0.954
    },
    {
     "id": "pm:will-anthropic-close-below-its-ipo-price-by-march-31-2027",
-    "s": 0.823
-   }
-  ],
-  "pm:will-xqc-finish-gta-vi-by-november-23": [
-   {
-    "id": "pm:will-xqc-finish-gta-vi-by-november-28",
-    "s": 1
-   }
-  ],
-  "pm:will-xqc-finish-gta-vi-by-november-28": [
-   {
-    "id": "pm:will-xqc-finish-gta-vi-by-november-23",
-    "s": 1
+    "s": 0.821
    }
   ],
   "pm:will-anthropic-close-below-its-ipo-price-by-december-31-2026": [
@@ -1703,33 +1641,69 @@
    },
    {
     "id": "pm:will-anthropic-close-below-its-ipo-price-by-november-27-2026",
-    "s": 0.958
+    "s": 0.954
    },
    {
     "id": "pm:will-anthropic-close-below-its-ipo-price-by-november-25-2026",
-    "s": 0.958
+    "s": 0.954
    },
    {
     "id": "pm:will-anthropic-close-below-its-ipo-price-by-march-31-2027",
-    "s": 0.833
+    "s": 0.834
    }
   ],
   "pm:will-anthropic-close-below-its-ipo-price-by-march-31-2027": [
    {
     "id": "pm:will-anthropic-close-below-its-ipo-price-by-december-4-2026",
-    "s": 0.833
+    "s": 0.834
    },
    {
     "id": "pm:will-anthropic-close-below-its-ipo-price-by-december-31-2026",
-    "s": 0.833
+    "s": 0.834
    },
    {
     "id": "pm:will-anthropic-close-below-its-ipo-price-by-november-27-2026",
-    "s": 0.823
+    "s": 0.821
    },
    {
     "id": "pm:will-anthropic-close-below-its-ipo-price-by-november-25-2026",
-    "s": 0.823
+    "s": 0.821
+   }
+  ],
+  "pm:jensen-huang-announced-resignation-or-removal-again-by-march-31-2027": [
+   {
+    "id": "pm:jensen-huang-announced-resignation-or-removal-again-by-december-31-2026",
+    "s": 0.871
+   },
+   {
+    "id": "pm:jensen-huang-divorce-by-march-31-2027",
+    "s": 0.451
+   },
+   {
+    "id": "pm:jensen-huang-resigned-or-removed-and-nvidia-4t-end-of-2026-resigned-under",
+    "s": 0.446
+   },
+   {
+    "id": "pm:jensen-huang-resigned-or-removed-and-nvidia-4t-end-of-2026-resigned-over",
+    "s": 0.446
+   }
+  ],
+  "pm:jensen-huang-announced-resignation-or-removal-again-by-december-31-2026": [
+   {
+    "id": "pm:jensen-huang-announced-resignation-or-removal-again-by-march-31-2027",
+    "s": 0.871
+   },
+   {
+    "id": "pm:jensen-huang-resigned-or-removed-and-nvidia-4t-end-of-2026-resigned-under",
+    "s": 0.502
+   },
+   {
+    "id": "pm:jensen-huang-resigned-or-removed-and-nvidia-4t-end-of-2026-resigned-over",
+    "s": 0.502
+   },
+   {
+    "id": "pm:jensen-huang-divorce-in-2026",
+    "s": 0.269
    }
   ]
  }

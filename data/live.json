@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-22T14:36:09.875Z",
+ "generated": "2026-11-23T18:10:53.217Z",
  "bls": {
   "CUUR0000SA0": [
    {
@@ -634,38 +634,6 @@
  },
  "worldbank": {
   "USA": {
-   "gdp": [
-    {
-     "page": 1,
-     "pages": 1,
-     "per_page": 8,
-     "total": 5,
-     "sourceid": "2",
-     "lastupdated": "2026-11-11"
-    },
-    [
-     {
-      "date": "2025",
-      "value": 2.16138195623856
-     },
-     {
-      "date": "2024",
-      "value": 2.79318715363841
-     },
-     {
-      "date": "2023",
-      "value": 2.93436322440155
-     },
-     {
-      "date": "2022",
-      "value": 2.52421385073222
-     },
-     {
-      "date": "2021",
-      "value": 6.15202247867526
-     }
-    ]
-   ],
    "cpi": [
     {
      "page": 1,
@@ -695,6 +663,38 @@
      {
       "date": "2021",
       "value": 4.69785886363742
+     }
+    ]
+   ],
+   "gdp": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": 8,
+     "total": 5,
+     "sourceid": "2",
+     "lastupdated": "2026-11-11"
+    },
+    [
+     {
+      "date": "2025",
+      "value": 2.16138195623856
+     },
+     {
+      "date": "2024",
+      "value": 2.79318715363841
+     },
+     {
+      "date": "2023",
+      "value": 2.93436322440155
+     },
+     {
+      "date": "2022",
+      "value": 2.52421385073222
+     },
+     {
+      "date": "2021",
+      "value": 6.15202247867526
      }
     ]
    ]
@@ -1592,109 +1592,109 @@
  "fx": {
   "amount": 1,
   "base": "USD",
-  "date": "2026-11-20",
+  "date": "2026-11-23",
   "rates": {
-   "CNY": 6.6777,
-   "EUR": 0.90992,
-   "GBP": 0.76192,
-   "JPY": 158.64
+   "CNY": 6.6647,
+   "EUR": 0.91416,
+   "GBP": 0.76491,
+   "JPY": 159.07
   }
  },
  "quotes": {
-  "AAPL": {
-   "data": {
-    "p": 342.56,
-    "cp": -1.9
-   }
-  },
   "GOOGL": {
    "data": {
-    "p": 265.29,
-    "cp": -2.7
-   }
-  },
-  "NVDA": {
-   "data": {
-    "p": 125.53,
-    "cp": -14.01
+    "p": 284.13,
+    "cp": 7.1
    }
   },
   "MSFT": {
    "data": {
-    "p": 484.52,
-    "cp": -2.77
+    "p": 497.17,
+    "cp": 2.61
    }
   },
-  "AVGO": {
+  "AAPL": {
    "data": {
-    "p": 304.41,
-    "cp": -12.19
+    "p": 348.82,
+    "cp": 1.83
    }
   },
-  "VRT": {
+  "NVDA": {
    "data": {
-    "p": 166.24,
-    "cp": -10.14
-   }
-  },
-  "META": {
-   "data": {
-    "p": 560.84,
-    "cp": -5.93
+    "p": 164.56,
+    "cp": 31.09
    }
   },
   "MU": {
    "data": {
-    "p": 594.51,
-    "cp": -13.89
+    "p": 706.77,
+    "cp": 18.88
    }
   },
-  "ISRG": {
+  "AVGO": {
    "data": {
-    "p": 399.05,
-    "cp": -2.01
+    "p": 310.08,
+    "cp": 1.86
+   }
+  },
+  "META": {
+   "data": {
+    "p": 596.1,
+    "cp": 6.29
+   }
+  },
+  "VRT": {
+   "data": {
+    "p": 188.99,
+    "cp": 13.69
    }
   },
   "TSLA": {
    "data": {
-    "p": 345.82,
-    "cp": -7.64
+    "p": 388.3,
+    "cp": 12.28
    }
   },
   "LLY": {
    "data": {
-    "p": 1347.11,
-    "cp": -0.3
+    "p": 1364.17,
+    "cp": 1.27
+   }
+  },
+  "ISRG": {
+   "data": {
+    "p": 415.67,
+    "cp": 4.16
    }
   },
   "NVO": {
    "data": {
-    "p": 37.82,
-    "cp": -2.7
-   }
-  },
-  "CEG": {
-   "data": {
-    "p": 237.41,
-    "cp": -5.8
-   }
-  },
-  "IONQ": {
-   "data": {
-    "p": 20.72,
-    "cp": -8.76
+    "p": 39.075,
+    "cp": 3.32
    }
   },
   "RKLB": {
    "data": {
-    "p": 45.42,
-    "cp": -10.92
+    "p": 49.82,
+    "cp": 9.69
    }
   },
   "GEV": {
    "data": {
-    "p": 699.33,
-    "cp": -7.53
+    "p": 757.71,
+    "cp": 8.35
+   }
+  },
+  "IONQ": {
+   "data": {
+    "p": 23.435,
+    "cp": 13.1
+   }
+  },
+  "CEG": {
+   "data": {
+    "p": 250.58,
+    "cp": 5.55
    }
   }
  },
@@ -6616,60 +6616,60 @@
  ],
  "coingecko": {
   "bitcoin": {
-   "usd": 60593,
-   "usd_24h_change": 0.575845568627576
+   "usd": 61510,
+   "usd_24h_change": 1.4581449011321461
   },
   "ethereum": {
-   "usd": 1702.06,
-   "usd_24h_change": 0.9512576041023213
+   "usd": 1741.53,
+   "usd_24h_change": 1.7220153210990043
   },
   "solana": {
-   "usd": 70.06,
-   "usd_24h_change": -0.3281689460917977
+   "usd": 73.5,
+   "usd_24h_change": 4.569939269158361
   }
  },
  "polymarket": [
   {
-   "question": "Will FC Barcelona win on 2026-11-22?",
-   "slug": "lal-bar-vil-2026-11-22-bar",
-   "volume24hr": 2377388.5572940013,
-   "outcomePrices": "[\"0.945\", \"0.055\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  },
-  {
-   "question": "Will Villarreal CF win on 2026-11-22?",
-   "slug": "lal-bar-vil-2026-11-22-vil",
-   "volume24hr": 1116492.421628999,
-   "outcomePrices": "[\"0.005\", \"0.995\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  },
-  {
-   "question": "Israel x Iran ceasefire continues through November 22?",
-   "slug": "israel-x-iran-ceasefire-continues-through-november-22",
-   "volume24hr": 427165.320749,
-   "outcomePrices": "[\"0.991\", \"0.009\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  },
-  {
-   "question": "Spread: Villarreal CF (-1.5)",
-   "slug": "lal-bar-vil-2026-11-22-spread-away-1pt5",
-   "volume24hr": 421397.29000499996,
-   "outcomePrices": "[\"0.0005\", \"0.9995\"]",
-   "outcomes": "[\"Villarreal CF\", \"FC Barcelona\"]"
-  },
-  {
-   "question": "Will Shakhtar Donetsk win the 2026-27 UEFA Champions League Championship?",
-   "slug": "will-shakhtar-donetsk-win-the-2026-27-uefa-champions-league-championship-20260701202025578",
-   "volume24hr": 420670.505,
-   "outcomePrices": "[\"0.0015\", \"0.9985\"]",
-   "outcomes": "[\"Yes\", \"No\"]"
-  },
-  {
-   "question": "FC Barcelona vs. Villarreal CF: O/U 4.5",
-   "slug": "lal-bar-vil-2026-11-22-total-4pt5",
-   "volume24hr": 416783.164306,
+   "question": "Will there be no new be CEO of NVIDIA by December 31, 2028?",
+   "slug": "will-candidate-a-be-the-next-ceo-of-nvidia",
+   "volume24hr": 3790167.094669999,
    "outcomePrices": "[\"0.9995\", \"0.0005\"]",
-   "outcomes": "[\"Over\", \"Under\"]"
+   "outcomes": "[\"Yes\", \"No\"]"
+  },
+  {
+   "question": "Yokohama: Ryo Ono vs Lennon Roark Jones",
+   "slug": "atp-ono-lennonr-2026-11-22",
+   "volume24hr": 3187776.709832,
+   "outcomePrices": "[\"0.475\", \"0.525\"]",
+   "outcomes": "[\"Ryo Ono\", \"Lennon Roark Jones\"]"
+  },
+  {
+   "question": "New NVIDIA CEO named by December 31, 2026?",
+   "slug": "new-nvidia-ceo-named-by-december-31-2026",
+   "volume24hr": 1109502.318052,
+   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
+  },
+  {
+   "question": "Dota 2: Aurora vs LGD Gaming - Game 1 Winner",
+   "slug": "dota2-aur1-lgd-2026-11-23-game1",
+   "volume24hr": 1046735.583127,
+   "outcomePrices": "[\"0.9995\", \"0.0005\"]",
+   "outcomes": "[\"Aurora\", \"LGD Gaming\"]"
+  },
+  {
+   "question": "Will the Fed increase interest rates by 25 bps after the December 2026 meeting?",
+   "slug": "will-the-fed-increase-interest-rates-by-25-bps-after-the-december-2026-meeting-20260729232808636",
+   "volume24hr": 871027.30915,
+   "outcomePrices": "[\"0.935\", \"0.065\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
+  },
+  {
+   "question": "Will there be no change in Fed interest rates after the December 2026 meeting?",
+   "slug": "will-there-be-no-change-in-fed-interest-rates-after-the-december-2026-meeting-20260729232808635",
+   "volume24hr": 829098.844481,
+   "outcomePrices": "[\"0.031\", \"0.969\"]",
+   "outcomes": "[\"Yes\", \"No\"]"
   }
  ]
 }
