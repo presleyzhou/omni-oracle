@@ -1,22 +1,22 @@
 {
- "generated": "2026-11-24T17:48:18.495Z",
- "n": 157,
- "clusters": 85,
+ "generated": "2026-11-25T17:16:24.808Z",
+ "n": 162,
+ "clusters": 86,
  "market": {
-  "brier": 0.164,
+  "brier": 0.1667,
   "ci": [
-   0.1213,
-   0.2128
+   0.1262,
+   0.2116
   ]
  },
  "murphy": {
-  "reliability": 0.0124,
-  "resolution": 0.0948,
-  "uncertainty": 0.2483
+  "reliability": 0.0151,
+  "resolution": 0.0956,
+  "uncertainty": 0.2494
  },
  "fit": {
-  "a": 0.2233,
-  "b": 0.8831
+  "a": 0.3003,
+  "b": 0.8909
  },
  "byTopic": {
   "politics": {
@@ -39,14 +39,14 @@
   }
  },
  "walk": {
-  "n": 71,
+  "n": 76,
   "minTrain": 30,
-  "raw": 0.1807,
-  "recal": 0.1853,
-  "diff": 0.0046,
+  "raw": 0.1853,
+  "recal": 0.1877,
+  "diff": 0.0024,
   "ci": [
-   -0.0075,
-   0.0185
+   -0.0092,
+   0.0166
   ]
  }
 }
